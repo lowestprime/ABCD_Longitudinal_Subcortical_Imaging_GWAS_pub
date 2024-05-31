@@ -1,0 +1,29 @@
+Name: Heading 1
+Description: Add Heading Level 1
+Binding: add_heading_1
+Interactive: false
+
+Name: Heading 2
+Description: Add Heading Level 2
+Binding: add_heading_2
+Interactive: false
+
+Name: Heading 3
+Description: Add Heading Level 3
+Binding: add_heading_3
+Interactive: false
+
+Name: Heading 4
+Description: Add Heading Level 4
+Binding: add_heading_4
+Interactive: false
+
+Name: Heading 5
+Description: Add Heading Level 5
+Binding: add_heading_5
+Interactive: false
+
+Name: Heading 6
+Description: Add Heading Level 6
+Binding: add_heading_6
+Interactive: false

@@ -1,0 +1,33 @@
+# date: 2/24/2023
+# METAL for CBCL for the following conditions:
+# CBCL: all subjects (including non probands)
+#       AFR AMR EUR
+#       PCs1-10
+
+GENOMICCONTROL ON
+SCHEME STDERR
+TRACKPOSITIONS ON
+
+################################################
+################## CBCL ########################
+################################################
+CHROMOSOMELABEL CHR
+POSITIONLABEL   POS
+MARKERLABEL     SNP
+ALLELELABELS    A1 A2
+FREQLABEL       AF1
+EFFECTLABEL     BETA
+STDERRLABEL     SE
+PVALUELABEL     P
+WEIGHTLABEL     N
+
+# === Load files ===
+PROCESS /u/project/gandalm/emmamk/ASD_GWAS/ABCDr4/08.fastgwa/cbcl/AFR.cbcl_cbcl_scr_syn_social_t_rint.batch_gender.1yr_followup_age.as.is_PCs1-10.121422.fastGWA
+PROCESS /u/project/gandalm/emmamk/ASD_GWAS/ABCDr4/08.fastgwa/cbcl/AMR.cbcl_cbcl_scr_syn_social_t_rint.batch_gender.1yr_followup_age.as.is_PCs1-10.121422.fastGWA
+PROCESS /u/project/gandalm/emmamk/ASD_GWAS/ABCDr4/08.fastgwa/cbcl/EUR.cbcl_cbcl_scr_syn_social_t_rint.batch_gender.1yr_followup_age.as.is_PCs1-10.121422.fastGWA
+
+# === CARRY OUT AN ANALYSIS OF THE THREE FILES ===
+OUTFILE   /u/project/gandalm/emmamk/ASD_GWAS/ABCDr4/09.metal/METAL_ABCDr4_cbcl.1yr_AFR.AMR.EUR_batch.gender.age.PCs1-10.GenomicCntrl_SchemeStdErr_random .TBL
+ANALYZE RANDOM
+QUIT
+
