@@ -1,0 +1,33 @@
+# date: 2/24/2023
+# METAL for SRS for the following conditions:
+# SRS: all subjects (including non probands)
+#      AFR AMR EUR
+#      PCs1-10
+
+GENOMICCONTROL ON
+SCHEME STDERR
+TRACKPOSITIONS ON
+
+################################################
+################## SRS #########################
+################################################
+CHROMOSOMELABEL CHR
+POSITIONLABEL   POS
+MARKERLABEL     SNP
+ALLELELABELS    A1 A2
+FREQLABEL       AF1
+EFFECTLABEL     BETA
+STDERRLABEL     SE
+PVALUELABEL     P
+WEIGHTLABEL     N
+
+# === Load files ===
+PROCESS /u/project/gandalm/emmamk/ASD_GWAS/ABCDr4/08.fastgwa/srs/AFR.srs_ssrs_p_ss_sum_rint.batch_gender.1yr_followup_age.as.is_PCs1-10.121422.fastGWA
+PROCESS /u/project/gandalm/emmamk/ASD_GWAS/ABCDr4/08.fastgwa/srs/AMR.srs_ssrs_p_ss_sum_rint.batch_gender.1yr_followup_age.as.is_PCs1-10.121422.fastGWA
+PROCESS /u/project/gandalm/emmamk/ASD_GWAS/ABCDr4/08.fastgwa/srs/EUR.srs_ssrs_p_ss_sum_rint.batch_gender.1yr_followup_age.as.is_PCs1-10.121422.fastGWA
+
+# === CARRY OUT AN ANALYSIS OF THE THREE FILES ===
+OUTFILE   /u/project/gandalm/emmamk/ASD_GWAS/ABCDr4/09.metal/METAL_ABCDr4_srs.1yr_AFR.AMR.EUR_batch.gender.age.PCs1-10.GenomicCntrl_SchemeStdErr_random .TBL
+ANALYZE RANDOM
+QUIT
+

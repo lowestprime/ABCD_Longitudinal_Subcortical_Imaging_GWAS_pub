@@ -1,0 +1,12 @@
+name: Interactive_SCS_ROI_Volume_Box_Plots_y0_2
+title: Interactive_SCS_ROI_Volume_Box_Plots_y0_2
+username: lowestprime
+account: lowestprime
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12005489
+bundleId: 8617568
+url: https://lowestprime.shinyapps.io/Interactive_SCS_ROI_Volume_Box_Plots_y0_2/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

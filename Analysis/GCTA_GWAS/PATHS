@@ -1,0 +1,15 @@
+/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/ancestry_PCs
+/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM
+/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/pc_all_bigsnpr
+/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups
+
+Scripts for GWAS Phenotype prep and GWAS Scripts: /u/project/lhernand/sganesh/scripts
+Emma's Rscript for Phenotype prep: /u/project/lhernand/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Other's_Scripts/EMMA_ABCD
+
+/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype
+/u/project/lhernand/shared/GenomicDatasets/ABCD_Release_4/phenotypes
+/u/project/lhernand/shared/GenomicDatasets/ABCD_Release_5/phenotypes
+
+/u/project/lhernand/jpdodson/ABCD/ABCD_Release_5.1_data_dictionary.csv
+/u/project/lhernand/shared/GenomicDatasets/ABCD_Release_5.1/core/imaging
+/u/project/lhernand/jpdodson/scripts/ABCD/merge_phenotypes.R
