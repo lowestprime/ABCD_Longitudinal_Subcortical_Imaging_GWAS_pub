@@ -1,5 +1,6 @@
 # ABCD_Longitudinal_Subcortical_Imaging_GWAS
 # Motivation and Background
+https://docs.google.com/spreadsheets/d/1daRx5JcFafNdxd7xn3jf4QrojfYBzgE11LgFUIyP4KY/edit
 
 # Goals
 
