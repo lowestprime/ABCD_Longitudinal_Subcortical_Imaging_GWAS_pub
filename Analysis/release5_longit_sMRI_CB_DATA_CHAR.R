@@ -76,18 +76,23 @@ smri.R5.1.baseline.y2.long <- pivot_original_to_long_format(smri.R5.1.baseline.y
 
 #### GCTA GWAS PREP ####
 
-# rename pheno cols to GCTA format and save file as txt
+# rename pheno cols to GCTA format (Work In Progress)
 gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.long %>%
   rename(FID = rel_family_id, IID = src_subject_id, Structure = roi, RateOfChange = Value) %>%
   select(all_of(c("FID","IID","Structure","RateOfChange")))
 
-write.table(gcta.pheno.scs.vol.roc, paste0(pheno_dir, "/gcta.pheno.scs.vol.roc.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE)
+# save gcta.pheno.scs.vol.roc
+# write.table(gcta.pheno.scs.vol.roc, paste0(pheno_dir, "/gcta.pheno.scs.vol.roc.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE)
 
-# work in progress
+pheno_data <- gcta.pheno.scs.vol.roc %>%
+  left_join(ancestry_pcs, by = c("IID"))
+
+# Load and preprocess ancestry principal components data by renaming and selecting columns
 ancestry_pcs <- fread(paste0(anc_pc_dir, "/ABCD5_all_ancestries_all_individuals_PC20.txt")) %>%
   rename(IID = V1) %>%
   select(-V2)
 
+# Define a function to rename columns from V3-V22 to P1-P20
 rename_columns <- function(col_names) {
   old_names <- paste0("V", 3:22)
   new_names <- paste0("P", 1:20)
@@ -96,20 +101,20 @@ rename_columns <- function(col_names) {
   return(renamed_cols)
 }
 
-# Apply the renaming function to the data frame
+# Apply the renaming function to the ancestry_pcs data frame
 ancestry_pcs <- ancestry_pcs %>% rename_with(rename_columns, .cols = starts_with("V"))
 
 # Ensure the covariate file includes all necessary covariates
-# Prepare covariate data
+# Prepare covariate data by selecting relevant columns, renaming them, and merging with ancestry principal components
 covar_data <- smri.R5.1.baseline.y2 %>%
   select(src_subject_id, rel_family_id, sex, interview_age) %>%
   rename(IID = src_subject_id, FID = rel_family_id, Age = interview_age) %>%
   left_join(ancestry_pcs, by = "IID")
 
-# (sex, age, and PCs)
+# Convert sex to numeric and select family ID, individual ID, sex, age, and principal components
 covar_data <- covar_data %>%
   mutate(Sex = ifelse(sex == "M", 1, ifelse(sex == "F", 2, NA))) %>%
-  select(FID, IID, Sex, Age, starts_with("PC"))
+  select(FID, IID, Sex, Age, starts_with("P"))
 
 # Save final covariate file
 write.table(covar_data, 
@@ -119,13 +124,23 @@ write.table(covar_data,
             quote = FALSE)
 
 # Ensure ancestry PCs have the same FID and IID as in phenotype data
-pheno_data <- gcta.pheno.scs.vol.roc %>%
-  left_join(ancestry_pcs, by = c("IID"))
+covar_data_unique <- covar_data %>%
+  distinct(IID, .keep_all = TRUE)
 
-# Prepare the phenotype data for GCTA
-gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.long %>%
-  rename(FID = rel_family_id, IID = src_subject_id, Structure = roi, RateOfChange = Value) %>%
-  select(FID, IID, Structure, RateOfChange)
+pheno_data_unique <- pheno_data %>%
+  distinct(IID, .keep_all = TRUE)
+
+# Perform the join to add Sex and Age from covar_data to pheno_data
+gcta.pheno.scs.vol.roc.covar <- pheno_data_unique %>%
+  left_join(covar_data_unique %>% select(IID, FID, Sex, Age), by = "IID")
+
+# Ensure the FID column exists in the final data and always move it together with IID, Sex, and Age upfront
+gcta.pheno.scs.vol.roc.covar <- gcta.pheno.scs.vol.roc.covar %>%
+  mutate(FID = coalesce(FID.x, FID.y)) %>%  # Coalesce, in case of FID coming from different sources
+  select(-FID.x, -FID.y) %>%  # Drop extra FID columns
+  relocate(FID, IID, Sex, Age) 
+
+# still need to extract mri_info_deviceserialnumber, genotyping batch covars and add to gcta.pheno.scs.vol.roc.covar
 
 #### PLOTTING ####
 
