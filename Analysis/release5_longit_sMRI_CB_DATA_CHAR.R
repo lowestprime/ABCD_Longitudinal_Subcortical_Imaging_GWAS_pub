@@ -84,9 +84,6 @@ gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.long %>%
 # save gcta.pheno.scs.vol.roc
 # write.table(gcta.pheno.scs.vol.roc, paste0(pheno_dir, "/gcta.pheno.scs.vol.roc.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE)
 
-pheno_data <- gcta.pheno.scs.vol.roc %>%
-  left_join(ancestry_pcs, by = c("IID"))
-
 # Load and preprocess ancestry principal components data by renaming and selecting columns
 ancestry_pcs <- fread(paste0(anc_pc_dir, "/ABCD5_all_ancestries_all_individuals_PC20.txt")) %>%
   rename(IID = V1) %>%
@@ -103,6 +100,10 @@ rename_columns <- function(col_names) {
 
 # Apply the renaming function to the ancestry_pcs data frame
 ancestry_pcs <- ancestry_pcs %>% rename_with(rename_columns, .cols = starts_with("V"))
+
+# Ensure ancestry PCs have the same FID and IID as in phenotype data
+pheno_data <- gcta.pheno.scs.vol.roc %>%
+  left_join(ancestry_pcs, by = c("IID"))
 
 # Ensure the covariate file includes all necessary covariates
 # Prepare covariate data by selecting relevant columns, renaming them, and merging with ancestry principal components
