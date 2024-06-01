@@ -81,7 +81,7 @@ gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.long %>%
   rename(FID = rel_family_id, IID = src_subject_id, Structure = roi, RateOfChange = Value) %>%
   select(all_of(c("FID","IID","Structure","RateOfChange")))
 
-write.table(gcta.pheno.scs.vol.roc, paste0(pheno_dir, "/gcta.pheno.scs.vol.roc.txt", row.names = FALSE, col.names = FALSE, quote = FALSE))
+write.table(gcta.pheno.scs.vol.roc, paste0(pheno_dir, "/gcta.pheno.scs.vol.roc.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE)
 
 # work in progress
 ancestry_pcs <- fread(paste0(anc_pc_dir, "/ABCD5_all_ancestries_all_individuals_PC20.txt")) %>%
@@ -99,21 +99,17 @@ rename_columns <- function(col_names) {
 # Apply the renaming function to the data frame
 ancestry_pcs <- ancestry_pcs %>% rename_with(rename_columns, .cols = starts_with("V"))
 
-# Rename columns to match GCTA format
-ancestry_pcs <- ancestry_pcs %>%
-  rename_with(~ paste0("PC", 1:20), starts_with("V"))
-
 # Ensure the covariate file includes all necessary covariates
-# (sex, age, and PCs)
-covar_data <- covar_data %>%
-  mutate(Sex = ifelse(sex == "M", 1, ifelse(sex == "F", 2, NA))) %>%
-  select(FID, IID, Sex, Age, starts_with("PC"))
-
 # Prepare covariate data
 covar_data <- smri.R5.1.baseline.y2 %>%
   select(src_subject_id, rel_family_id, sex, interview_age) %>%
   rename(IID = src_subject_id, FID = rel_family_id, Age = interview_age) %>%
   left_join(ancestry_pcs, by = "IID")
+
+# (sex, age, and PCs)
+covar_data <- covar_data %>%
+  mutate(Sex = ifelse(sex == "M", 1, ifelse(sex == "F", 2, NA))) %>%
+  select(FID, IID, Sex, Age, starts_with("PC"))
 
 # Save final covariate file
 write.table(covar_data, 
@@ -130,11 +126,6 @@ pheno_data <- gcta.pheno.scs.vol.roc %>%
 gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.long %>%
   rename(FID = rel_family_id, IID = src_subject_id, Structure = roi, RateOfChange = Value) %>%
   select(FID, IID, Structure, RateOfChange)
-
-
-
-
-
 
 #### PLOTTING ####
 
