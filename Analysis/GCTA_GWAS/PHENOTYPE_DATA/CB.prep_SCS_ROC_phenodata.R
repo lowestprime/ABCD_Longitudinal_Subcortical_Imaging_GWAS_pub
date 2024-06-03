@@ -1,5 +1,6 @@
 #### Format phenotype and covariate files ####
-# Covariates: age, sex, 10 PCs, MRI serial number, genotyping batch
+# Discrete Covariates: sex, genotyping batch, mri_info_deviceserialnumber
+# Quantitative Covariates: age, 10 PCs
 # Ethnicity priority: EUR
 # ROI priority: smri_vol_scs_wholeb, no smri_vol_scs_intracranialv covar needed
 

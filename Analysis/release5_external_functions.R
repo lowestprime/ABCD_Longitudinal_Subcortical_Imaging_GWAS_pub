@@ -101,5 +101,5 @@ pivot_original_to_long_format <- function(df, roc_volumes) {
       names_to = "volume_type",
       values_to = "volume"
     ) %>%
-    select(all_of(c("src_subject_id", "rel_family_id", "sex", "eventname", "timepoint", "ethnicity", "volume_type", "volume")))
+    select(all_of(c("src_subject_id", "rel_family_id", "sex", "interview_age", "eventname", "timepoint", "ethnicity", "volume_type", "volume")))
 }
