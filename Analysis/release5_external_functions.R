@@ -117,18 +117,24 @@ all_timepoints_roc <- function(df, roc_volumes) {
   return(roc_df)
 }
 
-# pivot_roc_to_long_format.R
+# Function to pivot ROC data to long format
 pivot_roc_to_long_format <- function(df, is_baseline_y2 = FALSE) {
+  # Identify ROC columns
+  roc_columns <- df %>% select(starts_with("smri_vol_")) %>% colnames()
+  
+  # Pivot only the ROC columns
   df %>%
     pivot_longer(
-      cols = -all_of(c("src_subject_id", "rel_family_id")),
+      cols = all_of(roc_columns),
       names_to = if (is_baseline_y2) "roi" else c("roi", "Time_Comparison"),
-      names_pattern = if (is_baseline_y2) NULL else "(.*)_(ROC.*)",
+      names_pattern = if (is_baseline_y2) "(.*)" else "(.*)_(ROC.*)",
       values_to = "Value"
-    )
+    ) %>%
+    # Keep the metadata columns intact
+    select(src_subject_id, rel_family_id, sex, mri_info_deviceserialnumber, interview_age, roi, everything())
 }
 
-# pivot_original_to_long_format.R
+# Function to pivot original data to long format
 pivot_original_to_long_format <- function(df, roc_volumes) {
   df %>%
     pivot_longer(
