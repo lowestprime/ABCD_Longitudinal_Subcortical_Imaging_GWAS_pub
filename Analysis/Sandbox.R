@@ -143,7 +143,6 @@ num_pcs <- ncol(qcovar_data) - 3 # Subtracting 3 for FID, IID, and interview_age
 pc_names <- paste0("PC", 1:num_pcs)
 colnames(qcovar_data) <- c("FID", "IID", pc_names, "interview_age_years_nodecimal")
 
-
 # Count the occurrences of each unique value in mri_info_deviceserialnumber
 device_counts <- smri.R5.1 %>%
   count(mri_info_deviceserialnumber)
