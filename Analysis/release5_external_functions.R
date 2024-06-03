@@ -66,6 +66,25 @@ baseline_y2_roc <- function(df, roc_volumes) {
       .names = "{.col}_{.fn}"
     ), .groups = 'keep')
 }
+# library(dplyr)
+# 
+# baseline_y2_roc <- function(df, roc_volumes) {
+#   df %>%
+#     mutate(across(
+#       .cols = all_of(roc_volumes),
+#       .fns = list(
+#         ROC0_2 = ~ ((.x[timepoint == 2] - .x[timepoint == 0]) / .x[timepoint == 0]) * (100 / 2)
+#       ),
+#       .names = "{.col}_{.fn}"
+#     )) %>%
+#     select(src_subject_id, rel_family_id, sex, interview_age, mri_info_deviceserialnumber, ends_with("ROC0_2"))
+# }
+# 
+# # Apply the function to your dataframe
+# smri.R5.1.baseline.y2.ROC <- baseline_y2_roc(smri.R5.1.baseline.y2, roc_volumes)
+# 
+# # Print the resulting dataframe to check the values
+# print(smri.R5.1.baseline.y2.ROC)
 
 # baseline_y2_roc <- function(df, roc_volumes) {
 #   df %>%
