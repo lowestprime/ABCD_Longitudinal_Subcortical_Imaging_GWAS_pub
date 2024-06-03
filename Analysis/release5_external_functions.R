@@ -60,12 +60,24 @@ baseline_y2_roc <- function(df, roc_volumes) {
     group_by(src_subject_id, rel_family_id) %>%
     summarize(across(
       .cols = all_of(roc_volumes),
-      .fns = list( 
+      .fns = list(
         ROC0_2 = ~ ((.x[timepoint == 2] - .x[timepoint == 0]) / .x[timepoint == 0]) * (100 / 2)
       ),
       .names = "{.col}_{.fn}"
     ), .groups = 'keep')
 }
+
+# baseline_y2_roc <- function(df, roc_volumes) {
+#   df %>%
+#     group_by(src_subject_id, rel_family_id, sex, interview_age, mri_info_deviceserialnumber) %>%
+#     reframe(across(
+#       .cols = all_of(roc_volumes),
+#       .fns = list( 
+#         ROC0_2 = ~ ((.x[timepoint == 2] - .x[timepoint == 0]) / .x[timepoint == 0]) * (100 / 2)
+#       ),
+#       .names = "{.col}_{.fn}"
+#     ))
+# }
 
 # all_timepoints_roc
 all_timepoints_roc <- function(df, roc_volumes) {
