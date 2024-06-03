@@ -76,7 +76,8 @@ smri.R5.1.baseline.y2.long <- pivot_original_to_long_format(smri.R5.1.baseline.y
 
 #### GCTA GWAS PREP ####
 # Discrete Covariates: sex, genotyping batch, mri_info_deviceserialnumber
-# Quantitative Covariates: age, bigsnpr 20 PCs
+# Quantitative Covariates: interview_age, bigsnpr 20 PCs
+# Need to add rank based log transformation to normalize the wide phenos
 # Ethnicity priority: EUR
 # ROI priority: smri_vol_scs_wholeb, no smri_vol_scs_intracranialv covar needed
 

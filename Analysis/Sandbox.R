@@ -192,3 +192,71 @@ qcovar_data <- final_data %>%
   select(src_subject_id, interview_age, starts_with("PC")) %>%
   rename(IID = src_subject_id)
 write.table(qcovar_data, file = "qcovar.txt", row.names = FALSE, col.names = TRUE, quote = FALSE)
+
+#### ROC CALC MOD ####
+# Helper function to get latest timepoint information
+get_latest_timepoint_info <- function(df, timepoint) {
+  df %>%
+    filter(timepoint == !!timepoint & sex != 'NA') %>%
+    select(src_subject_id, rel_family_id, sex, mri_info_deviceserialnumber, interview_age)
+}
+
+# baseline_y2_roc
+baseline_y2_roc <- function(df, roc_volumes) {
+  # Compute ROCs
+  roc_df <- df %>%
+    group_by(src_subject_id, rel_family_id) %>%
+    reframe(across(
+      .cols = all_of(roc_volumes),
+      .fns = list(
+        ROC0_2 = ~ ((.x[timepoint == 2] - .x[timepoint == 0]) / .x[timepoint == 0]) * (100 / 2)
+      ),
+      .names = "{.col}_{.fn}"
+    ))
+  
+  # Get latest timepoint information for timepoint 2
+  latest_info <- get_latest_timepoint_info(df, 2)
+  
+  # Join latest timepoint information
+  roc_df <- roc_df %>%
+    left_join(latest_info, by = c("src_subject_id", "rel_family_id"))
+  
+  # Filter out rows with 'NA' in the sex column
+  roc_df <- roc_df %>%
+    filter(sex != 'NA')
+  
+  return(roc_df)
+}
+
+# all_timepoints_roc
+all_timepoints_roc <- function(df, roc_volumes) {
+  # Compute ROCs
+  roc_df <- df %>%
+    group_by(src_subject_id, rel_family_id) %>%
+    reframe(across(
+      .cols = all_of(roc_volumes),
+      .fns = list(
+        ROC0_2 = ~ ((.x[timepoint == 2] - .x[timepoint == 0]) / .x[timepoint == 0]) * (100 / 2),
+        ROC0_4 = ~ ((.x[timepoint == 4] - .x[timepoint == 0]) / .x[timepoint == 0]) * (100 / 4),
+        ROC2_4 = ~ ((.x[timepoint == 4] - .x[timepoint == 2]) / .x[timepoint == 2]) * (100 / 2)
+      ),
+      .names = "{.col}_{.fn}"
+    ))
+  
+  # Get latest timepoint information for timepoint 4
+  latest_info <- get_latest_timepoint_info(df, 4)
+  
+  # Join latest timepoint information
+  roc_df <- roc_df %>%
+    left_join(latest_info, by = c("src_subject_id", "rel_family_id"))
+  
+  # Filter out rows with 'NA' in the sex column
+  roc_df <- roc_df %>%
+    filter(sex != 'NA')
+  
+  return(roc_df)
+}
+
+# Calculate the percent rates of change for each scs ROI volume in smri.R5.1.baseline.y2 and smri.R5.1.all
+smri.R5.1.baseline.y2.ROC <- baseline_y2_roc(smri.R5.1.baseline.y2, roc_volumes)
+smri.R5.1.all.ROC <- all_timepoints_roc(smri.R5.1.all, roc_volumes)
