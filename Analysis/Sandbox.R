@@ -1,3 +1,5 @@
+#### data prep ####
+
 # # Extract unique c(src_subject_id, timepoint, ethnicity, sex)fix
 # unique_regions <- names(smri.R5.1) %>%
 #   str_extract("^smri_vol_scs_.*(?=lh$|rh$|l$|r$)") %>%
@@ -119,3 +121,75 @@ saveRDS(object = smri.R5.1.baseline.y2.ROC.long, file = "smri.R5.1.baseline.y2.R
 # comparison_result
 comparison_result <- all.equal(smri.R5.1, smri.R5.1t)
 print(comparison_result)
+
+#### read in example mlma txt input files ####
+
+# Define file paths
+phenotype_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/Phen_AllSubj_abcd_pssrs01.txt_1yr_followup_ssrs_42_p_within_ancestry_group_noNAs_11023_w_fid.txt"
+covariate_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/covar_AllSubj_batch_gender_noNAs_baseline_11665.txt"
+qcovar_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/qcovar_ABCD5_EUR_PC20_SOR_related_bigsnpr.txt"
+
+# Read the files without headers
+phenotype_data <- read.table(phenotype_file, header = FALSE, sep = " ")
+covariate_data <- read.table(covariate_file, header = FALSE, sep = " ")
+qcovar_data <- read.table(qcovar_file, header = FALSE, sep = "\t")
+
+# Assign appropriate column names for phenotype_data and covariate_data
+colnames(phenotype_data) <- c("FID", "IID", "phenotype")
+colnames(covariate_data) <- c("FID", "IID", "batch", "sex")
+
+# Assign column names to the qcovar data
+num_pcs <- ncol(qcovar_data) - 3 # Subtracting 3 for FID, IID, and interview_age_years_nodecimal
+pc_names <- paste0("PC", 1:num_pcs)
+colnames(qcovar_data) <- c("FID", "IID", pc_names, "interview_age_years_nodecimal")
+
+
+# Count the occurrences of each unique value in mri_info_deviceserialnumber
+device_counts <- smri.R5.1 %>%
+  count(mri_info_deviceserialnumber)
+
+# device_counts <- summary(factor(smri.R5.1$mri_info_deviceserialnumber))
+# Print the counts for device serial numbers
+print(device_counts)
+
+# Count the occurrences of each unique value in mrisdp_453
+protocol_counts <- smri.R5.1 %>%
+  count(mrisdp_453)
+
+# Print the counts for MRI scanning protocols
+print(protocol_counts)
+
+# Step 1: Filter smri.R5.1.baseline.y2.ROC to remove rows with NA in the sex column
+filtered_data <- smri.R5.1.baseline.y2.ROC %>%
+  filter(!is.na(sex))
+
+# Step 2: Merge with covariate_data and ancestry_pcs
+# Assuming that IID in ancestry_pcs corresponds to src_subject_id in smri.R5.1.baseline.y2.ROC
+merged_data <- filtered_data %>%
+  left_join(covariate_data, by = c("src_subject_id" = "IID")) %>%
+  left_join(ancestry_pcs, by = c("src_subject_id" = "IID"))
+
+# Ensure the final dataset is consistent
+final_data <- merged_data %>%
+  select(src_subject_id, rel_family_id, all_of(roc_phenotypes), sex, batch, mri_info_deviceserialnumber, interview_age, starts_with("PC"))
+
+# Step 3: Create the .txt files
+# Phenotype files
+for (phenotype in roc_phenotypes) {
+  phenotype_data <- final_data %>%
+    select(src_subject_id, !!sym(phenotype)) %>%
+    rename(IID = src_subject_id)
+  write.table(phenotype_data, file = paste0(phenotype, ".txt"), row.names = FALSE, col.names = TRUE, quote = FALSE)
+}
+
+# Covariate file
+covariate_data <- final_data %>%
+  select(src_subject_id, sex, batch, mri_info_deviceserialnumber) %>%
+  rename(IID = src_subject_id)
+write.table(covariate_data, file = "covariate.txt", row.names = FALSE, col.names = TRUE, quote = FALSE)
+
+# Quantitative Covariate file
+qcovar_data <- final_data %>%
+  select(src_subject_id, interview_age, starts_with("PC")) %>%
+  rename(IID = src_subject_id)
+write.table(qcovar_data, file = "qcovar.txt", row.names = FALSE, col.names = TRUE, quote = FALSE)

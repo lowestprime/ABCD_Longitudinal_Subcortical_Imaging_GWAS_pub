@@ -75,8 +75,12 @@ smri.R5.1.baseline.y2.ROC.long <- pivot_roc_to_long_format(smri.R5.1.baseline.y2
 smri.R5.1.baseline.y2.long <- pivot_original_to_long_format(smri.R5.1.baseline.y2, roc_volumes)
 
 #### GCTA GWAS PREP ####
+# Discrete Covariates: sex, genotyping batch, mri_info_deviceserialnumber
+# Quantitative Covariates: age, bigsnpr 20 PCs
+# Ethnicity priority: EUR
+# ROI priority: smri_vol_scs_wholeb, no smri_vol_scs_intracranialv covar needed
 
-# rename pheno cols to GCTA format (Work In Progress)
+# rename pheno cols to GCTA format
 gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.long %>%
   rename(FID = rel_family_id, IID = src_subject_id, Structure = roi, RateOfChange = Value) %>%
   select(all_of(c("FID","IID","Structure","RateOfChange")))
@@ -85,14 +89,14 @@ gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.long %>%
 # write.table(gcta.pheno.scs.vol.roc, paste0(pheno_dir, "/gcta.pheno.scs.vol.roc.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE)
 
 # Load and preprocess ancestry principal components data by renaming and selecting columns
-ancestry_pcs <- fread(paste0(anc_pc_dir, "/ABCD5_all_ancestries_all_individuals_PC20.txt")) %>%
+ancestry_pcs <- fread(paste0(anc_pc_dir, "ABCD5_all_ancestries_all_individuals_PC20.txt")) %>%
   rename(IID = V1) %>%
   select(-V2)
 
 # Define a function to rename columns from V3-V22 to P1-P20
 rename_columns <- function(col_names) {
   old_names <- paste0("V", 3:22)
-  new_names <- paste0("P", 1:20)
+  new_names <- paste0("PC", 1:20)
   renamed_cols <- col_names
   renamed_cols[match(old_names, col_names)] <- new_names
   return(renamed_cols)
@@ -106,16 +110,17 @@ pheno_data <- gcta.pheno.scs.vol.roc %>%
   left_join(ancestry_pcs, by = c("IID"))
 
 # Ensure the covariate file includes all necessary covariates
-# Prepare covariate data by selecting relevant columns, renaming them, and merging with ancestry principal components
-covar_data <- smri.R5.1.baseline.y2 %>%
+# Prepare covariate data by selecting relevant columns, renaming them, removing samples with NA sex, and merging with ancestry principal components
+covar_data <- smri.R5.1.baseline.y2.long %>%
   select(src_subject_id, rel_family_id, sex, interview_age) %>%
   rename(IID = src_subject_id, FID = rel_family_id, Age = interview_age) %>%
+  filter(sex != 'NA') %>%
   left_join(ancestry_pcs, by = "IID")
 
 # Convert sex to numeric and select family ID, individual ID, sex, age, and principal components
 covar_data <- covar_data %>%
-  mutate(Sex = ifelse(sex == "M", 1, ifelse(sex == "F", 2, NA))) %>%
-  select(FID, IID, Sex, Age, starts_with("P"))
+  mutate(Sex = ifelse(sex == "M", 1, 2)) %>%
+  select(FID, IID, Sex, Age, starts_with("PC"))
 
 # Save final covariate file
 write.table(covar_data, 
@@ -141,7 +146,7 @@ gcta.pheno.scs.vol.roc.covar <- gcta.pheno.scs.vol.roc.covar %>%
   select(-FID.x, -FID.y) %>%  # Drop extra FID columns
   relocate(FID, IID, Sex, Age) 
 
-# still need to extract mri_info_deviceserialnumber, genotyping batch covars and add to gcta.pheno.scs.vol.roc.covar
+# still need to extract mri_info_deviceserialnumber, genotyping batch covars
 
 #### PLOTTING ####
 
