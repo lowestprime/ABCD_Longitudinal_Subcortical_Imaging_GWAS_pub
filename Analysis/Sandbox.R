@@ -257,6 +257,31 @@ all_timepoints_roc <- function(df, roc_volumes) {
   return(roc_df)
 }
 
-# Calculate the percent rates of change for each scs ROI volume in smri.R5.1.baseline.y2 and smri.R5.1.all
-smri.R5.1.baseline.y2.ROC <- baseline_y2_roc(smri.R5.1.baseline.y2, roc_volumes)
-smri.R5.1.all.ROC <- all_timepoints_roc(smri.R5.1.all, roc_volumes)
+#### PIVOT MOD ####
+# Function to pivot ROC data to long format
+pivot_roc_to_long_format <- function(df, is_baseline_y2 = FALSE) {
+  # Identify ROC columns
+  roc_columns <- df %>% select(starts_with("smri_vol_")) %>% colnames()
+  
+  # Pivot only the ROC columns
+  df %>%
+    pivot_longer(
+      cols = all_of(roc_columns),
+      names_to = if (is_baseline_y2) "roi" else c("roi", "Time_Comparison"),
+      names_pattern = if (is_baseline_y2) "(.*)" else "(.*)_(ROC.*)",
+      values_to = "Value"
+    ) %>%
+    # Keep the metadata columns intact
+    select(src_subject_id, rel_family_id, sex, mri_info_deviceserialnumber, interview_age, roi, everything())
+}
+
+# Function to pivot original data to long format
+pivot_original_to_long_format <- function(df, roc_volumes) {
+  df %>%
+    pivot_longer(
+      cols = all_of(roc_volumes),
+      names_to = "volume_type",
+      values_to = "volume"
+    ) %>%
+    select(all_of(c("src_subject_id", "rel_family_id", "sex", "interview_age", "eventname", "timepoint", "ethnicity", "volume_type", "volume")))
+}
