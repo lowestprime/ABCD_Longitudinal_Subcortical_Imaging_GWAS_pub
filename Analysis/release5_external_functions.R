@@ -54,55 +54,46 @@ average_hemispheres <- function(df) {
   return(result)
 }
 
+# Helper function to get latest timepoint information
+get_latest_timepoint_info <- function(df, timepoint) {
+  df %>%
+    filter(timepoint == !!timepoint & sex != 'NA') %>%
+    select(src_subject_id, rel_family_id, sex, mri_info_deviceserialnumber, interview_age)
+}
+
 # baseline_y2_roc
 baseline_y2_roc <- function(df, roc_volumes) {
-  df %>%
+  # Compute ROCs
+  roc_df <- df %>%
     group_by(src_subject_id, rel_family_id) %>%
-    summarize(across(
+    reframe(across(
       .cols = all_of(roc_volumes),
       .fns = list(
         ROC0_2 = ~ ((.x[timepoint == 2] - .x[timepoint == 0]) / .x[timepoint == 0]) * (100 / 2)
       ),
       .names = "{.col}_{.fn}"
-    ), .groups = 'keep')
+    ))
+  
+  # Get latest timepoint information for timepoint 2
+  latest_info <- get_latest_timepoint_info(df, 2)
+  
+  # Join latest timepoint information
+  roc_df <- roc_df %>%
+    left_join(latest_info, by = c("src_subject_id", "rel_family_id"))
+  
+  # Filter out rows with 'NA' in the sex column
+  roc_df <- roc_df %>%
+    filter(sex != 'NA')
+  
+  return(roc_df)
 }
-# library(dplyr)
-# 
-# baseline_y2_roc <- function(df, roc_volumes) {
-#   df %>%
-#     mutate(across(
-#       .cols = all_of(roc_volumes),
-#       .fns = list(
-#         ROC0_2 = ~ ((.x[timepoint == 2] - .x[timepoint == 0]) / .x[timepoint == 0]) * (100 / 2)
-#       ),
-#       .names = "{.col}_{.fn}"
-#     )) %>%
-#     select(src_subject_id, rel_family_id, sex, interview_age, mri_info_deviceserialnumber, ends_with("ROC0_2"))
-# }
-# 
-# # Apply the function to your dataframe
-# smri.R5.1.baseline.y2.ROC <- baseline_y2_roc(smri.R5.1.baseline.y2, roc_volumes)
-# 
-# # Print the resulting dataframe to check the values
-# print(smri.R5.1.baseline.y2.ROC)
-
-# baseline_y2_roc <- function(df, roc_volumes) {
-#   df %>%
-#     group_by(src_subject_id, rel_family_id, sex, interview_age, mri_info_deviceserialnumber) %>%
-#     reframe(across(
-#       .cols = all_of(roc_volumes),
-#       .fns = list( 
-#         ROC0_2 = ~ ((.x[timepoint == 2] - .x[timepoint == 0]) / .x[timepoint == 0]) * (100 / 2)
-#       ),
-#       .names = "{.col}_{.fn}"
-#     ))
-# }
 
 # all_timepoints_roc
 all_timepoints_roc <- function(df, roc_volumes) {
-  df %>%
+  # Compute ROCs
+  roc_df <- df %>%
     group_by(src_subject_id, rel_family_id) %>%
-    summarize(across(
+    reframe(across(
       .cols = all_of(roc_volumes),
       .fns = list(
         ROC0_2 = ~ ((.x[timepoint == 2] - .x[timepoint == 0]) / .x[timepoint == 0]) * (100 / 2),
@@ -110,7 +101,20 @@ all_timepoints_roc <- function(df, roc_volumes) {
         ROC2_4 = ~ ((.x[timepoint == 4] - .x[timepoint == 2]) / .x[timepoint == 2]) * (100 / 2)
       ),
       .names = "{.col}_{.fn}"
-    ), .groups = 'keep')
+    ))
+  
+  # Get latest timepoint information for timepoint 4
+  latest_info <- get_latest_timepoint_info(df, 4)
+  
+  # Join latest timepoint information
+  roc_df <- roc_df %>%
+    left_join(latest_info, by = c("src_subject_id", "rel_family_id"))
+  
+  # Filter out rows with 'NA' in the sex column
+  roc_df <- roc_df %>%
+    filter(sex != 'NA')
+  
+  return(roc_df)
 }
 
 # pivot_roc_to_long_format.R
