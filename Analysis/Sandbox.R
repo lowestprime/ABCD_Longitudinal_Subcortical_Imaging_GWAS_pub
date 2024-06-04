@@ -1,3 +1,17 @@
+#### useful snippets ####
+
+# We can list the libraries that are actually loaded doing
+(.packages())
+
+# Unload all currently loaded packages using pacman
+pacman::p_unload(pacman::p_loaded(), character.only = TRUE)
+
+# Check which packages are currently loaded
+pacman::p_loaded()
+
+# count number of each unique in dataframe column
+device_counts <- summary(factor(smri.R5.1$mri_info_deviceserialnumber))
+
 #### data prep ####
 
 # # Extract unique c(src_subject_id, timepoint, ethnicity, sex)fix
@@ -143,34 +157,39 @@ num_pcs <- ncol(qcovar_data) - 3 # Subtracting 3 for FID, IID, and interview_age
 pc_names <- paste0("PC", 1:num_pcs)
 colnames(qcovar_data) <- c("FID", "IID", pc_names, "interview_age_years_nodecimal")
 
-# Count the occurrences of each unique value in mri_info_deviceserialnumber
-device_counts <- smri.R5.1 %>%
-  count(mri_info_deviceserialnumber)
+# Ensure ancestry PCs have the same FID and IID as in phenotype data
+# covariate_data_unique <- covariate_data %>%
+#   distinct(IID, .keep_all = TRUE)
+# 
+# gcta.pheno.scs.vol.roc_unique <- gcta.pheno.scs.vol.roc %>%
+#   distinct(IID, .keep_all = TRUE)
+# 
+# # Perform the join to add Sex and Age from covar_data to pheno_data
+# gcta.pheno.scs.vol.roc.covar <- pheno_data_unique %>%
+#   left_join(covar_data_unique %>% select(IID, FID, Sex, Age), by = "IID")
+# 
+# # Ensure the FID column exists in the final data and always move it together with IID, Sex, and Age upfront
+# gcta.pheno.scs.vol.roc.covar <- gcta.pheno.scs.vol.roc.covar %>%
+#   mutate(FID = coalesce(FID.x, FID.y)) %>%  # Coalesce, in case of FID coming from different sources
+#   select(-FID.x, -FID.y) %>%  # Drop extra FID columns
+#   relocate(FID, IID, Sex, Age) 
 
-# device_counts <- summary(factor(smri.R5.1$mri_info_deviceserialnumber))
-# Print the counts for device serial numbers
-print(device_counts)
+# Step 2: Merge gcta.pheno.scs.vol.roc with covariate_data genotyping batch and ancestry_pcs 1-20
+# Filter covariate_data and ancestry_pcs to include only the IIDs present in gcta.pheno.scs.vol.roc
+filtered_covariate_data <- covariate_data %>% semi_join(gcta.pheno.scs.vol.roc, by = "IID")
+filtered_ancestry_pcs <- ancestry_pcs %>% semi_join(gcta.pheno.scs.vol.roc, by = "IID")
 
-# Count the occurrences of each unique value in mrisdp_453
-protocol_counts <- smri.R5.1 %>%
-  count(mrisdp_453)
+# Merge gcta.pheno.scs.vol.roc with filtered_covariate_data and filtered_ancestry_pcs
+merged_data <- gcta.pheno.scs.vol.roc %>%
+  left_join(filtered_covariate_data %>% select(IID, batch), by = "IID") %>%
+  left_join(filtered_ancestry_pcs %>% select(IID, starts_with("PC")), by = "IID")
 
-# Print the counts for MRI scanning protocols
-print(protocol_counts)
+# Print the first few rows of the merged data to verify the result
+head(merged_data)
 
-# Step 1: Filter smri.R5.1.baseline.y2.ROC to remove rows with NA in the sex column
-filtered_data <- smri.R5.1.baseline.y2.ROC %>%
-  filter(!is.na(sex))
-
-# Step 2: Merge with covariate_data and ancestry_pcs
-# Assuming that IID in ancestry_pcs corresponds to src_subject_id in smri.R5.1.baseline.y2.ROC
-merged_data <- filtered_data %>%
-  left_join(covariate_data, by = c("src_subject_id" = "IID")) %>%
-  left_join(ancestry_pcs, by = c("src_subject_id" = "IID"))
-
-# Ensure the final dataset is consistent
-final_data <- merged_data %>%
-  select(src_subject_id, rel_family_id, all_of(roc_phenotypes), sex, batch, mri_info_deviceserialnumber, interview_age, starts_with("PC"))
+# # Ensure the final dataset is consistent
+# final_data <- merged_data %>%
+#   select(src_subject_id, rel_family_id, all_of(roc_phenotypes), sex, batch, mri_info_deviceserialnumber, interview_age, starts_with("PC"))
 
 # Step 3: Create the .txt files
 # Phenotype files
