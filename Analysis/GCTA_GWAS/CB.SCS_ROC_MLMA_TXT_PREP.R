@@ -16,7 +16,6 @@
 # Ethnicity priority: EUR
 # ROI priority: smri_vol_scs_wholeb (smri_vol_scs_intracranialv covar not needed)
 
-
 library(pacman)
 p_load(dplyr, purrr, readr)
 
@@ -122,6 +121,7 @@ process_phenotype_data <- function(pheno_data, ancestry_samples_id_list, output_
 pheno <- gcta.pheno.scs.vol.roc  # Your phenotype data
 process_phenotype_data(pheno, ancestry_samples_id_list, pheno_qc_dir, date)
 
+#### OLD ####
 # Ensure ancestry PCs have the same FID and IID as in phenotype data
 pheno_data <- gcta.pheno.scs.vol.roc %>%
   left_join(ancestry_pcs, by = c("IID"))
