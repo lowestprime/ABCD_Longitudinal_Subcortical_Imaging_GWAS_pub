@@ -128,7 +128,7 @@ ancestry_pcs <- ancestry_pcs %>% rename_with(rename_columns, .cols = starts_with
 # # Ensure ancestry PCs have the same FID and IID as in phenotype data
 # pheno_data <- gcta.pheno.scs.vol.roc %>%
 #   left_join(ancestry_pcs, by = c("IID"))
-
+# 
 # # Ensure the covariate file includes all necessary covariates
 # # Prepare covariate data by selecting relevant columns, renaming them, removing samples with NA sex, and merging with ancestry principal components
 # covar_data <- gcta.pheno.scs.vol.roc %>%
@@ -148,23 +148,23 @@ ancestry_pcs <- ancestry_pcs %>% rename_with(rename_columns, .cols = starts_with
 #             row.names = FALSE, 
 #             col.names = TRUE, 
 #             quote = FALSE)
-
-# Ensure ancestry PCs have the same FID and IID as in phenotype data
-covar_data_unique <- covar_data %>%
-  distinct(IID, .keep_all = TRUE)
-
-pheno_data_unique <- pheno_data %>%
-  distinct(IID, .keep_all = TRUE)
-
-# Perform the join to add Sex and Age from covar_data to pheno_data
-gcta.pheno.scs.vol.roc.covar <- pheno_data_unique %>%
-  left_join(covar_data_unique %>% select(IID, FID, Sex, Age), by = "IID")
-
-# Ensure the FID column exists in the final data and always move it together with IID, Sex, and Age upfront
-gcta.pheno.scs.vol.roc.covar <- gcta.pheno.scs.vol.roc.covar %>%
-  mutate(FID = coalesce(FID.x, FID.y)) %>%  # Coalesce, in case of FID coming from different sources
-  select(-FID.x, -FID.y) %>%  # Drop extra FID columns
-  relocate(FID, IID, Sex, Age) 
+# 
+# # Ensure ancestry PCs have the same FID and IID as in phenotype data
+# covar_data_unique <- covar_data %>%
+#   distinct(IID, .keep_all = TRUE)
+# 
+# pheno_data_unique <- pheno_data %>%
+#   distinct(IID, .keep_all = TRUE)
+# 
+# # Perform the join to add Sex and Age from covar_data to pheno_data
+# gcta.pheno.scs.vol.roc.covar <- pheno_data_unique %>%
+#   left_join(covar_data_unique %>% select(IID, FID, Sex, Age), by = "IID")
+# 
+# # Ensure the FID column exists in the final data and always move it together with IID, Sex, and Age upfront
+# gcta.pheno.scs.vol.roc.covar <- gcta.pheno.scs.vol.roc.covar %>%
+#   mutate(FID = coalesce(FID.x, FID.y)) %>%  # Coalesce, in case of FID coming from different sources
+#   select(-FID.x, -FID.y) %>%  # Drop extra FID columns
+#   relocate(FID, IID, Sex, Age) 
 
 #### PLOTTING ####
 

@@ -142,32 +142,32 @@ print(comparison_result)
 #### read in example mlma txt input files ####
 
 # Define file paths
-phenotype_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/Phen_AllSubj_abcd_pssrs01.txt_1yr_followup_ssrs_42_p_within_ancestry_group_noNAs_11023_w_fid.txt"
+# phenotype_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/Phen_AllSubj_abcd_pssrs01.txt_1yr_followup_ssrs_42_p_within_ancestry_group_noNAs_11023_w_fid.txt"
 covariate_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/covar_AllSubj_batch_gender_noNAs_baseline_11665.txt"
-qcovar_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/qcovar_ABCD5_EUR_PC20_SOR_related_bigsnpr.txt"
-batchinfodir <- "/u/project/lhernand/shared/GenomicDatasets/ABCD_Release_5/genomics_sample03/smokescreen"
-batchinfodir_file <- "/u/project/lhernand/FROM_GANDALM/ABCD_Release_4/genomics_sample03/ABCD_release3.0_.batch_info.txt"
+# qcovar_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/qcovar_ABCD5_EUR_PC20_SOR_related_bigsnpr.txt"
+# batchinfodir <- "/u/project/lhernand/shared/GenomicDatasets/ABCD_Release_5/genomics_sample03/smokescreen"
+# batchinfodir_file <- "/u/project/lhernand/FROM_GANDALM/ABCD_Release_4/genomics_sample03/ABCD_release3.0_.batch_info.txt"
 
-#### Modify IDs with ABCD ID format ####
-setwd(batchinfodir)
-Batch <- read.delim("ABCD_202209.updated.nodups.curated.batch.info",  header = TRUE, na.strings = c("", "NA"), sep = ",")
-#Batch<- rename(Batch, subjectkey = IID)
-Batch$IID2 <- Batch$IID
+# # Modify IDs with ABCD ID format
+# setwd(batchinfodir)
+# Batch <- read.delim("ABCD_202209.updated.nodups.curated.batch.info",  header = TRUE, na.strings = c("", "NA"), sep = ",")
+# #Batch<- rename(Batch, subjectkey = IID)
+# Batch$IID2 <- Batch$IID
 
 # Read the files without headers
-phenotype_data <- read.table(phenotype_file, header = FALSE, sep = " ")
-covariate_data <- read.table(covariate_file, header = FALSE, sep = " ")
-qcovar_data <- read.table(qcovar_file, header = FALSE, sep = "\t")
-batchinfodir_data <- read.table(batchinfodir_file, header = TRUE, sep = "\t")
+# phenotype_data <- read.table(phenotype_file, header = FALSE)
+covariate_data <- read.table(covariate_file, header = FALSE)
+# qcovar_data <- read.table(qcovar_file, header = FALSE, sep = "\t")
+# batchinfodir_data <- read.table(batchinfodir_file, header = TRUE, sep = "\t")
 
 # Assign appropriate column names for phenotype_data and covariate_data
-colnames(phenotype_data) <- c("FID", "IID", "phenotype")
+# colnames(phenotype_data) <- c("FID", "IID", "phenotype")
 colnames(covariate_data) <- c("FID", "IID", "batch", "sex")
 
 # Assign column names to the qcovar data
-num_pcs <- ncol(qcovar_data) - 3 # Subtracting 3 for FID, IID, and interview_age_years_nodecimal
-pc_names <- paste0("PC", 1:num_pcs)
-colnames(qcovar_data) <- c("FID", "IID", pc_names, "interview_age_years_nodecimal")
+# num_pcs <- ncol(qcovar_data) - 3 # Subtracting 3 for FID, IID, and interview_age_years_nodecimal
+# pc_names <- paste0("PC", 1:num_pcs)
+# colnames(qcovar_data) <- c("FID", "IID", pc_names, "interview_age_years_nodecimal")
 
 # Ensure ancestry PCs have the same FID and IID as in phenotype data
 # covariate_data_unique <- covariate_data %>%
@@ -196,12 +196,42 @@ merged_data <- gcta.pheno.scs.vol.roc %>%
   left_join(filtered_covariate_data %>% select(IID, batch), by = "IID") %>%
   left_join(filtered_ancestry_pcs %>% select(IID, starts_with("PC")), by = "IID")
 
-# Print the first few rows of the merged data to verify the result
-head(merged_data)
+# drop any rows from merged_data with NAs (specifically known to be within the batch and PCs columns)
+# reorder columns
+merged_data_no_na <- merged_data %>%
+  select(FID, IID, everything()) %>% # Ensures FID and IID are the first two columns
+  drop_na()
 
-# # Ensure the final dataset is consistent
-# final_data <- merged_data %>%
-#   select(src_subject_id, rel_family_id, all_of(roc_phenotypes), sex, batch, mri_info_deviceserialnumber, interview_age, starts_with("PC"))
+# Save final_data as a space-separated text file suitable for GCTA MLMA
+setwd(pheno_dir)
+write.table(merged_data_no_na, file = "gcta_mlma_SCS_ROC_master.txt", sep = " ", row.names = FALSE, col.names = TRUE, quote = FALSE)
+
+# Filtering rows with any `NA` values
+rows_with_na <- merged_data %>% 
+  filter(if_any(everything(), is.na)) %>%
+  select(FID, IID, batch, PC1:PC20)
+
+# Filter out rows in `rows_with_na` where `IID` is not present in either `ancestry_pcs$IID` or `covariate_data$IID`
+# This results in a dataset with `IID`s that are missing in either data frame
+all_IIDs_missing <- rows_with_na %>% 
+  filter(!(IID %in% ancestry_pcs$IID) | !(IID %in% covariate_data$IID))
+
+# Extract unique IIDs and save to a text file
+unique_IIDs <- all_IIDs_missing %>% 
+  pull(IID) %>%
+  unique()
+
+# Write IIDs to a text file
+write_lines(unique_IIDs, "missing_IIDs.txt")
+
+# Filter `smri.R5.1.baseline.y2` to retain rows with `src_subject_id` present in `all_IIDs_missing$IID`
+# Remove duplicate rows based on `src_subject_id` to ensure each subject ID is unique in the final dataset
+smri.R5.1.baseline.y2_missing_baseline_pcs <- smri.R5.1.baseline.y2 %>%
+  filter(src_subject_id %in% all_IIDs_missing$IID) %>%
+  distinct(src_subject_id, .keep_all = TRUE)
+
+# Save merged_data_no_na as a space-separated text file
+write.table(smri.R5.1.baseline.y2_missing_baseline_pcs, file = "missing_IIDs_info.txt", sep = " ", row.names = FALSE, col.names = TRUE, quote = FALSE)
 
 # Step 3: Create the .txt files
 # Phenotype files
@@ -222,7 +252,7 @@ write.table(covariate_data, file = "covariate.txt", row.names = FALSE, col.names
 qcovar_data <- final_data %>%
   select(src_subject_id, interview_age, starts_with("PC")) %>%
   rename(IID = src_subject_id)
-write.table(qcovar_data, file = "qcovar.txt", row.names = FALSE, col.names = TRUE, quote = FALSE)
+write.table(qcovar_data, file = "qcovar.txt", row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
 
 #### ROC CALC MOD ####
 # Helper function to get latest timepoint information
