@@ -76,11 +76,20 @@ smri.R5.1.baseline.y2.ROC.long <- pivot_roc_to_long_format(smri.R5.1.baseline.y2
 smri.R5.1.baseline.y2.long <- pivot_original_to_long_format(smri.R5.1.baseline.y2, roc_volumes)
 
 #### GCTA GWAS PREP ####
+
+## phenotypes, covars qcovars ##
+# Phenotypes: print(roi_columns) #
 # Discrete Covariates: sex, genotyping batch, mri_info_deviceserialnumber
-# Quantitative Covariates: interview_age, bigsnpr 20 PCs
-# Still need to filter by only SCS ROIs of interest append genotyping batch covars, split txts by sex ancestry PCs and each phenotype, and add rank based log transformation to normalize the wide phenos
+# Quantitative Covariates: interview_age, bigsnpr 20 PCs, smri_vol_scs_intracranialv (except for smri_vol_scs_wholeb)
+
+## Remaining Tasks ##
+# append genotyping batch covars
+# split txts by sex ancestry PCs and each phenotype
+# add rank based log transformation to normalize the wide phenos
+
+## Priorities ##
 # Ethnicity priority: EUR
-# ROI priority: smri_vol_scs_wholeb, no smri_vol_scs_intracranialv covar needed
+# ROI priority: smri_vol_scs_wholeb (smri_vol_scs_intracranialv covar not needed)
 
 # remove non-ROI columns from smri.R5.1.baseline.y2.ROC and rorder columns
 smri.R5.1.baseline.y2.ROC.filtered <- roi_filter(smri.R5.1.baseline.y2.ROC)
@@ -88,9 +97,9 @@ smri.R5.1.baseline.y2.ROC.filtered <- roi_filter(smri.R5.1.baseline.y2.ROC)
 smri.R5.1.baseline.y2.ROC.filtered.long <- pivot_roc_to_long_format(smri.R5.1.baseline.y2.ROC.filtered, is_baseline_y2 = TRUE)
 
 # rename pheno cols to GCTA format
-gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.long %>%
+gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.filtered.long %>%
   rename(FID = rel_family_id, IID = src_subject_id, Structure = roi, RateOfChange = Value) %>%
-  select(all_of(c("FID","IID","Structure","RateOfChange")))
+  select(all_of(c("FID","IID","Structure","RateOfChange","sex",)))
 
 # save gcta.pheno.scs.vol.roc
 # write.table(gcta.pheno.scs.vol.roc, paste0(pheno_dir, "/gcta.pheno.scs.vol.roc.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE)
