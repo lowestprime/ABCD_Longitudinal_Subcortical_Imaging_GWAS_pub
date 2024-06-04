@@ -104,6 +104,7 @@ gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.filtered %>%
   rename(FID = rel_family_id, IID = src_subject_id)
 
 # save phenotype files
+# write.table(phenotype_data, file = file.path(pheno_dir, "gcta.pheno.scs.vol.roc.txt"), sep = " ", row.names = FALSE, col.names = FALSE, quote = FALSE)
 # Assuming gcta.pheno.scs.vol.roc is your data frame and pheno_dir is the directory where you want to save the files
 create_phenotype_files(gcta.pheno.scs.vol.roc, pheno_dir)
 
