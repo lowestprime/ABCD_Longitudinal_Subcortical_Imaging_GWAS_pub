@@ -286,6 +286,7 @@ pivot_original_to_long_format <- function(df, roc_volumes) {
     select(all_of(c("src_subject_id", "rel_family_id", "sex", "interview_age", "eventname", "timepoint", "ethnicity", "volume_type", "volume")))
 }
 
+# filtered phenotypes
 roi_columns <- smri.R5.1.baseline.y2.ROC.filtered %>% 
   select(starts_with("smri_vol_")) %>% 
   colnames()
