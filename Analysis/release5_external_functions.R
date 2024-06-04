@@ -184,3 +184,27 @@ roi_filter <- function(df) {
   return(df_cleaned)
 }
 
+# split and save phenotype files
+create_phenotype_files <- function(data, output_dir) {
+  # Ensure output directory exists
+  if (!dir.exists(output_dir)) {
+    dir.create(output_dir)
+  }
+  
+  # Get the column names that start with "smri"
+  smri_cols <- grep("^smri", names(data), value = TRUE)
+  
+  # Loop through each "smri" column
+  for (col in smri_cols) {
+    # Create a new data frame with the other columns and the current "smri" column
+    phenotype_data <- data %>% select(IID, FID, sex, mri_info_deviceserialnumber, interview_age, all_of(col))
+    
+    # Define the file name based on the phenotype column name
+    file_name <- file.path(output_dir, paste0(col, ".txt"))
+    
+    # Save the data frame to a text file
+    write.table(phenotype_data, file = file_name, sep = " ", row.names = FALSE, col.names = FALSE, quote = FALSE)
+  }
+}
+
+

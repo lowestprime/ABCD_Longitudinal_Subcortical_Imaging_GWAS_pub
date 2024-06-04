@@ -78,7 +78,10 @@ smri.R5.1.baseline.y2.long <- pivot_original_to_long_format(smri.R5.1.baseline.y
 #### GCTA GWAS PREP ####
 
 ## phenotypes, covars qcovars ##
-# Phenotypes: print(roi_columns) #
+# Phenotypes:
+# roi_columns <- smri.R5.1.baseline.y2.ROC.filtered %>% 
+#   select(starts_with("smri_vol_")) %>% 
+#   colnames()
 # Discrete Covariates: sex, genotyping batch, mri_info_deviceserialnumber
 # Quantitative Covariates: interview_age, bigsnpr 20 PCs, smri_vol_scs_intracranialv (except for smri_vol_scs_wholeb)
 
@@ -91,18 +94,18 @@ smri.R5.1.baseline.y2.long <- pivot_original_to_long_format(smri.R5.1.baseline.y
 # Ethnicity priority: EUR
 # ROI priority: smri_vol_scs_wholeb (smri_vol_scs_intracranialv covar not needed)
 
-# remove non-ROI columns from smri.R5.1.baseline.y2.ROC and rorder columns
+# remove non-ROI columns from smri.R5.1.baseline.y2.ROC and reorder columns
 smri.R5.1.baseline.y2.ROC.filtered <- roi_filter(smri.R5.1.baseline.y2.ROC)
 # pivot long
 smri.R5.1.baseline.y2.ROC.filtered.long <- pivot_roc_to_long_format(smri.R5.1.baseline.y2.ROC.filtered, is_baseline_y2 = TRUE)
 
 # rename pheno cols to GCTA format
-gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.filtered.long %>%
-  rename(FID = rel_family_id, IID = src_subject_id, Structure = roi, RateOfChange = Value) %>%
-  select(all_of(c("FID","IID","Structure","RateOfChange","sex",)))
+gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.filtered %>%
+  rename(FID = rel_family_id, IID = src_subject_id)
 
-# save gcta.pheno.scs.vol.roc
-# write.table(gcta.pheno.scs.vol.roc, paste0(pheno_dir, "/gcta.pheno.scs.vol.roc.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE)
+# save phenotype files
+# Assuming gcta.pheno.scs.vol.roc is your data frame and pheno_dir is the directory where you want to save the files
+create_phenotype_files(gcta.pheno.scs.vol.roc, pheno_dir)
 
 # Load and preprocess ancestry principal components data by renaming and selecting columns
 ancestry_pcs <- fread(paste0(anc_pc_dir, "ABCD5_all_ancestries_all_individuals_PC20.txt")) %>%
