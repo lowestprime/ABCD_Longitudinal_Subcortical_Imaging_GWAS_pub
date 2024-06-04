@@ -12,6 +12,9 @@ pacman::p_loaded()
 # count number of each unique in dataframe column
 device_counts <- summary(factor(smri.R5.1$mri_info_deviceserialnumber))
 
+# take me back home
+setwd('~/')
+
 #### data prep ####
 
 # # Extract unique c(src_subject_id, timepoint, ethnicity, sex)fix
@@ -142,11 +145,20 @@ print(comparison_result)
 phenotype_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/Phen_AllSubj_abcd_pssrs01.txt_1yr_followup_ssrs_42_p_within_ancestry_group_noNAs_11023_w_fid.txt"
 covariate_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/covar_AllSubj_batch_gender_noNAs_baseline_11665.txt"
 qcovar_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/qcovar_ABCD5_EUR_PC20_SOR_related_bigsnpr.txt"
+batchinfodir <- "/u/project/lhernand/shared/GenomicDatasets/ABCD_Release_5/genomics_sample03/smokescreen"
+batchinfodir_file <- "/u/project/lhernand/FROM_GANDALM/ABCD_Release_4/genomics_sample03/ABCD_release3.0_.batch_info.txt"
+
+#### Modify IDs with ABCD ID format ####
+setwd(batchinfodir)
+Batch <- read.delim("ABCD_202209.updated.nodups.curated.batch.info",  header = TRUE, na.strings = c("", "NA"), sep = ",")
+#Batch<- rename(Batch, subjectkey = IID)
+Batch$IID2 <- Batch$IID
 
 # Read the files without headers
 phenotype_data <- read.table(phenotype_file, header = FALSE, sep = " ")
 covariate_data <- read.table(covariate_file, header = FALSE, sep = " ")
 qcovar_data <- read.table(qcovar_file, header = FALSE, sep = "\t")
+batchinfodir_data <- read.table(batchinfodir_file, header = TRUE, sep = "\t")
 
 # Assign appropriate column names for phenotype_data and covariate_data
 colnames(phenotype_data) <- c("FID", "IID", "phenotype")
