@@ -103,11 +103,6 @@ smri.R5.1.baseline.y2.ROC.filtered <- roi_filter(smri.R5.1.baseline.y2.ROC)
 gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.filtered %>%
   rename(FID = rel_family_id, IID = src_subject_id)
 
-# save phenotype files
-# write.table(phenotype_data, file = file.path(pheno_dir, "gcta.pheno.scs.vol.roc.txt"), sep = " ", row.names = FALSE, col.names = FALSE, quote = FALSE)
-# Assuming gcta.pheno.scs.vol.roc is your data frame and pheno_dir is the directory where you want to save the files
-create_phenotype_files(gcta.pheno.scs.vol.roc, pheno_dir)
-
 # Load and preprocess ancestry principal components data by renaming and selecting columns
 ancestry_pcs <- fread(paste0(anc_pc_dir, "ABCD5_all_ancestries_all_individuals_PC20.txt")) %>%
   rename(IID = V1) %>%
