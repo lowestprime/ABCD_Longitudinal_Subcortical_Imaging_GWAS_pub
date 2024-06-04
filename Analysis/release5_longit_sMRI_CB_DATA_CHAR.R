@@ -97,7 +97,7 @@ smri.R5.1.baseline.y2.long <- pivot_original_to_long_format(smri.R5.1.baseline.y
 # remove non-ROI columns from smri.R5.1.baseline.y2.ROC and reorder columns
 smri.R5.1.baseline.y2.ROC.filtered <- roi_filter(smri.R5.1.baseline.y2.ROC)
 # pivot long
-smri.R5.1.baseline.y2.ROC.filtered.long <- pivot_roc_to_long_format(smri.R5.1.baseline.y2.ROC.filtered, is_baseline_y2 = TRUE)
+# smri.R5.1.baseline.y2.ROC.filtered.long <- pivot_roc_to_long_format(smri.R5.1.baseline.y2.ROC.filtered, is_baseline_y2 = TRUE)
 
 # rename pheno cols to GCTA format
 gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.filtered %>%
@@ -125,29 +125,29 @@ rename_columns <- function(col_names) {
 # Apply the renaming function to the ancestry_pcs data frame
 ancestry_pcs <- ancestry_pcs %>% rename_with(rename_columns, .cols = starts_with("V"))
 
-# Ensure ancestry PCs have the same FID and IID as in phenotype data
-pheno_data <- gcta.pheno.scs.vol.roc %>%
-  left_join(ancestry_pcs, by = c("IID"))
+# # Ensure ancestry PCs have the same FID and IID as in phenotype data
+# pheno_data <- gcta.pheno.scs.vol.roc %>%
+#   left_join(ancestry_pcs, by = c("IID"))
 
-# Ensure the covariate file includes all necessary covariates
-# Prepare covariate data by selecting relevant columns, renaming them, removing samples with NA sex, and merging with ancestry principal components
-covar_data <- smri.R5.1.baseline.y2.long %>%
-  select(src_subject_id, rel_family_id, sex, interview_age) %>%
-  rename(IID = src_subject_id, FID = rel_family_id, Age = interview_age) %>%
-  filter(sex != 'NA') %>%
-  left_join(ancestry_pcs, by = "IID")
-
-# Convert sex to numeric and select family ID, individual ID, sex, age, and principal components
-covar_data <- covar_data %>%
-  mutate(Sex = ifelse(sex == "M", 1, 2)) %>%
-  select(FID, IID, Sex, Age, starts_with("PC"))
-
-# Save final covariate file
-write.table(covar_data, 
-            paste0(pheno_dir, "/gcta.pheno.scs.vol.roc.txt"), 
-            row.names = FALSE, 
-            col.names = TRUE, 
-            quote = FALSE)
+# # Ensure the covariate file includes all necessary covariates
+# # Prepare covariate data by selecting relevant columns, renaming them, removing samples with NA sex, and merging with ancestry principal components
+# covar_data <- gcta.pheno.scs.vol.roc %>%
+#   select(src_subject_id, rel_family_id, sex, interview_age) %>%
+#   rename(IID = src_subject_id, FID = rel_family_id, Age = interview_age) %>%
+#   filter(sex != 'NA') %>%
+#   left_join(ancestry_pcs, by = "IID")
+# 
+# # Convert sex to numeric and select family ID, individual ID, sex, age, and principal components
+# covar_data <- covar_data %>%
+#   mutate(Sex = ifelse(sex == "M", 1, 2)) %>%
+#   select(FID, IID, Sex, Age, starts_with("PC"))
+# 
+# # Save final covariate file
+# write.table(covar_data, 
+#             paste0(pheno_dir, "/gcta.pheno.scs.vol.roc.txt"), 
+#             row.names = FALSE, 
+#             col.names = TRUE, 
+#             quote = FALSE)
 
 # Ensure ancestry PCs have the same FID and IID as in phenotype data
 covar_data_unique <- covar_data %>%
