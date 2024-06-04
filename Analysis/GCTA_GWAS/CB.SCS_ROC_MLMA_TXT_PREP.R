@@ -1,15 +1,19 @@
 #### GCTA MLMA GWAS PREP ####
-## phenotypes, covars qcovars ##
+## phenotypes, covars, qcovars ##
 # Phenotypes:
 # roi_columns <- smri.R5.1.baseline.y2.ROC.filtered %>% 
 #   select(starts_with("smri_vol_")) %>% 
 #   colnames()
-# Discrete Covariates: sex, genotyping batch, mri_info_deviceserialnumber
-# Quantitative Covariates: interview_age, bigsnpr 20 PCs, smri_vol_scs_intracranialv (except for smri_vol_scs_wholeb)
+
+# Discrete Covariates:
+# sex, genotyping batch, mri_info_deviceserialnumber
+
+# Quantitative Covariates:
+# interview_age, bigsnpr 20 PCs, smri_vol_scs_intracranialv (except for smri_vol_scs_wholeb)
 
 ## Remaining Tasks ##
-# append genotyping batch covars
-# split txts by sex ancestry PCs and each phenotype
+# append genotyping batch ancestry pc covars
+# split txts by sex ancestry and phenotype
 # add rank based log transformation to normalize the wide phenos
 
 ## Priorities ##
