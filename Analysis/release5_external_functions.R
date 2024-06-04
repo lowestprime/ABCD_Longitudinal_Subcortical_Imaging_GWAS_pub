@@ -144,3 +144,43 @@ pivot_original_to_long_format <- function(df, roc_volumes) {
     ) %>%
     select(all_of(c("src_subject_id", "rel_family_id", "sex", "interview_age", "eventname", "timepoint", "ethnicity", "volume_type", "volume")))
 }
+
+# Function to remove non-ROI columns from smri.R5.1.baseline.y2.ROC
+roi_filter <- function(df) {
+  # Vector of column names to be removed
+  columns_to_remove <- c(
+    "smri_vol_scs_3rdventricle_ROC0_2",
+    "smri_vol_scs_4thventricle_ROC0_2",
+    "smri_vol_scs_bstem_ROC0_2",
+    "smri_vol_scs_csf_ROC0_2",
+    "smri_vol_scs_inflatvent_ROC0_2",
+    "smri_vol_scs_ltventricle_ROC0_2"
+  )
+  
+  # Remove specified columns
+  df_cleaned <- df %>% select(-all_of(columns_to_remove))
+  
+  # Columns to be placed in specific positions
+  specific_columns <- c("sex", "mri_info_deviceserialnumber", "interview_age")
+  
+  # Columns that start with "smri_vol_scs" and not in columns_to_remove
+  smri_columns <- colnames(df_cleaned) %>% 
+    .[grepl("^smri_vol_scs", .)] %>%
+    sort()
+  
+  # Remaining columns after removing specific and smri columns
+  remaining_columns <- setdiff(colnames(df_cleaned), c(specific_columns, smri_columns))
+  
+  # Final column order
+  final_column_order <- c(
+    setdiff(colnames(df_cleaned), c(specific_columns, smri_columns)),
+    specific_columns,
+    smri_columns
+  )
+  
+  # Reorder columns
+  df_cleaned <- df_cleaned %>% select(all_of(final_column_order))
+  
+  return(df_cleaned)
+}
+
