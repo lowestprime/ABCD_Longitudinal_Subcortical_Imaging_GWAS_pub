@@ -58,7 +58,7 @@ average_hemispheres <- function(df) {
 get_latest_timepoint_info <- function(df, timepoint) {
   df %>%
     filter(timepoint == !!timepoint & sex != 'NA') %>%
-    select(src_subject_id, rel_family_id, sex, mri_info_deviceserialnumber, interview_age)
+    select(src_subject_id, rel_family_id, sex, mri_info_deviceserialnumber, interview_age, ethnicity)
 }
 
 # baseline_y2_roc
@@ -131,7 +131,7 @@ pivot_roc_to_long_format <- function(df, is_baseline_y2 = FALSE) {
       values_to = "Value"
     ) %>%
     # Keep the metadata columns intact
-    select(src_subject_id, rel_family_id, sex, mri_info_deviceserialnumber, interview_age, roi, everything())
+    select(src_subject_id, rel_family_id, sex, mri_info_deviceserialnumber, interview_age, ethnicity, roi, everything())
 }
 
 # Function to pivot original data to long format
@@ -161,7 +161,7 @@ roi_filter <- function(df) {
   df_cleaned <- df %>% select(-all_of(columns_to_remove))
   
   # Columns to be placed in specific positions
-  specific_columns <- c("sex", "mri_info_deviceserialnumber", "interview_age")
+  specific_columns <- c("sex", "mri_info_deviceserialnumber", "interview_age", "ethnicity")
   
   # Columns that start with "smri_vol_scs" and not in columns_to_remove
   smri_columns <- colnames(df_cleaned) %>% 
@@ -197,13 +197,13 @@ create_phenotype_files <- function(data, output_dir) {
   # Loop through each "smri" column
   for (col in smri_cols) {
     # Create a new data frame with the other columns and the current "smri" column
-    phenotype_data <- data %>% select(IID, FID, sex, mri_info_deviceserialnumber, interview_age, all_of(col))
+    phenotype_data <- data %>% select(IID, FID, sex, PC1:20, all_of(col))
     
     # Define the file name based on the phenotype column name
     file_name <- file.path(output_dir, paste0(col, ".txt"))
     
     # Save the data frame to a text file
-    write.table(phenotype_data, file = file_name, sep = " ", row.names = FALSE, col.names = FALSE, quote = FALSE)
+    write.table(phenotype_data, file = file_name, row.names = FALSE, col.names = FALSE, quote = FALSE)
   }
 }
 
