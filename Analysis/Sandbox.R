@@ -233,14 +233,10 @@ smri.R5.1.baseline.y2_missing_baseline_pcs <- smri.R5.1.baseline.y2 %>%
 # Save merged_data_no_na as a space-separated text file
 write.table(smri.R5.1.baseline.y2_missing_baseline_pcs, file = "missing_IIDs_info.txt", sep = " ", row.names = FALSE, col.names = TRUE, quote = FALSE)
 
-# Step 3: Create the .txt files
+# Step 3: Create the phenotype split .txt files
 # Phenotype files
-for (phenotype in roc_phenotypes) {
-  phenotype_data <- final_data %>%
-    select(src_subject_id, !!sym(phenotype)) %>%
-    rename(IID = src_subject_id)
-  write.table(phenotype_data, file = paste0(phenotype, ".txt"), row.names = FALSE, col.names = TRUE, quote = FALSE)
-}
+# Assuming gcta.pheno.scs.vol.roc is your data frame and pheno_dir is the directory where you want to save the files
+create_phenotype_files(merged_data_no_na, pheno_dir)
 
 # Covariate file
 covariate_data <- final_data %>%
@@ -249,10 +245,7 @@ covariate_data <- final_data %>%
 write.table(covariate_data, file = "covariate.txt", row.names = FALSE, col.names = TRUE, quote = FALSE)
 
 # Quantitative Covariate file
-qcovar_data <- final_data %>%
-  select(src_subject_id, interview_age, starts_with("PC")) %>%
-  rename(IID = src_subject_id)
-write.table(qcovar_data, file = "qcovar.txt", row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
+
 
 #### ROC CALC MOD ####
 # Helper function to get latest timepoint information
