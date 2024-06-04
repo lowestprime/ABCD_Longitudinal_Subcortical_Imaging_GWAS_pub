@@ -63,6 +63,7 @@ smri.R5.1.all <- smri.R5.1 %>%
 roc_volumes <- grep("smri_vol_scs_", names(smri.R5.1.baseline.y2), value = TRUE)
 
 # Calculate the percent rates of change for each scs ROI volume in smri.R5.1.baseline.y2 and smri.R5.1.all
+# remove sex == NA and only return values for sex, mri_info_deviceserialnumber, and interview_age from latest timepoint
 smri.R5.1.baseline.y2.ROC <- baseline_y2_roc(smri.R5.1.baseline.y2, roc_volumes)
 smri.R5.1.all.ROC <- all_timepoints_roc(smri.R5.1.all, roc_volumes)
 
@@ -77,9 +78,14 @@ smri.R5.1.baseline.y2.long <- pivot_original_to_long_format(smri.R5.1.baseline.y
 #### GCTA GWAS PREP ####
 # Discrete Covariates: sex, genotyping batch, mri_info_deviceserialnumber
 # Quantitative Covariates: interview_age, bigsnpr 20 PCs
-# Need to add rank based log transformation to normalize the wide phenos
+# Still need to filter by only SCS ROIs of interest append genotyping batch covars, split txts by sex ancestry PCs and each phenotype, and add rank based log transformation to normalize the wide phenos
 # Ethnicity priority: EUR
 # ROI priority: smri_vol_scs_wholeb, no smri_vol_scs_intracranialv covar needed
+
+# remove non-ROI columns from smri.R5.1.baseline.y2.ROC and rorder columns
+smri.R5.1.baseline.y2.ROC.filtered <- roi_filter(smri.R5.1.baseline.y2.ROC)
+# pivot long
+smri.R5.1.baseline.y2.ROC.filtered.long <- pivot_roc_to_long_format(smri.R5.1.baseline.y2.ROC.filtered, is_baseline_y2 = TRUE)
 
 # rename pheno cols to GCTA format
 gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.long %>%
@@ -146,8 +152,6 @@ gcta.pheno.scs.vol.roc.covar <- gcta.pheno.scs.vol.roc.covar %>%
   mutate(FID = coalesce(FID.x, FID.y)) %>%  # Coalesce, in case of FID coming from different sources
   select(-FID.x, -FID.y) %>%  # Drop extra FID columns
   relocate(FID, IID, Sex, Age) 
-
-# still need to extract mri_info_deviceserialnumber, genotyping batch covars
 
 #### PLOTTING ####
 
