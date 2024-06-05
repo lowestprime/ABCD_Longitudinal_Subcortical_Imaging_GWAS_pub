@@ -86,8 +86,7 @@ smri.R5.1.baseline.y2.long <- pivot_original_to_long_format(smri.R5.1.baseline.y
 # Quantitative Covariates: interview_age, bigsnpr 20 PCs, smri_vol_scs_intracranialv (except for smri_vol_scs_wholeb)
 
 ## Remaining Tasks ##
-# append genotyping batch covars
-# split txts by sex ancestry PCs and each phenotype
+# split phenotype txts by sex ancestry PCs and each phenotype
 # add rank based log transformation to normalize the wide phenos
 
 ## Priorities ##
