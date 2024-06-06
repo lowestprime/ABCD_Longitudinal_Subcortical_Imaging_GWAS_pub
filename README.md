@@ -18,8 +18,9 @@
   - [Violin Plots of Subcortical Volume Rates of Change](https://lowestprime.shinyapps.io/Interactive_SCS_ROI_ROC_Violin_Plots_y0_2/)
   - [Box Plots of Subcortical Volumes](https://lowestprime.shinyapps.io/Interactive_SCS_ROI_Volume_Box_Plots_y0_2/)
 
-## **Stage 1 - Longitudinal Subcortical Volume GWASes**
-  - 
+## **Stage 1 - Longitudinal Subcortical Volume GWAS**
+  - [MLMA](https://yanglab.westlake.edu.cn/software/gcta/#MLMA)
+  - [SAIGE](https://saigegit.github.io/SAIGE-doc/docs/single.html)
 
 ## **Stage 2 - Adult Neuropsychiatric GWAS Comparison and Genetic Correlation Analysis**
   - 
