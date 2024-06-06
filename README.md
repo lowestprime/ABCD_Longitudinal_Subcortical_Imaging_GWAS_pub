@@ -1,6 +1,7 @@
 # **ABCD Longitudinal Subcortical Imaging GWAS**
 ## Motivation and Background
-  - https://docs.google.com/spreadsheets/d/1daRx5JcFafNdxd7xn3jf4QrojfYBzgE11LgFUIyP4KY
+  - [Relevant Literature+](https://docs.google.com/spreadsheets/d/1daRx5JcFafNdxd7xn3jf4QrojfYBzgE11LgFUIyP4KY)
+  - [Subcortical Volume Rate of Change GWAS](https://docs.google.com/presentation/d/1imbz7NTb-ypPThKh5Nri7HHCE4QzD9rOQRNFL5bgUxA/edit?usp=sharing)
 
 ## Goals
 
