@@ -3,11 +3,7 @@
   - [Relevant Literature+](https://docs.google.com/spreadsheets/d/1daRx5JcFafNdxd7xn3jf4QrojfYBzgE11LgFUIyP4KY)
   - [Subcortical Volume Rate of Change (ROC) GWAS](https://docs.google.com/presentation/d/1imbz7NTb-ypPThKh5Nri7HHCE4QzD9rOQRNFL5bgUxA/edit?usp=sharing)
 
-## Goals
-- 
-
-## Analytic Approach
-
+## Investigation Overview
 ## **Stage 1 - Data characterization and preparation**
 ### _Summary Tables_
   - [Overview Table and Barplots of Sample Sizes by Timepoint Ethnicity and Sex](https://lowestprime.shinyapps.io/Ethnicity_and_Sex_Counts_by_Timepoint/)
