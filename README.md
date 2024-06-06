@@ -1,4 +1,4 @@
-# **ABCD Subcortical Volume  of Change GWAS**
+# **ABCD Subcortical Volume Rate of Change GWAS**
 
 ## Motivation and Background
   - [Relevant Literature+](https://docs.google.com/spreadsheets/d/1daRx5JcFafNdxd7xn3jf4QrojfYBzgE11LgFUIyP4KY)
