@@ -10,11 +10,11 @@
 ## Analytic Approach
 
 ## **Stage 0 - Data characterization and preparation**
-### _Sample Summary Tables_
+### _Summary Tables_
   - [Overview Table and Barplots of Sample Sizes by Timepoint Ethnicity and Sex](https://lowestprime.shinyapps.io/Ethnicity_and_Sex_Counts_by_Timepoint/)
   - [Overview Table of Subcortical Volume Rates of Change](https://lowestprime.shinyapps.io/ROC_Summary_Table/)
 
-### _Sample Distribution_
+### _Phenotype Distribution_
   - [Violin Plots of Subcortical Volume Rates of Change](https://lowestprime.shinyapps.io/Interactive_SCS_ROI_ROC_Violin_Plots_y0_2/)
   - [Box Plots of Subcortical Volumes](https://lowestprime.shinyapps.io/Interactive_SCS_ROI_Volume_Box_Plots_y0_2/)
 
