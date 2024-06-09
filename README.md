@@ -2,7 +2,6 @@
 
 ## Motivation and Background
   - [Relevant Literature+](https://docs.google.com/spreadsheets/d/1daRx5JcFafNdxd7xn3jf4QrojfYBzgE11LgFUIyP4KY)
-  - [Subcortical Volume Rate of Change (ROC) GWAS](https://docs.google.com/presentation/d/1imbz7NTb-ypPThKh5Nri7HHCE4QzD9rOQRNFL5bgUxA/edit?usp=sharing)
 
 ## Investigation Overview
 
