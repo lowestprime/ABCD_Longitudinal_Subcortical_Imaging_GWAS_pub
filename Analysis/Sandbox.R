@@ -202,6 +202,10 @@ merged_data_no_na <- merged_data %>%
   select(FID, IID, everything()) %>% # Ensures FID and IID are the first two columns
   drop_na()
 
+# replace FID = rel_family_id, IID = src_subject_id
+merged_data_no_na <- merged_data_no_na %>%
+  mutate(FID = IID)
+
 # Save final_data as a space-separated text file suitable for GCTA MLMA
 setwd(pheno_dir)
 write.table(merged_data_no_na, file = "gcta_mlma_SCS_ROC_master.txt", sep = " ", row.names = FALSE, col.names = TRUE, quote = FALSE)
