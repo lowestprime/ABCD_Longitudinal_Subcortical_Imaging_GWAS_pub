@@ -17,59 +17,6 @@ setwd('~/')
 
 #### data prep ####
 
-# # Extract unique c(src_subject_id, timepoint, ethnicity, sex)fix
-# unique_regions <- names(smri.R5.1) %>%
-#   str_extract("^smri_vol_scs_.*(?=lh$|rh$|l$|r$)") %>%
-#   na.omit() %>%
-#   unique();
-
-# # Average across brain hemispheres for each applicable scs region (non-vectorized approach)
-# # Get base scs region names omitting lh and rh or l and r suffixes
-# unique_regions <- names(smri.R5.1) %>%
-#   str_extract("^smri_vol_scs_.*(?=(lh|rh|l|r)$)") %>%
-#   na.omit() %>%
-#   unique();
-# # Define the pairs of columns for which to calculate the average
-# column_pairs <- setNames(lapply(unique_regions, function(x) 
-#   c(paste0(x, ifelse(x == "smri_vol_scs_aa", "l", "lh")),
-#     paste0(x, ifelse(x == "smri_vol_scs_aa", "r", "rh")))), unique_regions);
-# # Calculate the average for each pair of columns
-# for (region in unique_regions) {
-#   if (all(column_pairs[[region]] %in% names(smri.R5.1))) {
-#     smri.R5.1[, region] <- rowMeans(smri.R5.1[, column_pairs[[region]]], na.rm = TRUE)
-#   }
-# }
-# 
-# # Average across brain hemispheres for each relevant scs region (vectorized approach)
-# # Get base scs region names omitting lh and rh or l and r suffixes
-# unique_regions <- names(smri.R5.1) %>%
-#   str_extract("^smri_vol_scs_.*(?=(lh|rh|l|r)$)") %>%
-#   na.omit() %>%
-#   unique();
-# # Define the pairs of columns for which to calculate the average
-# column_pairs <- setNames(lapply(unique_regions, function(x)
-#   c(paste0(x, ifelse(x == "smri_vol_scs_aa", "l", "lh")),
-#     paste0(x, ifelse(x == "smri_vol_scs_aa", "r", "rh")))), unique_regions);
-# # Calculate the average for each pair of columns
-# averages <- sapply(unique_regions, function(region) {
-#   if (all(column_pairs[[region]] %in% names(smri.R5.1))) {
-#     rowMeans(smri.R5.1[, column_pairs[[region]]], na.rm = TRUE)
-#   } else {
-#     rep(NA_real_, nrow(smri.R5.1))
-#   }
-# });
-# smri.R5.1 <- cbind(smri.R5.1, averages)
-# 
-# # COMPACT VECTORIZED: Extracting unique regions, forming column pairs, calculating averages, and binding to original data
-# smri.R5.1 <- cbind(smri.R5.1, sapply(setNames(lapply(names(smri.R5.1) %>% 
-#                                                        str_extract("^smri_vol_scs_.*(?=(lh|rh|l|r)$)") %>% 
-#                                                        na.omit() %>% 
-#                                                        unique(), function(x) c(paste0(x, ifelse(x == "smri_vol_scs_aa", "l", "lh")), paste0(x, ifelse(x == "smri_vol_scs_aa", "r", "rh")))), 
-#                                               names(smri.R5.1) %>% str_extract("^smri_vol_scs_.*(?=(lh|rh|l|r)$)") %>% na.omit() %>% unique()), function(region) {
-#                                                 if (all(region %in% names(smri.R5.1))) rowMeans(smri.R5.1[, region, drop = FALSE], na.rm = TRUE) else rep(NA_real_, nrow(smri.R5.1))
-#                                               })) %>%
-#   select(-matches("^smri_vol_scs_.*(lh|rh|aal|aar)$"));
-
 # Check L/R hemisphere averages QC
 grep(pattern = "smri_vol_scs_", x = colnames(smri.R5.1), value = T);
 grep(pattern = "smri_vol_scs_.*(lh$|rh$|l$|r$)", x = colnames(smri.R5.1), value = T);
