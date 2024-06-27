@@ -33,6 +33,7 @@ p_load(dplyr, purrr, readr)
 
 # directories
 base_dir <- '/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/'
+r5.1_genetics <- '/u/project/lhernand/shared/GenomicDatasets/ABCD_Release_5.1/core/genetics'
 image_dir <- paste0(base_dir, 'Images/')
 shiny_dir <- paste0(base_dir, 'plots/Shinyapps_plotly_plots/')
 table1_dir <- paste0(shiny_dir, 'Counts.Table')
