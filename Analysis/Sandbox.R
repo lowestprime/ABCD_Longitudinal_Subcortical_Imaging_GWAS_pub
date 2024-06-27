@@ -168,7 +168,7 @@ colnames(covariate_data) <- c("FID", "IID", "batch", "sex")
 # num_pcs <- ncol(qcovar_data) - 3 # Subtracting 3 for FID, IID, and interview_age_years_nodecimal
 # pc_names <- paste0("PC", 1:num_pcs)
 # colnames(qcovar_data) <- c("FID", "IID", pc_names, "interview_age_years_nodecimal")
-
+# 
 # Ensure ancestry PCs have the same FID and IID as in phenotype data
 # covariate_data_unique <- covariate_data %>%
 #   distinct(IID, .keep_all = TRUE)
