@@ -75,50 +75,6 @@ smri.R5.1.all.long <- pivot_original_to_long_format(smri.R5.1.all, roc_volumes)
 smri.R5.1.baseline.y2.ROC.long <- pivot_roc_to_long_format(smri.R5.1.baseline.y2.ROC, is_baseline_y2 = TRUE)
 smri.R5.1.baseline.y2.long <- pivot_original_to_long_format(smri.R5.1.baseline.y2, roc_volumes)
 
-#### GCTA GWAS PREP ####
-
-## phenotypes, covars qcovars ##
-# Phenotypes:
-# roi_columns <- smri.R5.1.baseline.y2.ROC.filtered %>% 
-#   select(starts_with("smri_vol_")) %>% 
-#   colnames()
-# Discrete Covariates: sex, genotyping batch, mri_info_deviceserialnumber
-# Quantitative Covariates: interview_age, bigsnpr 20 PCs, smri_vol_scs_intracranialv (except for smri_vol_scs_wholeb)
-
-## Remaining Tasks ##
-# split phenotype txts by sex ancestry PCs and each phenotype
-# add rank based log transformation to normalize the wide phenos
-
-## Priorities ##
-# Ethnicity priority: EUR
-# ROI priority: smri_vol_scs_wholeb (smri_vol_scs_intracranialv covar not needed)
-
-# remove non-ROI columns from smri.R5.1.baseline.y2.ROC and reorder columns
-smri.R5.1.baseline.y2.ROC.filtered <- roi_filter(smri.R5.1.baseline.y2.ROC)
-# pivot long
-# smri.R5.1.baseline.y2.ROC.filtered.long <- pivot_roc_to_long_format(smri.R5.1.baseline.y2.ROC.filtered, is_baseline_y2 = TRUE)
-
-# rename pheno cols to GCTA format
-gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.filtered %>%
-  rename(FID = rel_family_id, IID = src_subject_id)
-
-# Load and preprocess ancestry principal components data by renaming and selecting columns
-ancestry_pcs <- fread(paste0(anc_pc_dir, "ABCD5_all_ancestries_all_individuals_PC20.txt")) %>%
-  rename(IID = V1) %>%
-  select(-V2)
-
-# Define a function to rename columns from V3-V22 to P1-P20
-rename_columns <- function(col_names) {
-  old_names <- paste0("V", 3:22)
-  new_names <- paste0("PC", 1:20)
-  renamed_cols <- col_names
-  renamed_cols[match(old_names, col_names)] <- new_names
-  return(renamed_cols)
-}
-
-# Apply the renaming function to the ancestry_pcs data frame
-ancestry_pcs <- ancestry_pcs %>% rename_with(rename_columns, .cols = starts_with("V"))
-
 #### PLOTTING ####
 
 # view sample size tables for smri.R5.1.all and smri.R5.1.baseline.y2 and run in background

@@ -207,4 +207,11 @@ create_phenotype_files <- function(data, output_dir) {
   }
 }
 
-
+# Define a function to rename columns from V3-V22 to P1-P20
+rename_columns <- function(col_names) {
+  old_names <- paste0("V", 3:22)
+  new_names <- paste0("PC", 1:20)
+  renamed_cols <- col_names
+  renamed_cols[match(old_names, col_names)] <- new_names
+  return(renamed_cols)
+}
