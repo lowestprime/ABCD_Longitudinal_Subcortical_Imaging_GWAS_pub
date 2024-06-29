@@ -106,9 +106,9 @@ merged_data_final <- merged_data_no_na %>%
 
 # split merged_data_final by ethnicity
 # Define the file names for each ethnicity
-afr_file <- file.path(anc_pc_dir, "ABCD5_AFR.all_individuals.PC20")
-amr_file <- file.path(anc_pc_dir, "ABCD5_AMR.all_individuals.PC20")
-eur_file <- file.path(anc_pc_dir, "ABCD5_EUR.all_individuals.PC20")
+afr_file <- file.path(anc_pc_dir, "ABCDr5_AFR.2263_no.sexmismatch_IDs.txt")
+amr_file <- file.path(anc_pc_dir, "ABCDr5_AMR.2019_no.sexmismatch_IDs.txt")
+eur_file <- file.path(anc_pc_dir, "ABCDr5_EUR.6891_no.sexmismatch_IDs.txt")
 
 # Read the IIDs from each file
 afr_iids <- read.table(afr_file, header = FALSE, stringsAsFactors = FALSE)[, 1]
