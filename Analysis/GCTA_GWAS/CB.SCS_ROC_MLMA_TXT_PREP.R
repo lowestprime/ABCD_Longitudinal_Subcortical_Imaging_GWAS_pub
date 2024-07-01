@@ -106,9 +106,9 @@ merged_data_final <- merged_data_no_na %>%
 
 # split merged_data_final by ethnicity
 # Define the file names for each ethnicity
-afr_file <- file.path(anc_pc_dir, "ABCDr5_AFR.2263_no.sexmismatch_IDs.txt")
-amr_file <- file.path(anc_pc_dir, "ABCDr5_AMR.2019_no.sexmismatch_IDs.txt")
-eur_file <- file.path(anc_pc_dir, "ABCDr5_EUR.6891_no.sexmismatch_IDs.txt")
+afr_file <- file.path(anc_pc_dir, "ABCD.ancestry_knn.AFR.2263.txt")
+amr_file <- file.path(anc_pc_dir, "ABCD.ancestry_knn.AMR.2019.txt")
+eur_file <- file.path(anc_pc_dir, "ABCD.ancestry_knn.EUR.6891.txt")
 
 # Read the IIDs from each file
 afr_iids <- read.table(afr_file, header = FALSE, stringsAsFactors = FALSE)[, 1]
@@ -119,6 +119,17 @@ eur_iids <- read.table(eur_file, header = FALSE, stringsAsFactors = FALSE)[, 1]
 afr_data <- merged_data_final[merged_data_final$IID %in% afr_iids, ]
 amr_data <- merged_data_final[merged_data_final$IID %in% amr_iids, ]
 eur_data <- merged_data_final[merged_data_final$IID %in% eur_iids, ]
+
+# Create a new ethnicity column in merged_data_final
+merged_data_final$ethnicity <- NA
+
+# Assign ethnicity based on IIDs
+merged_data_final$ethnicity[merged_data_final$IID %in% afr_iids] <- "AFR"
+merged_data_final$ethnicity[merged_data_final$IID %in% amr_iids] <- "AMR"
+merged_data_final$ethnicity[merged_data_final$IID %in% eur_iids] <- "EUR"
+
+# Remove samples with missing ethnicity
+merged_data_final <- merged_data_final[!is.na(merged_data_final$ethnicity), ]
 
 # Optional: Check the number of rows in each subset to ensure correctness
 cat("Total number of individuals:", nrow(merged_data_final), "\n")
