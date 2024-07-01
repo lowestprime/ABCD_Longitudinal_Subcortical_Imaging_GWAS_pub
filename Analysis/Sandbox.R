@@ -10,10 +10,13 @@ pacman::p_unload(pacman::p_loaded(), character.only = TRUE)
 pacman::p_loaded()
 
 # count number of each unique in dataframe column
-device_counts <- summary(factor(smri.R5.1$mri_info_deviceserialnumber))
+device_counts <- summary(factor(merged_data_final$mri_info_deviceserialnumber))
 
 # take me back home
 setwd('~/')
+
+# sum different values in df
+sum(merged_data_no_na$ethnicity %in% c("AFR", "AMR", "EUR"))
 
 #### data prep ####
 
