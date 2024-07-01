@@ -5,16 +5,15 @@
 # roi_columns <- smri.R5.1.baseline.y2.ROC.filtered %>% 
 #   select(starts_with("smri_vol_")) %>% 
 #   colnames()
-# 
+
 ## Discrete Covariates ##
 # sex, genotyping batch, mri_info_deviceserialnumber
-# 
+
 ## Quantitative Covariates ##
 # interview_age, bigsnpr 10 PCs, smri_vol_scs_intracranialv (except for smri_vol_scs_wholeb)
-# 
+ 
 ## Remaining Tasks ##
 # 1. Finalize split txt formatting and reformatting/naming (what info should be included in txt filenames?) and directory structure
-# 2. Could crossref IIDs such that only those included in precomputed GRM are retained
 # 3. Maybe use TOPMed imputed ancestries file with all IIDs (not split) in main TOPMed directory add Ancestry/Population/Ethnicity column to master Dataframe. 
 # 4. Split master df by phenotype, TOPMed imputed ancestry, and sex
 # 5. Rank inverse log normalize phenotype txts AFTER sex, ethnicity and phenotype split
@@ -22,7 +21,7 @@
 # 8. Split covar and qcovar by ancestry and sex
 # 9. Finalize job script and out dirs
 # 10. Final qc checks
-# 
+
 ## Priorities ##
 # Ethnicity priority: EUR
 # ROI priority: smri_vol_scs_wholeb (smri_vol_scs_intracranialv covar not needed)
@@ -104,7 +103,7 @@ merged_data_final <- merged_data_no_na %>%
   mutate(FID = IID) %>%
   select(-PC11:-PC20, -ethnicity)
 
-# split merged_data_final by ethnicity
+# split merged_data_final by TOPMed ethnicity
 # Define the file names for each ethnicity
 afr_file <- file.path(anc_pc_dir, "ABCD.ancestry_knn.AFR.2263.txt")
 amr_file <- file.path(anc_pc_dir, "ABCD.ancestry_knn.AMR.2019.txt")
@@ -115,12 +114,6 @@ afr_iids <- read.table(afr_file, header = FALSE, stringsAsFactors = FALSE)[, 1]
 amr_iids <- read.table(amr_file, header = FALSE, stringsAsFactors = FALSE)[, 1]
 eur_iids <- read.table(eur_file, header = FALSE, stringsAsFactors = FALSE)[, 1]
 
-# Subset the merged_data_final dataframe by ethnicity
-afr_data <- merged_data_final[merged_data_final$IID %in% afr_iids, ]
-amr_data <- merged_data_final[merged_data_final$IID %in% amr_iids, ]
-eur_data <- merged_data_final[merged_data_final$IID %in% eur_iids, ]
-
-# Create a new ethnicity column in merged_data_final
 merged_data_final$ethnicity <- NA
 
 # Assign ethnicity based on IIDs
@@ -131,15 +124,23 @@ merged_data_final$ethnicity[merged_data_final$IID %in% eur_iids] <- "EUR"
 # Remove samples with missing ethnicity
 merged_data_final <- merged_data_final[!is.na(merged_data_final$ethnicity), ]
 
+# Subset the merged_data_final dataframe by ethnicity
+# afr_data <- merged_data_final[merged_data_final$IID %in% afr_iids, ]
+# amr_data <- merged_data_final[merged_data_final$IID %in% amr_iids, ]
+# eur_data <- merged_data_final[merged_data_final$IID %in% eur_iids, ]
+
 # Optional: Check the number of rows in each subset to ensure correctness
-cat("Total number of individuals:", nrow(merged_data_final), "\n")
-cat("Number of AFR individuals:", nrow(afr_data), "\n")
-cat("Number of AMR individuals:", nrow(amr_data), "\n")
-cat("Number of EUR individuals:", nrow(eur_data), "\n")
+# cat("Total number of individuals:", nrow(merged_data_final), "\n")
+# cat("Number of AFR individuals:", nrow(afr_data), "\n")
+# cat("Number of AMR individuals:", nrow(amr_data), "\n")
+# cat("Number of EUR individuals:", nrow(eur_data), "\n")
+# Create a new ethnicity column in merged_data_final
 
 # Save final_data as a space-separated text file suitable for GCTA MLMA
 # setwd(pheno_dir)
-# write.table(merged_data_no_na, file = "gcta_mlma_SCS_ROC_master.txt", sep = " ", row.names = FALSE, col.names = TRUE, quote = FALSE)
+# write.table(merged_data_final, file = "gcta_mlma_SCS_ROC_master.txt", sep = " ", row.names = FALSE, col.names = TRUE, quote = FALSE)
+# first_100_rows <- head(merged_data_final, 100)
+# write.csv(first_100_rows, "first_100_rows.csv", row.names = FALSE)
 # 
 # Filtering rows with any `NA` values
 # rows_with_na <- merged_data %>% 
