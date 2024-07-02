@@ -16,6 +16,9 @@
 # 1. Finalize split txt formatting, file names and directory structure
 # 2. Finalize job script
 # 3. Switch from split to master covar and qcovar files and adjust job script accordingly
+# 4. Check dummy variable formatting for batch and MRI serial cols in txt splitting script
+# 5. check input txt save format same as Sruthi/Emma and compatible with GCTA MLMA
+# 6. check contents of each split txt to confirm successful splitting and expected contents
 
 ## Priorities ##
 # Ethnicity: EUR
