@@ -15,6 +15,15 @@ device_counts <- summary(factor(merged_data_final$mri_info_deviceserialnumber))
 # take me back home
 setwd('~/')
 
+# take me back to proj dir
+setwd('~/project-lhernand/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis')
+
+# list column names
+paste(names(merged_data_final), collapse = ", ")
+
+# List all subdirectories
+list.dirs(path = 'GCTA_GWAS/Processed_Data', full.names = T, recursive = T)
+
 # sum different values in df
 sum(merged_data_no_na$ethnicity %in% c("AFR", "AMR", "EUR"))
 

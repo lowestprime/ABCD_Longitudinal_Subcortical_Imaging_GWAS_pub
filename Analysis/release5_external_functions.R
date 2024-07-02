@@ -49,7 +49,7 @@ average_hemispheres <- function(df) {
       rep(NA_real_, nrow(df))
   })
   result <- cbind(df, avg_data) %>%
-    select(-matches("^smri_vol_scs_.*(lh|rh|aal|aar)$"))
+    dplyr::select(-matches("^smri_vol_scs_.*(lh|rh|aal|aar)$"))
   
   return(result)
 }
@@ -58,7 +58,7 @@ average_hemispheres <- function(df) {
 get_latest_timepoint_info <- function(df, timepoint) {
   df %>%
     filter(timepoint == !!timepoint & sex != 'NA') %>%
-    select(src_subject_id, rel_family_id, sex, mri_info_deviceserialnumber, interview_age, ethnicity)
+    dplyr::select(src_subject_id, rel_family_id, sex, mri_info_deviceserialnumber, interview_age, ethnicity)
 }
 
 # baseline_y2_roc
@@ -120,7 +120,7 @@ all_timepoints_roc <- function(df, roc_volumes) {
 # Function to pivot ROC data to long format
 pivot_roc_to_long_format <- function(df, is_baseline_y2 = FALSE) {
   # Identify ROC columns
-  roc_columns <- df %>% select(starts_with("smri_vol_")) %>% colnames()
+  roc_columns <- df %>% dplyr::select(starts_with("smri_vol_")) %>% colnames()
   
   # Pivot only the ROC columns
   df %>%
@@ -131,7 +131,7 @@ pivot_roc_to_long_format <- function(df, is_baseline_y2 = FALSE) {
       values_to = "Value"
     ) %>%
     # Keep the metadata columns intact
-    select(src_subject_id, rel_family_id, sex, mri_info_deviceserialnumber, interview_age, ethnicity, roi, everything())
+    dplyr::select(src_subject_id, rel_family_id, sex, mri_info_deviceserialnumber, interview_age, ethnicity, roi, everything())
 }
 
 # Function to pivot original data to long format
@@ -142,7 +142,7 @@ pivot_original_to_long_format <- function(df, roc_volumes) {
       names_to = "volume_type",
       values_to = "volume"
     ) %>%
-    select(all_of(c("src_subject_id", "rel_family_id", "sex", "interview_age", "eventname", "timepoint", "ethnicity", "volume_type", "volume")))
+    dplyr::select(all_of(c("src_subject_id", "rel_family_id", "sex", "interview_age", "eventname", "timepoint", "ethnicity", "volume_type", "volume")))
 }
 
 # Function to remove non-ROI columns from smri.R5.1.baseline.y2.ROC
@@ -158,7 +158,7 @@ roi_filter <- function(df) {
   )
   
   # Remove specified columns
-  df_cleaned <- df %>% select(-all_of(columns_to_remove))
+  df_cleaned <- df %>% dplyr::select(-all_of(columns_to_remove))
   
   # Columns to be placed in specific positions
   specific_columns <- c("sex", "mri_info_deviceserialnumber", "interview_age", "ethnicity")
@@ -179,7 +179,7 @@ roi_filter <- function(df) {
   )
   
   # Reorder columns
-  df_cleaned <- df_cleaned %>% select(all_of(final_column_order))
+  df_cleaned <- df_cleaned %>% dplyr::select(all_of(final_column_order))
   
   return(df_cleaned)
 }
@@ -197,7 +197,7 @@ create_phenotype_files <- function(data, output_dir) {
   # Loop through each "smri" column
   for (col in smri_cols) {
     # Create a new data frame with the other columns and the current "smri" column
-    phenotype_data <- data %>% select(IID, FID, sex, PC1:20, all_of(col))
+    phenotype_data <- data %>% dplyr::select(IID, FID, sex, PC1:20, all_of(col))
     
     # Define the file name based on the phenotype column name
     file_name <- file.path(output_dir, paste0(col, ".txt"))
@@ -215,3 +215,63 @@ rename_columns <- function(col_names) {
   renamed_cols[match(old_names, col_names)] <- new_names
   return(renamed_cols)
 }
+
+# Function to create dummy variables
+create_dummies <- function(data, var_names) {
+  for (var_name in var_names) {
+    data[[var_name]] <- factor(data[[var_name]])
+    dummies <- model.matrix(~ . - 1, data = data[var_name])
+    colnames(dummies) <- gsub("data\\[\\[var_name\\]\\]", var_name, colnames(dummies))
+    data <- cbind(data, dummies)
+  }
+  data
+}
+
+# Function to save GCTA input files
+save_gcta_files <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
+  # Define output directories
+  pheno_out_dir <- file.path(pheno_dir, ethnicity, sex)
+  covar_disc_out_dir <- file.path(covar_dir, "Discrete", ethnicity, sex)
+  covar_quant_out_dir <- file.path(covar_dir, "Quantitative", ethnicity, sex)
+  
+  # Verify the paths exist
+  if (!dir.exists(pheno_out_dir) || !dir.exists(covar_disc_out_dir) || !dir.exists(covar_quant_out_dir)) {
+    stop("One or more output directories do not exist. Please check the paths.")
+  }
+  
+  # Save phenotype files
+  phenotypes <- names(data)[grepl("^smri_vol", names(data))]
+  for (pheno in phenotypes) {
+    pheno_data <- data %>% dplyr::select(FID, IID, !!sym(pheno))
+    file_name <- file.path(pheno_out_dir, paste0(pheno, ".txt"))
+    write.table(pheno_data, file = file_name, row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
+  }
+  
+  # Save discrete covariate file with dummy coding
+  data <- create_dummies(data, c("mri_info_deviceserialnumber", "batch"))
+  covar_discrete <- data %>%
+    dplyr::select(FID, IID, sex, starts_with("mri_info_"), starts_with("batch")) %>%
+    mutate(sex = ifelse(sex == "M", 1, 2))
+  write.table(covar_discrete, file.path(covar_disc_out_dir, "covar_discrete.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
+  
+  # Save quantitative covariate file
+  if ("smri_vol_scs_wholeb_ROC0_2" %in% phenotypes) {
+    covar_quant <- data %>% dplyr::select(FID, IID, interview_age, starts_with("PC"))
+  } else {
+    covar_quant <- data %>% dplyr::select(FID, IID, interview_age, smri_vol_scs_intracranialv_ROC0_2, starts_with("PC"))
+  }
+  write.table(covar_quant, file.path(covar_quant_out_dir, "covar_quant.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
+}
+
+# Function to apply rank inverse normal transformation
+apply_rank_inverse_norm <- function(data) {
+  phenotypes <- names(data)[grepl("^smri_vol", names(data))]
+  data <- data %>% mutate(across(all_of(phenotypes), ~ rankTransPheno(.x, 0.5)))
+  data
+}
+
+# Function to filter data by ethnicity and sex
+filter_data <- function(data, ethnicity, sex) {
+  data %>% filter(ethnicity == ethnicity & sex == sex)
+}
+

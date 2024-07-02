@@ -3,34 +3,28 @@
 ## phenotypes, covars, qcovars ##
 # Phenotypes:
 # roi_columns <- smri.R5.1.baseline.y2.ROC.filtered %>% 
-#   select(starts_with("smri_vol_")) %>% 
+#   dplyr::select(starts_with("smri_vol_")) %>% 
 #   colnames()
 
 ## Discrete Covariates ##
-# sex, genotyping batch, mri_info_deviceserialnumber
+# sex, batch, mri_info_deviceserialnumber
 
 ## Quantitative Covariates ##
 # interview_age, bigsnpr 10 PCs, smri_vol_scs_intracranialv (except for smri_vol_scs_wholeb)
  
 ## Remaining Tasks ##
 # 1. Finalize split txt formatting and reformatting/naming (what info should be included in txt filenames?) and directory structure
-# 3. Maybe use TOPMed imputed ancestries file with all IIDs (not split) in main TOPMed directory add Ancestry/Population/Ethnicity column to master Dataframe. 
 # 4. Split master df by phenotype, TOPMed imputed ancestry, and sex
 # 5. Rank inverse log normalize phenotype txts AFTER sex, ethnicity and phenotype split
-# 7. Intracranial excluded for whole brain
-# 8. Split covar and qcovar by ancestry and sex
-# 9. Finalize job script and out dirs
-# 10. Final qc checks
 
 ## Priorities ##
 # Ethnicity priority: EUR
 # ROI priority: smri_vol_scs_wholeb (smri_vol_scs_intracranialv covar not needed)
 
 # Load Packages
-library(pacman)
-p_load(dplyr, purrr, readr)
+p_load(purrr, readr, FRGEpistasis, dplyr)
 
-# directories
+# Directories
 base_dir <- '/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/'
 r5.1_genetics <- '/u/project/lhernand/shared/GenomicDatasets/ABCD_Release_5.1/core/genetics'
 image_dir <- paste0(base_dir, 'Images/')
@@ -38,13 +32,21 @@ shiny_dir <- paste0(base_dir, 'plots/Shinyapps_plotly_plots/')
 table1_dir <- paste0(shiny_dir, 'Counts.Table')
 table2_dir <- paste0(shiny_dir, 'ROC.Summary.Table')
 gwas_dir <- paste0(base_dir, 'GCTA_GWAS/')
+proc_dir <- paste0(gwas_dir, 'Processed_Data')
+pheno_dir <- file.path(proc_dir, "Phenotypes")
+covar_dir <- file.path(proc_dir, "Covariates")
 anc_pc_dir <- paste0(gwas_dir, 'ANCESTRY_PCS/')
-pheno_dir <- paste0(gwas_dir, 'PHENOTYPE_DATA')
-covariate_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/covar_AllSubj_batch_gender_noNAs_baseline_11665.txt"
-date <- Sys.Date()
 
-# Load ABCD 5.1 external functions
+# Define ancestries and sexes
+ethnicities <- c("AFR", "AMR", "EUR")
+sexes <- c("F", "M")
+
+# Set Date
+date <- format(Sys.Date(), "%m%d%Y")
+
+# Load ABCD 5.1 external functions and Sruthi covar file
 source(paste0(base_dir, 'release5_external_functions.R'))
+covariate_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/covar_AllSubj_batch_gender_noNAs_baseline_11665.txt"
 
 # remove non-ROI columns from smri.R5.1.baseline.y2.ROC and reorder columns
 smri.R5.1.baseline.y2.ROC.filtered <- roi_filter(smri.R5.1.baseline.y2.ROC)
@@ -56,7 +58,7 @@ gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.filtered %>%
 # Load and preprocess ancestry principal components data by renaming and selecting columns
 ancestry_pcs <- fread(paste0(anc_pc_dir, "ABCD5_all_ancestries_all_individuals_PC20.txt")) %>%
   rename(IID = V1) %>%
-  select(-V2)
+  dplyr::select(-V2)
 
 # Apply the renaming function to the ancestry_pcs data frame
 ancestry_pcs <- ancestry_pcs %>% rename_with(rename_columns, .cols = starts_with("V"))
@@ -64,16 +66,9 @@ ancestry_pcs <- ancestry_pcs %>% rename_with(rename_columns, .cols = starts_with
 # remove non-ROI columns from smri.R5.1.baseline.y2.ROC and reorder columns
 smri.R5.1.baseline.y2.ROC.filtered <- roi_filter(smri.R5.1.baseline.y2.ROC)
 
-# pivot long
-# smri.R5.1.baseline.y2.ROC.filtered.long <- pivot_roc_to_long_format(smri.R5.1.baseline.y2.ROC.filtered, is_baseline_y2 = TRUE)
-
 # rename pheno cols to GCTA format
 gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.filtered %>%
   rename(FID = rel_family_id, IID = src_subject_id)
-
-# save phenotype files
-# Assuming gcta.pheno.scs.vol.roc is your data frame and pheno_dir is the directory where you want to save the files
-# create_phenotype_files(gcta.pheno.scs.vol.roc, pheno_dir)
 
 #### Remove samples with missing data ####
 # Read the files without headers
@@ -89,19 +84,19 @@ filtered_ancestry_pcs <- ancestry_pcs %>% semi_join(gcta.pheno.scs.vol.roc, by =
 
 # Merge gcta.pheno.scs.vol.roc with filtered_covariate_data and filtered_ancestry_pcs
 merged_data <- gcta.pheno.scs.vol.roc %>%
-  left_join(filtered_covariate_data %>% select(IID, batch), by = "IID") %>%
-  left_join(filtered_ancestry_pcs %>% select(IID, starts_with("PC")), by = "IID")
+  left_join(filtered_covariate_data %>% dplyr::select(IID, batch), by = "IID") %>%
+  left_join(filtered_ancestry_pcs %>% dplyr::select(IID, starts_with("PC")), by = "IID")
 
 # drop any rows from merged_data with NAs (in batch and PCs columns)
 # reorder columns
 merged_data_no_na <- merged_data %>%
-  select(FID, IID, everything()) %>% # Ensures FID and IID are the first two columns
+  dplyr::select(FID, IID, everything()) %>% # Ensures FID and IID are the first two columns
   drop_na()
 
-# replace FID = rel_family_id, IID = src_subject_id, remove PC11-PC20 and repoerted ethnicity cols
+# replace FID = rel_family_id, IID = src_subject_id, remove PC11-PC20 and reported ethnicity cols
 merged_data_final <- merged_data_no_na %>%
   mutate(FID = IID) %>%
-  select(-PC11:-PC20, -ethnicity)
+  dplyr::select(-PC11:-PC20, -ethnicity)
 
 # split merged_data_final by TOPMed ethnicity
 # Define the file names for each ethnicity
@@ -121,9 +116,26 @@ merged_data_final$ethnicity[merged_data_final$IID %in% afr_iids] <- "AFR"
 merged_data_final$ethnicity[merged_data_final$IID %in% amr_iids] <- "AMR"
 merged_data_final$ethnicity[merged_data_final$IID %in% eur_iids] <- "EUR"
 
-# Remove samples with missing ethnicity
-merged_data_final <- merged_data_final[!is.na(merged_data_final$ethnicity), ]
+# Remove samples with missing ethnicity and reorder cols
+merged_data_final <- merged_data_final %>%
+  filter(!is.na(ethnicity)) %>%
+  relocate(batch, ethnicity, PC1:PC10, .after = interview_age)
 
+# Split pheno, covar and qcovar files by ethnicity and sex and then save
+for (ethnicity in ethnicities) {
+  for (sex in sexes) {
+    # Filter data by ethnicity and sex
+    df_subset <- filter_data(merged_data_final, ethnicity, sex)
+    
+    # Apply rank inverse normalization to phenotypes
+    df_subset <- apply_rank_inverse_norm(df_subset)
+    
+    # Save GCTA files
+    save_gcta_files(df_subset, ethnicity, sex, pheno_dir, covar_dir, date)
+  }
+}
+
+#### Extra and QC ####
 # Subset the merged_data_final dataframe by ethnicity
 # afr_data <- merged_data_final[merged_data_final$IID %in% afr_iids, ]
 # amr_data <- merged_data_final[merged_data_final$IID %in% amr_iids, ]
@@ -141,47 +153,50 @@ merged_data_final <- merged_data_final[!is.na(merged_data_final$ethnicity), ]
 # write.table(merged_data_final, file = "gcta_mlma_SCS_ROC_master.txt", sep = " ", row.names = FALSE, col.names = TRUE, quote = FALSE)
 # first_100_rows <- head(merged_data_final, 100)
 # write.csv(first_100_rows, "first_100_rows.csv", row.names = FALSE)
-# 
+
 # Filtering rows with any `NA` values
 # rows_with_na <- merged_data %>% 
 #   filter(if_any(everything(), is.na)) %>%
-#   select(FID, IID, batch, PC1:PC10)
-# 
+#   dplyr::select(FID, IID, batch, PC1:PC10)
+
 # Filter out rows in `rows_with_na` where `IID` is not present in either `ancestry_pcs$IID` or `covariate_data$IID`
 # This results in a dataset with `IID`s that are missing in either data frame
 # all_IIDs_missing <- rows_with_na %>%
 #   filter(!(IID %in% ancestry_pcs$IID) | !(IID %in% covariate_data$IID))
-# 
+
 # Extract unique IIDs and save to a text file
 # unique_IIDs <- all_IIDs_missing %>% 
 #   pull(IID) %>%
 #   unique()
-# 
+
 # Write IIDs to a text file
 # write_lines(unique_IIDs, "missing_IIDs.txt")
-# 
+
 # Filter `smri.R5.1.baseline.y2` to retain rows with `src_subject_id` present in `all_IIDs_missing$IID`
 # smri.R5.1.baseline.y2_missing_baseline_pcs <- smri.R5.1.baseline.y2 %>%
 #   filter(src_subject_id %in% all_IIDs_missing$IID) %>%
 #   distinct(src_subject_id, .keep_all = TRUE)
-# 
+
 # Save merged_data_no_na as a space-separated text file
 # write.table(smri.R5.1.baseline.y2_missing_baseline_pcs, file = "missing_IIDs_info.txt", sep = " ", row.names = FALSE, col.names = TRUE, quote = FALSE)
-# 
+
 # Create the phenotype split .txt files
 # Phenotype files
 # Assuming gcta.pheno.scs.vol.roc is your data frame and pheno_dir is the directory where you want to save the files
 # create_phenotype_files(merged_data_no_na, pheno_dir)
-# 
+
 # Covariate file
 # covariate_data <- final_data %>%
-#   select(src_subject_id, sex, batch, mri_info_deviceserialnumber) %>%
+#   dplyr::select(src_subject_id, sex, batch, mri_info_deviceserialnumber) %>%
 #   rename(IID = src_subject_id)
-# 
+
 # save covariate file
 # write.table(covariate_data, file = "covariate.txt", row.names = FALSE, col.names = TRUE, quote = FALSE)
-# 
+
 # Quantitative Covariate file
+
+# save phenotype files
+# Assuming gcta.pheno.scs.vol.roc is your data frame and pheno_dir is the directory where you want to save the files
 
 #### From EMMA/Sruthi ####
 # Read ancestry ID files
