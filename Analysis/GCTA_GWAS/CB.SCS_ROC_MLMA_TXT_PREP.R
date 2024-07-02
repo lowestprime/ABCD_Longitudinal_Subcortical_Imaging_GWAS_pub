@@ -13,13 +13,13 @@
 # interview_age, bigsnpr 10 PCs, smri_vol_scs_intracranialv (except for smri_vol_scs_wholeb)
  
 ## Remaining Tasks ##
-# 1. Finalize split txt formatting and reformatting/naming (what info should be included in txt filenames?) and directory structure
-# 4. Split master df by phenotype, TOPMed imputed ancestry, and sex
-# 5. Rank inverse log normalize phenotype txts AFTER sex, ethnicity and phenotype split
+# 1. Finalize split txt formatting, file names and directory structure
+# 2. Finalize job script
+# 3. Switch from split to master covar and qcovar files and adjust job script accordingly
 
 ## Priorities ##
-# Ethnicity priority: EUR
-# ROI priority: smri_vol_scs_wholeb (smri_vol_scs_intracranialv covar not needed)
+# Ethnicity: EUR
+# ROI: smri_vol_scs_wholeb (smri_vol_scs_intracranialv covar not needed)
 
 # Load Packages
 p_load(purrr, readr, FRGEpistasis, dplyr)
