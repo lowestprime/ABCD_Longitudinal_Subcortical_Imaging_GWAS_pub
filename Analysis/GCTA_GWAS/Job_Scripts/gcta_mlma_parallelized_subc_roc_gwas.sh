@@ -14,7 +14,7 @@
 gcta=/u/project/lhernand/sganesh/apps/gcta/gcta-1.94.1
 
 date=$(date +%Y%m%d)
-cohort="ABCDr4"
+cohort="ABCDr5.1"
 ref="TOPMed"
 
 # Define directories
