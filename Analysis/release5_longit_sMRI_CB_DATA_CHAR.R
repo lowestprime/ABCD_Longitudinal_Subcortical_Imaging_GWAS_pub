@@ -37,7 +37,7 @@ id.timepoint.fields <- c('src_subject_id', 'eventname', 'timepoint')
 # filter for smri t1w qc metric and other relevant columns
 smri.R5.1 <- abcdData.R5.1 %>%
   filter(imgincl_t1w_include == 1) %>%
-  select(matches('smri|src_subject_id|eventname|timepoint|ethnicity|pc|ses|interview_age|sex|site_id_l|rel_family_id|mri_info_deviceserialnumber|mrisdp_453|pps')) %>%
+  dplyr::select(matches('smri|src_subject_id|eventname|timepoint|ethnicity|pc|ses|interview_age|sex|site_id_l|rel_family_id|mri_info_deviceserialnumber|mrisdp_453|pps')) %>%
   filter(rowSums(is.na(.)) != ncol(.))
 
 # average across brain hemispheres for each applicable scs region
