@@ -6,7 +6,7 @@
 #$ -pe shared 32  # Using 32 cores
 #$ -o GCTA_GWAS_${JOB_ID}.out
 #$ -j y
-#$ -M $USER@mail
+#$ -M cobeaman@g.ucla.edu
 #$ -m bea
 #$ -t 1-3:1
 
@@ -15,13 +15,17 @@ gcta=/u/project/lhernand/sganesh/apps/gcta/gcta-1.94.1
 
 date=$(date +%Y%m%d)
 cohort="ABCDr5.1"
-ref="TOPMed"
+ref="MikeDB_db155_rm"
+filebase_1="${cohort}_TopMed_chr1.22_rsID"
+filebase=$filebase_1.$ref
 
 # Define directories
 base_dir="/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data"
 pheno_dir="${base_dir}/Phenotypes"
 covar_dir="${base_dir}/Covariates"
-grm_dir="/u/project/lhernand/sganesh/gwas_srs/grm" # Adjust if different
+indir="/u/project/lhernand/sganesh/gwas_srs/TOPMed_imputed/splitted_by_ancestry_groups/related_individuals"
+ancestry_dir="/u/project/lhernand/sganesh/gwas_srs/ancestry_estimation_results/splitted_by_ancestry_groups"
+grmDir="/u/project/lhernand/sganesh/gwas_srs/grm/grm_all"
 results_dir="${base_dir}/results"
 
 # Define populations and sexes
@@ -48,14 +52,18 @@ run_gcta_mlma() {
   echo "Starting GCTA MLMA for ${pheno_name}..."
   $gcta --mlma \
         --bfile "${grm_file}" \
-        --grm-sparse "${grm_file}" \
+        --grm "${grm_file}" \
         --pheno "${pheno_file}" \
         --covar "${master_covar_file}" \
         --qcovar "${qcovar_file}" \
         --thread-num 32 \
         --out "${out_file}"
 
-  gzip "${out_file}.fastGWA"
+  if [ $? -ne 0 ]; then
+    echo "Error running GCTA MLMA for ${pheno_name}" >&2
+    exit 1
+  fi
+
   echo "Completed GCTA MLMA for ${pheno_name}"
 }
 
@@ -69,7 +77,10 @@ for sex in "${sexes[@]}"; do
   echo "Preparing GCTA MLMA tasks for: Population - ${pop}, Sex - ${sex}"
 
   pheno_files=$(ls "${pheno_dir}/${pop}/${sex}/smri_vol_*.txt")
-  grm_file=$(ls "${grm_dir}/*${pop}*_GRMsparse.grm.id" | sed 's/.grm.id//g')
+  filepath=`ls -1v $ancestry_dir/*${pop}*.rmsexmismatch*.fam | grep -v "allproblem"`
+  num_no_sex_mismatch=`wc -l $filepath | cut -f1 -d" "`
+  infile="$indir/$filebase_1.$ref.sexmismatch.${pop}.${num_no_sex_mismatch}"
+  grm_file="$grmDir/ABCD_202209.updated.nodups.curated.cleaned_indivs.qc.basic_withsexinfo_RSid_NoDuplicates_RSidOnly_${pop}.${num_no_sex_mismatch}.rmsexmismatch.0.chr1.22_indep_pruned_qc_GRM"
 
   out_dir="${results_dir}/${sex}/${pop}"
   mkdir -p "${out_dir}/log"
