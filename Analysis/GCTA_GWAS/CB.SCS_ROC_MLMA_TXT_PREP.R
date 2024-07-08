@@ -1,6 +1,5 @@
 #### GCTA GWAS PREP ####
 
-## phenotypes, covars, qcovars ##
 # Phenotypes:
 # roi_columns <- smri.R5.1.baseline.y2.ROC.filtered %>% 
 #   dplyr::select(starts_with("smri_vol_")) %>% 
@@ -10,15 +9,7 @@
 # sex, batch, mri_info_deviceserialnumber
 
 ## Quantitative Covariates ##
-# interview_age, bigsnpr 10 PCs, smri_vol_scs_intracranialv (except for smri_vol_scs_wholeb)
- 
-## Remaining Tasks ##
-# 1. Finalize split txt formatting, file names and directory structure
-# 2. Finalize job script
-# 3. Switch from split to master covar and qcovar files and adjust job script accordingly
-# 4. Check dummy variable formatting for batch and MRI serial cols in txt splitting script
-# 5. check input txt save format same as Sruthi/Emma and compatible with GCTA MLMA
-# 6. check contents of each split txt to confirm successful splitting and expected contents
+# interview_age, bigsnpr top 10 PCs, smri_vol_scs_intracranialv (except for smri_vol_scs_wholeb)
 
 ## Priorities ##
 # Ethnicity: EUR
@@ -125,18 +116,24 @@ merged_data_final <- merged_data_final %>%
   relocate(batch, ethnicity, PC1:PC10, .after = interview_age)
 
 # Split pheno, covar and qcovar files by ethnicity and sex and then save
+# for (ethnicity in ethnicities) {
+#   for (sex in sexes) {
+#     # Filter data by ethnicity and sex
+#     df_subset <- filter_data(merged_data_final, ethnicity, sex)
+#     
+#     # Apply rank inverse normalization to phenotypes
+#     df_subset <- apply_rank_inverse_norm(df_subset)
+#     
+#     # Save GCTA files
+#     save_gcta_files(df_subset, ethnicity, sex, pheno_dir, covar_dir, date)
+#   }
+# }
 for (ethnicity in ethnicities) {
   for (sex in sexes) {
-    # Filter data by ethnicity and sex
-    df_subset <- filter_data(merged_data_final, ethnicity, sex)
-    
-    # Apply rank inverse normalization to phenotypes
-    df_subset <- apply_rank_inverse_norm(df_subset)
-    
-    # Save GCTA files
-    save_gcta_files(df_subset, ethnicity, sex, pheno_dir, covar_dir, date)
+    save_split_data(merged_data_final, ethnicity, sex, pheno_dir, covar_dir, date)
   }
 }
+
 
 #### Extra and QC ####
 # Subset the merged_data_final dataframe by ethnicity
@@ -182,11 +179,6 @@ for (ethnicity in ethnicities) {
 
 # Save merged_data_no_na as a space-separated text file
 # write.table(smri.R5.1.baseline.y2_missing_baseline_pcs, file = "missing_IIDs_info.txt", sep = " ", row.names = FALSE, col.names = TRUE, quote = FALSE)
-
-# Create the phenotype split .txt files
-# Phenotype files
-# Assuming gcta.pheno.scs.vol.roc is your data frame and pheno_dir is the directory where you want to save the files
-# create_phenotype_files(merged_data_no_na, pheno_dir)
 
 # Covariate file
 # covariate_data <- final_data %>%

@@ -184,35 +184,20 @@ roi_filter <- function(df) {
   return(df_cleaned)
 }
 
-# split and save phenotype files
-create_phenotype_files <- function(data, output_dir) {
-  # Ensure output directory exists
-  if (!dir.exists(output_dir)) {
-    dir.create(output_dir)
-  }
-  
-  # Get the column names that start with "smri"
-  smri_cols <- grep("^smri", names(data), value = TRUE)
-  
-  # Loop through each "smri" column
-  for (col in smri_cols) {
-    # Create a new data frame with the other columns and the current "smri" column
-    phenotype_data <- data %>% dplyr::select(IID, FID, sex, PC1:20, all_of(col))
-    
-    # Define the file name based on the phenotype column name
-    file_name <- file.path(output_dir, paste0(col, ".txt"))
-    
-    # Save the data frame to a text file
-    write.table(phenotype_data, file = file_name, row.names = FALSE, col.names = FALSE, quote = FALSE)
-  }
-}
-
 # Define a function to rename columns from V3-V22 to P1-P20
-rename_columns <- function(col_names) {
+# rename_columns <- function(col_names) {
+#   old_names <- paste0("V", 3:22)
+#   new_names <- paste0("PC", 1:20)
+#   renamed_cols <- col_names
+#   renamed_cols[match(old_names, col_names)] <- new_names
+#   return(renamed_cols)
+# }
+# Function to rename columns (used in preprocessing ancestry PCs)
+rename_columns <- function(col) {
   old_names <- paste0("V", 3:22)
   new_names <- paste0("PC", 1:20)
-  renamed_cols <- col_names
-  renamed_cols[match(old_names, col_names)] <- new_names
+  renamed_cols <- col
+  renamed_cols[match(old_names, col)] <- new_names
   return(renamed_cols)
 }
 
@@ -228,6 +213,41 @@ create_dummies <- function(data, var_names) {
 }
 
 # Function to save GCTA input files
+# save_gcta_files <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
+  # Define output directories
+#   pheno_out_dir <- file.path(pheno_dir, ethnicity, sex)
+#   covar_disc_out_dir <- file.path(covar_dir, "Discrete", ethnicity, sex)
+#   covar_quant_out_dir <- file.path(covar_dir, "Quantitative", ethnicity, sex)
+#   
+#   # Verify the paths exist
+#   if (!dir.exists(pheno_out_dir) || !dir.exists(covar_disc_out_dir) || !dir.exists(covar_quant_out_dir)) {
+#     stop("One or more output directories do not exist. Please check the paths.")
+#   }
+#   
+#   # Save phenotype files
+#   phenotypes <- names(data)[grepl("^smri_vol", names(data))]
+#   for (pheno in phenotypes) {
+#     pheno_data <- data %>% dplyr::select(FID, IID, !!sym(pheno))
+#     file_name <- file.path(pheno_out_dir, paste0(pheno, ".txt"))
+#     write.table(pheno_data, file = file_name, row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
+#   }
+#   
+#   # Save discrete covariate file with dummy coding
+#   data <- create_dummies(data, c("mri_info_deviceserialnumber", "batch"))
+#   covar_discrete <- data %>%
+#     dplyr::select(FID, IID, sex, starts_with("mri_info_"), starts_with("batch")) %>%
+#     mutate(sex = ifelse(sex == "M", 1, 2))
+#   write.table(covar_discrete, file.path(covar_disc_out_dir, "covar_discrete.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
+#   
+#   # Save quantitative covariate file
+#   if ("smri_vol_scs_wholeb_ROC0_2" %in% phenotypes) {
+#     covar_quant <- data %>% dplyr::select(FID, IID, interview_age, starts_with("PC"))
+#   } else {
+#     covar_quant <- data %>% dplyr::select(FID, IID, interview_age, smri_vol_scs_intracranialv_ROC0_2, starts_with("PC"))
+#   }
+#   write.table(covar_quant, file.path(covar_quant_out_dir, "covar_quant.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
+# }
+# Function to save GCTA input files
 save_gcta_files <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
   # Define output directories
   pheno_out_dir <- file.path(pheno_dir, ethnicity, sex)
@@ -235,16 +255,16 @@ save_gcta_files <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
   covar_quant_out_dir <- file.path(covar_dir, "Quantitative", ethnicity, sex)
   
   # Verify the paths exist
-  if (!dir.exists(pheno_out_dir) || !dir.exists(covar_disc_out_dir) || !dir.exists(covar_quant_out_dir)) {
-    stop("One or more output directories do not exist. Please check the paths.")
-  }
+  if (!dir.exists(pheno_out_dir)) dir.create(pheno_out_dir, recursive = TRUE)
+  if (!dir.exists(covar_disc_out_dir)) dir.create(covar_disc_out_dir, recursive = TRUE)
+  if (!dir.exists(covar_quant_out_dir)) dir.create(covar_quant_out_dir, recursive = TRUE)
   
   # Save phenotype files
   phenotypes <- names(data)[grepl("^smri_vol", names(data))]
   for (pheno in phenotypes) {
     pheno_data <- data %>% dplyr::select(FID, IID, !!sym(pheno))
     file_name <- file.path(pheno_out_dir, paste0(pheno, ".txt"))
-    write.table(pheno_data, file = file_name, row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
+    write.table(pheno_data, file = file_name, row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
   }
   
   # Save discrete covariate file with dummy coding
@@ -252,22 +272,67 @@ save_gcta_files <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
   covar_discrete <- data %>%
     dplyr::select(FID, IID, sex, starts_with("mri_info_"), starts_with("batch")) %>%
     mutate(sex = ifelse(sex == "M", 1, 2))
-  write.table(covar_discrete, file.path(covar_disc_out_dir, "covar_discrete.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
+  write.table(covar_discrete, file.path(covar_disc_out_dir, "covar_discrete.txt"), row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
   
-  # Save quantitative covariate file
+  # Save quantitative covariate files
   if ("smri_vol_scs_wholeb_ROC0_2" %in% phenotypes) {
-    covar_quant <- data %>% dplyr::select(FID, IID, interview_age, starts_with("PC"))
-  } else {
-    covar_quant <- data %>% dplyr::select(FID, IID, interview_age, smri_vol_scs_intracranialv_ROC0_2, starts_with("PC"))
+    covar_quant_no_icv <- data %>% dplyr::select(FID, IID, interview_age, starts_with("PC"))
+    write.table(covar_quant_no_icv, file.path(covar_quant_out_dir, "qcovar_noICV.txt"), row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
   }
-  write.table(covar_quant, file.path(covar_quant_out_dir, "covar_quant.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
+  
+  covar_quant <- data %>% dplyr::select(FID, IID, interview_age, smri_vol_scs_intracranialv_ROC0_2, starts_with("PC"))
+  write.table(covar_quant, file.path(covar_quant_out_dir, "qcovar.txt"), row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
 }
 
 # Function to apply rank inverse normal transformation
+# apply_rank_inverse_norm <- function(data) {
+#   phenotypes <- names(data)[grepl("^smri_vol", names(data))]
+#   data <- data %>% mutate(across(all_of(phenotypes), ~ rankTransPheno(.x, 0.5)))
+#   data
+# }
+# Function to apply rank inverse normal transformation using FRGEpistasis
 apply_rank_inverse_norm <- function(data) {
   phenotypes <- names(data)[grepl("^smri_vol", names(data))]
   data <- data %>% mutate(across(all_of(phenotypes), ~ rankTransPheno(.x, 0.5)))
   data
+}
+
+# Function to filter and save data by ethnicity and sex
+save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
+  subset_data <- data %>%
+    filter(ethnicity == !!ethnicity, sex == !!sex) %>%
+    mutate_at(vars(starts_with("smri_vol_")), ~ rankTransPheno(.x, 0.5))
+  
+  num_samples <- nrow(subset_data)
+  id <- sample(1:1000000, 1) # generate a random ID
+  
+  # Save phenotype files
+  phenotypes <- colnames(subset_data)[grepl("^smri_vol", colnames(subset_data))]
+  for (phenotype in phenotypes) {
+    phenotype_file_name <- file.path(pheno_dir, sprintf("%s_pheno_%s_%s_%s_%s_%d_%s.txt", 
+                                                        id, date, ethnicity, sex, num_samples, phenotype))
+    write.table(subset_data %>% select(FID, IID, all_of(phenotype)), 
+                file = phenotype_file_name, sep = "\t", row.names = FALSE, col.names = TRUE)
+  }
+  
+  # Save corresponding qcovar file
+  if ("smri_vol_scs_wholeb_ROC0_2" %in% phenotypes) {
+    qcovar_file_name_no_icv <- file.path(covar_dir, sprintf("qcovar_noICV_%s_%s_%s_%s_%d.txt", 
+                                                            id, date, ethnicity, sex, num_samples))
+    write.table(subset_data %>% select(FID, IID, interview_age, starts_with("PC")), 
+                file = qcovar_file_name_no_icv, sep = "\t", row.names = FALSE, col.names = TRUE)
+  } 
+  
+  qcovar_file_name <- file.path(covar_dir, sprintf("qcovar_%s_%s_%s_%s_%d.txt", 
+                                                   id, date, ethnicity, sex, num_samples))
+  write.table(subset_data %>% select(FID, IID, interview_age, smri_vol_scs_intracranialv_ROC0_2, starts_with("PC")), 
+              file = qcovar_file_name, sep = "\t", row.names = FALSE, col.names = TRUE)
+  
+  # Save discrete covariate file
+  covar_file_name <- file.path(covar_dir, sprintf("covar_%s_%s_%s_%s_%d.txt", 
+                                                  id, date, ethnicity, sex, num_samples))
+  write.table(subset_data %>% select(FID, IID, batch, sex), 
+              file = covar_file_name, sep = "\t", row.names = FALSE, col.names = TRUE)
 }
 
 # Function to filter data by ethnicity and sex
