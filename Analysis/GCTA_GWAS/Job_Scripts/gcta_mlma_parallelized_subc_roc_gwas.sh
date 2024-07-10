@@ -23,8 +23,6 @@ filebase=$filebase_1.$ref
 base_dir="/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data"
 pheno_dir="${base_dir}/Phenotypes"
 covar_dir="${base_dir}/Covariates"
-indir="/u/project/lhernand/sganesh/gwas_srs/TOPMed_imputed/splitted_by_ancestry_groups/related_individuals"
-ancestry_dir="/u/project/lhernand/sganesh/gwas_srs/ancestry_estimation_results/splitted_by_ancestry_groups"
 grmDir="/u/project/lhernand/sganesh/gwas_srs/grm/grm_all"
 results_dir="${base_dir}/results"
 
@@ -32,11 +30,6 @@ results_dir="${base_dir}/results"
 pops=("EUR" "AMR" "AFR")
 pop=${pops[$SGE_TASK_ID-1]}
 sexes=("F" "M")
-
-# Master covariate files
-master_covar_file="${covar_dir}/covar_discrete_master.txt"
-master_qcovar_file="${covar_dir}/covar_quant_master.txt"
-master_qcovar_file_no_icv="${covar_dir}/covar_quant_master_no_icv.txt"
 
 # Function to run GCTA MLMA
 run_gcta_mlma() {
@@ -46,15 +39,16 @@ run_gcta_mlma() {
   local out_dir=$3
   local date=$4
   local qcovar_file=$5
+  local num_samples=$6
 
-  local out_file="${out_dir}/${pheno_name}_${date}"
+  local out_file="${out_dir}/${pheno_name}_${date}_n${num_samples}"
   
-  echo "Starting GCTA MLMA for ${pheno_name}..."
+  echo "Starting GCTA MLMA for ${pheno_name} with ${num_samples} samples..."
   $gcta --mlma \
         --bfile "${grm_file}" \
         --grm "${grm_file}" \
         --pheno "${pheno_file}" \
-        --covar "${master_covar_file}" \
+        --covar "${covar_dir}/Discrete/${pop}/${sex}/covar_discrete.txt" \
         --qcovar "${qcovar_file}" \
         --thread-num 32 \
         --out "${out_file}"
@@ -64,7 +58,7 @@ run_gcta_mlma() {
     exit 1
   fi
 
-  echo "Completed GCTA MLMA for ${pheno_name}"
+  echo "Completed GCTA MLMA for ${pheno_name} with ${num_samples} samples"
 }
 
 export -f run_gcta_mlma
@@ -76,21 +70,21 @@ completed_tasks=0
 for sex in "${sexes[@]}"; do
   echo "Preparing GCTA MLMA tasks for: Population - ${pop}, Sex - ${sex}"
 
-  pheno_files=$(ls "${pheno_dir}/${pop}/${sex}/smri_vol_*.txt")
-  filepath=`ls -1v $ancestry_dir/*${pop}*.rmsexmismatch*.fam | grep -v "allproblem"`
-  num_no_sex_mismatch=`wc -l $filepath | cut -f1 -d" "`
-  infile="$indir/$filebase_1.$ref.sexmismatch.${pop}.${num_no_sex_mismatch}"
-  grm_file="$grmDir/ABCD_202209.updated.nodups.curated.cleaned_indivs.qc.basic_withsexinfo_RSid_NoDuplicates_RSidOnly_${pop}.${num_no_sex_mismatch}.rmsexmismatch.0.chr1.22_indep_pruned_qc_GRM"
+  pheno_files=$(ls "${pheno_dir}/${pop}/${sex}/smri_vol_*.txt" | grep -v "smri_vol_scs_intracranialv_ROC0_2.txt")
+  filepath=$(ls -1v $grmDir/*${pop}*.rmsexmismatch*.fam | grep -v "allproblem")
+  num_no_sex_mismatch=$(wc -l $filepath | cut -f1 -d" ")
+  grm_file="${grmDir}/ABCD_202209.updated.nodups.curated.cleaned_indivs.qc.basic_withsexinfo_RSid_NoDuplicates_RSidOnly_${pop}.${num_no_sex_mismatch}.rmsexmismatch.0.chr1.22_indep_pruned_qc_GRM"
 
   out_dir="${results_dir}/${sex}/${pop}"
   mkdir -p "${out_dir}/log"
 
   task_list=()
   for pheno_file in ${pheno_files}; do
+    num_samples=$(wc -l < "${pheno_file}")
     if [[ "${pheno_file}" == *"smri_vol_scs_wholeb_ROC0_2.txt" ]]; then
-      task_list+=("${pheno_file} ${grm_file} ${out_dir} ${date} ${master_qcovar_file_no_icv}")
+      task_list+=("${pheno_file} ${grm_file} ${out_dir} ${date} ${covar_dir}/Quantitative/${pop}/${sex}/qcovar_noICV.txt ${num_samples}")
     else
-      task_list+=("${pheno_file} ${grm_file} ${out_dir} ${date} ${master_qcovar_file}")
+      task_list+=("${pheno_file} ${grm_file} ${out_dir} ${date} ${covar_dir}/Quantitative/${pop}/${sex}/covar_quant.txt ${num_samples}")
     fi
     total_tasks=$((total_tasks + 1))
   done
