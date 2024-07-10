@@ -1,5 +1,5 @@
 #### EXTERNAL FUNCTIONS FOR ABCD.Release.5.1.C4.Merged.Data ####
-### Cooper Beaman, 5/18/24
+### Cooper Beaman, 7/9/24
 
 # recode timepoint data
 recode.timepoint <- Vectorize(function(eventname) {
