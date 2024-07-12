@@ -76,6 +76,7 @@ for sex in "${sexes[@]}"; do
   grm_file="${grmDir}/ABCD_202209.updated.nodups.curated.cleaned_indivs.qc.basic_withsexinfo_RSid_NoDuplicates_RSidOnly_${pop}.${num_no_sex_mismatch}.rmsexmismatch.0.chr1.22_indep_pruned_qc_GRM"
 
   out_dir="${results_dir}/${sex}/${pop}"
+  # create directories for the output dir and logs
   mkdir -p "${out_dir}/log"
 
   task_list=()

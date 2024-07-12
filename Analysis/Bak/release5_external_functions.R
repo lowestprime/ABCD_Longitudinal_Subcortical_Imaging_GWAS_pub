@@ -1,5 +1,5 @@
 #### EXTERNAL FUNCTIONS FOR ABCD.Release.5.1.C4.Merged.Data ####
-### Cooper Beaman, 5/18/24
+### Cooper Beaman, 5/18/24 Bak
 
 # recode timepoint data
 recode.timepoint <- Vectorize(function(eventname) {
@@ -184,46 +184,53 @@ roi_filter <- function(df) {
   return(df_cleaned)
 }
 
-# Define a function to rename columns from V3-V22 to P1-P20
-# rename_columns <- function(col_names) {
-#   old_names <- paste0("V", 3:22)
-#   new_names <- paste0("PC", 1:20)
-#   renamed_cols <- col_names
-#   renamed_cols[match(old_names, col_names)] <- new_names
-#   return(renamed_cols)
-# }
-# Function to rename columns (used in preprocessing ancestry PCs)
-rename_columns <- function(col) {
+# Define a function to rename columns from V3-V22 to P1-P20 (used in preprocessing ancestry PCs)
+rename_columns <- function(col_names) {
   old_names <- paste0("V", 3:22)
   new_names <- paste0("PC", 1:20)
-  renamed_cols <- col
-  renamed_cols[match(old_names, col)] <- new_names
+  renamed_cols <- col_names
+  renamed_cols[match(old_names, col_names)] <- new_names
   return(renamed_cols)
 }
 
 # Function to create dummy variables
+# create_dummies <- function(data, var_names) {
+#   for (var_name in var_names) {
+#     data[[var_name]] <- factor(data[[var_name]])
+#     dummies <- model.matrix(~ . - 1, data = data[var_name])
+#     colnames(dummies) <- gsub("data\\[\\[var_name\\]\\]", var_name, colnames(dummies))
+#     data <- cbind(data, dummies)
+#   }
+#   data
+# }
+# Function to create dummy variables
 create_dummies <- function(data, var_names) {
-  for (var_name in var_names) {
-    data[[var_name]] <- factor(data[[var_name]])
-    dummies <- model.matrix(~ . - 1, data = data[var_name])
-    colnames(dummies) <- gsub("data\\[\\[var_name\\]\\]", var_name, colnames(dummies))
-    data <- cbind(data, dummies)
-  }
-  data
+  data <- data %>%
+    mutate(across(all_of(var_names), ~ factor(.)))
+  
+  # Generate dummy variables
+  dummies <- model.matrix(~ . - 1, data = data[var_names])
+  colnames(dummies) <- gsub("[\\[]?[\\]]?", "", colnames(dummies))
+  
+  # Remove original factor columns and add dummy columns
+  data <- data %>%
+    select(-all_of(var_names)) %>%
+    bind_cols(as.data.frame(dummies))
+  return(data)
 }
 
 # Function to save GCTA input files
 # save_gcta_files <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
-  # Define output directories
+#   # Define output directories
 #   pheno_out_dir <- file.path(pheno_dir, ethnicity, sex)
 #   covar_disc_out_dir <- file.path(covar_dir, "Discrete", ethnicity, sex)
 #   covar_quant_out_dir <- file.path(covar_dir, "Quantitative", ethnicity, sex)
-#   
+# 
 #   # Verify the paths exist
 #   if (!dir.exists(pheno_out_dir) || !dir.exists(covar_disc_out_dir) || !dir.exists(covar_quant_out_dir)) {
 #     stop("One or more output directories do not exist. Please check the paths.")
 #   }
-#   
+# 
 #   # Save phenotype files
 #   phenotypes <- names(data)[grepl("^smri_vol", names(data))]
 #   for (pheno in phenotypes) {
@@ -231,14 +238,14 @@ create_dummies <- function(data, var_names) {
 #     file_name <- file.path(pheno_out_dir, paste0(pheno, ".txt"))
 #     write.table(pheno_data, file = file_name, row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
 #   }
-#   
+# 
 #   # Save discrete covariate file with dummy coding
 #   data <- create_dummies(data, c("mri_info_deviceserialnumber", "batch"))
 #   covar_discrete <- data %>%
 #     dplyr::select(FID, IID, sex, starts_with("mri_info_"), starts_with("batch")) %>%
 #     mutate(sex = ifelse(sex == "M", 1, 2))
 #   write.table(covar_discrete, file.path(covar_disc_out_dir, "covar_discrete.txt"), row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
-#   
+# 
 #   # Save quantitative covariate file
 #   if ("smri_vol_scs_wholeb_ROC0_2" %in% phenotypes) {
 #     covar_quant <- data %>% dplyr::select(FID, IID, interview_age, starts_with("PC"))
@@ -284,12 +291,6 @@ save_gcta_files <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
   write.table(covar_quant, file.path(covar_quant_out_dir, "qcovar.txt"), row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
 }
 
-# Function to apply rank inverse normal transformation
-# apply_rank_inverse_norm <- function(data) {
-#   phenotypes <- names(data)[grepl("^smri_vol", names(data))]
-#   data <- data %>% mutate(across(all_of(phenotypes), ~ rankTransPheno(.x, 0.5)))
-#   data
-# }
 # Function to apply rank inverse normal transformation using FRGEpistasis
 apply_rank_inverse_norm <- function(data) {
   phenotypes <- names(data)[grepl("^smri_vol", names(data))]

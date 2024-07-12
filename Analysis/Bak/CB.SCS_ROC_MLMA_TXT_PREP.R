@@ -1,5 +1,5 @@
 #### GCTA GWAS PREP ####
-
+# Bak
 # Phenotypes:
 # roi_columns <- smri.R5.1.baseline.y2.ROC.filtered %>% 
 #   dplyr::select(starts_with("smri_vol_")) %>% 
@@ -57,13 +57,6 @@ ancestry_pcs <- fread(paste0(anc_pc_dir, "ABCD5_all_ancestries_all_individuals_P
 # Apply the renaming function to the ancestry_pcs data frame
 ancestry_pcs <- ancestry_pcs %>% rename_with(rename_columns, .cols = starts_with("V"))
 
-# remove non-ROI columns from smri.R5.1.baseline.y2.ROC and reorder columns
-smri.R5.1.baseline.y2.ROC.filtered <- roi_filter(smri.R5.1.baseline.y2.ROC)
-
-# rename pheno cols to GCTA format
-gcta.pheno.scs.vol.roc <- smri.R5.1.baseline.y2.ROC.filtered %>%
-  rename(FID = rel_family_id, IID = src_subject_id)
-
 #### Remove samples with missing data ####
 # Read the files without headers
 covariate_data <- read.table(covariate_file, header = FALSE)
@@ -103,6 +96,7 @@ afr_iids <- read.table(afr_file, header = FALSE, stringsAsFactors = FALSE)[, 1]
 amr_iids <- read.table(amr_file, header = FALSE, stringsAsFactors = FALSE)[, 1]
 eur_iids <- read.table(eur_file, header = FALSE, stringsAsFactors = FALSE)[, 1]
 
+# make empty ethnicity column
 merged_data_final$ethnicity <- NA
 
 # Assign ethnicity based on IIDs
@@ -195,70 +189,69 @@ for (ethnicity in ethnicities) {
 
 #### From EMMA/Sruthi ####
 # Read ancestry ID files
-read_ancestry_ids <- function(file_path) {
-  read.table(file_path, header = FALSE, stringsAsFactors = FALSE)$V2
-}
-
-ancestry_files <- list(
-  AFR = "/u/project/lhernand/sganesh/gwas_srs/TOPMed_imputed/ABCDr5_AFR.2263_no.sexmismatch_IDs.txt",
-  AMR = "/u/project/lhernand/sganesh/gwas_srs/TOPMed_imputed/ABCDr5_AMR.2019_no.sexmismatch_IDs.txt",
-  EUR = "/u/project/lhernand/sganesh/gwas_srs/TOPMed_imputed/ABCDr5_EUR.6891_no.sexmismatch_IDs.txt"
-)
-
-ancestry_samples_id_list <- map(ancestry_files, read_ancestry_ids)
+# read_ancestry_ids <- function(file_path) {
+#   read.table(file_path, header = FALSE, stringsAsFactors = FALSE)$V2
+# }
+# 
+# ancestry_files <- list(
+#   AFR = "/u/project/lhernand/sganesh/gwas_srs/TOPMed_imputed/ABCDr5_AFR.2263_no.sexmismatch_IDs.txt",
+#   AMR = "/u/project/lhernand/sganesh/gwas_srs/TOPMed_imputed/ABCDr5_AMR.2019_no.sexmismatch_IDs.txt",
+#   EUR = "/u/project/lhernand/sganesh/gwas_srs/TOPMed_imputed/ABCDr5_EUR.6891_no.sexmismatch_IDs.txt"
+# )
+# 
+# ancestry_samples_id_list <- map(ancestry_files, read_ancestry_ids)
 
 # Split phenotype data by ancestry
-split_by_ancestry <- function(pheno_data, ancestry_samples_id_list) {
-  map2(ancestry_samples_id_list, names(ancestry_samples_id_list), function(ids, ancestry_name) {
-    pheno_data %>% filter(IID %in% ids) %>% mutate(ancestry = ancestry_name)
-  })
-}
+# split_by_ancestry <- function(pheno_data, ancestry_samples_id_list) {
+#   map2(ancestry_samples_id_list, names(ancestry_samples_id_list), function(ids, ancestry_name) {
+#     pheno_data %>% filter(IID %in% ids) %>% mutate(ancestry = ancestry_name)
+#   })
+# }
 
 # Split phenotype data by ancestry and gender
-split_by_ancestry_and_gender <- function(pheno_data_by_ancestry) {
-  gender <- c("M", "F")
-  pheno_data_by_ancestry_and_gender <- list()
-  
-  for (i in seq_along(pheno_data_by_ancestry)) {
-    pheno_data <- pheno_data_by_ancestry[[i]]
-    pheno_name <- tolower(names(pheno_data_by_ancestry[i]))
-    
-    for (j in seq_along(gender)) {
-      name <- paste(pheno_name, tolower(gender[j]), sep = "_")
-      pheno_data_by_ancestry_and_gender[[name]] <- pheno_data %>% filter(sex == gender[j])
-    }
-  }
-  
-  return(pheno_data_by_ancestry_and_gender)
-}
+# split_by_ancestry_and_gender <- function(pheno_data_by_ancestry) {
+#   gender <- c("M", "F")
+#   pheno_data_by_ancestry_and_gender <- list()
+#   
+#   for (i in seq_along(pheno_data_by_ancestry)) {
+#     pheno_data <- pheno_data_by_ancestry[[i]]
+#     pheno_name <- tolower(names(pheno_data_by_ancestry[i]))
+#     
+#     for (j in seq_along(gender)) {
+#       name <- paste(pheno_name, tolower(gender[j]), sep = "_")
+#       pheno_data_by_ancestry_and_gender[[name]] <- pheno_data %>% filter(sex == gender[j])
+#     }
+#   }
+#   
+#   return(pheno_data_by_ancestry_and_gender)
+# }
 
 # Save phenotype tables with ancestry info
-save_pheno_tables <- function(pheno_data_list, output_dir, date) {
-  setwd(output_dir)
-  
-  walk2(pheno_data_list, names(pheno_data_list), function(dt, pheno_name) {
-    n <- nrow(dt)
-    file_name <- paste0(pheno_name, "_1yr_followup_before_srs_within_ancestry_group_noNAs_", n, "_table_", date, ".csv")
-    write.csv(dt, file_name, row.names = TRUE)
-  })
-}
+# save_pheno_tables <- function(pheno_data_list, output_dir, date) {
+#   setwd(output_dir)
+#   
+#   walk2(pheno_data_list, names(pheno_data_list), function(dt, pheno_name) {
+#     n <- nrow(dt)
+#     file_name <- paste0(pheno_name, "_1yr_followup_before_srs_within_ancestry_group_noNAs_", n, "_table_", date, ".csv")
+#     write.csv(dt, file_name, row.names = TRUE)
+#   })
+# }
 
 # Main processing function
-process_phenotype_data <- function(pheno_data, ancestry_samples_id_list, output_dir, date) {
-  # Split by ancestry
-  pheno_by_ancestry <- split_by_ancestry(pheno_data, ancestry_samples_id_list)
-  
-  # Split by ancestry and gender
-  pheno_by_ancestry_and_gender <- split_by_ancestry_and_gender(pheno_by_ancestry)
-  
-  # Combine both lists
-  data <- c(pheno_by_ancestry, pheno_by_ancestry_and_gender)
-  
-  # Save tables
-  save_pheno_tables(data, output_dir, date)
-}
+# process_phenotype_data <- function(pheno_data, ancestry_samples_id_list, output_dir, date) {
+#   # Split by ancestry
+#   pheno_by_ancestry <- split_by_ancestry(pheno_data, ancestry_samples_id_list)
+#   
+#   # Split by ancestry and gender
+#   pheno_by_ancestry_and_gender <- split_by_ancestry_and_gender(pheno_by_ancestry)
+#   
+#   # Combine both lists
+#   data <- c(pheno_by_ancestry, pheno_by_ancestry_and_gender)
+#   
+#   # Save tables
+#   save_pheno_tables(data, output_dir, date)
+# }
 
 # Usage
-pheno <- gcta.pheno.scs.vol.roc  # Your phenotype data
-process_phenotype_data(pheno, ancestry_samples_id_list, pheno_qc_dir, date)
-
+# pheno <- gcta.pheno.scs.vol.roc  # Your phenotype data
+# process_phenotype_data(pheno, ancestry_samples_id_list, pheno_qc_dir, date)
