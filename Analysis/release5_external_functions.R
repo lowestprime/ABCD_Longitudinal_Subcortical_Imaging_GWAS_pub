@@ -184,28 +184,38 @@ roi_filter <- function(df) {
   return(df_cleaned)
 }
 
-# Define a function to rename columns from V3-V22 to PC1-PC20
-rename_columns <- function(col) {
+# Define a function to rename columns from V3-V22 to P1-P20 (used in preprocessing ancestry PCs)
+rename_columns <- function(col_names) {
   old_names <- paste0("V", 3:22)
   new_names <- paste0("PC", 1:20)
-  renamed_cols <- col
-  renamed_cols[match(old_names, col)] <- new_names
+  renamed_cols <- col_names
+  renamed_cols[match(old_names, col_names)] <- new_names
   return(renamed_cols)
 }
 
 # Function to create dummy variables
 create_dummies <- function(data, var_names) {
-  for (var_name in var_names) {
-    data[[var_name]] <- factor(data[[var_name]])
-    dummies <- model.matrix(~ . - 1, data = data[var_name])
-    colnames(dummies) <- gsub("data\\[\\[var_name\\]\\]", var_name, colnames(dummies))
-    data <- cbind(data, dummies)
-  }
-  data
+  # Ensure specified columns are treated as factors
+  data <- data %>%
+    mutate(across(all_of(var_names), as.factor))
+  
+  # Generate dummy variables using model.matrix
+  dummies <- model.matrix(~ . - 1, data = data %>% dplyr::select(all_of(var_names))) %>%
+    as.data.frame()
+  
+  # Ensure valid column names
+  colnames(dummies) <- make.names(colnames(dummies), unique = TRUE)
+  
+  # Append dummy columns and remove original factor columns
+  data <- data %>%
+    dplyr::select(-all_of(var_names)) %>%
+    bind_cols(dummies)
+  
+  return(data)
 }
 
-# Function to save GCTA input files
-save_gcta_files <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
+# Function to save split data with directory creation
+save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
   # Define output directories
   pheno_out_dir <- file.path(pheno_dir, ethnicity, sex)
   covar_disc_out_dir <- file.path(covar_dir, "Discrete", ethnicity, sex)
@@ -216,88 +226,51 @@ save_gcta_files <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
   if (!dir.exists(covar_disc_out_dir)) dir.create(covar_disc_out_dir, recursive = TRUE)
   if (!dir.exists(covar_quant_out_dir)) dir.create(covar_quant_out_dir, recursive = TRUE)
   
-  # Save phenotype files
-  phenotypes <- names(data)[grepl("^smri_vol", names(data))]
-  for (pheno in phenotypes) {
-    if (pheno != "smri_vol_scs_intracranialv_ROC0_2") {
-      pheno_data <- data %>% dplyr::select(FID, IID, !!sym(pheno))
-      file_name <- file.path(pheno_out_dir, paste0(pheno, ".txt"))
-      write.table(pheno_data, file = file_name, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
-      cat("\n")
-    }
-  }
-  
-  # Save discrete covariate file with dummy coding
-  data <- create_dummies(data, c("mri_info_deviceserialnumber", "batch"))
-  covar_discrete <- data %>%
-    dplyr::select(FID, IID, starts_with("mri_info_"), starts_with("batch"))
-  write.table(covar_discrete, file.path(covar_disc_out_dir, "covar_discrete.txt"), col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
-  cat("\n")
-  
-  # Save quantitative covariate file
-  covar_quant <- data %>% dplyr::select(FID, IID, interview_age, smri_vol_scs_intracranialv_ROC0_2, starts_with("PC"))
-  write.table(covar_quant, file.path(covar_quant_out_dir, "covar_quant.txt"), col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
-  cat("\n")
-
-  if ("smri_vol_scs_wholeb_ROC0_2" %in% phenotypes) {
-    covar_quant_no_icv <- data %>% dplyr::select(FID, IID, interview_age, starts_with("PC"))
-    write.table(covar_quant_no_icv, file.path(covar_quant_out_dir, "qcovar_noICV.txt"), col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
-    cat("\n")
-  }
-}
-
-# Function to apply rank inverse normal transformation
-apply_rank_inverse_norm <- function(data) {
-  phenotypes <- names(data)[grepl("^smri_vol", names(data))]
-  data <- data %>% mutate(across(all_of(phenotypes), ~ rankTransPheno(.x, 0.5)))
-  data
-}
-
-# Function to filter data by ethnicity and sex
-filter_data <- function(data, ethnicity, sex) {
-  data %>% filter(ethnicity == ethnicity & sex == sex)
-}
-
-# Function to save split data
-save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
+  # Subset data
   subset_data <- data %>%
     filter(ethnicity == !!ethnicity, sex == !!sex) %>%
-    mutate_at(vars(starts_with("smri_vol_")), ~ rankTransPheno(.x, 0.5))
-
+    mutate(across(starts_with("smri_vol_"), ~ rankTransPheno(.x, 0.5)))
+  
+  # Specify the columns for dummy variable creation
+  dummy_vars <- c("mri_info_deviceserialnumber", "batch")
+  
+  # Create dummy variables
+  subset_data <- create_dummies(subset_data, dummy_vars)
+  
   num_samples <- nrow(subset_data)
   id <- sample(1:1000000, 1) # generate a random ID
-
+  
   # Save phenotype files
   phenotypes <- colnames(subset_data)[grepl("^smri_vol", colnames(subset_data))]
   for (phenotype in phenotypes) {
     if (phenotype != "smri_vol_scs_intracranialv_ROC0_2") {
-      phenotype_file_name <- file.path(pheno_dir, sprintf("%s_pheno_%s_%s_%s_%s_%d_%s.txt", 
-                                                          id, date, ethnicity, sex, num_samples, phenotype))
-      write.table(subset_data %>% select(FID, IID, all_of(phenotype)), 
+      phenotype_file_name <- file.path(pheno_out_dir, sprintf("%s_pheno_%s_%s_%s_%s_%d_%s.txt", 
+                                                              id, date, ethnicity, sex, num_samples, phenotype))
+      write.table(subset_data %>% dplyr::select(FID, IID, all_of(phenotype)), 
                   file = phenotype_file_name, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
-      cat("\n")
     }
-
+    
     # Save corresponding qcovar file
     if (phenotype == "smri_vol_scs_wholeb_ROC0_2") {
-      qcovar_file_name_no_icv <- file.path(covar_dir, sprintf("qcovar_noICV_%s_%s_%s_%s_%d.txt", 
-                                                              id, date, ethnicity, sex, num_samples))
-      write.table(subset_data %>% select(FID, IID, interview_age, starts_with("PC")), 
+      qcovar_file_name_no_icv <- file.path(covar_quant_out_dir, sprintf("qcovar_noICV_%s_%s_%s_%s_%d.txt", 
+                                                                        id, date, ethnicity, sex, num_samples))
+      write.table(subset_data %>% dplyr::select(FID, IID, interview_age, starts_with("PC")), 
                   file = qcovar_file_name_no_icv, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
-      cat("\n")
     } else {
-      qcovar_file_name <- file.path(covar_dir, sprintf("qcovar_%s_%s_%s_%s_%d.txt", 
-                                                       id, date, ethnicity, sex, num_samples))
-      write.table(subset_data %>% select(FID, IID, interview_age, smri_vol_scs_intracranialv_ROC0_2, starts_with("PC")), 
+      qcovar_file_name <- file.path(covar_quant_out_dir, sprintf("qcovar_%s_%s_%s_%s_%d.txt", 
+                                                                 id, date, ethnicity, sex, num_samples))
+      write.table(subset_data %>% dplyr::select(FID, IID, interview_age, smri_vol_scs_intracranialv_ROC0_2, starts_with("PC")), 
                   file = qcovar_file_name, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
-      cat("\n")
     }
   }
-
-  # Save discrete covariate file
-  covar_file_name <- file.path(covar_dir, sprintf("covar_%s_%s_%s_%s_%d.txt", 
-                                                  id, date, ethnicity, sex, num_samples))
-  write.table(subset_data %>% select(FID, IID, batch), 
-              file = covar_file_name, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
-  cat("\n")
+  
+  # Save discrete covariate file with dummy variables for specified columns
+  covar_discrete <- subset_data %>%
+    dplyr::select(FID, IID, sex, starts_with("mri_info_"), starts_with("batch")) %>%
+    mutate(sex = ifelse(sex == "M", 1, 2))
+  
+  covar_file_name <- file.path(covar_disc_out_dir, sprintf("covar_%s_%s_%s_%s_%d.txt", 
+                                                           id, date, ethnicity, sex, num_samples))
+  write.table(covar_discrete, file = covar_file_name, col.names = TRUE, 
+              row.names = FALSE, sep = "\t", quote = FALSE)
 }

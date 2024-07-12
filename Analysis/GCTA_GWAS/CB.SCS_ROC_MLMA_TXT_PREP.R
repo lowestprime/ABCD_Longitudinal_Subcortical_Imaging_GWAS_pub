@@ -1,11 +1,22 @@
 #### GCTA GWAS PREP ####
+# 7/11/2024
+# Phenotypes:
+# roi_columns <- smri.R5.1.baseline.y2.ROC.filtered %>% 
+#   dplyr::select(starts_with("smri_vol_")) %>% 
+#   colnames()
+
+## Discrete Covariates ##
+# sex, batch, mri_info_deviceserialnumber
+
+## Quantitative Covariates ##
+# interview_age, bigsnpr top 10 PCs, smri_vol_scs_intracranialv (except for smri_vol_scs_wholeb)
+
+## Priorities ##
+# Ethnicity: EUR
+# ROI: smri_vol_scs_wholeb (smri_vol_scs_intracranialv covar not needed)
 
 # Load Packages
-library(purrr)
-library(readr)
-library(FRGEpistasis)
-library(dplyr)
-library(data.table)
+p_load(purrr, readr, FRGEpistasis, dplyr)
 
 # Directories
 base_dir <- '/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/'
@@ -25,9 +36,9 @@ ethnicities <- c("AFR", "AMR", "EUR")
 sexes <- c("F", "M")
 
 # Set Date
-date <- format(Sys.Date(), "%Y%m%d")
+date <- format(Sys.Date(), "%m%d%Y")
 
-# Load external functions
+# Load ABCD 5.1 external functions and Sruthi covar file
 source(paste0(base_dir, 'release5_external_functions.R'))
 covariate_file <- "/u/project/lhernand/sganesh/gwas_srs/phenotypes/covar_AllSubj_batch_gender_noNAs_baseline_11665.txt"
 
@@ -46,30 +57,40 @@ ancestry_pcs <- fread(paste0(anc_pc_dir, "ABCD5_all_ancestries_all_individuals_P
 # Apply the renaming function to the ancestry_pcs data frame
 ancestry_pcs <- ancestry_pcs %>% rename_with(rename_columns, .cols = starts_with("V"))
 
-# Read and process covariate data
-covariate_data <- read.table(covariate_file, header = TRUE)
+#### Remove samples with missing data and create split txts ####
+# Read files without headers and assign appropriate column names for phenotype_data and covariate_data
+covariate_data <- read.table(covariate_file, header = FALSE)
 colnames(covariate_data) <- c("FID", "IID", "batch", "sex")
 
-# Filter covariate data to match phenotypes
-filtered_covariate_data <- covariate_data %>% semi_join(gcta.pheno.scs.vol.roc, by = "IID")
-filtered_ancestry_pcs <- ancestry_pcs %>% semi_join(gcta.pheno.scs.vol.roc, by = "IID")
+# Merge gcta.pheno.scs.vol.roc with covariate_data (genotyping batch) and ancestry_pcs (PCs 1-20), then filter by matching IIDs
+filtered_covariate_data <- covariate_data %>% 
+  semi_join(gcta.pheno.scs.vol.roc, by = "IID")
+filtered_ancestry_pcs <- ancestry_pcs %>% 
+  semi_join(gcta.pheno.scs.vol.roc, by = "IID")
 
 # Merge phenotype, covariate, and ancestry PC data
 merged_data <- gcta.pheno.scs.vol.roc %>%
-  left_join(filtered_covariate_data %>% select(IID, batch), by = "IID") %>%
-  left_join(filtered_ancestry_pcs %>% select(IID, starts_with("PC")), by = "IID")
+  left_join(filtered_covariate_data %>% dplyr::select(IID, batch), by = "IID") %>%
+  left_join(filtered_ancestry_pcs %>% dplyr::select(IID, starts_with("PC")), by = "IID")
 
-# Remove NAs and reorder columns
 merged_data_final <- merged_data %>%
-  filter(!is.na(batch), !is.na(PC1), !is.na(PC10)) %>%
-  select(FID, IID, everything())
+  # Ensure FID and IID are the first two columns, then remove rows with any NA values
+  dplyr::select(FID, IID, everything()) %>%
+  drop_na() %>%
+  # Replace FID with IID values
+  mutate(FID = IID) %>%
+  # Remove PC11 to PC20 and ethnicity columns
+  dplyr::select(-PC11:-PC20, -ethnicity)
 
-# Assign ethnicity based on IIDs
+# Read the IIDs from each file
 afr_iids <- read.table(file.path(anc_pc_dir, "ABCD.ancestry_knn.AFR.2263.txt"), header = FALSE, stringsAsFactors = FALSE)[, 1]
 amr_iids <- read.table(file.path(anc_pc_dir, "ABCD.ancestry_knn.AMR.2019.txt"), header = FALSE, stringsAsFactors = FALSE)[, 1]
 eur_iids <- read.table(file.path(anc_pc_dir, "ABCD.ancestry_knn.EUR.6891.txt"), header = FALSE, stringsAsFactors = FALSE)[, 1]
 
+# Make empty ethnicity column
 merged_data_final$ethnicity <- NA
+
+# Assign ethnicity based on IIDs
 merged_data_final$ethnicity[merged_data_final$IID %in% afr_iids] <- "AFR"
 merged_data_final$ethnicity[merged_data_final$IID %in% amr_iids] <- "AMR"
 merged_data_final$ethnicity[merged_data_final$IID %in% eur_iids] <- "EUR"
