@@ -27,13 +27,16 @@ table1_dir <- paste0(shiny_dir, 'Counts.Table')
 table2_dir <- paste0(shiny_dir, 'ROC.Summary.Table')
 gwas_dir <- paste0(base_dir, 'GCTA_GWAS/')
 proc_dir <- paste0(gwas_dir, 'Processed_Data')
-pheno_dir <- file.path(proc_dir, "Phenotypes")
-covar_dir <- file.path(proc_dir, "Covariates")
+pheno_dir <- file.path(proc_dir, 'Phenotypes')
+covar_dir <- file.path(proc_dir, 'Covariates')
 anc_pc_dir <- paste0(gwas_dir, 'ANCESTRY_PCS/')
 
 # Define ancestries and sexes
 ethnicities <- c("AFR", "AMR", "EUR")
 sexes <- c("F", "M")
+
+# Specify the columns for dummy variable creation
+dummy_vars <- c("mri_info_deviceserialnumber", "batch")
 
 # Set Date
 date <- format(Sys.Date(), "%m%d%Y")
@@ -106,3 +109,6 @@ for (ethnicity in ethnicities) {
     save_split_data(merged_data_final, ethnicity, sex, pheno_dir, covar_dir, date)
   }
 }
+
+# Run to delete all files in split processed_Data (proc_dir)
+# clear_files_in_FM_subdirectories(proc_dir)
