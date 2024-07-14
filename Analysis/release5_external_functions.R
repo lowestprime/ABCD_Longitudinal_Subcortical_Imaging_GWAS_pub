@@ -193,13 +193,30 @@ rename_columns <- function(col_names) {
   return(renamed_cols)
 }
 
-# Function to create dummy variables
-create_dummies <- function(data, var_names) {
-  # Ensure specified columns are treated as factors
-  data <- data %>%
-    mutate(across(all_of(var_names), as.factor))
+# Function to create dummy variables and return the number of dummy columns
+create_dummies <- function(data, var_names, all_levels_data) {
+  # Capture all levels for each factor variable from the entire dataset
+  all_levels <- lapply(all_levels_data[var_names], function(x) levels(factor(x)))
   
-  # Generate dummy variables using model.matrix
+  # Ensure specified columns are treated as factors with all possible levels
+  data <- data %>%
+    mutate(across(all_of(var_names), ~ factor(.x, levels = unlist(all_levels[cur_column()]))))
+  
+  # Verify the levels set for each factor variable
+  message("Checking assigned levels per column after factor conversion:")
+  map(var_names, ~ {
+    assigned_levels <- levels(data[[.x]])
+    expected_levels <- all_levels[[.x]]
+    missing_levels <- setdiff(expected_levels, assigned_levels)
+    extra_levels <- setdiff(assigned_levels, expected_levels)
+    message(glue::glue("Column: {.x}"))
+    message(glue::glue("Assigned Levels: {length(assigned_levels)}"))
+    message(glue::glue("Expected Levels: {length(expected_levels)}"))
+    message(glue::glue("Missing Levels: {missing_levels}"))
+    message(glue::glue("Extra Levels: {extra_levels}"))
+  })
+  
+  # Create dummy variables using model.matrix
   dummies <- model.matrix(~ . - 1, data = data %>% dplyr::select(all_of(var_names))) %>%
     as.data.frame()
   
@@ -211,7 +228,10 @@ create_dummies <- function(data, var_names) {
     dplyr::select(-all_of(var_names)) %>%
     bind_cols(dummies)
   
-  return(data)
+  # Print the number of columns after creating dummy variables
+  message(paste("Number of columns after creating dummies:", ncol(data)))
+  
+  return(list(data = data, num_dummy_columns = ncol(dummies)))
 }
 
 # Function to save split data with directory creation
@@ -234,17 +254,25 @@ save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
   # Specify the columns for dummy variable creation
   dummy_vars <- c("mri_info_deviceserialnumber", "batch")
   
-  # Create dummy variables
-  subset_data <- create_dummies(subset_data, dummy_vars)
+  # Create dummy variables and get the number of dummy columns
+  result <- create_dummies(subset_data, dummy_vars)
+  subset_data <- result$data
+  num_dummy_columns <- result$num_dummy_columns
   
+  # Print the number of dummy columns
+  print(paste("Number of dummy columns for", ethnicity, sex, ":", num_dummy_columns))
+  
+  # Get number of samples for split subset
   num_samples <- nrow(subset_data)
+  
+  # Generate random ID for each file
   id <- sample(1:1000000, 1) # generate a random ID
   
   # Save phenotype files
   phenotypes <- colnames(subset_data)[grepl("^smri_vol", colnames(subset_data))]
   for (phenotype in phenotypes) {
     if (phenotype != "smri_vol_scs_intracranialv_ROC0_2") {
-      phenotype_file_name <- file.path(pheno_out_dir, sprintf("%s_pheno_%s_%s_%s_%s_%d_%s.txt", 
+      phenotype_file_name <- file.path(pheno_out_dir, sprintf("%d_pheno_%s_%s_%s_%d_%s.txt", 
                                                               id, date, ethnicity, sex, num_samples, phenotype))
       write.table(subset_data %>% dplyr::select(FID, IID, all_of(phenotype)), 
                   file = phenotype_file_name, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
@@ -252,25 +280,72 @@ save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
     
     # Save corresponding qcovar file
     if (phenotype == "smri_vol_scs_wholeb_ROC0_2") {
-      qcovar_file_name_no_icv <- file.path(covar_quant_out_dir, sprintf("qcovar_noICV_%s_%s_%s_%s_%d.txt", 
+      qcovar_file_name_no_icv <- file.path(covar_quant_out_dir, sprintf("qcovar_noICV_%d_%s_%s_%s_%d.txt", 
                                                                         id, date, ethnicity, sex, num_samples))
       write.table(subset_data %>% dplyr::select(FID, IID, interview_age, starts_with("PC")), 
                   file = qcovar_file_name_no_icv, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
     } else {
-      qcovar_file_name <- file.path(covar_quant_out_dir, sprintf("qcovar_%s_%s_%s_%s_%d.txt", 
+      qcovar_file_name <- file.path(covar_quant_out_dir, sprintf("qcovar_%d_%s_%s_%s_%d.txt", 
                                                                  id, date, ethnicity, sex, num_samples))
-      write.table(subset_data %>% dplyr::select(FID, IID, interview_age, smri_vol_scs_intracranialv_ROC0_2, starts_with("PC")), 
+      write.table(subset_data %>% dplyr::select(FID, IID, interview_age, starts_with("PC"), smri_vol_scs_intracranialv_ROC0_2),
                   file = qcovar_file_name, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
     }
   }
   
   # Save discrete covariate file with dummy variables for specified columns
   covar_discrete <- subset_data %>%
-    dplyr::select(FID, IID, sex, starts_with("mri_info_"), starts_with("batch")) %>%
-    mutate(sex = ifelse(sex == "M", 1, 2))
+    dplyr::select(FID, IID, starts_with("mri_info_"), starts_with("batch"))
   
-  covar_file_name <- file.path(covar_disc_out_dir, sprintf("covar_%s_%s_%s_%s_%d.txt", 
+  # Print the number of dummy columns in the covar_discrete file
+  print(paste("Number of dummy columns in discrete covariate file for", ethnicity, sex, ":", ncol(covar_discrete) - 2))
+  
+  covar_file_name <- file.path(covar_disc_out_dir, sprintf("covar_%d_%s_%s_%s_%d.txt", 
                                                            id, date, ethnicity, sex, num_samples))
   write.table(covar_discrete, file = covar_file_name, col.names = TRUE, 
               row.names = FALSE, sep = "\t", quote = FALSE)
+}
+
+# Function to clear files in 'F' and 'M' subdirectories
+clear_files_in_FM_subdirectories <- function(base_path) {
+  # Get all subdirectories recursively
+  dirs <- list.dirs(path = base_path, full.names = TRUE, recursive = TRUE)
+  
+  # Loop through each directory
+  for (dir in dirs) {
+    # Only clear files in 'F' and 'M' subdirectories
+    if (basename(dir) %in% c("F", "M")) {
+      files <- list.files(path = dir, full.names = TRUE)
+      if (length(files) > 0) {
+        unlink(files)
+      }
+    }
+  }
+}
+
+# Function to check unique levels in subsets
+check_subsets <- function(data, ethnicities, sexes, var_names) {
+  for (ethnicity in ethnicities) {
+    for (sex in sexes) {
+      # Subset the data
+      subset_data <- data %>%
+        filter(ethnicity == !!ethnicity, sex == !!sex)
+      
+      # Print the subset information
+      print(paste("Ethnicity:", ethnicity, "Sex:", sex, "Number of samples:", nrow(subset_data)))
+      
+      # Check unique levels in the subset
+      lapply(var_names, function(var) {
+        print(paste("Unique levels for", var, "in subset:", length(unique(subset_data[[var]]))))
+        print(unique(subset_data[[var]]))
+      })
+    }
+  }
+}
+# Function to check unique levels
+check_unique_levels <- function(data, var_names) {
+  for (var in var_names) {
+    unique_levels <- unique(data[[var]])
+    print(paste("Unique levels for", var, "in subset:", length(unique_levels)))
+    print(unique_levels)
+  }
 }
