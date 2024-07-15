@@ -193,68 +193,30 @@ rename_columns <- function(col_names) {
   return(renamed_cols)
 }
 
-# Function to create dummy variables and return the number of dummy columns
-# create_dummies <- function(data, var_names, all_levels_data) {
-#   # Capture all levels for each factor variable from the entire dataset
-#   all_levels <- lapply(all_levels_data[var_names], function(x) levels(factor(x)))
-#   
-#   # Ensure specified columns are treated as factors with all possible levels
-#   data <- data %>%
-#     mutate(across(all_of(var_names), ~ factor(.x, levels = unlist(all_levels[cur_column()]))))
-#   
-#   # Verify the levels set for each factor variable
-#   message("Checking assigned levels per column after factor conversion:")
-#   map(var_names, ~ {
-#     assigned_levels <- levels(data[[.x]])
-#     expected_levels <- all_levels[[.x]]
-#     missing_levels <- setdiff(expected_levels, assigned_levels)
-#     extra_levels <- setdiff(assigned_levels, expected_levels)
-#     message(glue::glue("Column: {.x}"))
-#     message(glue::glue("Assigned Levels: {length(assigned_levels)}"))
-#     message(glue::glue("Expected Levels: {length(expected_levels)}"))
-#     message(glue::glue("Missing Levels: {missing_levels}"))
-#     message(glue::glue("Extra Levels: {extra_levels}"))
-#   })
-#   
-#   # Create dummy variables using model.matrix
-#   dummies <- model.matrix(~ . - 1, data = data %>% dplyr::select(all_of(var_names))) %>%
-#     as.data.frame()
-#   
-#   # Ensure valid column names
-#   colnames(dummies) <- make.names(colnames(dummies), unique = TRUE)
-#   
-#   # Append dummy columns and remove original factor columns
-#   data <- data %>%
-#     dplyr::select(-all_of(var_names)) %>%
-#     bind_cols(dummies)
-#   
-#   # Print the number of columns after creating dummy variables
-#   message(paste("Number of columns after creating dummies:", ncol(data)))
-#   
-#   return(list(data = data, num_dummy_columns = ncol(dummies)))
-# }
+# Function to create dummy variables and return the modified data
 create_dummies <- function(data, var_names) {
-  # Ensure specified columns are treated as factors
-  data <- data %>%
-    mutate(across(all_of(var_names), as.factor))
+  # Create dummy variables using fastDummies package
+  data_with_dummies <- dummy_cols(data, select_columns = var_names, remove_first_dummy = FALSE, remove_selected_columns = TRUE)
   
-  # Generate dummy variables using model.matrix
-  dummies <- model.matrix(~ . - 1, data = data %>% dplyr::select(all_of(var_names))) %>%
-    as.data.frame()
+  # Dummy variable column names
+  dummy_colnames <- setdiff(colnames(data_with_dummies), colnames(data))
   
-  # Ensure valid column names
-  colnames(dummies) <- make.names(colnames(dummies), unique = TRUE)
+  # Print the number of columns after creating dummy variables
+  print(paste("Number of columns after creating dummies:", ncol(data_with_dummies)))
   
-  # Append dummy columns and remove original factor columns
-  data <- data %>%
-    dplyr::select(-all_of(var_names)) %>%
-    bind_cols(dummies)
+  # Print dummy variable column names
+  print("Newly created dummy variable column names:")
+  print(dummy_colnames)
   
-  return(data)
+  return(data_with_dummies)
 }
 
-# Function to save split data with directory creation
-save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
+# Function to create and save split data, convert discrete covar dummy variables, 
+# and apply FRGEpistasis rank inverse log normalization with directory check/creation
+save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date, dummy_vars, log = FALSE) {
+  # Create dummy variables on the entire dataset
+  data_with_dummies <- dummy_cols(data, select_columns = dummy_vars, remove_first_dummy = FALSE, remove_selected_columns = TRUE)
+  
   # Define output directories
   pheno_out_dir <- file.path(pheno_dir, ethnicity, sex)
   covar_disc_out_dir <- file.path(covar_dir, "Discrete", ethnicity, sex)
@@ -265,27 +227,34 @@ save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
   if (!dir.exists(covar_disc_out_dir)) dir.create(covar_disc_out_dir, recursive = TRUE)
   if (!dir.exists(covar_quant_out_dir)) dir.create(covar_quant_out_dir, recursive = TRUE)
   
-  # Subset data
-  subset_data <- data %>%
+  # Subset data and apply FRGEpistasis rank inverse log transformation
+  subset_data <- data_with_dummies %>%
     filter(ethnicity == !!ethnicity, sex == !!sex) %>%
     mutate(across(starts_with("smri_vol_"), ~ rankTransPheno(.x, 0.5)))
   
-  # Specify the columns for dummy variable creation
-  dummy_vars <- c("mri_info_deviceserialnumber", "batch")
+  # Generate random ID for each file
+  id <- sample(1:1000000, 1) # generate a random ID
   
-  # Create dummy variables and get the number of dummy columns
-  result <- create_dummies(subset_data, dummy_vars)
-  subset_data <- result$data
-  num_dummy_columns <- result$num_dummy_columns
-  
-  # Print the number of dummy columns
-  print(paste("Number of dummy columns for", ethnicity, sex, ":", num_dummy_columns))
+  # Log the information if logging is enabled
+  if (log) {
+    # Compare old and new column names to identify dummy variables
+    original_colnames <- colnames(data)
+    new_colnames <- colnames(data_with_dummies)
+    dummy_colnames <- setdiff(new_colnames, original_colnames)
+    # Print the number and names of new dummy columns
+    print(paste("Number of new dummy columns for", ethnicity, sex, ":", length(dummy_colnames)))
+    print("Names of new dummy columns:")
+    print(dummy_colnames)
+    log_file <- file.path(pheno_out_dir, sprintf("%d_log_%s_%s_%s.txt", id, date, ethnicity, sex))
+    writeLines(c(
+      paste("Number of new dummy columns for", ethnicity, sex, ":", length(dummy_colnames)),
+      "Names of new dummy columns:",
+      toString(dummy_colnames)
+    ), log_file)
+  }
   
   # Get number of samples for split subset
   num_samples <- nrow(subset_data)
-  
-  # Generate random ID for each file
-  id <- sample(1:1000000, 1) # generate a random ID
   
   # Save phenotype files
   phenotypes <- colnames(subset_data)[grepl("^smri_vol", colnames(subset_data))]
@@ -314,13 +283,9 @@ save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
   # Save discrete covariate file with dummy variables for specified columns
   covar_discrete <- subset_data %>%
     dplyr::select(FID, IID, starts_with("mri_info_"), starts_with("batch"))
-  
-  # Print the number of dummy columns in the covar_discrete file
-  print(paste("Number of dummy columns in discrete covariate file for", ethnicity, sex, ":", ncol(covar_discrete) - 2))
-  
   covar_file_name <- file.path(covar_disc_out_dir, sprintf("covar_%d_%s_%s_%s_%d.txt", 
                                                            id, date, ethnicity, sex, num_samples))
-  write.table(covar_discrete, file = covar_file_name, col.names = TRUE, 
+  write.table(covar_discrete, file = covar_file_name, col.names = FALSE, 
               row.names = FALSE, sep = "\t", quote = FALSE)
 }
 
@@ -341,30 +306,46 @@ clear_files_in_FM_subdirectories <- function(base_path) {
   }
 }
 
-# Function to check unique levels in subsets
-check_subsets <- function(data, ethnicities, sexes, var_names) {
-  for (ethnicity in ethnicities) {
-    for (sex in sexes) {
-      # Subset the data
-      subset_data <- data %>%
-        filter(ethnicity == !!ethnicity, sex == !!sex)
-      
-      # Print the subset information
-      print(paste("Ethnicity:", ethnicity, "Sex:", sex, "Number of samples:", nrow(subset_data)))
-      
-      # Check unique levels in the subset
-      lapply(var_names, function(var) {
-        print(paste("Unique levels for", var, "in subset:", length(unique(subset_data[[var]]))))
-        print(unique(subset_data[[var]]))
-      })
-    }
+# Function to create visualizations (histogram and QQ plot) for normality check
+plot_normality <- function(data, original_data, phenotype_cols) {
+  plot_list <- list()
+  for (col_name in phenotype_cols) {
+    # Plot for transformed data
+    p1 <- ggplot(data, aes(.data[[col_name]])) +
+      geom_histogram(aes(y = after_stat(density)), bins = 30, color = "black", fill = "blue", alpha = 0.7) +
+      geom_density(color = "red") +
+      labs(title = paste("rankTransPheno Histogram", col_name))
+    
+    p2 <- ggplot(data, aes(sample = .data[[col_name]])) +
+      stat_qq() +
+      stat_qq_line() +
+      labs(title = paste("rankTransPheno QQ Plot"))
+    
+    # Plot for original data
+    p3 <- ggplot(original_data, aes(.data[[col_name]])) +
+      geom_histogram(aes(y = after_stat(density)), bins = 30, color = "black", fill = "blue", alpha = 0.7) +
+      geom_density(color = "red") +
+      labs(title = paste("Original Histogram"))
+    
+    p4 <- ggplot(original_data, aes(sample = .data[[col_name]])) +
+      stat_qq() +
+      stat_qq_line() +
+      labs(title = paste("Original QQ Plot"))
+    
+    combined_histogram <- p3 + p1
+    combined_qqplot <- p4 + p2
+    
+    plot_list[[col_name]] <- list(histogram = combined_histogram, qq_plot = combined_qqplot)
   }
+  return(plot_list)
 }
-# Function to check unique levels
-check_unique_levels <- function(data, var_names) {
-  for (var in var_names) {
-    unique_levels <- unique(data[[var]])
-    print(paste("Unique levels for", var, "in subset:", length(unique_levels)))
-    print(unique_levels)
-  }
+
+# Function to apply statistical test for normality
+test_normality <- function(data, phenotype_cols) {
+  test_results <- tibble(
+    Phenotype = phenotype_cols,
+    P_value = map_dbl(phenotype_cols, ~ ad.test(data[[.x]])$p.value)
+  )
+  return(test_results)
 }
+
