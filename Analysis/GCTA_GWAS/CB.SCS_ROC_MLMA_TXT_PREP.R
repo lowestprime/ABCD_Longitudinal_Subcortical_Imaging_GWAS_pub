@@ -16,7 +16,7 @@
 # ROI: smri_vol_scs_wholeb (smri_vol_scs_intracranialv covar not needed)
 
 # Load Packages
-p_load(purrr, readr, FRGEpistasis, dplyr)
+p_load(purrr, readr, FRGEpistasis, dplyr, fastDummies, nortest, patchwork)
 
 # Directories
 base_dir <- '/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/'
@@ -103,10 +103,51 @@ merged_data_final <- merged_data_final %>%
   filter(!is.na(ethnicity)) %>%
   relocate(batch, ethnicity, PC1:PC10, .after = interview_age)
 
-# Apply the function to each combination of ethnicity and sex
+# Apply save_split_data to each combination of ethnicity and sex
 for (ethnicity in ethnicities) {
   for (sex in sexes) {
-    save_split_data(merged_data_final, ethnicity, sex, pheno_dir, covar_dir, date)
+    save_split_data(merged_data_final, ethnicity, sex, pheno_dir, covar_dir, date, dummy_vars, log = F)
+  }
+}
+
+# Generate normality check visualizations (histogram and QQ plot) and tests for each split phenotype
+for (ethnicity in ethnicities) {
+  for (sex in sexes) {
+    # Define plot and test output directories
+    plot_out_dir <- file.path(pheno_dir, "Plots", ethnicity, sex)
+    test_out_dir <- file.path(pheno_dir, "Tests", ethnicity, sex)
+    
+    # Verify the paths exist
+    if (!dir.exists(plot_out_dir)) dir.create(plot_out_dir, recursive = TRUE)
+    if (!dir.exists(test_out_dir)) dir.create(test_out_dir, recursive = TRUE)
+    
+    # Create subset_data_normalized to check for normality
+    subset_data <- merged_data_final %>%
+      filter(ethnicity == !!ethnicity, sex == !!sex)
+    subset_data_normalized <- subset_data %>%
+      mutate(across(starts_with("smri_vol_"), ~ rankTransPheno(.x, 0.5)))
+    
+    # Specify which columns to check for normality
+    phenotype_cols <- colnames(subset_data_normalized)[grepl("^smri_vol_", colnames(subset_data_normalized))]
+    
+    # Create visualizations (histogram and QQ plot) for normality check
+    plot_list <- plot_normality(subset_data_normalized, subset_data, phenotype_cols)
+    for (col_name in names(plot_list)) {
+      ggsave(filename = file.path(plot_out_dir, sprintf("%s_%s_%s_hist.png", ethnicity, sex, col_name)), 
+             plot = plot_list[[col_name]]$histogram)
+      ggsave(filename = file.path(plot_out_dir, sprintf("%s_%s_%s_qq.png", ethnicity, sex, col_name)), 
+             plot = plot_list[[col_name]]$qq_plot)
+    }
+    
+    # Statistical Test
+    test_results_old <- test_normality(subset_data, phenotype_cols)
+    print(test_results_old)
+    test_results_new <- test_normality(subset_data_normalized, phenotype_cols)
+    print(test_results_new)
+    
+    # Save the test results to a file
+    write_csv(test_results_new, file.path(test_out_dir, sprintf("%s_%s_test_results_new.csv", ethnicity, sex)))
+    write_csv(test_results_old, file.path(test_out_dir, sprintf("%s_%s_test_results_old.csv", ethnicity, sex)))
   }
 }
 
