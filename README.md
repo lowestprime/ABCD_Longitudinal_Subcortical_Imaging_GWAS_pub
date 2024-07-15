@@ -21,6 +21,7 @@
 - [ ] Add histogram/transformed phenotype data QC as toggleable arg in save_split_data function and called within split txt prep script function.
 - [ ] Check contents of each split txt to confirm successful splitting and expected contents/all samples match across split pheno, covar, qcovar trios
 - [ ] Improve/finalize job script
+- [ ] Find out if relatedness needs to be accounted for in GCTA setup (crossref with Sruthi and Emma phenoprep)
 
 ### **Stage 2 - Longitudinal Subcortical Volume GWAS**
   - [MLMA](https://yanglab.westlake.edu.cn/software/gcta/#MLMA)
