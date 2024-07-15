@@ -1,4 +1,4 @@
-#### useful snippets ####
+#### Useful snippets ####
 
 # We can list the libraries that are actually loaded doing
 (.packages())
@@ -14,7 +14,6 @@ summary(factor(merged_data_final$mri_info_deviceserialnumber))
 summary(factor(merged_data_final$batch))
 summary(factor(c(merged_data_final$mri_info_deviceserialnumber, merged_data_final$batch)))
 combined_summary_df <- as.data.frame(as.table(summary(factor(c(merged_data_final$mri_info_deviceserialnumber, merged_data_final$batch)))))
-
 
 # take me back home
 setwd('~/')
