@@ -16,10 +16,11 @@
 
 ### _Tasks_
 - [ ] Plot histograms of sex and ethnicity split phenotype files to ensure proper rank inverse log normalization vs original unnormalized phenotypes and split phenotypes
-- [ ] Check grm file names compatible with job script and contents have required samples
+- [ ] Add Correlation Analysis, Pairwise Comparisons, Linear Models and Covariance Checks, Analysis of Covariance (ANCOVA), Phenotypes-Covariate Relationship Visualizations, Phenotypes-Coefficient Association Analsyses and Rates of Change Comparisons
+- [ ] Check if GRM file names and contents are compatible with job script and split txts
+- [ ] Add histogram/transformed phenotype data QC as toggleable arg in save_split_data function and called within split txt prep script function.
+- [ ] Check contents of each split txt to confirm successful splitting and expected contents/all samples match across split pheno, covar, qcovar trios
 - [ ] Improve/finalize job script
-- [ ] Check dummy variable formatting for batch and MRI serial cols in txt splitting script
-- [ ] Check contents of each split txt to confirm successful splitting and expected contents
 
 ### **Stage 2 - Longitudinal Subcortical Volume GWAS**
   - [MLMA](https://yanglab.westlake.edu.cn/software/gcta/#MLMA)
