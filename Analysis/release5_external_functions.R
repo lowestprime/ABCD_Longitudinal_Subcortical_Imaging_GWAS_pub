@@ -194,29 +194,51 @@ rename_columns <- function(col_names) {
 }
 
 # Function to create dummy variables and return the number of dummy columns
-create_dummies <- function(data, var_names, all_levels_data) {
-  # Capture all levels for each factor variable from the entire dataset
-  all_levels <- lapply(all_levels_data[var_names], function(x) levels(factor(x)))
-  
-  # Ensure specified columns are treated as factors with all possible levels
+# create_dummies <- function(data, var_names, all_levels_data) {
+#   # Capture all levels for each factor variable from the entire dataset
+#   all_levels <- lapply(all_levels_data[var_names], function(x) levels(factor(x)))
+#   
+#   # Ensure specified columns are treated as factors with all possible levels
+#   data <- data %>%
+#     mutate(across(all_of(var_names), ~ factor(.x, levels = unlist(all_levels[cur_column()]))))
+#   
+#   # Verify the levels set for each factor variable
+#   message("Checking assigned levels per column after factor conversion:")
+#   map(var_names, ~ {
+#     assigned_levels <- levels(data[[.x]])
+#     expected_levels <- all_levels[[.x]]
+#     missing_levels <- setdiff(expected_levels, assigned_levels)
+#     extra_levels <- setdiff(assigned_levels, expected_levels)
+#     message(glue::glue("Column: {.x}"))
+#     message(glue::glue("Assigned Levels: {length(assigned_levels)}"))
+#     message(glue::glue("Expected Levels: {length(expected_levels)}"))
+#     message(glue::glue("Missing Levels: {missing_levels}"))
+#     message(glue::glue("Extra Levels: {extra_levels}"))
+#   })
+#   
+#   # Create dummy variables using model.matrix
+#   dummies <- model.matrix(~ . - 1, data = data %>% dplyr::select(all_of(var_names))) %>%
+#     as.data.frame()
+#   
+#   # Ensure valid column names
+#   colnames(dummies) <- make.names(colnames(dummies), unique = TRUE)
+#   
+#   # Append dummy columns and remove original factor columns
+#   data <- data %>%
+#     dplyr::select(-all_of(var_names)) %>%
+#     bind_cols(dummies)
+#   
+#   # Print the number of columns after creating dummy variables
+#   message(paste("Number of columns after creating dummies:", ncol(data)))
+#   
+#   return(list(data = data, num_dummy_columns = ncol(dummies)))
+# }
+create_dummies <- function(data, var_names) {
+  # Ensure specified columns are treated as factors
   data <- data %>%
-    mutate(across(all_of(var_names), ~ factor(.x, levels = unlist(all_levels[cur_column()]))))
+    mutate(across(all_of(var_names), as.factor))
   
-  # Verify the levels set for each factor variable
-  message("Checking assigned levels per column after factor conversion:")
-  map(var_names, ~ {
-    assigned_levels <- levels(data[[.x]])
-    expected_levels <- all_levels[[.x]]
-    missing_levels <- setdiff(expected_levels, assigned_levels)
-    extra_levels <- setdiff(assigned_levels, expected_levels)
-    message(glue::glue("Column: {.x}"))
-    message(glue::glue("Assigned Levels: {length(assigned_levels)}"))
-    message(glue::glue("Expected Levels: {length(expected_levels)}"))
-    message(glue::glue("Missing Levels: {missing_levels}"))
-    message(glue::glue("Extra Levels: {extra_levels}"))
-  })
-  
-  # Create dummy variables using model.matrix
+  # Generate dummy variables using model.matrix
   dummies <- model.matrix(~ . - 1, data = data %>% dplyr::select(all_of(var_names))) %>%
     as.data.frame()
   
@@ -228,10 +250,7 @@ create_dummies <- function(data, var_names, all_levels_data) {
     dplyr::select(-all_of(var_names)) %>%
     bind_cols(dummies)
   
-  # Print the number of columns after creating dummy variables
-  message(paste("Number of columns after creating dummies:", ncol(data)))
-  
-  return(list(data = data, num_dummy_columns = ncol(dummies)))
+  return(data)
 }
 
 # Function to save split data with directory creation
