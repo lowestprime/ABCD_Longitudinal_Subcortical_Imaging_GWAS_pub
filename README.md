@@ -15,13 +15,17 @@
   - [Box Plots of Subcortical Volumes](https://lowestprime.shinyapps.io/Interactive_SCS_ROI_Volume_Box_Plots_y0_2/)
 
 ### _Tasks_
-- [ ] Plot histograms of sex and ethnicity split phenotype files to ensure proper rank inverse log normalization vs original unnormalized phenotypes and split phenotypes
-- [ ] Add Correlation Analysis, Pairwise Comparisons, Linear Models and Covariance Checks, Analysis of Covariance (ANCOVA), Phenotypes-Covariate Relationship Visualizations, Phenotypes-Coefficient Association Analsyses and Rates of Change Comparisons
-- [ ] Check if GRM file names and contents are compatible with job script and split txts
-- [ ] Add histogram/transformed phenotype data QC as toggleable arg in save_split_data function and called within split txt prep script function.
-- [ ] Check contents of each split txt to confirm successful splitting and expected contents/all samples match across split pheno, covar, qcovar trios
-- [ ] Improve/finalize job script
-- [ ] Find out if relatedness needs to be accounted for in GCTA setup (crossref with Sruthi and Emma phenoprep)
+- [ ] Find out if relatedness needs to be accounted for in GCTA setup (crossref with Sruthi and Emma phenoprep scripts)
+- [ ] Check if GRM files and file names are appropriate for this analysis and that contents are compatible with job script and split txts
+- [ ] Optional Add histogram/transformed phenotype data QC as toggleable arg in save_split_data function and called within split txt prep script function.
+- [ ] Finalize job script
+- [ ] Optional Additional Normalization QC:
+  - [ ] Add Correlation Analysis
+  - [ ] Pairwise Comparisons
+  - [ ] Linear Models and Covariance Checks
+  - [ ] Analysis of Covariance (ANCOVA)
+  - [ ] Phenotypes-Covariate Relationship Visualizations
+  - [ ] Phenotypes-Coefficient Association Analsyses and Rates of Change Comparisons
 
 ### **Stage 2 - Longitudinal Subcortical Volume GWAS**
   - [MLMA](https://yanglab.westlake.edu.cn/software/gcta/#MLMA)
