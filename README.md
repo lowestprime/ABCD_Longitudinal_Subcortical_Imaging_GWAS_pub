@@ -17,9 +17,9 @@
 ### _Tasks_
 - [ ] Find out if relatedness needs to be accounted for in GCTA setup (crossref with Sruthi and Emma phenoprep scripts)
 - [ ] Check if GRM files and file names are appropriate for this analysis and that contents are compatible with job script and split txts
+- [ ] Finalize job script
 - [ ] Optional Phenotype Splitting Functionality
   - [ ] Add histogram/transformed phenotype data QC as toggleable arg in save_split_data function to be called within split txt prep script function.
-- [ ] Finalize job script
 - [ ] Optional Additional Normalization QC
   - [ ] Add Correlation Analysis
   - [ ] Pairwise Comparisons
