@@ -9,7 +9,7 @@ pacman::p_unload(pacman::p_loaded(), character.only = TRUE)
 # Check which packages are currently loaded
 pacman::p_loaded()
 
-# count number of each unique in dataframe column
+# count and list the number of each unique in dataframe column
 summary(factor(merged_data_final$mri_info_deviceserialnumber))
 summary(factor(merged_data_final$batch))
 summary(factor(c(merged_data_final$mri_info_deviceserialnumber, merged_data_final$batch)))
@@ -29,6 +29,22 @@ list.dirs(path = '~/project-lhernand/ABCD_Longitudinal_Subcortical_Imaging_GWAS/
 
 # sum different values in df
 sum(merged_data_no_na$ethnicity %in% c("AFR", "AMR", "EUR"))
+
+# get col names within a dataframe matching a specific naming scheme/pattern using grepl
+colnames(smri.R5.1.all)[grepl("^smri_vol_scs", colnames(smri.R5.1.all))]
+
+# get summary of specific cols basic data characteristics within a dataframe that match a naming scheme/pattern using grepl
+summary(merged_data_normalized)[grepl("^smri_vol_scs", colnames(merged_data_normalized))]
+
+# run rankTransPheno
+merged_data_normalized <- merged_data_final %>%
+  mutate(across(starts_with("smri_vol_"), ~ rankTransPheno(.x, 0.5)))
+
+# launch gptstudio
+gptstudio:::gptstudio_chat()
+
+# Restart RStudio session
+.rs.restartR()
 
 #### data prep ####
 
