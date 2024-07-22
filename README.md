@@ -15,11 +15,18 @@
   - [Box Plots of Subcortical Volumes](https://lowestprime.shinyapps.io/Interactive_SCS_ROI_Volume_Box_Plots_y0_2/)
 
 ### _Tasks_
-- [ ] Plot histograms of sex and ethnicity split phenotype files to ensure proper rank inverse log normalization vs original unnormalized phenotypes and split phenotypes
-- [ ] Check grm file names compatible with job script and contents have required samples
-- [ ] Improve/finalize job script
-- [ ] Check dummy variable formatting for batch and MRI serial cols in txt splitting script
-- [ ] Check contents of each split txt to confirm successful splitting and expected contents
+- [ ] Find out if relatedness needs to be accounted for in GCTA setup (crossref with Sruthi and Emma phenoprep scripts)
+- [ ] Check if GRM files and file names are appropriate for this analysis and that contents are compatible with job script and split txts
+- [ ] Finalize job script
+- [ ] Optional Phenotype Splitting Functionality
+  - [ ] Add histogram/transformed phenotype data QC as toggleable arg in save_split_data function to be called within split txt prep script function.
+- [ ] Optional Additional Normalization QC
+  - [ ] Add Correlation Analysis
+  - [ ] Pairwise Comparisons
+  - [ ] Linear Models and Covariance Checks
+  - [ ] Analysis of Covariance (ANCOVA)
+  - [ ] Phenotypes-Covariate Relationship Visualizations
+  - [ ] Phenotypes-Coefficient Association Analsyses and Rates of Change Comparisons
 
 ### **Stage 2 - Longitudinal Subcortical Volume GWAS**
   - [MLMA](https://yanglab.westlake.edu.cn/software/gcta/#MLMA)
