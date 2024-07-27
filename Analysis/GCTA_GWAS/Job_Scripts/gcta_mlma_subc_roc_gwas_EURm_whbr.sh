@@ -11,11 +11,11 @@
 
 # Output and error handling
 #$ -o GCTA_GWAS_EURM_WhBr${JOB_ID}.log
-#$ -j y
+#$ -j y # join std error and std output streams, yes
 
 # Email notifications
 #$ -M cobeaman@g.ucla.edu
-#$ -m bea
+#$ -m bea # email when job begins, ends, and if it aborts
 
 # Directories
 base_dir="/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data"
