@@ -15,9 +15,8 @@
   - [Box Plots of Subcortical Volumes](https://lowestprime.shinyapps.io/Interactive_SCS_ROI_Volume_Box_Plots_y0_2/)
 
 ### _Tasks_
-- [ ] Find out if relatedness needs to be accounted for in GCTA setup (crossref with Sruthi and Emma phenoprep scripts)
-- [ ] Check if GRM files and file names are appropriate for this analysis and that contents are compatible with job script and split txts
-- [ ] Finalize job script
+- [ ] Find out if/how relatedness needs to be accounted for in GCTA setup (crossref with Sruthi and Emma phenoprep scripts)
+- [ ] Finalize parallel job script
 - [ ] Optional Phenotype Splitting Functionality
   - [ ] Add histogram/transformed phenotype data QC as toggleable arg in save_split_data function to be called within split txt prep script function.
 - [ ] Optional Additional Normalization QC
