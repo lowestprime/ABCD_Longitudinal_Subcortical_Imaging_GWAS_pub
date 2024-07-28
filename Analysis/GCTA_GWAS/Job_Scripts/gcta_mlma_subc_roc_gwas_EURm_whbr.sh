@@ -19,7 +19,8 @@ mkdir -p "${results_dir}"
 #$ -pe shared 36
 #$ -l arch=intel-gold*
 # Output and error notification preferences
-#$ -o "${results_dir}/GCTA_GWAS_${pop}_${sex}_${phenotype}_${date}_\$JOB_ID.out"
+output_file="${results_dir}/GCTA_GWAS_${pop}_${sex}_${phenotype}_${date}"
+#$ -o "$output_file_$JOB_ID.out"
 #$ -j y # join std error and std output streams, yes
 # Email notifications
 #$ -M cobeaman@g.ucla.edu
@@ -71,6 +72,8 @@ $gcta --mlma \
       --covar "${covar_file}" \
       --qcovar "${qcovar_file}" \
       --thread-num 36 \
+      #--reml-no-constrain \
+      --reml-maxit 1000 \
       --out "${out_file}"
 
 if [ $? -ne 0 ]; then

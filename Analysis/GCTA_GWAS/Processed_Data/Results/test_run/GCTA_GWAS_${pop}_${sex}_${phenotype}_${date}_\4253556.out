@@ -1,0 +1,165 @@
+Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/30456_pheno_07282024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt
+Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_30456_07282024_EUR_M_2268.txt
+Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_30456_07282024_EUR_M_2268.txt
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.bin
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.id
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.N.bin
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bed
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bim
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.fam
+All required files found. Starting GCTA --mlma analysis.
+*******************************************************************
+* Genome-wide Complex Trait Analysis (GCTA)
+* version v1.94.1 Linux
+* Built at Nov 15 2022 21:14:25, by GCC 8.5
+* (C) 2010-present, Yang Lab, Westlake University
+* Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
+*******************************************************************
+Analysis started at 01:20:41 PDT on Sun Jul 28 2024.
+Hostname: n7456
+
+Accepted options:
+--mlma 
+--bfile /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+--grm /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM
+--pheno /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/30456_pheno_07282024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt
+--covar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_30456_07282024_EUR_M_2268.txt
+--qcovar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_30456_07282024_EUR_M_2268.txt
+--thread-num 36
+--out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/smri_vol_scs_wholeb_ROC0_2_07282024_n2268
+
+Note: the program will be running on 36 threads.
+
+Reading PLINK FAM file from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.fam].
+3628 individuals to be included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.fam].
+Reading PLINK BIM file from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bim].
+6964838 SNPs to be included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bim].
+Reading PLINK BED file from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bed] in SNP-major format ...
+Genotype data for 3628 individuals and 6964838 SNPs to be included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bed].
+Reading phenotypes from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/30456_pheno_07282024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt].
+Non-missing phenotypes of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/30456_pheno_07282024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt].
+Reading quantitative covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_30456_07282024_EUR_M_2268.txt].
+11 quantitative covariate(s) of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_30456_07282024_EUR_M_2268.txt].
+Reading discrete covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_30456_07282024_EUR_M_2268.txt].
+34 discrete covariate(s) of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_30456_07282024_EUR_M_2268.txt].
+Reading IDs of the GRM from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.id].
+3628 IDs are read from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.id].
+Reading the GRM from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.bin].
+GRM for 3628 individuals are included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.bin].
+2267 individuals are in common in these files.
+11 quantitative variable(s) included as covariate(s).
+34 discrete variable(s) included as covariate(s).
+
+Performing MLM association analyses (including the candidate SNP) ...
+
+Performing  REML analysis ... (Note: may take hours depending on sample size).
+2267 observations, 46 fixed effect(s), and 2 variance component(s)(including residual variance).
+Calculating prior values of variance components by EM-REML ...
+Updated prior values: 0.533181 0.549864
+logL: -1200.3
+Running AI-REML algorithm ...
+Iter.	logL	V(G)	V(e)	
+1	-1197.04	0.46330	0.58922	
+2	-1179.41	0.48927	0.61779	
+3	-1197.66	0.42778	0.63915	
+4	-1194.37	0.29543	0.68839	
+5	-1190.25	0.29461	0.69229	
+6	-1180.06	0.30898	0.69156	
+7	-1176.73	0.28336	0.81604	
+8	-1198.30	0.31410	0.75904	
+9	-1197.92	0.10978	1.08255	
+10	-1212.82	0.06713	1.04520	
+11	-1206.74	0.28776	0.70238	
+12	-1188.74	0.29418	0.69902	
+13	-1191.79	0.29540	0.70586	
+14	-1188.36	0.29024	0.70220	
+15	-1188.40	0.28827	0.70414	
+16	-1189.83	0.31160	0.68319	
+17	-1186.38	0.33289	0.69481	
+18	-1191.90	0.32361	0.69200	
+19	-1189.92	0.30971	0.68930	
+20	-1189.78	0.30781	0.69026	
+21	-1191.20	0.30265	0.68640	
+22	-1191.38	0.30704	0.68741	
+23	-1203.04	0.30861	0.69175	
+24	-1188.67	0.30362	0.69798	
+25	-1189.71	0.30221	0.69510	
+26	-1187.19	0.33650	0.72185	
+27	-1193.52	0.32899	0.71032	
+28	-1191.62	0.32639	0.70225	
+29	-1190.06	0.33092	0.69950	
+30	-1190.25	0.31635	0.70192	
+31	-1190.11	0.25553	1.06801	
+32	-1232.83	0.37293	0.50199	
+33	-1186.51	0.40195	0.65537	
+34	-1191.80	0.34848	0.69064	
+35	-1183.26	0.36003	0.74128	
+36	-1014.59	0.35841	0.75489	
+37	-1196.66	0.35833	0.75813	
+38	-1208.45	0.00000	1.41185	(1 component(s) constrained)
+39	-1259.78	0.60000	0.18038	
+40	-1289.38	0.63616	0.33138	
+41	-1212.43	0.46106	0.52721	
+42	-1196.20	0.42233	0.56924	
+43	-1191.70	0.38813	0.61448	
+44	-1191.77	0.35952	0.63942	
+45	-1187.61	0.32861	0.66611	
+46	-1190.00	0.32116	0.67220	
+47	-1197.16	0.26152	0.76851	
+48	-1196.03	0.25550	0.86599	
+49	-1198.84	0.27496	0.79973	
+50	-1171.00	0.26850	0.65882	
+51	-1191.78	0.28112	0.66698	
+52	-1195.47	0.28014	0.61001	
+53	-1200.57	0.29124	0.71314	
+54	-1190.11	0.30154	0.68616	
+55	-1190.47	0.30459	0.68479	
+56	-1189.72	0.30145	0.68753	
+57	-1187.97	0.32932	0.66323	
+58	-1184.30	0.32517	0.67923	
+59	-1188.61	0.30916	0.69719	
+60	-1190.88	0.30517	0.68521	
+61	-1192.02	0.40235	0.68221	
+62	-1194.81	0.30005	0.68909	
+63	-1190.13	0.30945	0.69318	
+64	-1185.48	0.31350	0.69420	
+65	-1187.49	0.16649	0.90119	
+66	-1202.29	0.30876	0.31949	
+67	-1328.19	0.43612	2.11147	
+68	-1565.85	0.28694	0.00000	(1 component(s) constrained)
+69	-17161.25	0.55950	0.00003	
+70	-8671.91	0.58962	0.00193	
+71	-5534.03	0.70272	0.00282	
+72	-4403.13	0.80610	0.00421	
+73	-3638.91	1.01208	0.00552	
+74	-3038.73	1.06646	0.00844	
+75	-2598.79	1.10330	0.01248	
+76	-2262.75	1.11631	0.01806	
+77	-2020.55	0.57640	0.03350	
+78	-1328.66	0.57637	0.03329	
+79	-1934.01	0.62478	0.04399	
+80	-1612.39	0.84096	0.00000	(1 component(s) constrained)
+81	-5943.60	1.09353	0.00005	
+82	-4887.52	1.50094	0.00263	
+83	-3260.33	1.47130	0.00520	
+84	-2769.06	1.40971	0.00913	
+85	-2393.91	1.33798	0.01441	
+86	-2124.74	1.26183	0.02142	
+87	-1896.51	1.18087	0.03068	
+88	-1718.34	1.11676	0.04277	
+89	-1582.03	1.06058	0.05840	
+90	-1479.47	1.03094	0.07822	
+91	-1402.74	1.13092	0.10521	
+92	-1347.90	1.03334	0.13714	
+93	-1302.03	0.93684	0.17677	
+94	-1258.92	0.95314	0.20297	
+95	-1252.54	0.87828	0.25181	
+96	-1232.77	0.83270	0.31843	
+97	-1216.67	0.75041	0.37608	
+98	-1212.84	0.63790	0.43769	
+99	-1200.58	0.54903	0.49853	
+Error: Log-likelihood not converged (stop after 100 iteractions). 
+You can specify the option --reml-maxit to allow for more iterations.
+
+An error occurs, please check the options or data
+Error running GCTA MLMA for EUR M smri_vol_scs_wholeb_ROC0_2
