@@ -1,3 +1,9 @@
+du -sh "/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM"
+2.9G
+du -sh "/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed"
+2.3T
+
+
 /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/ancestry_PCs
 /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM
 /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/pc_all_bigsnpr
