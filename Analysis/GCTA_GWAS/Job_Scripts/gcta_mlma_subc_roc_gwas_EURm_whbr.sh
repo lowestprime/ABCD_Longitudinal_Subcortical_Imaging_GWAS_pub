@@ -20,7 +20,7 @@ results_dir="${base_dir}/Results/test_run"
 mkdir -p "${results_dir}"
 
 # Output and error notification preferences
-#$ -o ${results_dir}/GCTA_GWAS_${pop}_${sex}_${phenotype}_${date}_$JOB_ID.out
+#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/GCTA_GWAS_${pop}_${sex}_${phenotype}_${date}_$JOB_ID.out
 #$ -j y # join std error and std output streams, yes
 # Email notifications
 #$ -M cobeaman@g.ucla.edu
