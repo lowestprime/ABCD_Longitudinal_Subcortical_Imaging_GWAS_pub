@@ -37,3 +37,38 @@ Reading PLINK FAM file from [/u/project/lhernand/shared/GenomicDatasets-processe
 Reading PLINK BIM file from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bim].
 6964838 SNPs to be included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bim].
 Reading PLINK BED file from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bed] in SNP-major format ...
+Genotype data for 3628 individuals and 6964838 SNPs to be included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bed].
+Reading phenotypes from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/30456_pheno_07282024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt].
+Non-missing phenotypes of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/30456_pheno_07282024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt].
+Reading quantitative covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_30456_07282024_EUR_M_2268.txt].
+11 quantitative covariate(s) of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_30456_07282024_EUR_M_2268.txt].
+Reading discrete covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_30456_07282024_EUR_M_2268.txt].
+32 discrete covariate(s) of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_30456_07282024_EUR_M_2268.txt].
+Reading IDs of the GRM from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.id].
+3628 IDs are read from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.id].
+Reading the GRM from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.bin].
+GRM for 3628 individuals are included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.bin].
+2267 individuals are in common in these files.
+11 quantitative variable(s) included as covariate(s).
+32 discrete variable(s) included as covariate(s).
+
+Performing MLM association analyses (including the candidate SNP) ...
+
+Performing  REML analysis ... (Note: may take hours depending on sample size).
+2267 observations, 44 fixed effect(s), and 2 variance component(s)(including residual variance).
+Calculating prior values of variance components by EM-REML ...
+Updated prior values: 0.496369 0.506285
+logL: -1222.15
+Running AI-REML algorithm ...
+Iter.	logL	V(G)	V(e)	
+1	-1221.92	0.44602	0.55127	
+2	-1220.23	0.32227	0.66467	
+3	-1218.42	0.31677	0.67070	
+4	-1218.40	0.31289	0.67495	
+5	-1218.39	0.30428	0.68436	
+6	-1218.38	0.30387	0.68477	
+7	-1218.38	0.30385	0.68478	
+Log-likelihood ratio converged.
+Calculating allele frequencies ...
+
+Running association tests for 6964838 SNPs ...

@@ -6,7 +6,7 @@
 # Request resources
 #$ -l highp,h_rt=30:00:00,h_data=5G
 #$ -pe shared 36
-#-l arch=intel-gold*
+#$ -l arch=intel-gold*
 
 # Define constants and dirs
 # Current date
