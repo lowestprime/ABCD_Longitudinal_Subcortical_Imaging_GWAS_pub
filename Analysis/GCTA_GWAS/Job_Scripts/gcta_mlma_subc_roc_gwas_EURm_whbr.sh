@@ -1,6 +1,13 @@
 #!/bin/sh
 # Perform Genome-Wide association analysis using GCTA - Test Run - EUR M smri_vol_scs_wholeb_ROC0_2
 
+# Set working directory
+#$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
+# Request resources
+#$ -l highp,h_rt=30:00:00,h_data=5G
+#$ -pe shared 36
+#$ -l arch=intel-gold*
+
 # Define constants and dirs
 # Current date
 date=$(date +"%m%d%Y")
@@ -12,12 +19,6 @@ base_dir="/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWA
 results_dir="${base_dir}/Results/test_run"
 mkdir -p "${results_dir}"
 
-# Set working directory
-#$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
-# Request resources
-#$ -l highp,h_rt=30:00:00,h_data=5G
-#$ -pe shared 36
-#$ -l arch=intel-gold*
 # Output and error notification preferences
 output_file="${results_dir}/GCTA_GWAS_${pop}_${sex}_${phenotype}_${date}"
 #$ -o "$output_file_$JOB_ID.out"
