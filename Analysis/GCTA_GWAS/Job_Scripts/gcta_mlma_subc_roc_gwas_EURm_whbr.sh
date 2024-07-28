@@ -10,6 +10,7 @@ sex="M"
 phenotype="smri_vol_scs_wholeb_ROC0_2"
 base_dir="/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data"
 results_dir="${base_dir}/Results/test_run"
+mkdir -p "${results_dir}"
 
 # Set working directory
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
@@ -18,7 +19,7 @@ results_dir="${base_dir}/Results/test_run"
 #$ -pe shared 36
 #$ -l arch=intel-gold*
 # Output and error notification preferences
-#$ -o "${results_dir}"/GCTA_GWAS_"${pop}"_"${sex}"_"{phenotype}"_"${date}"_"${JOB_ID}".out
+#$ -o "${results_dir}/GCTA_GWAS_${pop}_${sex}_${phenotype}_${date}_\$JOB_ID.out"
 #$ -j y # join std error and std output streams, yes
 # Email notifications
 #$ -M cobeaman@g.ucla.edu
@@ -69,7 +70,7 @@ $gcta --mlma \
       --pheno "${pheno_file}" \
       --covar "${covar_file}" \
       --qcovar "${qcovar_file}" \
-      --thread-num 32 \
+      --thread-num 36 \
       --out "${out_file}"
 
 if [ $? -ne 0 ]; then
