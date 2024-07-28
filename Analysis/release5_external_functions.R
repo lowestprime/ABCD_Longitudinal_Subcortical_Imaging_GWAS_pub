@@ -215,7 +215,7 @@ create_dummies <- function(data, var_names) {
 # and apply FRGEpistasis rank inverse log normalization with directory check/creation
 save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date, dummy_vars, log = FALSE) {
   # Create dummy variables on the entire dataset using fastDummies package
-  data_with_dummies <- dummy_cols(data, select_columns = dummy_vars, remove_first_dummy = FALSE, remove_selected_columns = TRUE)
+  data_with_dummies <- dummy_cols(data, select_columns = dummy_vars, remove_first_dummy = TRUE, remove_selected_columns = TRUE)
   
   # Define output directories
   pheno_out_dir <- file.path(pheno_dir, ethnicity, sex)
