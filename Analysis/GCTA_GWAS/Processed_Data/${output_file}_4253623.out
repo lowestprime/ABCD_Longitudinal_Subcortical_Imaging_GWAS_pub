@@ -1,3 +1,14 @@
+Output file base path: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/GCTA_GWAS_EUR_M_smri_vol_scs_wholeb_ROC0_2_07282024
+Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/30456_pheno_07282024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt
+Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_30456_07282024_EUR_M_2268.txt
+Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_30456_07282024_EUR_M_2268.txt
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.bin
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.id
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.N.bin
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bed
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bim
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.fam
+All required files found. Starting GCTA --mlma analysis.
 *******************************************************************
 * Genome-wide Complex Trait Analysis (GCTA)
 * version v1.94.1 Linux
@@ -220,3 +231,4 @@ Iter.	logL	V(G)	V(e)
 Error: 
   the X^t * V^-1 * X matrix is not invertible. Please check the covariate(s) and/or the environmental factor(s).
 An error occurs, please check the options or data
+Error running GCTA MLMA for EUR M smri_vol_scs_wholeb_ROC0_2

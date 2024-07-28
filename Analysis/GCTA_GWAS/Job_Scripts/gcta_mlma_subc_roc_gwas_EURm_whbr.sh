@@ -19,12 +19,8 @@ base_dir="/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWA
 results_dir="${base_dir}/Results/test_run"
 mkdir -p "${results_dir}"
 
-# Define output file prefix
-output_file="${results_dir}/GCTA_GWAS_${pop}_${sex}_${phenotype}_${date}"
-# Echo statements to test paths (for debugging)
-echo "Output file base path: $output_file"
 # Output and error notification preferences
-#$ -o "${output_file}_$JOB_ID.out"
+#$ -o ${results_dir}/GCTA_GWAS_${pop}_${sex}_${phenotype}_${date}_$JOB_ID.out
 #$ -j y # join std error and std output streams, yes
 # Email notifications
 #$ -M cobeaman@g.ucla.edu
@@ -76,11 +72,12 @@ $gcta --mlma \
       --covar "${covar_file}" \
       --qcovar "${qcovar_file}" \
       --thread-num 36 \
-      --reml-maxit 1000 \
+      --reml-no-constrain \
       --out "${out_file}"
 
-# other args if needed to overcome Error: Log-likelihood not converged (stop after 100 iteractions).
+# other args if needed to overcome Error: Log-likelihood not converged (stop after 100 iteractions). the X^t * V^-1 * X matrix is not invertible. Please check the covariate(s) and/or the environmental factor(s).
 #--reml-no-constrain
+#--reml-maxit 1000
 
 if [ $? -ne 0 ]; then
   echo "Error running GCTA MLMA for ${pop} ${sex} ${phenotype}" >&2
