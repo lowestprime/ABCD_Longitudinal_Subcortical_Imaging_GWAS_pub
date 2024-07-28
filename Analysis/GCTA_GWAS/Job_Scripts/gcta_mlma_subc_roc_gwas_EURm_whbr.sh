@@ -6,7 +6,7 @@
 # Request resources
 #$ -l highp,h_rt=30:00:00,h_data=5G
 #$ -pe shared 36
-#$ -l arch=intel-gold*
+#-l arch=intel-gold*
 
 # Define constants and dirs
 # Current date
@@ -72,13 +72,14 @@ $gcta --mlma \
       --covar "${covar_file}" \
       --qcovar "${qcovar_file}" \
       --thread-num 36 \
-      --reml-no-constrain \
+      --reml \
       --reml-maxit 1000 \
       --out "${out_file}"
 
 # other args if needed to overcome Error: Log-likelihood not converged (stop after 100 iteractions). the X^t * V^-1 * X matrix is not invertible. Please check the covariate(s) and/or the environmental factor(s).
 #--reml-no-constrain
 #--reml-maxit 1000
+#--reml # Use constrained REML
 
 if [ $? -ne 0 ]; then
   echo "Error running GCTA MLMA for ${pop} ${sex} ${phenotype}" >&2
