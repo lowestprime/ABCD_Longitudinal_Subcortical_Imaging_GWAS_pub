@@ -1,0 +1,458 @@
+Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/30456_pheno_07282024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt
+Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_30456_07282024_EUR_M_2268.txt
+Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_30456_07282024_EUR_M_2268.txt
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.bin
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.id
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.N.bin
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bed
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bim
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.fam
+All required files found. Starting GCTA --mlma analysis.
+*******************************************************************
+* Genome-wide Complex Trait Analysis (GCTA)
+* version v1.94.1 Linux
+* Built at Nov 15 2022 21:14:25, by GCC 8.5
+* (C) 2010-present, Yang Lab, Westlake University
+* Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
+*******************************************************************
+Analysis started at 03:06:47 PDT on Sun Jul 28 2024.
+Hostname: n7425
+
+Accepted options:
+--mlma 
+--bfile /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+--grm /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM
+--pheno /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/30456_pheno_07282024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt
+--covar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_30456_07282024_EUR_M_2268.txt
+--qcovar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_30456_07282024_EUR_M_2268.txt
+--thread-num 36
+--reml-no-constrain
+--reml-maxit 1000
+--out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/smri_vol_scs_wholeb_ROC0_2_07282024_n2268_4253633
+
+Note: the program will be running on 36 threads.
+
+Reading PLINK FAM file from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.fam].
+3628 individuals to be included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.fam].
+Reading PLINK BIM file from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bim].
+6964838 SNPs to be included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bim].
+Reading PLINK BED file from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bed] in SNP-major format ...
+Genotype data for 3628 individuals and 6964838 SNPs to be included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype.bed].
+Reading phenotypes from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/30456_pheno_07282024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt].
+Non-missing phenotypes of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/30456_pheno_07282024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt].
+Reading quantitative covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_30456_07282024_EUR_M_2268.txt].
+11 quantitative covariate(s) of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_30456_07282024_EUR_M_2268.txt].
+Reading discrete covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_30456_07282024_EUR_M_2268.txt].
+34 discrete covariate(s) of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_30456_07282024_EUR_M_2268.txt].
+Reading IDs of the GRM from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.id].
+3628 IDs are read from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.id].
+Reading the GRM from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.bin].
+GRM for 3628 individuals are included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM.grm.bin].
+2267 individuals are in common in these files.
+11 quantitative variable(s) included as covariate(s).
+34 discrete variable(s) included as covariate(s).
+
+Performing MLM association analyses (including the candidate SNP) ...
+
+Performing  REML analysis ... (Note: may take hours depending on sample size).
+2267 observations, 46 fixed effect(s), and 2 variance component(s)(including residual variance).
+Calculating prior values of variance components by EM-REML ...
+Updated prior values: 0.533181 0.549864
+logL: -1200.3
+Running AI-REML algorithm ...
+Iter.	logL	V(G)	V(e)	
+1	-1197.04	0.46330	0.58922	
+2	-1179.41	0.48927	0.61779	
+3	-1197.66	0.42778	0.63915	
+4	-1194.37	0.29543	0.68839	
+5	-1190.25	0.29461	0.69229	
+6	-1180.06	0.30898	0.69156	
+7	-1176.73	0.28336	0.81604	
+8	-1198.30	0.31410	0.75904	
+9	-1197.92	0.10978	1.08255	
+10	-1212.82	0.06713	1.04520	
+11	-1206.74	0.28776	0.70238	
+12	-1188.74	0.29418	0.69902	
+13	-1191.79	0.29540	0.70586	
+14	-1188.36	0.29024	0.70220	
+15	-1188.40	0.28827	0.70414	
+16	-1189.83	0.31160	0.68319	
+17	-1186.38	0.33289	0.69481	
+18	-1191.90	0.32361	0.69200	
+19	-1189.92	0.30971	0.68930	
+20	-1189.78	0.30781	0.69026	
+21	-1191.20	0.30265	0.68640	
+22	-1191.38	0.30704	0.68741	
+23	-1203.04	0.30861	0.69175	
+24	-1188.67	0.30362	0.69798	
+25	-1189.71	0.30221	0.69510	
+26	-1187.19	0.33650	0.72185	
+27	-1193.52	0.32899	0.71032	
+28	-1191.62	0.32639	0.70225	
+29	-1190.06	0.33092	0.69950	
+30	-1190.25	0.31635	0.70192	
+31	-1190.11	0.25553	1.06801	
+32	-1232.83	0.37293	0.50199	
+33	-1186.51	0.40195	0.65537	
+34	-1191.80	0.34848	0.69064	
+35	-1183.26	0.36003	0.74128	
+36	-1014.59	0.35841	0.75489	
+37	-1196.66	0.35833	0.75813	
+38	-1208.45	-1.66048	3.07232	
+39	-1317.65	-1.69951	2.92397	
+40	-1169.93	-4.86549	8.05116	
+41	-1627.27	-4.86569	8.05315	
+42	-1682.34	-4.87030	8.04240	
+43	-1708.09	-4.88670	8.06982	
+44	-1782.41	-4.81113	7.94584	
+45	-1765.77	-4.98782	8.24270	
+46	-1745.00	-4.92809	8.14507	
+47	-1759.45	-4.91721	8.13387	
+48	-1673.25	-4.94113	8.12953	
+49	-1723.60	-4.93015	8.11078	
+50	-1671.35	-4.92548	8.09901	
+51	-1814.72	-4.93205	8.09511	
+52	-3191.48	-4.92800	8.08893	
+53	-2412.47	-4.78623	7.85798	
+54	-2082.46	-4.79460	7.87214	
+55	-2146.07	-4.79529	7.87412	
+56	-2030.39	-4.79317	7.87518	
+57	-1824.64	-6.01592	9.88479	
+58	-1967.24	-6.56716	10.79481	
+59	-2257.80	-6.56704	10.79697	
+60	-1969.79	-6.62018	10.77253	
+61	-1892.82	-6.62032	10.77256	
+62	-1834.38	-6.62032	10.77222	
+63	-1896.44	-6.60843	10.75213	
+64	-1901.89	-6.58817	10.70855	
+65	-1973.28	-6.58265	10.70993	
+66	-1909.46	-6.58676	10.70652	
+67	-1987.07	-6.57795	10.69509	
+68	-1972.80	-6.18286	10.07836	
+69	-1769.45	-6.18375	10.08305	
+70	-1862.11	-6.17988	10.08944	
+71	-1663.93	-6.43833	10.50483	
+72	-1760.67	-6.41553	10.51040	
+73	-4417.13	-6.41603	10.51208	
+74	-3355.42	-6.41595	10.51409	
+75	-2580.99	-6.41556	10.51501	
+76	-2346.78	-6.41538	10.51711	
+77	-2230.27	-6.41459	10.51747	
+78	-2161.95	-6.36770	10.44686	
+79	-1925.22	-6.35664	10.42646	
+80	-2023.44	-6.37119	10.44514	
+81	-2206.89	-6.30792	10.35443	
+82	-2118.38	-6.34771	10.41903	
+83	-2587.29	-6.35980	10.43923	
+84	-2395.13	-5.08363	8.35123	
+85	-1902.25	-5.03081	8.26861	
+86	-1882.64	-5.03054	8.26960	
+87	-1832.11	-5.02097	8.27270	
+88	-1678.14	-5.02855	8.28168	
+89	-1757.47	-5.02813	8.28456	
+90	-1664.03	-5.07390	8.35266	
+91	-1755.01	-5.04738	8.31111	
+92	-1723.49	-4.89744	8.10540	
+93	-1627.14	-4.91963	8.11214	
+94	-2303.39	-4.92575	8.12297	
+95	-542.48	-4.92604	8.11803	
+96	-1402.76	-4.91411	8.09753	
+97	-1486.83	-4.89739	8.06630	
+98	-1667.79	-4.89872	8.05446	
+99	-1798.08	-4.84977	8.05901	
+100	-2081.74	-4.83819	8.04041	
+101	-1814.64	-4.82495	8.01970	
+102	-1813.34	-4.91791	8.17505	
+103	-1839.39	-4.91520	8.17404	
+104	-1849.40	-4.91428	8.18489	
+105	-1755.82	-4.90753	8.06992	
+106	-1763.88	-4.90889	8.06446	
+107	-1902.50	-4.69268	7.72274	
+108	-2082.39	-4.66752	7.68174	
+109	-1903.63	-4.65437	7.66093	
+110	-1822.41	-4.65636	7.66484	
+111	-1793.12	-4.65656	7.66623	
+112	-1744.23	-4.65425	7.66454	
+113	-1506.26	-4.65413	7.66314	
+114	-1685.38	-4.61052	7.59737	
+115	-1403.39	-4.61225	7.59697	
+116	-1525.52	-4.61954	7.60558	
+117	-1743.21	-4.55916	7.51867	
+118	-2072.72	-4.54938	7.50564	
+119	-1197.66	-4.54882	7.49142	
+120	-1623.12	-4.52879	7.45306	
+121	-1993.13	-4.53232	7.45929	
+122	-1892.44	-4.52143	7.44225	
+123	-1758.47	-4.45148	7.32781	
+124	-1783.19	-4.45314	7.33146	
+125	-1763.22	-4.45043	7.33782	
+126	-2404.84	-4.42595	7.29787	
+127	-2220.27	-4.42828	7.30352	
+128	-1967.87	-4.42921	7.30618	
+129	-628.54	-4.43229	7.30210	
+130	-1246.76	-4.43232	7.30128	
+131	-1464.59	-4.43093	7.29233	
+132	-2302.44	-4.43654	7.30239	
+133	-1769.32	-4.39500	7.23596	
+134	-1740.84	-4.39859	7.24590	
+135	-1416.22	-4.39463	7.23741	
+136	-1618.63	-4.37931	7.20791	
+137	-1772.61	-4.02931	6.63338	
+138	-1624.10	-3.89744	6.42440	
+139	100.63	-3.90112	6.43030	
+140	-7.55	-3.89810	6.42509	
+141	-2258.75	-3.91796	6.42707	
+142	-1696.69	-3.85478	6.31668	
+143	-2726.82	-3.85508	6.31795	
+144	317089.83	-3.85508	6.31791	
+145	6717.05	-3.85508	6.31788	
+146	-2407.89	-3.97288	6.51461	
+147	-829.20	-3.97280	6.51394	
+148	-1982.64	-3.97076	6.51366	
+149	-1702.88	-3.90390	6.39639	
+150	-3308.31	-3.90444	6.39770	
+151	-2856.92	-3.91592	6.41850	
+152	-2312.98	-3.91493	6.41839	
+153	-2063.72	-3.91067	6.41373	
+154	-1878.13	-4.31618	7.09697	
+155	-1696.74	-4.31623	7.08580	
+156	-2333.43	-4.31132	7.07791	
+157	-2235.19	-4.17687	6.85807	
+158	-2327.02	-4.17685	6.85910	
+159	-2127.32	-4.18059	6.86924	
+160	-1821.22	-4.17650	6.86792	
+161	-1674.23	-4.19366	6.88749	
+162	-2071.25	-4.19350	6.88969	
+163	-1831.84	-4.25600	7.00452	
+164	-1856.09	-4.24253	6.98262	
+165	-1743.71	-4.24323	6.98489	
+166	-1712.74	-4.24356	6.98635	
+167	-1312.96	-4.24365	6.98314	
+168	-1116.54	-4.23972	6.97660	
+169	-1443.66	-4.23901	6.97530	
+170	-523.88	-4.23895	6.97581	
+171	-2966.32	-4.24769	6.99022	
+172	-2654.46	-4.18704	6.89057	
+173	-2135.02	-4.18349	6.88483	
+174	-2034.22	-4.16995	6.86267	
+175	-1930.06	-4.16139	6.84876	
+176	-1867.47	-4.15946	6.84580	
+177	-1726.79	-4.15981	6.84671	
+178	-1742.97	-3.92026	6.45297	
+179	-1879.54	-3.92251	6.45881	
+180	-1570.22	-3.55985	5.91988	
+181	-1657.65	-3.54805	5.90306	
+182	-1288.64	-3.58789	5.89520	
+183	-1898.95	-3.58728	5.89629	
+184	-1631.40	-3.56559	5.88320	
+185	-3436.85	-3.56561	5.88376	
+186	-1062.24	-3.63287	5.82889	
+187	-1511.50	-3.64350	5.83783	
+188	-4401.47	-3.64351	5.83467	
+189	-1867.53	-3.64311	5.83006	
+190	-1441.25	-3.64379	5.83045	
+191	-1317.05	-3.64522	5.83204	
+192	-1621.32	-3.64818	5.83553	
+193	-1659.59	-3.79484	6.05591	
+194	-2102.49	-3.78350	6.04284	
+195	-1585.18	-3.80188	6.06915	
+196	-2172.35	-3.78977	6.05177	
+197	-1829.39	-3.87500	6.12676	
+198	-1411.35	-3.87442	6.12792	
+199	182369.34	-3.87442	6.12792	
+200	-744.56	-3.87586	6.12958	
+201	-983.27	-3.88315	6.13808	
+202	-1381.82	-3.86283	6.12615	
+203	-1301.97	-3.34126	5.31316	
+204	-282.28	-3.33352	5.29984	
+205	-612.53	-3.37041	5.35648	
+206	-1036.32	-3.36295	5.35284	
+207	-5021.33	-3.42919	5.45908	
+208	-3058.43	-3.42718	5.45758	
+209	-1976.64	-3.37948	5.38392	
+210	-1439.28	-3.37818	5.38485	
+211	-323.82	-3.37394	5.37782	
+212	-617.33	-3.37673	5.38188	
+213	-768.36	-3.29014	5.24170	
+214	-1456.84	-2.95630	4.72066	
+215	-1861.26	-3.05562	4.82621	
+216	-1354.43	-2.99138	4.72179	
+217	-18768.09	-2.99138	4.72180	
+218	-30289.81	-2.99168	4.72229	
+219	-6006.99	-2.99160	4.72218	
+220	-5024.32	-2.99164	4.72226	
+221	-5337.07	-2.99167	4.72233	
+222	-2301.01	-2.99229	4.72338	
+223	-993.65	-2.99207	4.72313	
+224	49.80	-2.99167	4.72267	
+225	-1420.34	-2.99277	4.72456	
+226	-1795.12	-2.97837	4.70270	
+227	-1218.11	-2.97511	4.70190	
+228	-1237.52	-2.97556	4.70397	
+229	-944.20	-3.00023	4.72106	
+230	-1046.64	-2.99983	4.72036	
+231	-1225.13	-2.99783	4.71683	
+232	-1638.18	-2.99417	4.71556	
+233	-1266.79	-2.44946	3.95727	
+234	-1195.65	-2.45508	3.96395	
+235	-1644.89	-2.45694	3.96758	
+236	-1347.79	-2.58613	4.13925	
+237	2736.48	-2.58620	4.13930	
+238	2184.06	-2.58633	4.13944	
+239	1404.06	-2.58688	4.14003	
+240	-212.81	-2.58824	4.14162	
+241	-1025.04	-2.59090	4.14452	
+242	-1419.41	-2.63156	4.20015	
+243	-2793.61	-2.62835	4.19745	
+244	-1754.21	-2.64253	4.21191	
+245	114.95	-2.64241	4.21131	
+246	-719.26	-2.64609	4.21647	
+247	-1008.98	-2.53704	4.03559	
+248	3517.51	-2.53570	4.03322	
+249	1753.65	-2.53462	4.03133	
+250	1209.32	-2.53584	4.03246	
+251	181.28	-2.51134	3.99124	
+252	-782.00	-2.50416	3.99178	
+253	494.07	-2.50582	3.99397	
+254	-368.68	-2.46928	3.93533	
+255	-205.56	-2.46959	3.93432	
+256	-1373.37	-2.51648	4.01031	
+257	-728.33	-2.52167	4.01282	
+258	6818.40	-2.52164	4.01266	
+259	4744.72	-2.52143	4.01218	
+260	2970.34	-2.50750	3.98930	
+261	-347.06	-2.51424	4.00093	
+262	5543.61	-2.51677	4.00454	
+263	1708.92	-2.47027	3.93014	
+264	206.25	-2.46847	3.92912	
+265	-5999.51	-2.46879	3.93024	
+266	-3414.47	-2.25887	3.59752	
+267	-1803.77	-2.36014	3.75832	
+268	-2161.77	-2.37949	3.79045	
+269	-1535.37	-2.39532	3.81665	
+270	-1050.64	-2.39479	3.81176	
+271	-6932.40	-2.39476	3.81187	
+272	-5404.50	-2.38803	3.80186	
+273	-3284.50	-2.39602	3.81505	
+274	-2533.86	-2.40282	3.82661	
+275	-1911.14	-2.33906	3.71513	
+276	1907.13	-2.33881	3.71461	
+277	1542.80	-2.34027	3.71680	
+278	928.15	-2.33873	3.71377	
+279	56.70	-2.35555	3.73919	
+280	-420.67	-2.34743	3.72254	
+281	-1164.55	-2.36219	3.74901	
+282	-650.38	-2.40152	3.80496	
+283	87.49	-2.41160	3.82086	
+284	-226.86	-2.41118	3.82008	
+285	-417.08	-2.40580	3.81105	
+286	-987.51	-2.32618	3.68258	
+287	-20.38	-2.32683	3.68301	
+288	-776.55	-2.32807	3.68421	
+289	-1381.99	-2.31396	3.66336	
+290	436.50	-2.31429	3.66345	
+291	-473.61	-2.31531	3.66470	
+292	-843.76	-2.33365	3.68967	
+293	-951.87	-2.34328	3.69467	
+294	-230230.12	-2.34325	3.69462	
+295	-115663.81	-2.34323	3.69461	
+296	-58385.34	-2.34323	3.69460	
+297	-44866.50	-2.34321	3.69458	
+298	-34306.85	-2.34320	3.69457	
+299	-26069.97	-2.34316	3.69453	
+300	-20691.81	-2.34312	3.69447	
+301	-16501.33	-2.34307	3.69442	
+302	-12062.08	-2.34302	3.69436	
+303	-9512.73	-2.34295	3.69429	
+304	-7585.86	-2.34285	3.69417	
+305	-5866.66	-2.34271	3.69400	
+306	-4693.86	-2.34256	3.69385	
+307	-3850.10	-2.34239	3.69367	
+308	-3830.82	-2.34261	3.69418	
+309	-2924.41	-2.32259	3.66287	
+310	-2316.06	-2.11755	3.33986	
+311	-1112.45	-2.11650	3.33910	
+312	-1413.66	-2.11518	3.33828	
+313	-913.19	-2.11319	3.33455	
+314	-1153.27	-2.13795	3.37236	
+315	-4569.39	-2.13787	3.37342	
+316	-1168.75	-2.57997	4.06642	
+317	-632.31	-2.57996	4.06590	
+318	-719.56	-2.58279	4.06963	
+319	-761.12	-2.60024	4.09255	
+320	-1734.29	-2.59900	4.09156	
+321	-1414.63	-2.62097	4.13008	
+322	-927.96	-2.62675	4.13814	
+323	-1097.60	-2.81528	4.43307	
+324	-1347.40	-2.04529	3.23381	
+325	2397.47	-2.04539	3.23319	
+326	-986.52	-2.04380	3.23355	
+327	-9750.80	-2.04377	3.23360	
+328	-5221.05	-2.04388	3.23394	
+329	-2983.78	-2.04396	3.23419	
+330	-2203.19	-2.04387	3.23421	
+331	-1765.83	-2.04131	3.23038	
+332	-1505.84	-2.04069	3.22981	
+333	-1008.70	-1.97458	3.12915	
+334	-1466.60	-1.97468	3.12958	
+335	-936.91	-1.98063	3.13783	
+336	-448.96	-1.96604	3.11450	
+337	-911.91	-1.96366	3.11030	
+338	-1234.75	-1.98526	3.14923	
+339	-1249.00	-1.98273	3.14988	
+340	-2639.73	-1.98314	3.15098	
+341	-1338.40	-1.73350	2.75555	
+342	-113.48	-1.81833	2.88627	
+343	-215.16	-1.79977	2.85581	
+344	-662.81	-2.07789	3.28269	
+345	6528.45	-2.07760	3.28206	
+346	223.68	-2.07724	3.28141	
+347	-907.22	-2.07274	3.27386	
+348	-659.45	-2.06807	3.26530	
+349	-1276.92	-2.06913	3.26757	
+350	-716.94	-2.06597	3.25812	
+351	-2314.62	-2.06396	3.25517	
+352	-1938.36	-2.06678	3.26061	
+353	-1485.17	-2.06833	3.26423	
+354	-974.38	-2.06739	3.26249	
+355	-906.73	-2.05403	3.24075	
+356	-1143.27	-2.05857	3.24985	
+357	-1778.49	-2.06005	3.25276	
+358	-1606.35	-2.05035	3.24639	
+359	-48215.28	-2.05034	3.24639	
+360	-36930.18	-2.05032	3.24637	
+361	-18954.01	-2.05031	3.24636	
+362	-14595.28	-2.05029	3.24635	
+363	-11366.06	-2.05028	3.24635	
+364	-8826.99	-2.05025	3.24634	
+365	-6966.16	-2.05022	3.24632	
+366	-5542.16	-2.05017	3.24629	
+367	-4444.12	-2.05011	3.24624	
+368	-3718.38	-2.05000	3.24616	
+369	-3825.17	-2.04987	3.24607	
+370	-2375.14	-2.04948	3.24593	
+371	-1510.62	-2.05256	3.25125	
+372	-1068.75	-2.00970	3.17753	
+373	-313.38	-2.02530	3.20130	
+374	-780.13	-2.02261	3.20035	
+375	-2551.95	-2.02081	3.19792	
+376	-1455.45	-2.00018	3.16650	
+377	285.17	-2.00178	3.16888	
+378	-92.36	-2.00202	3.16906	
+379	-511.85	-2.00686	3.17553	
+380	-2207.86	-2.00476	3.17276	
+381	-1137.73	-1.95129	3.09082	
+382	-1126.30	-0.05257	-0.02190	
+383	18424.72	-0.06953	-0.03462	
+384	13634.15	-0.17420	0.01378	
+385	5637.78	-0.36130	0.02863	
+386	2997.12	-0.85991	0.06588	
+387	937.38	-1.15642	0.09754	
+388	588.62	-3.60652	0.26639	
+389	-1169.46	-13.53677	0.97972	
+390	-2739.72	-140.19445	9.91249	
+391	-5368.07	-185.44504	13.15702	
+Error: 
+  the X^t * V^-1 * X matrix is not invertible. Please check the covariate(s) and/or the environmental factor(s).
+An error occurs, please check the options or data
+Error running GCTA MLMA for EUR M smri_vol_scs_wholeb_ROC0_2

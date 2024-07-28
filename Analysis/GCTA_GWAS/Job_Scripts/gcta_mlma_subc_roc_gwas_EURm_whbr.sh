@@ -46,7 +46,7 @@ grm_file="${grmDir}/${pop}.males_GRM"
 
 # Output file
 num_samples=$(wc -l < "${pheno_file}")
-out_file="${results_dir}/${phenotype}_${date}_n${num_samples}"
+out_file="${results_dir}/${phenotype}_${date}_n${num_samples}_$JOB_ID"
 
 # Check if all necessary files exist
 required_files=(
@@ -73,6 +73,7 @@ $gcta --mlma \
       --qcovar "${qcovar_file}" \
       --thread-num 36 \
       --reml-no-constrain \
+      --reml-maxit 1000 \
       --out "${out_file}"
 
 # other args if needed to overcome Error: Log-likelihood not converged (stop after 100 iteractions). the X^t * V^-1 * X matrix is not invertible. Please check the covariate(s) and/or the environmental factor(s).
