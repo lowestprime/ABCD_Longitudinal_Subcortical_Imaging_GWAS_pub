@@ -214,7 +214,7 @@ create_dummies <- function(data, var_names) {
 # Function to create and save split data, convert discrete covar dummy variables, 
 # and apply FRGEpistasis rank inverse log normalization with directory check/creation
 save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date, dummy_vars, log = FALSE) {
-  # Create dummy variables on the entire dataset
+  # Create dummy variables on the entire dataset using fastDummies package
   data_with_dummies <- dummy_cols(data, select_columns = dummy_vars, remove_first_dummy = FALSE, remove_selected_columns = TRUE)
   
   # Define output directories
@@ -235,22 +235,47 @@ save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date, du
   # Generate random ID for each file
   id <- sample(1:1000000, 1) # generate a random ID
   
+  # create empty log_content to accumulates all log messages
+  log_content <- c() 
+  
+  # Check for single-class variables
+  single_class_vars <- subset_data %>%
+    dplyr::select(FID, IID, starts_with("mri_info_"), starts_with("batch")) %>%
+    sapply(function(col) length(unique(col)) == 1)
+  
+  if (any(single_class_vars)) {
+    single_class_var_names <- names(single_class_vars)[single_class_vars]
+    
+    warning_message <- paste("For ethnicity:", ethnicity, "and sex:", sex, 
+                             "the following variables have only one class and will be removed:", 
+                             toString(single_class_var_names))
+    message(warning_message)
+    
+    log_content <- c(log_content, warning_message)
+    
+    # Remove single-class variables
+    subset_data <- subset_data %>%
+      dplyr::select(-one_of(single_class_var_names))
+  }
+  
   # Log the information if logging is enabled
   if (log) {
     # Compare old and new column names to identify dummy variables
     original_colnames <- colnames(data)
-    new_colnames <- colnames(data_with_dummies)
+    new_colnames <- colnames(subset_data)
     dummy_colnames <- setdiff(new_colnames, original_colnames)
-    # Print the number and names of new dummy columns
-    print(paste("Number of new dummy columns for", ethnicity, sex, ":", length(dummy_colnames)))
-    print("Names of new dummy columns:")
-    print(dummy_colnames)
-    log_file <- file.path(pheno_out_dir, sprintf("%d_log_%s_%s_%s.txt", id, date, ethnicity, sex))
-    writeLines(c(
+    
+    dummy_log_content <- c(
       paste("Number of new dummy columns for", ethnicity, sex, ":", length(dummy_colnames)),
       "Names of new dummy columns:",
       toString(dummy_colnames)
-    ), log_file)
+    )
+    
+    log_content <- c(log_content, dummy_log_content)
+    
+    # Write the combined log content to a single file
+    log_file <- file.path(covar_disc_out_dir, sprintf("%d_log_%s_%s_%s.txt", id, date, ethnicity, sex))
+    writeLines(log_content, log_file)
   }
   
   # Get number of samples for split subset

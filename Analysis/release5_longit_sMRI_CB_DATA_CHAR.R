@@ -1,8 +1,8 @@
 #### LOAD PACKAGES AND ABCD 5.1 DATA, DEFINE DIRECTORIES, AND SOURCE EXTERNAL FUNCTIONS ####
 
 # packages
-library(pacman)
-p_load(dplyr, tidyr, ggplot2, rlang, lme4, plotrix, ggrepel, gt, ggridges, stringr, reshape2, plotly, shiny, shinybg, data.table)
+if (!require("pacman", quietly = TRUE)) install.packages("pacman")
+pacman::p_load(dplyr, tidyr, ggplot2, rlang, lme4, plotrix, ggrepel, gt, ggridges, stringr, reshape2, plotly, shiny, shinybg, data.table)
 
 # directories
 base_dir <- '/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/'

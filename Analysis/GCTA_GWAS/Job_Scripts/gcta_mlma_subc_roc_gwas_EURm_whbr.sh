@@ -5,12 +5,12 @@
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
 
 # Request resources
-#$ -l highp,h_rt=70:00:00,h_data=5G
-#$ -pe shared 32
+#$ -l highp,h_rt=30:00:00,h_data=5G
+#$ -pe shared 36
 #$ -l arch=intel-gold*  # Requesting nodes with Intel Gold CPUs
 
 # Output and error handling
-#$ -o GCTA_GWAS_EURM_WhBr${JOB_ID}.out
+#$ -o GCTA_GWAS_EURM_WhBr"$JOB_ID".out
 #$ -j y # join std error and std output streams, yes
 
 # Email notifications

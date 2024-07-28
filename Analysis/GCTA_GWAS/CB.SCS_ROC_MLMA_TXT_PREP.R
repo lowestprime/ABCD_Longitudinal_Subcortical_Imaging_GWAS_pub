@@ -16,7 +16,8 @@
 # ROI: smri_vol_scs_wholeb (smri_vol_scs_intracranialv covar not needed)
 
 # Load Packages
-p_load(purrr, readr, FRGEpistasis, dplyr, fastDummies, nortest, patchwork)
+if (!require("pacman", quietly = TRUE)) install.packages("pacman")
+pacman::p_load(purrr, readr, FRGEpistasis, dplyr, fastDummies, nortest, patchwork, data.table)
 
 # Directories
 base_dir <- '/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/'
