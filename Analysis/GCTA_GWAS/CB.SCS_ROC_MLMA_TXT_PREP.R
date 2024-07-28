@@ -107,7 +107,7 @@ merged_data_final <- merged_data_final %>%
 # Apply save_split_data to each combination of ethnicity and sex
 for (ethnicity in ethnicities) {
   for (sex in sexes) {
-    save_split_data(merged_data_final, ethnicity, sex, pheno_dir, covar_dir, date, dummy_vars, log = F)
+    save_split_data(merged_data_final, ethnicity, sex, pheno_dir, covar_dir, date, dummy_vars)
   }
 }
 
