@@ -73,7 +73,6 @@ $gcta --mlma \
       --covar "${covar_file}" \
       --qcovar "${qcovar_file}" \
       --thread-num 36 \
-      --out-freq \
       --out "${out_file}"
 
 # optional args if needed to overcome Error: Log-likelihood not converged (stop after 100 iteractions). the X^t * V^-1 * X matrix is not invertible. Please check the covariate(s) and/or the environmental factor(s).
@@ -87,9 +86,9 @@ $gcta --mlma \
 #--reml-alg 1
 #Specify the algorithm to run REML iterations, 0 for average information (AI), 1 for Fisher-scoring and 2 for EM. The default option is 0, i.e. AI-REML, if this option is not specified.
 
+# Error checker
 if [ $? -ne 0 ]; then
   echo "Error running GCTA MLMA for ${pop} ${sex} ${phenotype}" >&2
   exit 1
 fi
-
 echo "Completed GCTA MLMA for ${pop} ${sex} ${phenotype} with ${num_samples} samples"
