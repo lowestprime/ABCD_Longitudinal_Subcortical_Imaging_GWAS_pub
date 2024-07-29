@@ -73,8 +73,6 @@ $gcta --mlma \
       --covar "${covar_file}" \
       --qcovar "${qcovar_file}" \
       --thread-num 36 \
-      --reml-maxit 1000 \
-      --reml-alg 1 \
       --out "${out_file}"
 
 # optional args if needed to overcome Error: Log-likelihood not converged (stop after 100 iteractions). the X^t * V^-1 * X matrix is not invertible. Please check the covariate(s) and/or the environmental factor(s).
