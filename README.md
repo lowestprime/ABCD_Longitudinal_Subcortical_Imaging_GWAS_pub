@@ -34,4 +34,5 @@
 ### **Stage 3 - Adult Neuropsychiatric GWAS Integration**
   - Condition existing neurodevelopmental disorder PRS on ROCs using [PleioPGS](https://www.biologicalpsychiatryjournal.com/article/S0006-3223(21)01865-5)
   - Perform [GenomicSEM](https://github.com/GenomicSEM/GenomicSEM) to investigate joint-genetic architectures and ROC mediation
+  - Perform [GSMR2 (Generalised Summary-data-based Mendelian Randomisation v2)](https://github.com/jianyanglab/gsmr2)
 
