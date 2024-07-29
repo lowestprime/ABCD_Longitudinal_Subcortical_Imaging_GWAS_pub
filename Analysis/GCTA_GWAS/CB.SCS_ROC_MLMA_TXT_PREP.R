@@ -19,7 +19,7 @@
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(purrr, readr, FRGEpistasis, dplyr, fastDummies, nortest, patchwork, data.table)
 
-# Directories
+# Define Directories
 base_dir <- '/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/'
 r5.1_genetics <- '/u/project/lhernand/shared/GenomicDatasets/ABCD_Release_5.1/core/genetics'
 image_dir <- paste0(base_dir, 'Images/')
@@ -152,5 +152,5 @@ for (ethnicity in ethnicities) {
   }
 }
 
-# Run to delete all files in split processed_Data (proc_dir)
-# clear_files_in_FM_subdirectories(proc_dir)
+# Run to clean old files in split processed data dir (proc_dir)
+# clean_old_runs(proc_dir, archive= TRUE)

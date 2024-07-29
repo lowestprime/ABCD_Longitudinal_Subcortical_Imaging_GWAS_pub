@@ -211,11 +211,107 @@ create_dummies <- function(data, var_names) {
   return(data_with_dummies)
 }
 
+# Function to handle multicollinearity by checking single-class variables, sparse dummy variables, 
+# highly correlated covariate pairs, and combining rare levels; optionally performs VIF analysis
+handle_multicollinearity <- function(data, dummy_vars, rare_level_threshold = 5, log = FALSE) {
+  log_content <- c()
+  
+  # Check for single-class variables
+  single_class_vars <- data %>%
+    dplyr::select(FID, IID, starts_with("mri_info_"), starts_with("batch")) %>%
+    sapply(function(col) length(unique(col)) == 1)
+  
+  if (any(single_class_vars)) {
+    single_class_var_names <- names(single_class_vars)[single_class_vars]
+    warning_message <- paste("The following variables have only one class and will be removed:", 
+                             toString(single_class_var_names))
+    message(warning_message)
+    log_content <- c(log_content, warning_message)
+    data <- data %>%
+      dplyr::select(-one_of(single_class_var_names))
+  }
+  
+  # Check for sparse dummy variables
+  sparse_threshold <- 0.05
+  dummy_cols <- data %>% dplyr::select(starts_with("mri_info_"), starts_with("batch"))
+  sparse_dummies <- colSums(dummy_cols == 1) / nrow(dummy_cols) < sparse_threshold
+  
+  if (log && any(sparse_dummies)) {
+    sparse_message <- paste("Sparse dummy variables (less than", sparse_threshold * 100, 
+                            "% of 1s):", toString(names(sparse_dummies)[sparse_dummies]))
+    message(sparse_message)
+    log_content <- c(log_content, sparse_message)
+  }
+  
+  # Check for multicollinearity
+  covariates <- data %>%
+    dplyr::select(starts_with("mri_info_"), starts_with("batch"), starts_with("PC"), interview_age)
+  cor_matrix <- cor(covariates)
+  
+  # Identify highly correlated pairs
+  high_cor <- which(abs(cor_matrix) > 0.8 & abs(cor_matrix) < 1, arr.ind = TRUE)
+  if (log && nrow(high_cor) > 0) {
+    cor_message <- paste("Highly correlated covariate pairs:", 
+                         paste(rownames(cor_matrix)[high_cor[,1]], 
+                               colnames(cor_matrix)[high_cor[,2]], 
+                               sep = " vs. ", collapse = ", "))
+    message(cor_message)
+    log_content <- c(log_content, cor_message)
+  }
+  
+  # Address multicollinearity by combining levels of mri_info_deviceserialnumber
+  if (any(sparse_dummies) || nrow(high_cor) > 0) {
+    mri_counts <- table(data$mri_info_deviceserialnumber)
+    rare_levels <- names(mri_counts[mri_counts < rare_level_threshold])
+    if (log) {
+      combine_message <- paste("Rare levels combined into 'Other':", toString(rare_levels))
+      message(combine_message)
+      log_content <- c(log_content, combine_message)
+    }
+    data$mri_info_deviceserialnumber[data$mri_info_deviceserialnumber %in% rare_levels] <- "Other"
+    
+    # Re-calculate dummy variables after combination
+    data <- dummy_cols(data, select_columns = dummy_vars, 
+                       remove_first_dummy = TRUE, remove_selected_columns = TRUE)
+    
+    # Recalculate covariates and correlation matrix
+    covariates <- data %>%
+      dplyr::select(starts_with("mri_info_"), starts_with("batch"), starts_with("PC"), interview_age)
+    cor_matrix <- cor(covariates)
+    
+    if (log) {
+      combine_message <- "Combined levels of mri_info_deviceserialnumber based on sparsity and correlation."
+      message(combine_message)
+      log_content <- c(log_content, combine_message)
+    }
+  }
+  
+  # Optional: VIF Analysis
+  if (requireNamespace("car", quietly = TRUE)) {
+    vif_values <- car::vif(lm(interview_age ~ ., data = covariates))
+    high_vif <- vif_values > 5
+    
+    if (log && any(high_vif)) {
+      vif_message <- paste("High VIF values (above 5):", toString(names(vif_values)[high_vif]))
+      message(vif_message)
+      log_content <- c(log_content, vif_message)
+    }
+    
+    if (any(high_vif)) {
+      data <- data %>% dplyr::select(-one_of(names(vif_values)[high_vif]))
+    }
+  }
+  
+  list(data = data, log_content = log_content)
+}
+
 # Function to create and save split data, convert discrete covar dummy variables, 
 # and apply FRGEpistasis rank inverse log normalization with directory check/creation
-save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date, dummy_vars, log = FALSE) {
+save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date, dummy_vars, rare_level_threshold = 5, log = FALSE) {
+  
   # Create dummy variables on the entire dataset using fastDummies package
-  data_with_dummies <- dummy_cols(data, select_columns = dummy_vars, remove_first_dummy = TRUE, remove_selected_columns = TRUE)
+  data_with_dummies <- dummy_cols(data, select_columns = dummy_vars, 
+                                  remove_first_dummy = TRUE, remove_selected_columns = TRUE)
   
   # Define output directories
   pheno_out_dir <- file.path(pheno_dir, ethnicity, sex)
@@ -233,34 +329,15 @@ save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date, du
     mutate(across(starts_with("smri_vol_"), ~ rankTransPheno(.x, 0.5)))
   
   # Generate random ID for each file
-  id <- sample(1:1000000, 1) # generate a random ID
+  id <- sample(1:1000000, 1)
   
-  # create empty log_content to accumulates all log messages
-  log_content <- c() 
-  
-  # Check for single-class variables
-  single_class_vars <- subset_data %>%
-    dplyr::select(FID, IID, starts_with("mri_info_"), starts_with("batch")) %>%
-    sapply(function(col) length(unique(col)) == 1)
-  
-  if (any(single_class_vars)) {
-    single_class_var_names <- names(single_class_vars)[single_class_vars]
-    
-    warning_message <- paste("For ethnicity:", ethnicity, "and sex:", sex, 
-                             "the following variables have only one class and will be removed:", 
-                             toString(single_class_var_names))
-    message(warning_message)
-    
-    log_content <- c(log_content, warning_message)
-    
-    # Remove single-class variables
-    subset_data <- subset_data %>%
-      dplyr::select(-one_of(single_class_var_names))
-  }
+  # Handle multicollinearity
+  result <- handle_multicollinearity(subset_data, dummy_vars, rare_level_threshold, log)
+  subset_data <- result$data
+  log_content <- result$log_content
   
   # Log the information if logging is enabled
   if (log) {
-    # Compare old and new column names to identify dummy variables
     original_colnames <- colnames(data)
     new_colnames <- colnames(subset_data)
     dummy_colnames <- setdiff(new_colnames, original_colnames)
@@ -273,7 +350,6 @@ save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date, du
     
     log_content <- c(log_content, dummy_log_content)
     
-    # Write the combined log content to a single file
     log_file <- file.path(covar_disc_out_dir, sprintf("%d_log_%s_%s_%s.txt", id, date, ethnicity, sex))
     writeLines(log_content, log_file)
   }
@@ -285,13 +361,12 @@ save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date, du
   phenotypes <- colnames(subset_data)[grepl("^smri_vol", colnames(subset_data))]
   for (phenotype in phenotypes) {
     if (phenotype != "smri_vol_scs_intracranialv_ROC0_2") {
-      phenotype_file_name <- file.path(pheno_out_dir, sprintf("%d_pheno_%s_%s_%s_%d_%s.txt", 
+      phenotype_file_name <- file.path(pheno_out_dir, sprintf("%d_pheno_%s_%s_%s_%d_%s.txt",
                                                               id, date, ethnicity, sex, num_samples, phenotype))
-      write.table(subset_data %>% dplyr::select(FID, IID, all_of(phenotype)), 
+      write.table(subset_data %>% dplyr::select(FID, IID, all_of(phenotype)),
                   file = phenotype_file_name, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
     }
     
-    # Save corresponding qcovar file
     if (phenotype == "smri_vol_scs_wholeb_ROC0_2") {
       qcovar_file_name_no_icv <- file.path(covar_quant_out_dir, sprintf("qcovar_noICV_%d_%s_%s_%s_%d.txt", 
                                                                         id, date, ethnicity, sex, num_samples))
@@ -308,14 +383,14 @@ save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date, du
   # Save discrete covariate file with dummy variables for specified columns
   covar_discrete <- subset_data %>%
     dplyr::select(FID, IID, starts_with("mri_info_"), starts_with("batch"))
-  covar_file_name <- file.path(covar_disc_out_dir, sprintf("covar_%d_%s_%s_%s_%d.txt", 
+  covar_file_name <- file.path(covar_disc_out_dir, sprintf("covar_%d_%s_%s_%s_%d.txt",
                                                            id, date, ethnicity, sex, num_samples))
-  write.table(covar_discrete, file = covar_file_name, col.names = FALSE, 
+  write.table(covar_discrete, file = covar_file_name, col.names = FALSE,
               row.names = FALSE, sep = "\t", quote = FALSE)
 }
 
-# Function to clear files in 'F' and 'M' subdirectories
-clear_files_in_FM_subdirectories <- function(base_path) {
+# Function to archive or clear files in 'F' and 'M' subdirectories
+clean_old_runs <- function(base_path, archive = TRUE) {
   # Get all subdirectories recursively
   dirs <- list.dirs(path = base_path, full.names = TRUE, recursive = TRUE)
   
@@ -324,7 +399,19 @@ clear_files_in_FM_subdirectories <- function(base_path) {
     # Only clear files in 'F' and 'M' subdirectories
     if (basename(dir) %in% c("F", "M")) {
       files <- list.files(path = dir, full.names = TRUE)
+      
+      # Exclude files in the archive subdirectory
+      files <- files[!grepl("/archive/", files)]
+      
       if (length(files) > 0) {
+        if (archive) {
+          # Create archive directory if it doesn't exist
+          archive_dir <- file.path(dir, "archive")
+          dir.create(archive_dir, showWarnings = FALSE)
+          # Move files to archive directory
+          file.copy(files, archive_dir, overwrite = TRUE)
+        }
+        # Remove the original files
         unlink(files)
       }
     }
