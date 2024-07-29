@@ -4,8 +4,8 @@
 # Set working directory
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
 # Request resources
-#$ -l h_rt=30:00:00,h_data=5G,highp
-#$ -pe shared 20
+#$ -l h_rt=20:00:00,h_data=5G,highp
+#$ -pe shared 36
 #$ -l arch=intel-gold*
 # Output and error notification preferences
 #$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/GCTA_MLMA_$JOB_ID.log
@@ -72,9 +72,9 @@ $gcta --mlma \
       --pheno "${pheno_file}" \
       --covar "${covar_file}" \
       --qcovar "${qcovar_file}" \
-      --thread-num 20 \
+      --thread-num 36 \
       --reml-maxit 1000 \
-      --reml-no-constrain \
+      --reml-alg 0 \
       --out "${out_file}"
 
 # optional args if needed to overcome Error: Log-likelihood not converged (stop after 100 iteractions). the X^t * V^-1 * X matrix is not invertible. Please check the covariate(s) and/or the environmental factor(s).

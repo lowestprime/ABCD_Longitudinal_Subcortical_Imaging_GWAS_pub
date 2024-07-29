@@ -4,7 +4,7 @@
 # Set working directory
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
 # Request resources
-#$ -l highp,h_rt=30:00:00,h_data=5G
+#$ -l h_rt=30:00:00,h_data=5G,highp
 #$ -pe shared 36
 #$ -l arch=intel-gold*
 # Output and error notification preferences
@@ -79,6 +79,13 @@ $gcta --mlma \
 # optional args if needed to overcome Error: Log-likelihood not converged (stop after 100 iteractions). the X^t * V^-1 * X matrix is not invertible. Please check the covariate(s) and/or the environmental factor(s).
 #--reml-no-constrain
 #--reml-maxit 1000
+#--reml-bendV
+# The GREML method uses REML for variance estimation, which requires the inverse of the variance-covariance matrix V. If V is not positive definite, the inverse of V does not exist. We therefore could not estimate the variance component. This usually happens when one (or more) of the variance components are negative or constrained at zero. It might also indicate there is something wrong with the GRM or the data which you might need to check carefully.
+# Unfortunately, there has not been an ultimate solution. Tricks such as adding a small number of to the diagonal elements of V also do not guarantee the modified V being invertible. In some cases, you might be able to get around the problem by using alternative REML algorithms e.g. the Fisher scoring approach (--reml-alg 1).
+# We have implemented the "bending" approach (Hayes and Hill 1981 Biometrics) in GCTA to invert V if V is not positive definite (you could add the --reml-bendV option to a REML or MLMA analysis to activate this approach). The "bending" approach guarantees to get an approximate of V-1 but it does not guarantee the REML analysis being converged.
+# Note that the --reml-bendV option only provides an approximate inverse of V and has not been tested extensively. The results from analyses using this option might not be reliable.
+#--reml-alg 1
+#Specify the algorithm to run REML iterations, 0 for average information (AI), 1 for Fisher-scoring and 2 for EM. The default option is 0, i.e. AI-REML, if this option is not specified.
 
 if [ $? -ne 0 ]; then
   echo "Error running GCTA MLMA for ${pop} ${sex} ${phenotype}" >&2
