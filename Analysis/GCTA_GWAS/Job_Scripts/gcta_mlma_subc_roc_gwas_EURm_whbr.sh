@@ -7,26 +7,27 @@
 #$ -l highp,h_rt=30:00:00,h_data=5G
 #$ -pe shared 36
 #$ -l arch=intel-gold*
+# Output and error notification preferences
+#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/GCTA_MLMA_$JOB_ID.log
+#$ -j y # join std error and std output streams, yes
+# Email notifications
+#$ -M $USER@mail # do not change, can not use custom address
+#$ -m bea # email when job begins, ends, and if it aborts
 
-# Define constants and dirs
+# Define constants
 # Current date
 date=$(date +"%m%d%Y")
 # Population, sex, and phenotype
 pop="EUR"
 sex="M"
 phenotype="smri_vol_scs_wholeb_ROC0_2"
+
+# Define directories
+# Base and results
 base_dir="/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data"
 results_dir="${base_dir}/Results/test_run"
 mkdir -p "${results_dir}"
-
-# Output and error notification preferences
-#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/GCTA_GWAS_${pop}_${sex}_${phenotype}_${date}_$JOB_ID.out
-#$ -j y # join std error and std output streams, yes
-# Email notifications
-#$ -M cobeaman@g.ucla.edu
-#$ -m bea # email when job begins, ends, and if it aborts
-
-# Define GRM and bfile directories
+# GRM and bfile
 indir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males"
 grmDir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males"
 
@@ -72,14 +73,12 @@ $gcta --mlma \
       --covar "${covar_file}" \
       --qcovar "${qcovar_file}" \
       --thread-num 36 \
-      --reml \
-      --reml-maxit 1000 \
+      --out-freq \
       --out "${out_file}"
 
-# other args if needed to overcome Error: Log-likelihood not converged (stop after 100 iteractions). the X^t * V^-1 * X matrix is not invertible. Please check the covariate(s) and/or the environmental factor(s).
+# optional args if needed to overcome Error: Log-likelihood not converged (stop after 100 iteractions). the X^t * V^-1 * X matrix is not invertible. Please check the covariate(s) and/or the environmental factor(s).
 #--reml-no-constrain
 #--reml-maxit 1000
-#--reml # Use constrained REML
 
 if [ $? -ne 0 ]; then
   echo "Error running GCTA MLMA for ${pop} ${sex} ${phenotype}" >&2
