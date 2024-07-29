@@ -1,0 +1,10 @@
+Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/613775_pheno_07282024_AMR_F_488_smri_vol_scs_wholeb_ROC0_2.txt
+Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_613775_07282024_AMR_F_488.txt
+Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_noICV_613775_07282024_AMR_F_488.txt
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM.grm.bin
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM.grm.id
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM.grm.N.bin
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype.bed
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype.bim
+Found required file: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype.fam
+All required files found. Starting GCTA --mlma analysis.
