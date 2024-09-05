@@ -74,3 +74,9 @@ Log-likelihood ratio converged.
 Calculating allele frequencies ...
 
 Running association tests for 7528889 SNPs ...
+
+Saving the results of the mixed linear model association analyses of 7528889 SNPs to [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/smri_vol_scs_wholeb_ROC0_2_AMR_F_n488_09052024_4606269.mlma] ...
+
+Analysis finished at 09:17:11 PDT on Thu Sep 05 2024
+Overall computational time: 33 minutes 26 sec.
+Completed GCTA MLMA for AMR F smri_vol_scs_wholeb_ROC0_2 with 488 samples
