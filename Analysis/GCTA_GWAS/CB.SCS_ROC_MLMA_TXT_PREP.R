@@ -17,7 +17,7 @@
 
 # Load Packages
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
-pacman::p_load(purrr, readr, FRGEpistasis, dplyr, fastDummies, nortest, patchwork, data.table)
+pacman::p_load(purrr, readr, FRGEpistasis, dplyr, fastDummies, ggplot2, nortest, patchwork, data.table)
 
 # Define Directories
 base_dir <- '/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/'
@@ -107,7 +107,7 @@ merged_data_final <- merged_data_final %>%
 # Apply save_split_data to each combination of ethnicity and sex
 for (ethnicity in ethnicities) {
   for (sex in sexes) {
-    save_split_data(merged_data_final, ethnicity, sex, pheno_dir, covar_dir, date, dummy_vars)
+    save_split_data(merged_data_final, ethnicity, sex, pheno_dir, covar_dir, date)
   }
 }
 

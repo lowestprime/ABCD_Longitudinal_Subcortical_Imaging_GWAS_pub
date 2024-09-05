@@ -305,74 +305,51 @@ handle_multicollinearity <- function(data, dummy_vars, rare_level_threshold = 5,
   list(data = data, log_content = log_content)
 }
 
-# Function to create and save split data, convert discrete covar dummy variables, 
-# and apply FRGEpistasis rank inverse log normalization with directory check/creation
-save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date, dummy_vars, rare_level_threshold = 5, log = FALSE) {
+# Function to create and save split data and apply FRGEpistasis rank inverse log normalization 
+# with directory check/creation
+save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date) {
   
-  # Create dummy variables on the entire dataset using fastDummies package
-  data_with_dummies <- dummy_cols(data, select_columns = dummy_vars, 
-                                  remove_first_dummy = TRUE, remove_selected_columns = TRUE)
+  # Subset data for the specific ethnicity and sex
+  subset_data <- data %>%
+    filter(ethnicity == !!ethnicity, sex == !!sex) %>%
+    mutate(across(starts_with("smri_vol_"), ~ rankTransPheno(.x, 0.5)))
   
   # Define output directories
   pheno_out_dir <- file.path(pheno_dir, ethnicity, sex)
   covar_disc_out_dir <- file.path(covar_dir, "Discrete", ethnicity, sex)
   covar_quant_out_dir <- file.path(covar_dir, "Quantitative", ethnicity, sex)
   
-  # Verify the paths exist
+  # Verify the paths exist, and if not, create them
   if (!dir.exists(pheno_out_dir)) dir.create(pheno_out_dir, recursive = TRUE)
   if (!dir.exists(covar_disc_out_dir)) dir.create(covar_disc_out_dir, recursive = TRUE)
   if (!dir.exists(covar_quant_out_dir)) dir.create(covar_quant_out_dir, recursive = TRUE)
   
-  # Subset data and apply FRGEpistasis rank inverse log transformation
-  subset_data <- data_with_dummies %>%
-    filter(ethnicity == !!ethnicity, sex == !!sex) %>%
-    mutate(across(starts_with("smri_vol_"), ~ rankTransPheno(.x, 0.5)))
-  
-  # Generate random ID for each file
+  # Generate random ID for each file set
   id <- sample(1:1000000, 1)
   
-  # Handle multicollinearity
-  result <- handle_multicollinearity(subset_data, dummy_vars, rare_level_threshold, log)
-  subset_data <- result$data
-  log_content <- result$log_content
-  
-  # Log the information if logging is enabled
-  if (log) {
-    original_colnames <- colnames(data)
-    new_colnames <- colnames(subset_data)
-    dummy_colnames <- setdiff(new_colnames, original_colnames)
-    
-    dummy_log_content <- c(
-      paste("Number of new dummy columns for", ethnicity, sex, ":", length(dummy_colnames)),
-      "Names of new dummy columns:",
-      toString(dummy_colnames)
-    )
-    
-    log_content <- c(log_content, dummy_log_content)
-    
-    log_file <- file.path(covar_disc_out_dir, sprintf("%d_log_%s_%s_%s.txt", id, date, ethnicity, sex))
-    writeLines(log_content, log_file)
-  }
-  
-  # Get number of samples for split subset
+  # Get the number of samples for the subset
   num_samples <- nrow(subset_data)
   
-  # Save phenotype files
+  # Save phenotype files and create covariate files
   phenotypes <- colnames(subset_data)[grepl("^smri_vol", colnames(subset_data))]
   for (phenotype in phenotypes) {
     if (phenotype != "smri_vol_scs_intracranialv_ROC0_2") {
+      # Save phenotype files for non-ICV volumes
       phenotype_file_name <- file.path(pheno_out_dir, sprintf("%d_pheno_%s_%s_%s_%d_%s.txt",
                                                               id, date, ethnicity, sex, num_samples, phenotype))
       write.table(subset_data %>% dplyr::select(FID, IID, all_of(phenotype)),
                   file = phenotype_file_name, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
     }
     
+    # Create qcovar file based on whether the phenotype is "whole brain" or not
     if (phenotype == "smri_vol_scs_wholeb_ROC0_2") {
+      # Create qcovar file that excludes ICV for whole brain phenotype
       qcovar_file_name_no_icv <- file.path(covar_quant_out_dir, sprintf("qcovar_noICV_%d_%s_%s_%s_%d.txt", 
                                                                         id, date, ethnicity, sex, num_samples))
       write.table(subset_data %>% dplyr::select(FID, IID, interview_age, starts_with("PC")), 
                   file = qcovar_file_name_no_icv, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
     } else {
+      # Create qcovar file that includes ICV for other phenotypes
       qcovar_file_name <- file.path(covar_quant_out_dir, sprintf("qcovar_%d_%s_%s_%s_%d.txt", 
                                                                  id, date, ethnicity, sex, num_samples))
       write.table(subset_data %>% dplyr::select(FID, IID, interview_age, starts_with("PC"), smri_vol_scs_intracranialv_ROC0_2),
@@ -380,14 +357,97 @@ save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date, du
     }
   }
   
-  # Save discrete covariate file with dummy variables for specified columns
+  # Save discrete covariate file
   covar_discrete <- subset_data %>%
     dplyr::select(FID, IID, starts_with("mri_info_"), starts_with("batch"))
   covar_file_name <- file.path(covar_disc_out_dir, sprintf("covar_%d_%s_%s_%s_%d.txt",
                                                            id, date, ethnicity, sex, num_samples))
-  write.table(covar_discrete, file = covar_file_name, col.names = FALSE,
-              row.names = FALSE, sep = "\t", quote = FALSE)
+  write.table(covar_discrete, file = covar_file_name, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
 }
+
+# Function to create and save split data, convert discrete covar dummy variables, 
+# and apply FRGEpistasis rank inverse log normalization with directory check/creation
+# save_split_data <- function(data, ethnicity, sex, pheno_dir, covar_dir, date, dummy_vars, rare_level_threshold = 5, log = FALSE) {
+#   
+#   # Create dummy variables on the entire dataset using fastDummies package
+#   data_with_dummies <- dummy_cols(data, select_columns = dummy_vars, 
+#                                   remove_first_dummy = TRUE, remove_selected_columns = TRUE)
+#   
+#   # Define output directories
+#   pheno_out_dir <- file.path(pheno_dir, ethnicity, sex)
+#   covar_disc_out_dir <- file.path(covar_dir, "Discrete", ethnicity, sex)
+#   covar_quant_out_dir <- file.path(covar_dir, "Quantitative", ethnicity, sex)
+#   
+#   # Verify the paths exist
+#   if (!dir.exists(pheno_out_dir)) dir.create(pheno_out_dir, recursive = TRUE)
+#   if (!dir.exists(covar_disc_out_dir)) dir.create(covar_disc_out_dir, recursive = TRUE)
+#   if (!dir.exists(covar_quant_out_dir)) dir.create(covar_quant_out_dir, recursive = TRUE)
+#   
+#   # Subset data and apply FRGEpistasis rank inverse log transformation
+#   subset_data <- data_with_dummies %>%
+#     filter(ethnicity == !!ethnicity, sex == !!sex) %>%
+#     mutate(across(starts_with("smri_vol_"), ~ rankTransPheno(.x, 0.5)))
+#   
+#   # Generate random ID for each file
+#   id <- sample(1:1000000, 1)
+#   
+#   # Handle multicollinearity
+#   result <- handle_multicollinearity(subset_data, dummy_vars, rare_level_threshold, log)
+#   subset_data <- result$data
+#   log_content <- result$log_content
+#   
+#   # Log the information if logging is enabled
+#   if (log) {
+#     original_colnames <- colnames(data)
+#     new_colnames <- colnames(subset_data)
+#     dummy_colnames <- setdiff(new_colnames, original_colnames)
+#     
+#     dummy_log_content <- c(
+#       paste("Number of new dummy columns for", ethnicity, sex, ":", length(dummy_colnames)),
+#       "Names of new dummy columns:",
+#       toString(dummy_colnames)
+#     )
+#     
+#     log_content <- c(log_content, dummy_log_content)
+#     
+#     log_file <- file.path(covar_disc_out_dir, sprintf("%d_log_%s_%s_%s.txt", id, date, ethnicity, sex))
+#     writeLines(log_content, log_file)
+#   }
+#   
+#   # Get number of samples for split subset
+#   num_samples <- nrow(subset_data)
+#   
+#   # Save phenotype files
+#   phenotypes <- colnames(subset_data)[grepl("^smri_vol", colnames(subset_data))]
+#   for (phenotype in phenotypes) {
+#     if (phenotype != "smri_vol_scs_intracranialv_ROC0_2") {
+#       phenotype_file_name <- file.path(pheno_out_dir, sprintf("%d_pheno_%s_%s_%s_%d_%s.txt",
+#                                                               id, date, ethnicity, sex, num_samples, phenotype))
+#       write.table(subset_data %>% dplyr::select(FID, IID, all_of(phenotype)),
+#                   file = phenotype_file_name, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
+#     }
+#     
+#     if (phenotype == "smri_vol_scs_wholeb_ROC0_2") {
+#       qcovar_file_name_no_icv <- file.path(covar_quant_out_dir, sprintf("qcovar_noICV_%d_%s_%s_%s_%d.txt", 
+#                                                                         id, date, ethnicity, sex, num_samples))
+#       write.table(subset_data %>% dplyr::select(FID, IID, interview_age, starts_with("PC")), 
+#                   file = qcovar_file_name_no_icv, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
+#     } else {
+#       qcovar_file_name <- file.path(covar_quant_out_dir, sprintf("qcovar_%d_%s_%s_%s_%d.txt", 
+#                                                                  id, date, ethnicity, sex, num_samples))
+#       write.table(subset_data %>% dplyr::select(FID, IID, interview_age, starts_with("PC"), smri_vol_scs_intracranialv_ROC0_2),
+#                   file = qcovar_file_name, col.names = FALSE, row.names = FALSE, sep = "\t", quote = FALSE)
+#     }
+#   }
+#   
+#   # Save discrete covariate file with dummy variables for specified columns
+#   covar_discrete <- subset_data %>%
+#     dplyr::select(FID, IID, starts_with("mri_info_"), starts_with("batch"))
+#   covar_file_name <- file.path(covar_disc_out_dir, sprintf("covar_%d_%s_%s_%s_%d.txt",
+#                                                            id, date, ethnicity, sex, num_samples))
+#   write.table(covar_discrete, file = covar_file_name, col.names = FALSE,
+#               row.names = FALSE, sep = "\t", quote = FALSE)
+# }
 
 # Function to archive or clear files in 'F' and 'M' subdirectories
 clean_old_runs <- function(base_path, archive = TRUE) {
