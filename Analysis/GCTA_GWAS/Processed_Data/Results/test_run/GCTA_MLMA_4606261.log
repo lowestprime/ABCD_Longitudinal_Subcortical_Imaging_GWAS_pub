@@ -1,0 +1,6 @@
+/work/UGE/8.6.4/n1909/job_scripts/4606261: line 49: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/archive/613775_pheno_07282024_AMR_F_488_smri_vol_scs_wholeb_ROC0_2.txt
+/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/archive/944942_pheno_09052024_AMR_F_488_smri_vol_scs_wholeb_ROC0_2.txt
+/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_wholeb_ROC0_2.txt: No such file or directory
+Required file /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/archive/613775_pheno_07282024_AMR_F_488_smri_vol_scs_wholeb_ROC0_2.txt
+/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/archive/944942_pheno_09052024_AMR_F_488_smri_vol_scs_wholeb_ROC0_2.txt
+/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_wholeb_ROC0_2.txt does not exist. Exiting.

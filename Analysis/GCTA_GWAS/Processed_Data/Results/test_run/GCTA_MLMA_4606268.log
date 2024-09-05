@@ -1,0 +1,11 @@
+Phenotype file found: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_wholeb_ROC0_2.txt
+Covariate file found: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt
+/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/archive/covar_613775_07282024_AMR_F_488.txt
+/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/archive/covar_760734_09052024_AMR_F_488.txt
+Quantitative covariate file found: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_noICV_387184_09052024_AMR_F_488.txt
+/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/archive/qcovar_noICV_613775_07282024_AMR_F_488.txt
+/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/archive/qcovar_noICV_507416_09052024_AMR_F_488.txt
+Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_wholeb_ROC0_2.txt
+Required file /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt
+/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/archive/covar_613775_07282024_AMR_F_488.txt
+/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/archive/covar_760734_09052024_AMR_F_488.txt does not exist. Exiting.

@@ -1,0 +1,63 @@
+*******************************************************************
+* Genome-wide Complex Trait Analysis (GCTA)
+* version v1.94.1 Linux
+* Built at Nov 15 2022 21:14:25, by GCC 8.5
+* (C) 2010-present, Yang Lab, Westlake University
+* Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
+*******************************************************************
+Analysis started at 08:43:44 PDT on Thu Sep 05 2024.
+Hostname: n6458
+
+Accepted options:
+--mlma 
+--bfile /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+--grm /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM
+--pheno /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_wholeb_ROC0_2.txt
+--covar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt
+--qcovar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_noICV_387184_09052024_AMR_F_488.txt
+--thread-num 20
+--out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/smri_vol_scs_wholeb_ROC0_2_AMR_F_n488_09052024_4606269
+
+Note: the program will be running on 20 threads.
+
+Reading PLINK FAM file from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype.fam].
+948 individuals to be included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype.fam].
+Reading PLINK BIM file from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype.bim].
+7528889 SNPs to be included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype.bim].
+Reading PLINK BED file from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype.bed] in SNP-major format ...
+Genotype data for 948 individuals and 7528889 SNPs to be included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype.bed].
+Reading phenotypes from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_wholeb_ROC0_2.txt].
+Non-missing phenotypes of 488 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_wholeb_ROC0_2.txt].
+Reading quantitative covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_noICV_387184_09052024_AMR_F_488.txt].
+11 quantitative covariate(s) of 488 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_noICV_387184_09052024_AMR_F_488.txt].
+Reading discrete covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt].
+2 discrete covariate(s) of 488 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt].
+Reading IDs of the GRM from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM.grm.id].
+948 IDs are read from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM.grm.id].
+Reading the GRM from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM.grm.bin].
+GRM for 948 individuals are included from [/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM.grm.bin].
+487 individuals are in common in these files.
+11 quantitative variable(s) included as covariate(s).
+2 discrete variable(s) included as covariate(s).
+
+Performing MLM association analyses (including the candidate SNP) ...
+
+Performing  REML analysis ... (Note: may take hours depending on sample size).
+487 observations, 42 fixed effect(s), and 2 variance component(s)(including residual variance).
+Calculating prior values of variance components by EM-REML ...
+Updated prior values: 0.475225 0.478323
+logL: -291.29
+Running AI-REML algorithm ...
+Iter.	logL	V(G)	V(e)	
+1	-290.39	0.40374	0.52428	
+2	-289.86	0.22720	0.64799	
+3	-289.27	0.18239	0.69433	
+4	-289.23	0.17089	0.70547	
+5	-289.23	0.16835	0.70791	
+6	-289.23	0.16779	0.70843	
+7	-289.23	0.16767	0.70855	
+8	-289.23	0.16765	0.70857	
+Log-likelihood ratio converged.
+Calculating allele frequencies ...
+
+Running association tests for 7528889 SNPs ...
