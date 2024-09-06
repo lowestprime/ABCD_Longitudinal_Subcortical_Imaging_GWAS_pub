@@ -5,7 +5,7 @@
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
 # Request resources
 #$ -l h_rt=30:00:00,h_data=5G,highp
-#$ -pe shared 36
+#$ -pe shared 32
 #$ -l arch=intel-gold*
 # Output and error notification preferences
 #$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/GCTA_MLMA_$JOB_ID.log
@@ -31,64 +31,77 @@ mkdir -p "${results_dir}"
 indir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males"
 grmDir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males"
 
+# Scratch directory for temporary accelerated I/O
+scratch_dir="/u/scratch/c/cobeaman/GCTA_GWAS_${JOB_ID}"
+mkdir -p "${scratch_dir}"
+
 # Software path
 gcta="/u/project/lhernand/sganesh/apps/gcta/gcta-1.94.1"
 
 # Phenotype and covariate files
-pheno_file=$(find "${base_dir}/Phenotypes/${pop}/${sex}/" -type f -name "*${phenotype}*.txt")
-covar_file=$(find "${base_dir}/Covariates/Discrete/${pop}/${sex}/" -type f -name "covar_*${pop}_${sex}*.txt")
+pheno_file=$(find "${base_dir}/Phenotypes/${pop}/${sex}/" -type f -name "*${phenotype}*.txt" -not -path "*/archive/*")
+covar_file=$(find "${base_dir}/Covariates/Discrete/${pop}/${sex}/" -type f -name "covar_*${pop}_${sex}*.txt" -not -path "*/archive/*")
 qcovar_prefix="qcovar_"
 [ "$phenotype" = "smri_vol_scs_wholeb_ROC0_2" ] && qcovar_prefix="qcovar_noICV_"
-qcovar_file=$(find "${base_dir}/Covariates/Quantitative/${pop}/${sex}/" -type f -name "${qcovar_prefix}*${pop}_${sex}*.txt")
+qcovar_file=$(find "${base_dir}/Covariates/Quantitative/${pop}/${sex}/" -type f -name "${qcovar_prefix}*${pop}_${sex}*.txt" -not -path "*/archive/*")
+
+# Log files found for debugging
+echo "Phenotype file found: ${pheno_file}" >> ${results_dir}/GCTA_MLMA_${JOB_ID}.log
+echo "Covariate file found: ${covar_file}" >> ${results_dir}/GCTA_MLMA_${JOB_ID}.log
+echo "Quantitative covariate file found: ${qcovar_file}" >> ${results_dir}/GCTA_MLMA_${JOB_ID}.log
 
 # GRM and bfile
 infile="${indir}/${pop}.males.genotype"
 grm_file="${grmDir}/${pop}.males_GRM"
 
+# Transfer GRM and bfile to the scratch directory
+echo "Transferring GRM and bfile to scratch directory..." >> ${results_dir}/GCTA_MLMA_${JOB_ID}.log
+cp "${infile}.bed" "${infile}.bim" "${infile}.fam" "${scratch_dir}/"
+cp "${grm_file}.grm.bin" "${grm_file}.grm.id" "${grm_file}.grm.N.bin" "${scratch_dir}/"
+echo "Transfer completed." >> ${results_dir}/GCTA_MLMA_${JOB_ID}.log
+
+# Update file paths to use scratch directory
+scratch_infile="${scratch_dir}/$(basename ${infile})"
+scratch_grm_file="${scratch_dir}/$(basename ${grm_file})"
+
 # Output file
 num_samples=$(wc -l < "${pheno_file}")
-out_file="${results_dir}/${phenotype}_${date}_n${num_samples}_$JOB_ID"
+out_file="${results_dir}/${phenotype}_${pop}_${sex}_n${num_samples}_${date}_$JOB_ID"
 
-# Check if all necessary files exist
+# Check if all necessary files exist in scratch directory
 required_files=(
     "${pheno_file}" "${covar_file}" "${qcovar_file}"
-    "${grm_file}.grm.bin" "${grm_file}.grm.id" "${grm_file}.grm.N.bin"
-    "${infile}.bed" "${infile}.bim" "${infile}.fam"
+    "${scratch_grm_file}.grm.bin" "${scratch_grm_file}.grm.id" "${scratch_grm_file}.grm.N.bin"
+    "${scratch_infile}.bed" "${scratch_infile}.bim" "${scratch_infile}.fam"
 )
 for file in "${required_files[@]}"; do
     if [ ! -f "$file" ]; then
-        echo "Required file $file does not exist. Exiting."
+        echo "Required file $file does not exist. Exiting." >> ${results_dir}/GCTA_MLMA_${JOB_ID}.log
         exit 1
     else
-        echo "Found required file: $file"
+       echo "Found required file: $file" >> ${results_dir}/GCTA_MLMA_${JOB_ID}.log
     fi
 done
-echo "All required files found. Starting GCTA --mlma analysis."
+echo "All required files found in scratch directory. Starting GCTA --mlma analysis." >> ${results_dir}/GCTA_MLMA_${JOB_ID}.log
 
 # Run GCTA MLMA
 $gcta --mlma \
-      --bfile "${infile}" \
-      --grm "${grm_file}" \
+      --bfile "${scratch_infile}" \
+      --grm "${scratch_grm_file}" \
       --pheno "${pheno_file}" \
       --covar "${covar_file}" \
       --qcovar "${qcovar_file}" \
-      --thread-num 36 \
+      --thread-num 32 \
       --out "${out_file}"
-
-# optional args if needed to overcome Error: Log-likelihood not converged (stop after 100 iteractions). the X^t * V^-1 * X matrix is not invertible. Please check the covariate(s) and/or the environmental factor(s).
-#--reml-no-constrain
-#--reml-maxit 1000
-#--reml-bendV
-# The GREML method uses REML for variance estimation, which requires the inverse of the variance-covariance matrix V. If V is not positive definite, the inverse of V does not exist. We therefore could not estimate the variance component. This usually happens when one (or more) of the variance components are negative or constrained at zero. It might also indicate there is something wrong with the GRM or the data which you might need to check carefully.
-# Unfortunately, there has not been an ultimate solution. Tricks such as adding a small number of to the diagonal elements of V also do not guarantee the modified V being invertible. In some cases, you might be able to get around the problem by using alternative REML algorithms e.g. the Fisher scoring approach (--reml-alg 1).
-# We have implemented the "bending" approach (Hayes and Hill 1981 Biometrics) in GCTA to invert V if V is not positive definite (you could add the --reml-bendV option to a REML or MLMA analysis to activate this approach). The "bending" approach guarantees to get an approximate of V-1 but it does not guarantee the REML analysis being converged.
-# Note that the --reml-bendV option only provides an approximate inverse of V and has not been tested extensively. The results from analyses using this option might not be reliable.
-#--reml-alg 1
-#Specify the algorithm to run REML iterations, 0 for average information (AI), 1 for Fisher-scoring and 2 for EM. The default option is 0, i.e. AI-REML, if this option is not specified.
 
 # Error checker
 if [ $? -ne 0 ]; then
   echo "Error running GCTA MLMA for ${pop} ${sex} ${phenotype}" >&2
   exit 1
 fi
-echo "Completed GCTA MLMA for ${pop} ${sex} ${phenotype} with ${num_samples} samples"
+echo "Completed GCTA MLMA for ${pop} ${sex} ${phenotype} with ${num_samples} samples" >> ${results_dir}/GCTA_MLMA_${JOB_ID}.log
+
+# Clean up scratch directory (optional)
+echo "Cleaning up scratch directory..." >> ${results_dir}/GCTA_MLMA_${JOB_ID}.log
+rm -rf "${scratch_dir}"
+echo "Scratch directory cleaned up." >> ${results_dir}/GCTA_MLMA_${JOB_ID}.log
