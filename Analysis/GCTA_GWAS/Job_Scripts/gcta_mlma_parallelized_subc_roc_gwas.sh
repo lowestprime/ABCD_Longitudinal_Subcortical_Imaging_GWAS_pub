@@ -8,7 +8,7 @@
 #$ -j y
 #$ -M $USER@mail
 #$ -m bea
-#$ -t 1-5:1
+#$ -t 1-3:1
 
 # Load the GNU Parallel module
 module load parallel
