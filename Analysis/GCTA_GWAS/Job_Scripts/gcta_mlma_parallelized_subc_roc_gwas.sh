@@ -3,7 +3,7 @@
 
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
 #$ -l highp,h_rt=70:00:00,h_data=8G
-#$ -pe shared 32
+#$ -pe shared 24
 #$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Processed_Data/Results/GCTA_GWAS_$JOB_ID.out
 #$ -j y
 #$ -M $USER@mail
@@ -96,7 +96,7 @@ run_gcta_mlma() {
         --pheno "${pheno_file}" \
         --covar "${covar_file}" \
         --qcovar "${qcovar_file}" \
-        --thread-num 32 \
+        --thread-num 24 \
         --out "${out_file}"
 
   # Check for errors
@@ -155,7 +155,7 @@ for sex in "${sexes[@]}"; do
   done
 
   # Run tasks in parallel
-  parallel --jobs 32 run_gcta_mlma ::: "${task_list[@]}"
+  parallel --jobs 24 run_gcta_mlma ::: "${task_list[@]}"
   completed_tasks=$((completed_tasks + ${#task_list[@]}))
 
   echo "Tasks completed: ${completed_tasks}/${total_tasks}"
