@@ -34,6 +34,7 @@ sexes=("F" "M")
 # Specify combinations to skip (format: "pop_sex_phenotype")
 skip_combinations=(
   "EUR_M_smri_vol_scs_wholeb_ROC0_2"
+  "AMR_F_smri_vol_scs_wholeb_ROC0_2"
   # Add more combinations to skip as needed
 )
 
@@ -190,6 +191,6 @@ done
 
 echo "All GCTA MLMA tasks completed."
 
-# Final cleanup of scratch directory
+# Final cleanup of scratch directory (optional)
 rm -rf "${scratch_base}"
 echo "Scratch directory cleaned up."
