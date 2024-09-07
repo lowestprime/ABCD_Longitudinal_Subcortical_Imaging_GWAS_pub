@@ -4,7 +4,7 @@
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
 #$ -l highp,h_rt=70:00:00,h_data=8G
 #$ -pe shared 16
-#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Processed_Data/Results/GCTA_GWAS_$JOB_ID.out
+#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/GCTA_GWAS_$JOB_ID.out
 #$ -j y
 #$ -M $USER@mail
 #$ -m bea
@@ -12,6 +12,9 @@
 
 # Software path
 gcta=/u/project/lhernand/sganesh/apps/gcta/gcta-1.94.1
+
+# Load modules
+module load parallel
 
 # Get current date
 date=$(date +"%m%d%Y")

@@ -1,0 +1,16 @@
+/work/UGE/8.6.4/n6449/job_scripts/4668732: line 17: module: command not found
+Preparing tasks for Population: AMR, Sex: F
+/work/UGE/8.6.4/n6449/job_scripts/4668732: line 150: parallel: command not found
+Tasks completed: 0/0
+Preparing tasks for Population: AMR, Sex: M
+/work/UGE/8.6.4/n6449/job_scripts/4668732: line 150: parallel: command not found
+Tasks completed: 0/0
+Cleanup complete.
+/work/UGE/8.6.4/n6459/job_scripts/4668732: line 17: module: command not found
+Preparing tasks for Population: EUR, Sex: F
+/work/UGE/8.6.4/n6459/job_scripts/4668732: line 150: parallel: command not found
+Tasks completed: 0/0
+Preparing tasks for Population: EUR, Sex: M
+/work/UGE/8.6.4/n6459/job_scripts/4668732: line 150: parallel: command not found
+Tasks completed: 0/0
+Cleanup complete.
