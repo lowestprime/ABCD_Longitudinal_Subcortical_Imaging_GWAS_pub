@@ -2,8 +2,8 @@
 # Perform Genome-Wide association analysis using GCTA
 
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
-#$ -l highp,h_rt=200:00:00,h_data=16G  # Memory per process
-#$ -pe shared 36  # Using 36 cores
+#$ -l highp,h_rt=200:00:00,h_data=5G,arch=intel-gold*  # Memory per process
+#$ -pe shared 64
 #$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/GCTA_GWAS_${JOB_ID}.out
 #$ -j y
 #$ -M cobeaman@g.ucla.edu
@@ -128,7 +128,7 @@ run_gcta_mlma() {
         --pheno "${pheno_file}" \
         --covar "${covar_dir}/Discrete/${pop}/${sex}/covar_discrete.txt" \
         --qcovar "${qcovar_file}" \
-        --thread-num 36 \
+        --thread-num 64 \
         --out "${out_file}"
 
   if [ $? -ne 0 ]; then
