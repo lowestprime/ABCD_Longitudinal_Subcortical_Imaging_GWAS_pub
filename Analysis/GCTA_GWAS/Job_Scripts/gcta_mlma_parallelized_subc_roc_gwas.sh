@@ -4,11 +4,11 @@
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
 #$ -l highp,h_rt=70:00:00,h_data=8G
 #$ -pe shared 16
-#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Processed_Data/Results/GCTA_GWAS_$JOB_ID.out
+#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/GCTA_GWAS_$JOB_ID.out
 #$ -j y
 #$ -M $USER@mail
 #$ -m bea
-#$ -t 1-5:1
+#$ -t 1-3:1
 
 # Load the GNU Parallel module
 . /u/local/Modules/default/init/modules.sh
@@ -115,6 +115,9 @@ export -f run_gcta_mlma
 # Prepare tasks
 total_tasks=0
 completed_tasks=0
+
+echo "Current population: $pop"
+
 for sex in "${sexes[@]}"; do
   echo "Preparing tasks for Population: $pop, Sex: $sex"
   
