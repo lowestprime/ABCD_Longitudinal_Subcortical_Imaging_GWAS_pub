@@ -3,7 +3,7 @@
 
 # Load Packages
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
-pacman::p_load(ggplot2, fastman, manhplot, hudson, ggmanh, CMplot, qqman, pheatmap, ComplexHeatmap, devtools, data.table)
+pacman::p_load(ggplot2, fastman, manhplot, hudson, ggmanh, CMplot, qqman, pheatmap, ComplexHeatmap, devtools, data.table, TrumpetPlots, locuszoomr)
 
 # Define Directories
 mlma_dir <- '~/project-lhernand/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run'
@@ -12,6 +12,9 @@ plot_dir <- '~/project-lhernand/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analy
 # Ensure directories exist
 if (!dir.exists(mlma_dir)) dir.create(mlma_dir, recursive = TRUE)
 if (!dir.exists(plot_dir)) dir.create(plot_dir, recursive = TRUE)
+
+# Process all .mlma files in mlma_dir
+mlma_files <- list.files(mlma_dir, pattern = "\\.mlma$", full.names = TRUE)
 
 # Helper function to rename and clean columns
 process_gwas_results <- function(file) {
@@ -89,6 +92,14 @@ for (file in mlma_files) {
   ggsave(file.path(plot_dir, paste0(plot_prefix, "_ggmanh.svg")), plot = ggmanh_plot)
 }
 
+#### SECTION: Trumpet Plot ####
+for (file in mlma_files) {
+  gwasResults <- process_gwas_results(file)
+  plot_prefix <- gsub("\\.mlma$", "", basename(file))
+  
+  TrumpetPlots(gwasResults, chr = "CHR", bp = "BP", p = "P", out = file.path(plot_dir, paste0(plot_prefix, "_TrumpetPlot.svg")))
+}
+
 #### SECTION: Modern QQ Plot ####
 for (file in mlma_files) {
   gwasResults <- process_gwas_results(file)
@@ -99,18 +110,42 @@ for (file in mlma_files) {
   dev.off()
 }
 
-#### SECTION: Phenotype Density Plot ####
+#### SECTION: Phenotype Distribution Plot ####
 for (file in mlma_files) {
   gwasResults <- process_gwas_results(file)
   plot_prefix <- gsub("\\.mlma$", "", basename(file))
   
-  # Density plot example
-  svg(file.path(plot_dir, paste0(plot_prefix, "_PhenotypeDensity.svg")))
-  
-  ggplot(gwasResults, aes(x = BrainPhenotype, fill = Genotype)) + 
-    geom_density(alpha = 0.5) +
-    labs(title = "Density of Brain Phenotype by Genotype", x = "Brain Phenotype", y = "Density")
-  
+  svg(file.path(plot_dir, paste0(plot_prefix, "_PhenotypeDistribution.svg")))
+  ggplot(gwasResults, aes(x = Genotype, y = BrainPhenotype)) + 
+    geom_boxplot() +
+    labs(title = "Brain Phenotype by Genotype", x = "Genotype", y = "Brain Phenotype")
   dev.off()
 }
 
+#### SECTION: pheatmap ####
+for (file in mlma_files) {
+  gwasResults <- process_gwas_results(file)
+  plot_prefix <- gsub("\\.mlma$", "", basename(file))
+  
+  # Example heatmap data - replace with relevant SNP effect data
+  pheatmap(matrix(rnorm(100), nrow = 10),
+           file = file.path(plot_dir, paste0(plot_prefix, "_pheatmap.svg")))
+}
+
+#### SECTION: ComplexHeatmap ####
+for (file in mlma_files) {
+  gwasResults <- process_gwas_results(file)
+  plot_prefix <- gsub("\\.mlma$", "", basename(file))
+  
+  ComplexHeatmap::Heatmap(matrix(rnorm(100), nrow = 10),
+                          file = file.path(plot_dir, paste0(plot_prefix, "_ComplexHeatmap.svg")))
+}
+
+#### SECTION: LocusZoom Plot ####
+for (file in mlma_files) {
+  gwasResults <- process_gwas_results(file)
+  plot_prefix <- gsub("\\.mlma$", "", basename(file))
+  
+  locuszoomr::locuszoom(gwasResults, chr = "CHR", bp = "BP", p = "P", snp = "SNP",
+                        output = file.path(plot_dir, paste0(plot_prefix, "_LocusZoom.svg")))
+}

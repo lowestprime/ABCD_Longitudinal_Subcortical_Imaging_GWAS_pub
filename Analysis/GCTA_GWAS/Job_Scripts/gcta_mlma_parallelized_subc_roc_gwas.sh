@@ -4,7 +4,7 @@
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
 #$ -l highp,h_rt=70:00:00,h_data=8G
 #$ -pe shared 16
-#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/GCTA_GWAS_$JOB_ID.out
+#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Processed_Data/Results/GCTA_GWAS_$JOB_ID.out
 #$ -j y
 #$ -M $USER@mail
 #$ -m bea
@@ -125,11 +125,27 @@ for sex in "${sexes[@]}"; do
     sex_dir="females"
   fi
 
-  # Update GRM and bfile directories
+  # Updated GRM and bfile directories, ensuring no double slashes
   indir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}"
   grmDir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}"
 
-  pheno_files=$(find "${pheno_dir}/${pop}/${sex}/" -type f -name "smri_vol_*.txt" -not -path "*/archive/*")
+  # Ensure the population and sex directories are properly set
+  if [ -z "${pop}" ] || [ -z "${sex}" ]; then
+    echo "Error: Population or sex is not set correctly. Skipping."
+    continue
+  fi
+
+  # Debug: print the directories being used
+  echo "Phenotype directory: ${pheno_dir}/${pop}/${sex_dir}"
+  echo "GRM directory: ${grmDir}"
+
+  # Find phenotype files and check for errors
+  pheno_files=$(find "${pheno_dir}/${pop}/${sex_dir}/" -type f -name "smri_vol_*.txt" -not -path "*/archive/*")
+  if [ -z "${pheno_files}" ]; then
+    echo "Error: No phenotype files found in ${pheno_dir}/${pop}/${sex_dir}/"
+    continue  # Skip to next sex/population combination
+  fi
+
   grm_file="${grmDir}/${pop}.${sex_dir}_GRM"
 
   out_dir="${results_dir}/${sex}/${pop}"
