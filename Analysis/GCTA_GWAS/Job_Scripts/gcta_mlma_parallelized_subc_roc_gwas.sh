@@ -3,18 +3,26 @@
 
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
 #$ -l highp,h_rt=70:00:00,h_data=8G
-#$ -pe shared 16
-#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/GCTA_GWAS_$JOB_ID.out
+#$ -pe shared 32
+#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Processed_Data/Results/GCTA_GWAS_$JOB_ID.out
 #$ -j y
 #$ -M $USER@mail
 #$ -m bea
-#$ -t 1-3:1
+#$ -t 1-5:1
+
+# Load the GNU Parallel module
+module load parallel
+
+# Debug step: Check if 'parallel' is working
+if ! command -v parallel &> /dev/null; then
+  echo "Error: GNU Parallel is not installed or not functioning correctly."
+  exit 1
+fi
+
+echo "GNU Parallel is working correctly. Proceeding with the analysis..."
 
 # Software path
 gcta=/u/project/lhernand/sganesh/apps/gcta/gcta-1.94.1
-
-# Load modules
-module load parallel
 
 # Get current date
 date=$(date +"%m%d%Y")
@@ -88,7 +96,7 @@ run_gcta_mlma() {
         --pheno "${pheno_file}" \
         --covar "${covar_file}" \
         --qcovar "${qcovar_file}" \
-        --thread-num 16 \
+        --thread-num 32 \
         --out "${out_file}"
 
   # Check for errors
@@ -147,9 +155,9 @@ for sex in "${sexes[@]}"; do
   done
 
   # Run tasks in parallel
-  parallel --jobs 16 --progress run_gcta_mlma ::: "${task_list[@]}"
-  
+  parallel --jobs 32 run_gcta_mlma ::: "${task_list[@]}"
   completed_tasks=$((completed_tasks + ${#task_list[@]}))
+
   echo "Tasks completed: ${completed_tasks}/${total_tasks}"
 done
 
