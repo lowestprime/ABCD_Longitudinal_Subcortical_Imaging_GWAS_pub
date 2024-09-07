@@ -14,14 +14,6 @@
 . /u/local/Modules/default/init/modules.sh
 module load parallel
 
-# Debug step: Check if 'parallel' is working
-if ! command -v parallel &> /dev/null; then
-  echo "Error: GNU Parallel is not installed or not functioning correctly."
-  exit 1
-fi
-
-echo "GNU Parallel is working correctly. Proceeding with the analysis..."
-
 # Software path
 gcta=/u/project/lhernand/sganesh/apps/gcta/gcta-1.94.1
 
@@ -63,6 +55,47 @@ should_skip() {
   return 1  # Should not skip
 }
 
+# Function to check if all required files exist
+check_files_exist() {
+  local pheno_file=$1
+  local grm_file=$2
+  local covar_file=$3
+  local qcovar_file=$4
+
+  local missing_files=()
+
+  # Check phenotype file
+  if [ ! -f "$pheno_file" ]; then
+    missing_files+=("Phenotype file: $pheno_file")
+  fi
+
+  # Check GRM files
+  for ext in .bed .bim .fam .grm.bin .grm.id .grm.N.bin; do
+    if [ ! -f "${grm_file}${ext}" ]; then
+      missing_files+=("GRM file: ${grm_file}${ext}")
+    fi
+  done
+
+  # Check covariate file
+  if [ ! -f "$covar_file" ]; then
+    missing_files+=("Covariate file: $covar_file")
+  fi
+
+  # Check quantitative covariate file
+  if [ ! -f "$qcovar_file" ]; then
+    missing_files+=("Quantitative covariate file: $qcovar_file")
+  fi
+
+  # If any files are missing, print them and return 1 (error)
+  if [ ${#missing_files[@]} -ne 0 ]; then
+    echo "Error: The following required files are missing:"
+    printf '%s\n' "${missing_files[@]}"
+    return 1
+  fi
+
+  return 0  # All files exist
+}
+
 # Function to run GCTA MLMA
 run_gcta_mlma() {
   local pheno_file=$1
@@ -81,6 +114,12 @@ run_gcta_mlma() {
   if should_skip "$pop" "$sex" "$pheno_name"; then
     echo "Skipping $pop $sex $pheno_name"
     return 0
+  fi
+
+  # Check if all required files exist
+  if ! check_files_exist "$pheno_file" "$grm_file" "$covar_file" "$qcovar_file"; then
+    echo "Skipping analysis for $pop $sex $pheno_name due to missing files"
+    return 1
   fi
 
   local out_file="${out_dir}/${pheno_name}_${pop}_${sex}_n${num_samples}_${date}_${JOB_ID}"
@@ -103,14 +142,14 @@ run_gcta_mlma() {
   # Check for errors
   if [ $? -ne 0 ]; then
     echo "Error running GCTA MLMA for ${pheno_name}" >&2
-    exit 1
+    return 1
   fi
 
   # Clean up scratch directory
   rm -f "${scratch_dir}"/*
 }
 
-export -f run_gcta_mlma
+export -f run_gcta_mlma check_files_exist should_skip
 
 # Prepare tasks
 total_tasks=0
@@ -121,31 +160,25 @@ echo "Current population: $pop"
 for sex in "${sexes[@]}"; do
   echo "Preparing tasks for Population: $pop, Sex: $sex"
   
-  # Check and convert 'M' to 'males' and 'F' to 'females'
+  # Convert 'M' to 'males' and 'F' to 'females' for indir and grmDir
   if [ "$sex" = "M" ]; then
     sex_dir="males"
   elif [ "$sex" = "F" ]; then
     sex_dir="females"
   fi
 
-  # Updated GRM and bfile directories, ensuring no double slashes
+  # Updated GRM and bfile directories
   indir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}"
   grmDir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}"
 
-  # Ensure the population and sex directories are properly set
-  if [ -z "${pop}" ] || [ -z "${sex}" ]; then
-    echo "Error: Population or sex is not set correctly. Skipping."
-    continue
-  fi
-
   # Debug: print the directories being used
-  echo "Phenotype directory: ${pheno_dir}/${pop}/${sex_dir}"
+  echo "Phenotype directory: ${pheno_dir}/${pop}/${sex}"
   echo "GRM directory: ${grmDir}"
 
   # Find phenotype files and check for errors
-  pheno_files=$(find "${pheno_dir}/${pop}/${sex_dir}/" -type f -name "smri_vol_*.txt" -not -path "*/archive/*")
+  pheno_files=$(find "${pheno_dir}/${pop}/${sex}/" -type f -name "smri_vol_*.txt" -not -path "*/archive/*")
   if [ -z "${pheno_files}" ]; then
-    echo "Error: No phenotype files found in ${pheno_dir}/${pop}/${sex_dir}/"
+    echo "Error: No phenotype files found in ${pheno_dir}/${pop}/${sex}/"
     continue  # Skip to next sex/population combination
   fi
 
@@ -165,9 +198,9 @@ for sex in "${sexes[@]}"; do
     
     # Find the correct quantitative covariate file
     if [[ "$(basename ${pheno_file} .txt)" == "smri_vol_scs_wholeb_ROC0_2" ]]; then
-      qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -type f -name "qcovar_noICV_*${pop}_${sex}*.txt")
+      qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -type f -name "qcovar_noICV_*${pop}_${sex}*.txt" -not -path "*/archive/*")
     else
-      qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -type f -name "qcovar_*${pop}_${sex}*.txt")
+      qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -type f -name "qcovar_*${pop}_${sex}*.txt" -not -path "*/archive/*")
     fi
 
     task_list+=("${pheno_file} ${grm_file} ${out_dir} ${date} ${covar_file} ${qcovar_file} ${num_samples} ${scratch_dir} ${pop} ${sex}")
