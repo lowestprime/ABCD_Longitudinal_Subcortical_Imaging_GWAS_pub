@@ -8,7 +8,7 @@
 #$ -j y
 #$ -M $USER@mail
 #$ -m bea
-#$ -t 1-5:1
+#$ -t 1-3:1
 
 # Software path
 gcta=/u/project/lhernand/sganesh/apps/gcta/gcta-1.94.1
