@@ -1,5 +1,5 @@
 #!/bin/sh
-# Perform Genome-Wide association analysis using GCTA
+# Perform Genome-Wide association analysis using GCTA --mlma for all jobs in parallel
 
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
 #$ -l highp,h_rt=70:00:00,h_data=8G
@@ -13,6 +13,14 @@
 # Load the GNU Parallel module
 . /u/local/Modules/default/init/modules.sh
 module load parallel
+
+# Debug step: Check if 'parallel' is working
+if ! command -v parallel &> /dev/null; then
+  echo "Error: GNU Parallel is not installed or not functioning correctly."
+  exit 1
+fi
+
+echo "GNU Parallel is working correctly. Proceeding with the analysis..."
 
 # Software path
 gcta=/u/project/lhernand/sganesh/apps/gcta/gcta-1.94.1
@@ -61,6 +69,7 @@ check_files_exist() {
   local grm_file=$2
   local covar_file=$3
   local qcovar_file=$4
+  local infile=$5
 
   local missing_files=()
 
@@ -70,9 +79,16 @@ check_files_exist() {
   fi
 
   # Check GRM files
-  for ext in .bed .bim .fam .grm.bin .grm.id .grm.N.bin; do
+  for ext in .grm.bin .grm.id .grm.N.bin; do
     if [ ! -f "${grm_file}${ext}" ]; then
       missing_files+=("GRM file: ${grm_file}${ext}")
+    fi
+  done
+
+  # Check bfile files
+  for ext in .bed .bim .fam; do
+    if [ ! -f "${infile}${ext}" ]; then
+      missing_files+=("Bfile: ${infile}${ext}")
     fi
   done
 
@@ -109,6 +125,7 @@ run_gcta_mlma() {
   local scratch_dir=$8
   local pop=$9
   local sex=${10}
+  local infile=${11}
 
   # Skip specified combinations
   if should_skip "$pop" "$sex" "$pheno_name"; then
@@ -117,7 +134,7 @@ run_gcta_mlma() {
   fi
 
   # Check if all required files exist
-  if ! check_files_exist "$pheno_file" "$grm_file" "$covar_file" "$qcovar_file"; then
+  if ! check_files_exist "$pheno_file" "$grm_file" "$covar_file" "$qcovar_file" "$infile"; then
     echo "Skipping analysis for $pop $sex $pheno_name due to missing files"
     return 1
   fi
@@ -125,14 +142,15 @@ run_gcta_mlma() {
   local out_file="${out_dir}/${pheno_name}_${pop}_${sex}_n${num_samples}_${date}_${JOB_ID}"
 
   # Transfer GRM and bfile to scratch directory
-  scratch_infile="${scratch_dir}/$(basename ${grm_file})"
-  cp "${grm_file}.bed" "${grm_file}.bim" "${grm_file}.fam" "${scratch_dir}/"
+  scratch_bfile="${scratch_dir}/$(basename ${infile})"
+  scratch_grm="${scratch_dir}/$(basename ${grm_file})"
+  cp "${infile}.bed" "${infile}.bim" "${infile}.fam" "${scratch_dir}/"
   cp "${grm_file}.grm.bin" "${grm_file}.grm.id" "${grm_file}.grm.N.bin" "${scratch_dir}/"
 
   # Run GCTA
   $gcta --mlma \
-        --bfile "${scratch_infile}" \
-        --grm "${scratch_infile}" \
+        --bfile "${scratch_bfile}" \
+        --grm "${scratch_grm}" \
         --pheno "${pheno_file}" \
         --covar "${covar_file}" \
         --qcovar "${qcovar_file}" \
@@ -171,39 +189,53 @@ for sex in "${sexes[@]}"; do
   indir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}"
   grmDir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}"
 
+  # Ensure the population and sex directories are properly set
+  if [ -z "${pop}" ] || [ -z "${sex}" ]; then
+    echo "Error: Population or sex is not set correctly. Skipping."
+    continue
+  fi
+
   # Debug: print the directories being used
   echo "Phenotype directory: ${pheno_dir}/${pop}/${sex}"
+  echo "Discrete Covariate directory: ${covar_dir}/Discrete/${pop}/${sex}"
+  echo "Quantitative Covariate directory: ${covar_dir}/Quantitative/${pop}/${sex}"
+  echo "bfile directory: ${indir}"
   echo "GRM directory: ${grmDir}"
 
   # Find phenotype files and check for errors
-  pheno_files=$(find "${pheno_dir}/${pop}/${sex}/" -type f -name "smri_vol_*.txt" -not -path "*/archive/*")
+  pheno_files=$(find "${pheno_dir}/${pop}/${sex}/" -type f -name "*_pheno_*_${pop}_${sex}_*_smri_vol_*.txt" -not -path "*/archive/*")
   if [ -z "${pheno_files}" ]; then
     echo "Error: No phenotype files found in ${pheno_dir}/${pop}/${sex}/"
     continue  # Skip to next sex/population combination
   fi
 
   grm_file="${grmDir}/${pop}.${sex_dir}_GRM"
+  infile="${indir}/${pop}.${sex_dir}.genotype"
 
   out_dir="${results_dir}/${sex}/${pop}"
   mkdir -p "${out_dir}/log"
 
   task_list=()
   for pheno_file in ${pheno_files}; do
-    num_samples=$(wc -l < "${pheno_file}")
+    pheno_basename=$(basename "$pheno_file")
+    # Extract the date and sample size from the phenotype filename
+    date_sample=$(echo "$pheno_basename" | grep -oP '\d{8}_\w+_\w_\d+')
+    
+    num_samples=$(echo "$date_sample" | grep -oP '\d+$')
     scratch_dir="${scratch_base}/${pop}_${sex}_${RANDOM}"
     mkdir -p "${scratch_dir}"
     
     # Find the covariate files
-    covar_file=$(find "${covar_dir}/Discrete/${pop}/${sex}/" -type f -name "covar_*${pop}_${sex}*.txt" -not -path "*/archive/*")
+    covar_file=$(find "${covar_dir}/Discrete/${pop}/${sex}/" -type f -name "covar_*_${date_sample}.txt" -not -path "*/archive/*")
     
     # Find the correct quantitative covariate file
-    if [[ "$(basename ${pheno_file} .txt)" == "smri_vol_scs_wholeb_ROC0_2" ]]; then
-      qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -type f -name "qcovar_noICV_*${pop}_${sex}*.txt" -not -path "*/archive/*")
+    if [[ "$pheno_basename" == *"_smri_vol_scs_wholeb_ROC0_2.txt" ]]; then
+      qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -type f -name "qcovar_noICV_*_${date_sample}.txt" -not -path "*/archive/*")
     else
-      qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -type f -name "qcovar_*${pop}_${sex}*.txt" -not -path "*/archive/*")
+      qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -type f -name "qcovar_*_${date_sample}.txt" -not -path "*/archive/*" -not -name "*noICV*")
     fi
 
-    task_list+=("${pheno_file} ${grm_file} ${out_dir} ${date} ${covar_file} ${qcovar_file} ${num_samples} ${scratch_dir} ${pop} ${sex}")
+    task_list+=("${pheno_file} ${grm_file} ${out_dir} ${date} ${covar_file} ${qcovar_file} ${num_samples} ${scratch_dir} ${pop} ${sex} ${infile}")
     total_tasks=$((total_tasks + 1))
   done
 
