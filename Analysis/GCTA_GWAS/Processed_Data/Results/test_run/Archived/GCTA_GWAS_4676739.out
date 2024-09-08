@@ -1,0 +1,1073 @@
+GNU Parallel is working correctly. Proceeding with the analysis...
+Current population: AFR
+Preparing tasks for Population: AFR, Sex: F
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_aa_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_46Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_aa_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovarError: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_aa_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_20249 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_amygdala_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_29928 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+al_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_17031 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_ccct_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_14247 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_ccmidat_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_15026 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_ccmidps_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_2131 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_ccps_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_9170 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_hpus_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_19757 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_pallidum_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_23801 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_cbwmatter_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_5748 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_putamen_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_13883 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_tp_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_28554 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_vedc_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_20471 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_crbcortex_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_32096 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_crbwmatter_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_13183 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_wholeb_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AFR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_noICV_557591_09052024_AFR_F_522.txt 522 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_F_32484 AFR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AFR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.females.genotype due to missing files
+Tasks completed: 17/17
+Preparing tasks for Population: AFR, Sex: M
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_aa_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_25571 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+ to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_cbwmatter_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_14434 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_ccat_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_19451 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_ccct_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_28015 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_ccmidat_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_21011 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_ccmidps_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_17093 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_ccps_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_29361 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_crbcortex_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_24324 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_crbwmatter_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_17792 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_hpus_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_13027 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_putamen_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_8440 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_tp_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_19757 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_pallidum_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_3544 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_vedc_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_11497 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_wholeb_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/EUR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_noICV_574229_09052024_EUR_F_1916.txt 1916 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_F_16390 EUR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/EUR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.females.genotype due to missing files
+Tasks completed: 17/17
+Preparing tasks for Population: EUR, Sex: M
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_aa_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_26502 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_caudate_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_23697 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_cbwmatter_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_30144 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_ccat_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_17101 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_ccct_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_30626 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_ccmidat_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_11837 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_ccmidps_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_18107 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_ccps_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_26261 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_crbcortex_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_7241 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_crbwmatter_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_11398 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_hpus_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_28423 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_pallidum_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_21019 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_putamen_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_15842 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_tp_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_31441 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_vedc_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_25166 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M/565135_pheno_09052024_AFR_M_519_smri_vol_scs_wholeb_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AFR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M/covar_565135_09052024_AFR_M_519.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M/qcovar_noICV_565135_09052024_AFR_M_519.txt 519 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AFR_M_9521 AFR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AFR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AFR.males.genotype due to missing files
+Tasks completed: 34/34
+rm: cannot remove '/u/scratch/c/cobeaman/GCTA_GWAS_4676739': Directory not empty
+tudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_caudate_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_13531 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_cbwmatter_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_14435 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_ccat_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_28209 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_ccct_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_28521 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_ccmidat_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_2119 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_ccmidps_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_7452 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_ccps_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_14186 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_crbcortex_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_13687 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_crbwmatter_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_19651 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_hpus_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_8973 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_pallidum_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_13505 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_putamen_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_7711 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_tp_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_3181 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_vedc_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_22230 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F/387184_pheno_09052024_AMR_F_488_smri_vol_scs_wholeb_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/AMR.females_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/F 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F/covar_387184_09052024_AMR_F_488.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F/qcovar_noICV_387184_09052024_AMR_F_488.txt 488 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_F_14961 AMR F /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/AMR.females.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.females.genotype due to missing files
+Tasks completed: 17/17
+Preparing tasks for Population: AMR, Sex: M
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_aa_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_1663 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+notype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_ccat_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_1086 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_amygdala_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_8876 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_ccct_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_5081 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_ccmidat_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_16064 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_ccmidps_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_2000 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_ccps_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_14409 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_hpus_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_30574 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_cbwmatter_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_9990 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_crbcortex_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_21725 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_putamen_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_8082 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_tp_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_28774 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_vedc_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_27904 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_27177 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_crbwmatter_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_31249 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_pallidum_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/EUR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt 2268 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/EUR_M_16473 EUR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/EUR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   EUR.males.genotype due to missing files
+Tasks completed: 34/34
+rm: cannot remove '/u/scratch/c/cobeaman/GCTA_GWAS_4676739': Directory not empty
+Cleanup complete.
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_amygdala_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_5459 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_caudate_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_14683 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_cbwmatter_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_17330 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_ccat_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_27104 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_ccct_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_4247 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_ccmidat_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_22447 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_ccmidps_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_14253 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_ccps_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_25523 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_crbcortex_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_15399 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_crbwmatter_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_1115 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_hpus_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_12637 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_pallidum_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_250 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_putamen_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_4165 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_tp_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_14939 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_vedc_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_1481 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Error: The following required files are missing:
+Phenotype file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M/494685_pheno_09052024_AMR_M_555_smri_vol_scs_wholeb_ROC0_2.txt /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males/AMR.males_GRM /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AMR/M 09072024 /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M/covar_494685_09052024_AMR_M_555.txt /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M/qcovar_noICV_494685_09052024_AMR_M_555.txt 555 /u/scratch/c/cobeaman/GCTA_GWAS_4676739/AMR_M_8353 AMR M /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males/AMR.males.genotype
+GRM file: .grm.bin
+GRM file: .grm.id
+GRM file: .grm.N.bin
+Bfile: .bed
+Bfile: .bim
+Bfile: .fam
+Covariate file: 
+Quantitative covariate file: 
+Skipping analysis for   AMR.males.genotype due to missing files
+Tasks completed: 34/34
+Cleanup complete.

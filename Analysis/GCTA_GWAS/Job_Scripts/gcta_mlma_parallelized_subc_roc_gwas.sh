@@ -65,67 +65,52 @@ should_skip() {
 
 # Function to check if all required files exist
 check_files_exist() {
-  local pheno_file=$1
-  local grm_file=$2
-  local covar_file=$3
-  local qcovar_file=$4
-  local infile=$5
+  local pop=$1
+  local sex=$2
+  local pheno_name=$3
+  local date_sample=$4
+
+  local pheno_file="${pheno_dir}/${pop}/${sex}/${date_sample}_pheno_${pop}_${sex}_*_${pheno_name}.txt"
+  local grm_file="${grmDir}/${pop}.${sex_dir}_GRM"
+  local infile="${indir}/${pop}.${sex_dir}.genotype"
+  local covar_file="${covar_dir}/Discrete/${pop}/${sex}/covar_${date_sample}.txt"
+  local qcovar_file="${covar_dir}/Quantitative/${pop}/${sex}/qcovar_${date_sample}.txt"
+
+  if [[ "$pheno_name" == "smri_vol_scs_wholeb_ROC0_2" ]]; then
+    qcovar_file="${covar_dir}/Quantitative/${pop}/${sex}/qcovar_noICV_${date_sample}.txt"
+  fi
 
   local missing_files=()
 
-  # Check phenotype file
-  if [ ! -f "$pheno_file" ]; then
-    missing_files+=("Phenotype file: $pheno_file")
-  fi
-
-  # Check GRM files
-  for ext in .grm.bin .grm.id .grm.N.bin; do
-    if [ ! -f "${grm_file}${ext}" ]; then
-      missing_files+=("GRM file: ${grm_file}${ext}")
+  for file in "$pheno_file" "${grm_file}.grm.bin" "${grm_file}.grm.id" "${grm_file}.grm.N.bin" \
+              "${infile}.bed" "${infile}.bim" "${infile}.fam" "$covar_file" "$qcovar_file"; do
+    if [ ! -f "$file" ]; then
+      missing_files+=("$file")
     fi
   done
 
-  # Check bfile files
-  for ext in .bed .bim .fam; do
-    if [ ! -f "${infile}${ext}" ]; then
-      missing_files+=("Bfile: ${infile}${ext}")
-    fi
-  done
-
-  # Check covariate file
-  if [ ! -f "$covar_file" ]; then
-    missing_files+=("Covariate file: $covar_file")
-  fi
-
-  # Check quantitative covariate file
-  if [ ! -f "$qcovar_file" ]; then
-    missing_files+=("Quantitative covariate file: $qcovar_file")
-  fi
-
-  # If any files are missing, print them and return 1 (error)
   if [ ${#missing_files[@]} -ne 0 ]; then
     echo "Error: The following required files are missing:"
     printf '%s\n' "${missing_files[@]}"
+    echo "Directory contents:"
+    ls -l $(dirname "$pheno_file")
+    ls -l $(dirname "$grm_file")
+    ls -l $(dirname "$covar_file")
+    ls -l $(dirname "$infile")
     return 1
   fi
 
-  return 0  # All files exist
+  return 0
 }
 
 # Function to run GCTA MLMA
 run_gcta_mlma() {
-  local pheno_file=$1
-  local pheno_name=$(basename "${pheno_file}" .txt)
-  local grm_file=$2
-  local out_dir=$3
-  local date=$4
-  local covar_file=$5
-  local qcovar_file=$6
-  local num_samples=$7
-  local scratch_dir=$8
-  local pop=$9
-  local sex=${10}
-  local infile=${11}
+  local pop=$1
+  local sex=$2
+  local pheno_name=$3
+  local date_sample=$4
+  local num_samples=$5
+  local scratch_dir=$6
 
   # Skip specified combinations
   if should_skip "$pop" "$sex" "$pheno_name"; then
@@ -134,12 +119,21 @@ run_gcta_mlma() {
   fi
 
   # Check if all required files exist
-  if ! check_files_exist "$pheno_file" "$grm_file" "$covar_file" "$qcovar_file" "$infile"; then
+  if ! check_files_exist "$pop" "$sex" "$pheno_name" "$date_sample"; then
     echo "Skipping analysis for $pop $sex $pheno_name due to missing files"
     return 1
   fi
 
+  local pheno_file="${pheno_dir}/${pop}/${sex}/${date_sample}_pheno_${pop}_${sex}_*_${pheno_name}.txt"
+  local grm_file="${grmDir}/${pop}.${sex_dir}_GRM"
+  local infile="${indir}/${pop}.${sex_dir}.genotype"
+  local covar_file="${covar_dir}/Discrete/${pop}/${sex}/covar_${date_sample}.txt"
+  local qcovar_file="${covar_dir}/Quantitative/${pop}/${sex}/qcovar_${date_sample}.txt"
   local out_file="${out_dir}/${pheno_name}_${pop}_${sex}_n${num_samples}_${date}_${JOB_ID}"
+
+  if [[ "$pheno_name" == "smri_vol_scs_wholeb_ROC0_2" ]]; then
+    qcovar_file="${covar_dir}/Quantitative/${pop}/${sex}/qcovar_noICV_${date_sample}.txt"
+  fi
 
   # Transfer GRM and bfile to scratch directory
   scratch_bfile="${scratch_dir}/$(basename ${infile})"
@@ -155,7 +149,7 @@ run_gcta_mlma() {
         --covar "${covar_file}" \
         --qcovar "${qcovar_file}" \
         --thread-num 16 \
-        --out "${out_file}"
+        --out "${out_file}" > "${out_dir}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
 
   # Check for errors
   if [ $? -ne 0 ]; then
@@ -209,38 +203,24 @@ for sex in "${sexes[@]}"; do
     continue  # Skip to next sex/population combination
   fi
 
-  grm_file="${grmDir}/${pop}.${sex_dir}_GRM"
-  infile="${indir}/${pop}.${sex_dir}.genotype"
-
   out_dir="${results_dir}/${pop}/${sex}"
   mkdir -p "${out_dir}/log"
 
   task_list=()
   for pheno_file in ${pheno_files}; do
     pheno_basename=$(basename "$pheno_file")
-    # Extract the date and sample size from the phenotype filename
     date_sample=$(echo "$pheno_basename" | grep -oP '\d{8}_\w+_\w_\d+')
-    
     num_samples=$(echo "$date_sample" | grep -oP '\d+$')
+    pheno_name=$(echo "$pheno_basename" | grep -oP 'smri_vol_scs_\w+_ROC0_2')
     scratch_dir="${scratch_base}/${pop}_${sex}_${RANDOM}"
     mkdir -p "${scratch_dir}"
-    
-    # Find the covariate files
-    covar_file=$(find "${covar_dir}/Discrete/${pop}/${sex}/" -type f -name "covar_*_${date_sample}.txt" -not -path "*/archive/*")
-    
-    # Find the correct quantitative covariate file
-    if [[ "$pheno_basename" == *"_smri_vol_scs_wholeb_ROC0_2.txt" ]]; then
-      qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -type f -name "qcovar_noICV_*_${date_sample}.txt" -not -path "*/archive/*")
-    else
-      qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -type f -name "qcovar_*_${date_sample}.txt" -not -path "*/archive/*" -not -name "*noICV*")
-    fi
 
-    task_list+=("${pheno_file} ${grm_file} ${out_dir} ${date} ${covar_file} ${qcovar_file} ${num_samples} ${scratch_dir} ${pop} ${sex} ${infile}")
+    task_list+=("$pop $sex $pheno_name $date_sample $num_samples $scratch_dir")
     total_tasks=$((total_tasks + 1))
   done
 
   # Run tasks in parallel
-  parallel --jobs 16 run_gcta_mlma ::: "${task_list[@]}"
+  parallel --jobs 16 --progress run_gcta_mlma ::: "${task_list[@]}"
   completed_tasks=$((completed_tasks + ${#task_list[@]}))
 
   echo "Tasks completed: ${completed_tasks}/${total_tasks}"
