@@ -103,6 +103,16 @@ run_gcta_mlma() {
     local pheno_name=$3
     local scratch_dir=$4
 
+    echo "Running GCTA MLMA for Population: $pop, Sex: $sex, Phenotype: $pheno_name"
+    echo "Using scratch directory: $scratch_dir"
+
+    # Check all input files
+    echo "Phenotype file: $pheno_file"
+    echo "Covariate file: $covar_file"
+    echo "Quantitative covariate file: $qcovar_file"
+    echo "GRM file: $grm_file"
+    echo "Genotype file: $infile"
+
     # Skip specified combinations
     if should_skip "$pop" "$sex" "$pheno_name"; then
         echo "Skipping $pop $sex $pheno_name"
@@ -188,16 +198,18 @@ for pop in "${pops[@]}"; do
             continue
         fi
 
+        # Adjust task list creation
         task_list=()
         for pheno_name in "${pheno_names[@]}"; do
             scratch_dir="${scratch_base}/${pop}_${sex}_${RANDOM}"
             mkdir -p "${scratch_dir}"
 
-            task_list+=("\"$pop\" \"$sex\" \"$pheno_name\" \"$scratch_dir\"")
+            # Construct tasks with clean argument quoting
+            task_list+=("$pop" "$sex" "$pheno_name" "$scratch_dir")
         done
 
-        # Run tasks in parallel with proper quoting for arguments
-        parallel --jobs 16 run_gcta_mlma ::: "${task_list[@]}"
+        # Run tasks in parallel with proper argument handling
+        printf "%s\n" "${task_list[@]}" | parallel --jobs 16 -k run_gcta_mlma
     done
 done
 
