@@ -1,8 +1,8 @@
 #!/bin/sh
-# Perform Genome-Wide association analysis using GCTA --mlma for all jobs in parallel
+# Perform Genome-Wide association analysis using GCTA MLMA for all jobs in parallel
 
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
-#$ -l h_rt=70:00:00,h_data=8G,highp
+#$ -l highp,h_rt=70:00:00,h_data=8G
 #$ -pe shared 16
 #$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/MLMA_GWAS_$JOB_ID.out
 #$ -j y
