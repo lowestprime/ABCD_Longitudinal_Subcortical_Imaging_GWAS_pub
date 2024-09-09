@@ -2,9 +2,9 @@
 # Perform Genome-Wide association analysis using GCTA --mlma for all jobs in parallel
 
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
-#$ -l h_rt=70:00:00,h_data=5G,highp,arch=intel-gold*
-#$ -pe shared 20
-#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/GCTA_GWAS_$JOB_ID.out
+#$ -l h_rt=70:00:00,h_data=8G,highp
+#$ -pe shared 16
+#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/MLMA_GWAS_$JOB_ID.out
 #$ -j y
 #$ -M $USER@mail
 #$ -m bea
@@ -13,14 +13,6 @@
 # Load the GNU Parallel module
 . /u/local/Modules/default/init/modules.sh
 module load parallel
-
-# Debug step: Check if 'parallel' is working
-if ! command -v parallel &> /dev/null; then
-  echo "Error: GNU Parallel is not installed or not functioning correctly."
-  exit 1
-fi
-
-echo "GNU Parallel is working correctly. Proceeding with the analysis..."
 
 # Software path
 gcta=/u/project/lhernand/sganesh/apps/gcta/gcta-1.94.1
@@ -154,7 +146,7 @@ run_gcta_mlma() {
           --pheno "${pheno_file}" \
           --covar "${covar_file}" \
           --qcovar "${qcovar_file}" \
-          --thread-num 20 \
+          --thread-num 16 \
           --out "${out_file}" > "${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
 
     # Check for errors
@@ -205,7 +197,7 @@ for pop in "${pops[@]}"; do
         done
 
         # Run tasks in parallel with proper quoting for arguments
-        parallel --jobs 20 run_gcta_mlma ::: "${task_list[@]}"
+        parallel --jobs 16 run_gcta_mlma ::: "${task_list[@]}"
     done
 done
 
