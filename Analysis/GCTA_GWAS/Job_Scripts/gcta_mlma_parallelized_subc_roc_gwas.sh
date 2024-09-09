@@ -4,7 +4,7 @@
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
 #$ -l highp,h_rt=70:00:00,h_data=8G
 #$ -pe shared 16
-#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/GCTA_GWAS_$JOB_ID.out
+#$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/GCTA_GWAS_$JOB_ID.out
 #$ -j y
 #$ -M $USER@mail
 #$ -m bea
@@ -70,7 +70,7 @@ check_files_exist() {
     local pheno_name=$3
 
     # Ensure variables are properly expanded and paths are correct
-    local pheno_file=$(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_${pop}_${sex}_*_${pheno_name}.txt" -not -path "*/archive/*")
+    local pheno_file=$(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_*_${pop}_${sex}_*_${pheno_name}.txt" -not -path "*/archive/*")
 
     if [[ -z "$pheno_file" ]]; then
         echo "Error: Phenotype file not found for ${pop} ${sex} ${pheno_name}"
@@ -78,15 +78,13 @@ check_files_exist() {
     fi
 
     # Define other file paths
-    local grm_file="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/${pop}.females_GRM"
-    local infile="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/${pop}.females.genotype"
-    local covar_file="${covar_dir}/Discrete/${pop}/${sex}/covar_574229_09052024_${pop}_${sex}_1916.txt"
-    local qcovar_file="${covar_dir}/Quantitative/${pop}/${sex}/qcovar_574229_09052024_${pop}_${sex}_1916.txt"
+    local sex_dir=$([ "$sex" = "F" ] && echo "females" || echo "males")
+    local grm_file="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}/${pop}.${sex_dir}_GRM"
+    local infile="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}/${pop}.${sex_dir}.genotype"
+    local covar_file=$(find "${covar_dir}/Discrete/${pop}/${sex}/" -maxdepth 1 -type f -name "covar_*_${pop}_${sex}_*.txt" -not -path "*/archive/*")
 
-    # Handle noICV case
-    if [[ "$pheno_name" == "smri_vol_scs_wholeb_ROC0_2" ]]; then
-        qcovar_file="${covar_dir}/Quantitative/${pop}/${sex}/qcovar_noICV_574229_09052024_${pop}_${sex}_1916.txt"
-    fi
+    # Condensed qcovar file logic
+    local qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -maxdepth 1 -type f -name "$( [[ "$pheno_name" == "smri_vol_scs_wholeb_ROC0_2" ]] && echo "qcovar_noICV_*" || echo "qcovar_*")_${pop}_${sex}_*.txt" -not -path "*/archive/*")
 
     # Collect missing files
     local missing_files=()
@@ -129,15 +127,13 @@ run_gcta_mlma() {
     local pheno_file=$(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_*_${pop}_${sex}_*_${pheno_name}.txt" -not -path "*/archive/*")
 
     # Define other file paths
-    local grm_file="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females/${pop}.females_GRM"
-    local infile="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females/${pop}.females.genotype"
-    local covar_file="${covar_dir}/Discrete/${pop}/${sex}/covar_574229_09052024_${pop}_${sex}_1916.txt"
-    local qcovar_file="${covar_dir}/Quantitative/${pop}/${sex}/qcovar_574229_09052024_${pop}_${sex}_1916.txt"
+    local sex_dir=$([ "$sex" = "F" ] && echo "females" || echo "males")
+    local grm_file="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}/${pop}.${sex_dir}_GRM"
+    local infile="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}/${pop}.${sex_dir}.genotype"
+    local covar_file=$(find "${covar_dir}/Discrete/${pop}/${sex}/" -maxdepth 1 -type f -name "covar_*_${pop}_${sex}_*.txt" -not -path "*/archive/*")
 
-    # Handle noICV cases
-    if [[ "$pheno_name" == "smri_vol_scs_wholeb_ROC0_2" ]]; then
-        qcovar_file="${covar_dir}/Quantitative/${pop}/${sex}/qcovar_noICV_574229_09052024_${pop}_${sex}_1916.txt"
-    fi
+    # Condensed qcovar file logic
+    local qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -maxdepth 1 -type f -name "$( [[ "$pheno_name" == "smri_vol_scs_wholeb_ROC0_2" ]] && echo "qcovar_noICV_*" || echo "qcovar_*")_${pop}_${sex}_*.txt" -not -path "*/archive/*")
 
     # Calculate number of samples from phenotype file
     local num_samples=$(wc -l < "$pheno_file")
@@ -179,6 +175,7 @@ for pop in "${pops[@]}"; do
     for sex in "${sexes[@]}"; do
         echo "Preparing tasks for Population: $pop, Sex: $sex"
         
+        sex_dir=$([ "$sex" = "F" ] && echo "females" || echo "males")
         indir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}"
         grmDir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}"
         
@@ -191,17 +188,16 @@ for pop in "${pops[@]}"; do
         echo "bfile directory: ${indir}"
         echo "GRM directory: ${grmDir}"
 
-        # Locate phenotype files in the correct directory
-        pheno_files=$(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_*_${pop}_${sex}_*_smri_vol_*.txt" -not -path "*/archive/*")
-        if [ -z "$pheno_files" ]; then
+        # Extract all phenotype names
+        pheno_names=($(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_*_${pop}_${sex}_*_smri_vol_*.txt" -not -path "*/archive/*" | xargs -I{} basename {} | grep -oP 'smri_vol_scs_\w+_ROC0_2'))
+
+        if [ ${#pheno_names[@]} -eq 0 ]; then
             echo "Error: No phenotype files found for ${pop} ${sex}. Skipping..."
             continue
         fi
 
         task_list=()
-        for pheno_file in $pheno_files; do
-            pheno_basename=$(basename "$pheno_file")
-            pheno_name=$(echo "$pheno_basename" | grep -oP 'smri_vol_scs_\w+_ROC0_2')
+        for pheno_name in "${pheno_names[@]}"; do
             scratch_dir="${scratch_base}/${pop}_${sex}_${RANDOM}"
             mkdir -p "${scratch_dir}"
 
