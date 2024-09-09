@@ -1,0 +1,769 @@
+GNU Parallel is working correctly. Proceeding with the analysis...
+Current population: EUR
+Preparing tasks for Population: EUR, Sex: F
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females
+Error: Phenotype file not found for EUR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_6132  
+Skipping analysis for EUR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_6132   due to missing files
+find: '/EUR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_6132//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_12983  
+Skipping analysis for EUR F smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_12983   due to missing files
+find: '/EUR F smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_12983//': No such file or directory
+ets-processed/ABCD_Release_5/genotype/GRM/grm_females
+Error: Phenotype file not found for EUR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_11958  
+Skipping analysis for EUR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_11958   due to missing files
+find: '/EUR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_11958//': No such file or directory
+ete/EUR/F
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females
+Error: Phenotype file not found for EUR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_3011  
+Skipping analysis for EUR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_3011   due to missing files
+find: '/EUR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_3011//': No such file or directory
+ch file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_29207  
+Skipping analysis for EUR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_29207   due to missing files
+find: '/EUR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_29207//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_25632  
+Skipping analysis for EUR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_25632   due to missing files
+find: '/EUR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_25632//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_7851  
+Skipping analysis for EUR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_7851   due to missing files
+find: '/EUR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_7851//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_7796  
+Skipping analysis for EUR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_7796   due to missing files
+find: '/EUR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_7796//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_2487  
+Skipping analysis for EUR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_2487   due to missing files
+find: '/EUR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_2487//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_30946  
+Skipping analysis for EUR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_30946   due to missing files
+find: '/EUR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_30946//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_25483  
+Skipping analysis for EUR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_25483   due to missing files
+find: '/EUR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_25483//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_20212  
+Skipping analysis for EUR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_20212   due to missing files
+find: '/EUR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_20212//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_3123  
+Skipping analysis for EUR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_3123   due to missing files
+find: '/EUR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_3123//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_2891  
+Skipping analysis for EUR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_2891   due to missing files
+find: '/EUR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_2891//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_1521  
+Skipping analysis for EUR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_1521   due to missing files
+g files
+find: '/EUR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_32121//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_13416  
+Skipping analysis for EUR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_13416   due to missing files
+find: '/EUR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_13416//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_17489  
+Skipping analysis for EUR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_17489   due to missing files
+find: '/EUR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_17489//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_19714  
+Skipping analysis for EUR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_19714   due to missing files
+find: '/EUR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_19714//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_24845  
+Skipping analysis for EUR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_24845   due to missing files
+find: '/EUR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_24845//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_11955  
+Skipping analysis for EUR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_11955   due to missing files
+find: '/EUR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_11955//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_28344  
+Skipping analysis for EUR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_28344   due to missing files
+find: '/EUR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_28344//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_375  
+Skipping analysis for EUR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_375   due to missing files
+find: '/EUR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_375//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_13847  
+Skipping analysis for EUR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_13847   due to missing files
+find: '/EUR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_13847//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_15140  
+Skipping analysis for EUR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_15140   due to missing files
+find: '/EUR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_15140//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_30810  
+Skipping analysis for EUR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_30810   due to missing files
+find: '/EUR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_30810//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_25694  
+Skipping analysis for EUR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_25694   due to missing files
+find: '/EUR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_25694//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_27776  
+Skipping analysis for EUR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_27776   due to missing files
+find: '/EUR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_27776//': No such file or directory
+Preparing tasks for Population: EUR, Sex: M
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males
+Error: Phenotype file not found/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males
+Error: Phenotype file not found for EUR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_32430  
+Skipping analysis for EUR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_32430   due to missing files
+find: '/EUR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_32430//': No such file or directory
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       Error: Phenotype file not found for EUR M smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_26937  
+Skipping analysis for EUR M smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_26937   due to missing files
+find: '/EUR M smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_26937//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_11300  
+Skipping analysis for EUR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_11300   due to missing files
+find: '/EUR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_11300//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_1359  
+Skipping analysis for EUR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_1359   due to missing files
+find: '/EUR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_1359//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_18326  
+Skipping analysis for EUR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_18326   due to missing files
+find: '/EUR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_18326//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_1055  
+Skipping analysis for EUR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_1055   due to missing files
+find: '/EUR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_1055//': No such file or directory
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Error: Phenotype file not found for EUR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_17089  
+Skipping analysis for EUR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_17089   due to missing files
+find: '/EUR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_17089//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_8051  
+Skipping analysis for EUR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_8051   due to missing files
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            find: '/EUR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_8051//': No such file or directory
+                                                                                                                                                                                                                                                Error: Phenotype file not found for EUR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_24920  
+Skipping analysis for EUR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_24920   due to missing files
+find: '/EUR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_24920//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_22763  
+Skipping analysis for EUR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_22763   due to missing files
+find: '/EUR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_22763//': No such file or directory
+Error: Phenotype file not found for EUR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_19739  
+Skipping analysis for EUR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_19739   due to missing files
+find: '/EUR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_F_19739//': No such file or directory
+                                                                                                                                                                                                                                                                                                                                                                                                    Preparing tasks for Population: EUR, Sex: M
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males
+Error: Phenotype file not found for EUR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_23679  
+Skipping analysis for EUR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_23679   due to missing files
+find: '/EUR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_23679//': No such file or directory
+irectory
+Error: Phenotype file not found for EUR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_13666  
+Skipping analysis for EUR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_13666   due to missing files
+find: '/EUR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_13666//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_22581  
+Skipping analysis for EUR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_22581   due to missing files
+find: '/EUR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_22581//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_15360  
+Skipping analysis for EUR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_15360   due to missing files
+find: '/EUR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_15360//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_13481  
+Skipping analysis for EUR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_13481   due to missing files
+find: '/EUR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_13481//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_20819  
+Skipping analysis for EUR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_20819   due to missing files
+find: '/EUR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_20819//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_17860  
+Skipping analysis for EUR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_17860   due to missing files
+find: '/EUR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_17860//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_23358  
+Skipping analysis for EUR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_23358   due to missing files
+find: '/EUR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_23358//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_20944  
+Skipping analysis for EUR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_20944   due to missing files
+find: '/EUR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_20944//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_28218  
+Skipping analysis for EUR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_28218   due to missing files
+find: '/EUR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_28218//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_28419  
+Skipping analysis for EUR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_28419   due to missing files
+find: '/EUR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_28419//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_1444  
+Skipping analysis for EUR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_1444   due to missing files
+find: '/EUR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_1444//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_28967  
+Skipping analysis for EUR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_28967   due to missing files
+find: '/EUR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_28967//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_30354  
+Skipping analysis for EUR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_30354   due to missing files
+find: '/EUR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_30354//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_26431  
+Skipping analysis for EUR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_26431   due to missing files
+find: '/EUR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_26431//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_10439  
+Skipping analysis for EUR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_10439   due to missing files
+find: '/EUR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_10439//': No such file or directory
+Current population: AMR
+Preparing tasks for Population: AMR, Sex: F
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/F
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/F
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/F
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females
+Error: Phenotype file not found for AMR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_30448  
+Skipping analysis for AMR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_30448   due to missing files
+find: '/AMR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_30448//': No such file or directory
+file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28447  
+Skipping analysis for AMR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28447   due to missing files
+find: '/AMR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28447//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28905  
+Skipping analysis for AMR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28905   due to missing files
+find: '/AMR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28905//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_20859  
+Skipping analysis for AMR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_20859   due to missing files
+find: '/AMR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_20859//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_31034  
+Skipping analysis for AMR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_31034   due to missing files
+find: '/AMR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_31034//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_29204  
+Skipping analysis for AMR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_29204   due to missing files
+find: '/AMR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_29204//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_9294  
+Skipping analysis for AMR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_9294   due to missing files
+find: '/AMR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_9294//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_3960  
+Skipping analysis for AMR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_3960   due to missing files
+find: '/AMR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_3960//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_13750  
+Skipping analysis for AMR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_13750   due to missing files
+find: '/AMR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_13750//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_27241  
+Skipping analysis for AMR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_27241   due to missing files
+find: '/AMR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_27241//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_19931  
+Skipping analysis for AMR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_19931   due to missing files
+find: '/AMR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_19931//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_1139  
+Skipping analysis for AMR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_1139   due to missing files
+find: '/AMR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_1139//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_13750  
+Skipping analysis for AMR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_13750   due to missing files
+find: '/AMR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_13750//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_23645  
+Skipping analysis for AMR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_23645   due to missing files
+find: '/AMR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_23645//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_1764  
+Skipping analysis for AMR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_1764   due to missing files
+find: '/AMR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_1764//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_5942  
+Skipping analysis for AMR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_5942   due to missing files
+find: '/AMR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_5942//': No such file or directory
+Preparing tasks for Population: AMR, Sex: M
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males
+Error: Phenotype file not found for AMR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_25193  
+Skipping analysis for AMR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_25193   due to missing files
+find: '/AMR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_25193//': No such file or directory
+e or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_28155  
+Skipping analysis for EUR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_28155   due to missing files
+find: '/EUR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_28155//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_8134  
+Skipping analysis for EUR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_8134   due to missing files
+find: '/EUR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_8134//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_498  
+Skipping analysis for EUR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_498   due to missing files
+find: '/EUR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_498//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_14713  
+Skipping analysis for EUR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_14713   due to missing files
+find: '/EUR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_14713//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_19078  
+Skipping analysis for EUR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_19078   due to missing files
+find: '/EUR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_19078//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_19069  
+Skipping analysis for EUR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_19069   due to missing files
+find: '/EUR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_19069//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_24262  
+Skipping analysis for EUR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_24262   due to missing files
+find: '/EUR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_24262//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_7488  
+Skipping analysis for EUR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_7488   due to missing files
+find: '/EUR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_7488//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_30504  
+Skipping analysis for EUR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_30504   due to missing files
+find: '/EUR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_30504//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_5317  
+Skipping analysis for EUR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_5317   due to missing files
+find: '/EUR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_5317//': No such file or directory
+                                                                                                                                                                                                                                                     Error: Phenotype file not found for EUR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_9573  
+Skipping analysis for EUR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_9573   due to missing files
+find: '/EUR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_9573//': No such file or directory
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Error: Phenotype file not found for EUR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_13670  
+Skipping analysis for EUR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_13670   due to missing files
+find: '/EUR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_13670//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_26799  
+Skipping analysis for EUR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_26799   due to missing files
+                                                                                                                                                      find: '/EUR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_26799//': No such file or directory
+                                                                                                                                                                                                                                                       Error: Phenotype file not found for EUR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_18457  
+Skipping analysis for EUR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_18457   due to missing files
+find: '/EUR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_18457//': No such file or directory
+Error: Phenotype file not found for EUR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_8473  
+Skipping analysis for EUR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_8473   due to missing files
+find: '/EUR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/EUR_M_8473//': No such file or directory
+                                                                                                                                                                                                                                            Current population: AMR
+Preparing tasks for Population: AMR, Sex: F
+_4678880/AMR_M_20785//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_9662  
+Skipping analysis for AMR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_9662   due to missing files
+find: '/AMR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_9662//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_31411  
+Skipping analysis for AMR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_31411   due to missing files
+find: '/AMR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_31411//': No such file or directory
+Current population: AFR
+Preparing tasks for Population: AFR, Sex: F
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Error: Phenotype file not found for AMR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_11252  
+Skipping analysis for AMR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_11252   due to missing files
+find: '/AMR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_11252//': No such file or directory
+aman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females
+Error: Phenotype file not found for AFR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_12860  
+Skipping analysis for AFR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_12860   due to missing files
+find: '/AFR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_12860//': No such file or directory
+file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_25995  
+Skipping analysis for AMR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_25995   due to missing files
+find: '/AMR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_25995//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_15847  
+Skipping analysis for AMR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_15847   due to missing files
+find: '/AMR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_15847//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_12348  
+Skipping analysis for AMR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_12348   due to missing files
+find: '/AMR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_12348//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_31987  
+Skipping analysis for AMR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_31987   due to missing files
+find: '/AMR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_31987//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28247  
+Skipping analysis for AMR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28247   due to missing files
+find: '/AMR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28247//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_18122  
+Skipping analysis for AMR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_18122   due to missing files
+find: '/AMR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_18122//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_21533  
+Skipping analysis for AMR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_21533   due to missing files
+find: '/AMR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_21533//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_418  
+Skipping analysis for AMR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_418   due to missing files
+find: '/AMR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_418//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_22243  
+Skipping analysis for AMR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_22243   due to missing files
+find: '/AMR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_22243//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_655  
+Skipping analysis for AMR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_655   due to missing files
+find: '/AMR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_655//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_22626  
+Skipping analysis for AMR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_22626   due to missing files
+find: '/AMR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_22626//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_10775  
+Skipping analysis for AMR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_10775   due to missing files
+find: '/AMR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_10775//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_29456  
+Skipping analysis for AMR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_29456   due to missing files
+find: '/AMR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_29456//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28503  
+Skipping analysis for AMR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28503   due to missing files
+find: '/AMR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28503//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_22915  
+Skipping analysis for AMR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_22915   due to missing files
+find: '/AMR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_22915//': No such file or directory
+Preparing tasks for Population: AMR, Sex: M
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males
+Error: Phenotype file not found for AMR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_31230  
+Skipping analysis for AMR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_31230   due to missing files
+find: '/AMR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_31230//': No such file or directory
+r directory
+Error: Phenotype file not found for AFR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_2471  
+Skipping analysis for AFR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_2471   due to missing files
+find: '/AFR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_2471//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_14668  
+Skipping analysis for AFR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_14668   due to missing files
+find: '/AFR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_14668//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_19469  
+Skipping analysis for AFR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_19469   due to missing files
+find: '/AFR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_19469//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_29436  
+Skipping analysis for AFR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_29436   due to missing files
+find: '/AFR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_29436//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_14802  
+Skipping analysis for AFR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_14802   due to missing files
+find: '/AFR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_14802//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_17761  
+Skipping analysis for AFR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_17761   due to missing files
+find: '/AFR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_17761//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_1152  
+Skipping analysis for AFR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_1152   due to missing files
+find: '/AFR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_1152//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_3363  
+Skipping analysis for AFR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_3363   due to missing files
+find: '/AFR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_3363//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_745  
+Skipping analysis for AFR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_745   due to missing files
+find: '/AFR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_745//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_7829  
+Skipping analysis for AFR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_7829   due to missing files
+find: '/AFR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_7829//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_21523  
+Skipping analysis for AFR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_21523   due to missing files
+find: '/AFR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_21523//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_16638  
+Skipping analysis for AFR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_16638   due to missing files
+find: '/AFR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_16638//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_31014  
+Skipping analysis for AFR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_31014   due to missing files
+find: '/AFR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_31014//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_13447  
+Skipping analysis for AFR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_13447   due to missing files
+find: '/AFR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_13447//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_5446  
+Skipping analysis for AFR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_5446   due to missing files
+find: '/AFR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_5446//': No such file or directory
+Preparing tasks for Population: AFR, Sex: M
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males
+Error: Phenotype file not found for AFR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_11911  
+Skipping analysis for AFR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_11911   due to missing files
+find: '/AFR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_11911//': No such file or directory
+file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_21000  
+Skipping analysis for AMR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_21000   due to missing files
+find: '/AMR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_21000//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_11513  
+Skipping analysis for AMR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_11513   due to missing files
+find: '/AMR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_11513//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_14944  
+Skipping analysis for AMR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_14944   due to missing files
+find: '/AMR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_14944//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_5891  
+Skipping analysis for AMR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_5891   due to missing files
+find: '/AMR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_5891//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_20816  
+Skipping analysis for AMR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_20816   due to missing files
+find: '/AMR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_20816//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_7102  
+Skipping analysis for AMR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_7102   due to missing files
+find: '/AMR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_7102//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_32371  
+Skipping analysis for AMR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_32371   due to missing files
+find: '/AMR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_32371//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_17965  
+Skipping analysis for AMR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_17965   due to missing files
+find: '/AMR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_17965//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_26339  
+Skipping analysis for AMR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_26339   due to missing files
+find: '/AMR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_26339//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28926  
+Skipping analysis for AMR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28926   due to missing files
+find: '/AMR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_28926//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_19915  
+Skipping analysis for AMR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_19915   due to missing files
+find: '/AMR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_19915//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_21098  
+Skipping analysis for AMR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_21098   due to missing files
+find: '/AMR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_21098//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_26569  
+Skipping analysis for AMR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_26569   due to missing files
+find: '/AMR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_26569//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_19251  
+Skipping analysis for AMR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_19251   due to missing files
+find: '/AMR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_19251//': No such file or directory
+Error: Phenotype file not found for AMR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_15988  
+Skipping analysis for AMR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_15988   due to missing files
+find: '/AMR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_F_15988//': No such file or directory
+                                                                                                                                                                                                                                                                                                                                                                                                       Preparing tasks for Population: AMR, Sex: M
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AMR/M
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AMR/M
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AMR/M
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males
+Error: Phenotype file not found for AMR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_14519  
+Skipping analysis for AMR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_14519   due to missing files
+find: '/AMR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_14519/eaman/GCTA_GWAS_4678880/AFR_M_15621//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_5642  
+Skipping analysis for AFR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_5642   due to missing files
+find: '/AFR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_5642//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_31816  
+Skipping analysis for AFR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_31816   due to missing files
+find: '/AFR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_31816//': No such file or directory
+rm: cannot remove '/u/scratch/c/cobeaman/GCTA_GWAS_4678880': Directory not empty
+/c/cobeaman/GCTA_GWAS_4678880/AMR_M_24610  
+Skipping analysis for AMR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_24610   due to missing files
+find: '/AMR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_24610//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_476  
+Skipping analysis for AMR M smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_476   due to missing files
+find: '/AMR M smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_476//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_25080  
+Skipping analysis for AMR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_25080   due to missing files
+find: '/AMR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_25080//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_2714  
+Skipping analysis for AMR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_2714   due to missing files
+find: '/AMR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_2714//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_24234  
+Skipping analysis for AMR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_24234   due to missing files
+find: '/AMR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_24234//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_10126  
+Skipping analysis for AMR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_10126   due to missing files
+find: '/AMR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_10126//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_2645  
+Skipping analysis for AMR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_2645   due to missing files
+find: '/AMR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_2645//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_8342  
+Skipping analysis for AMR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_8342   due to missing files
+find: '/AMR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_8342//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_9651  
+Skipping analysis for AMR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_9651   due to missing files
+find: '/AMR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_9651//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_12876  
+Skipping analysis for AMR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_12876   due to missing files
+find: '/AMR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_12876//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_23404  
+Skipping analysis for AMR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_23404   due to missing files
+find: '/AMR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_23404//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_23678  
+Skipping analysis for AMR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_23678   due to missing files
+find: '/AMR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_23678//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_10200  
+Skipping analysis for AMR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_10200   due to missing files
+find: '/AMR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_10200//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_3509  
+Skipping analysis for AMR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_3509   due to missing files
+find: '/AMR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_3509//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_2887  
+Skipping analysis for AMR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_2887   due to missing files
+find: '/AMR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_2887//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_12678  
+Skipping analysis for AMR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_12678   due to missing files
+find: '/AMR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_12678//': No such file or directory
+Current population: AFR
+Preparing tasks for Population: AFR, Sex: F
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females
+Error: Phenotype file not found for AFR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_11321  
+Skipping analysis for AFR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_11321   due to missing files
+find: '/AFR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_11321//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_30498  
+Skipping analysis for AFR F smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_30498   due to missing files
+find: '/AFR F smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_30498//': No such file or directory
+            Error: Phenotype file not found for AFR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_403  
+Skipping analysis for AFR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_403   due to missing files
+find: '/AFR F smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_403//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_6527  
+Skipping analysis for AFR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_6527   due to missing files
+find: '/AFR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_6527//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_444  
+Skipping analysis for AFR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_444   due to missing files
+find: '/AFR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_444//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_15142  
+Skipping analysis for AFR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_15142   due to missing files
+find: '/AFR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_15142//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_22642  
+Skipping analysis for AFR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_22642   due to missing files
+find: '/AFR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_22642//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_29949  
+Skipping analysis for AFR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_29949   due to missing files
+find: '/AFR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_29949//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_21963  
+Skipping analysis for AFR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_21963   due to missing files
+find: '/AFR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_21963//': No such file or directory
+         Error: Phenotype file not found for AFR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_12938  
+Skipping analysis for AFR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_12938   due to missing files
+find: '/AFR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_12938//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_11059  
+Skipping analysis for AFR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_11059   due to missing files
+find: '/AFR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_11059//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_18758  
+Skipping analysis for AFR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_18758   due to missing files
+find: '/AFR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_18758//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_22523  
+Skipping analysis for AFR F smri_vol_scs_tp_lidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_17805   due to missing files
+find: '/AMR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_17805//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_27227  
+Skipping analysis for AMR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_27227   due to missing files
+find: '/AMR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_27227//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_12341  
+Skipping analysis for AMR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_12341   due to missing files
+find: '/AMR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_12341//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_2170  
+Skipping analysis for AMR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_2170   due to missing files
+find: '/AMR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_2170//': No such file or directory
+Error: Phenotype file not found for AMR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_1870  
+Skipping analysis for AMR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_1870   due to missing files
+find: '/AMR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AMR_M_1870//': No such file or directory
+Current population: AFR
+Preparing tasks for Population: AFR, Sex: F
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females
+                                                                                                                                                                                                                                                                                                                                                                Error: Phenotype file not found for AFR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_10830  
+Skipping analysis for AFR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_10830   due to missing files
+find: '/AFR F smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_10830//': No such file or directory
+ovariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males
+Error: Phenotype file not found for AFR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_2078  
+Skipping analysis for AFR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_2078   due to missing files
+find: '/AFR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_2078//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_14035  
+Skipping analysis for AFR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_14035   due to missing files
+find: '/AFR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_14035//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_6026  
+Skipping analysis for AFR M smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_6026   due to missing files
+find: '/AFR M smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_6026//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_9007  
+Skipping analysis for AFR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_9007   due to missing files
+find: '/AFR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_9007//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_9630  
+Skipping analysis for AFR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_9630   due to missing files
+find: '/AFR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_9630//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_30488  
+Skipping analysis for AFR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_30488   due to missing files
+find: '/AFR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_30488//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_1734  
+Skipping analysis for AFR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_1734   due to missing files
+find: '/AFR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_1734//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_28172  
+Skipping analysis for AFR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_28172   due to missing files
+find: '/AFR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_28172//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_1816  
+Skipping analysis for AFR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_1816   due to missing files
+find: '/AFR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_1816//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_28871  
+Skipping analysis for AFR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_28871   due to missing files
+find: '/AFR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_28871//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_28805  
+Skipping analysis for AFR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_28805   due to missing files
+find: '/AFR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_28805//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_24006  
+Skipping analysis for AFR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_24006   due to missing files
+find: '/AFR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_24006//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_20514  
+Skipping analysis for AFR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_20514   due to missing files
+find: '/AFR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_20514//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_3817  
+Skipping analysis for AFR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_3817   due to missing files
+find: '/AFR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_3817//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_16653  
+Skipping analysis for AFR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_16653   due to missing files
+find: '/AFR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_16653//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_3831  
+Skipping analysis for AFR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_3831   due to missing files
+find: '/AFR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_3831//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_20477  
+Skipping analysis for AFR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_20477   due to missing files
+find: '/AFR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_20477//': No such file or directory
+rm: cannot remove '/u/scratch/c/cobeaman/GCTA_GWAS_4678880': Directory not empty
+obeaman/GCTA_GWAS_4678880/AFR_F_5475  
+Skipping analysis for AFR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_5475   due to missing files
+find: '/AFR F smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_5475//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_9743  
+Skipping analysis for AFR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_9743   due to missing files
+find: '/AFR F smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_9743//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_9038  
+Skipping analysis for AFR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_9038   due to missing files
+find: '/AFR F smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_9038//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_24946  
+Skipping analysis for AFR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_24946   due to missing files
+find: '/AFR F smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_24946//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_2008  
+Skipping analysis for AFR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_2008   due to missing files
+find: '/AFR F smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_2008//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_2294  
+Skipping analysis for AFR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_2294   due to missing files
+find: '/AFR F smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_2294//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_25007  
+Skipping analysis for AFR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_25007   due to missing files
+find: '/AFR F smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_25007//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_23538  
+Skipping analysis for AFR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_23538   due to missing files
+find: '/AFR F smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_23538//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_9654  
+Skipping analysis for AFR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_9654   due to missing files
+find: '/AFR F smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_9654//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_3599  
+Skipping analysis for AFR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_3599   due to missing files
+find: '/AFR F smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_3599//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_6092  
+Skipping analysis for AFR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_6092   due to missing files
+find: '/AFR F smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_6092//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_24474  
+Skipping analysis for AFR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_24474   due to missing files
+find: '/AFR F smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_24474//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_5199  
+Skipping analysis for AFR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_5199   due to missing files
+find: '/AFR F smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_5199//': No such file or directory
+Error: Phenotype file not found for AFR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_1182  
+Skipping analysis for AFR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_1182   due to missing files
+find: '/AFR F smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_F_1182//': No such file or directory
+Preparing tasks for Population: AFR, Sex: M
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/M
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/M
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/M
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/males
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_males
+Error: Phenotype file not found for AFR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_24652  
+Skipping analysis for AFR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_24652   due to missing files
+find: '/AFR M smri_vol_scs_aa_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_24652//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_350  
+Skipping analysis for AFR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_350   due to missing files
+find: '/AFR M smri_vol_scs_amygdala_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_350//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_9602  
+Skipping analysis for AFR M smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_9602   due to missing files
+find: '/AFR M smri_vol_scs_caudate_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_9602//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_13390  
+Skipping analysis for AFR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_13390   due to missing files
+find: '/AFR M smri_vol_scs_cbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_13390//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_18393  
+Skipping analysis for AFR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_18393   due to missing files
+find: '/AFR M smri_vol_scs_ccat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_18393//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_763  
+Skipping analysis for AFR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_763   due to missing files
+find: '/AFR M smri_vol_scs_ccct_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_763//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_31803  
+Skipping analysis for AFR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_31803   due to missing files
+find: '/AFR M smri_vol_scs_ccmidat_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_31803//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_12178  
+Skipping analysis for AFR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_12178   due to missing files
+find: '/AFR M smri_vol_scs_ccmidps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_12178//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_25285  
+Skipping analysis for AFR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_25285   due to missing files
+find: '/AFR M smri_vol_scs_ccps_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_25285//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_15548  
+Skipping analysis for AFR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_15548   due to missing files
+find: '/AFR M smri_vol_scs_crbcortex_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_15548//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_10559  
+Skipping analysis for AFR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_10559   due to missing files
+find: '/AFR M smri_vol_scs_crbwmatter_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_10559//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_11288  
+Skipping analysis for AFR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_11288   due to missing files
+find: '/AFR M smri_vol_scs_hpus_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_11288//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_13505  
+Skipping analysis for AFR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_13505   due to missing files
+find: '/AFR M smri_vol_scs_pallidum_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_13505//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_9141  
+Skipping analysis for AFR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_9141   due to missing files
+find: '/AFR M smri_vol_scs_putamen_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_9141//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_5976  
+Skipping analysis for AFR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_5976   due to missing files
+find: '/AFR M smri_vol_scs_tp_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_5976//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_27098  
+Skipping analysis for AFR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_27098   due to missing files
+find: '/AFR M smri_vol_scs_vedc_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_27098//': No such file or directory
+Error: Phenotype file not found for AFR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_13599  
+Skipping analysis for AFR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_13599   due to missing files
+find: '/AFR M smri_vol_scs_wholeb_ROC0_2 /u/scratch/c/cobeaman/GCTA_GWAS_4678880/AFR_M_13599//': No such file or directory
+Analysis complete.

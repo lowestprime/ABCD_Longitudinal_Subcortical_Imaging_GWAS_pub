@@ -1,0 +1,607 @@
+GNU Parallel is working correctly. Proceeding with the analysis...
+Processing: EUR F
+Missing file: /EUR F smri_vol_scs_aa_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_aa_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_aa_ROC0_2 09052024_EUR_F_1916 1916__25925': Permission denied
+basename: extra operand 'smri_vol_scs_aa_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_aa_ROC0_2'
+Try 'basename --help' for more information.
+nformation.
+Missing file: /AMR F smri_vol_scs_amygdala_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_amygdala_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_amygdala_ROC0_2 09052024_AMR_F_488 488__31366': Permission denied
+basename: extra operand 'smri_vol_scs_amygdala_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_amygdala_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_caudate_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_caudate_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_caudate_ROC0_2 09052024_AMR_F_488 488__15057': Permission denied
+basename: extra operand 'smri_vol_scs_caudate_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_caudate_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_cbwmatter_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_cbwmatter_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_cbwmatter_ROC0_2 09052024_AMR_F_488 488__26369': Permission denied
+basename: extra operand 'smri_vol_scs_cbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_cbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_ccat_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_ccat_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_ccat_ROC0_2 09052024_AMR_F_488 488__29121': Permission denied
+basename: extra operand 'smri_vol_scs_ccat_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccat_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_ccmidat_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_ccmidat_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_ccmidat_ROC0_2 09052024_AMR_F_488 488__1621': Permission denied
+basename: extra operand 'smri_vol_scs_ccmidat_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccmidat_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_ccmidps_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_ccmidps_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_ccmidps_ROC0_2 09052024_AMR_F_488 488__5558': Permission denied
+basename: extra operand 'smri_vol_scs_ccmidps_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccmidps_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_ccct_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_ccct_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_ccct_ROC0_2 09052024_AMR_F_488 488__27743': Permission denied
+basename: extra operand 'smri_vol_scs_ccct_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccct_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_ccps_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_ccps_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_ccps_ROC0_2 09052024_AMR_F_488 488__17942': Permission denied
+basename: extra operand 'smri_vol_scs_ccps_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccps_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_crbcortex_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_crbcortex_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_crbcortex_ROC0_2 09052024_AMR_F_488 488__28011': Permission denied
+basename: extra operand 'smri_vol_scs_crbcortex_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_crbcortex_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_crbwmatter_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_crbwmatter_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_crbwmatter_ROC0_2 09052024_AMR_F_488 488__26417': Permission denied
+basename: extra operand 'smri_vol_scs_crbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_crbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_pallidum_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_pallidum_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_pallidum_ROC0_2 09052024_AMR_F_488 488__10229': Permission denied
+basename: extra operand 'smri_vol_scs_pallidum_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_pallidum_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_putamen_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_putamen_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_putamen_ROC0_2 09052024_AMR_F_488 488__7630': Permission denied
+basename: extra operand 'smri_vol_scs_putamen_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_putamen_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_hpus_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_hpus_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_hpus_ROC0_2 09052024_AMR_F_488 488__1855': Permission denied
+basename: extra operand 'smri_vol_scs_hpus_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_hpus_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_vedc_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_vedc_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_vedc_ROC0_2 09052024_AMR_F_488 488__4419': Permission denied
+basename: extra operand 'smri_vol_scs_vedc_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_vedc_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_tp_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_tp_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_tp_ROC0_2 09052024_AMR_F_488 488__6887': Permission denied
+basename: extra operand 'smri_vol_scs_tp_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_tp_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR F smri_vol_scs_wholeb_ROC0_2 09052024_AMR_F_488 488//_pheno_AMR F smri_vol_scs_wholeb_ROC0_2 09052024_AMR_F_488 488___.txt
+mkdir: cannot create directory '/AMR F smri_vol_scs_wholeb_ROC0_2 09052024_AMR_F_488 488__15193': Permission denied
+basename: extra operand 'smri_vol_scs_wholeb_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_wholeb_ROC0_2'
+Try 'basename --help' for more information.
+Processing: AMR M
+Missing file: /AMR M smri_vol_scs_aa_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_aa_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_aa_ROC0_2 09052024_AMR_M_555 555__3153': Permission denied
+basename: extra operand 'smri_vol_scs_aa_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_aa_ROC0_2'
+Try 'basename --help' for more information.
+ename --help' for more information.
+Missing file: /EUR F smri_vol_scs_caudate_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_caudate_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_caudate_ROC0_2 09052024_EUR_F_1916 1916__15798': Permission denied
+basename: extra operand 'smri_vol_scs_caudate_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_caudate_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_cbwmatter_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_cbwmatter_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_cbwmatter_ROC0_2 09052024_EUR_F_1916 1916__5037': Permission denied
+basename: extra operand 'smri_vol_scs_cbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_cbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_ccat_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_ccat_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_ccat_ROC0_2 09052024_EUR_F_1916 1916__23701': Permission denied
+basename: extra operand 'smri_vol_scs_ccat_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccat_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_ccct_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_ccct_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_ccct_ROC0_2 09052024_EUR_F_1916 1916__28132': Permission denied
+basename: extra operand 'smri_vol_scs_ccct_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccct_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_ccmidat_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_ccmidat_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_ccmidat_ROC0_2 09052024_EUR_F_1916 1916__2405': Permission denied
+basename: extra operand 'smri_vol_scs_ccmidat_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccmidat_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_ccps_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_ccps_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_ccps_ROC0_2 09052024_EUR_F_1916 1916__13733': Permission denied
+basename: extra operand 'smri_vol_scs_ccps_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccps_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_ccmidps_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_ccmidps_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_ccmidps_ROC0_2 09052024_EUR_F_1916 1916__15254': Permission denied
+basename: extra operand 'smri_vol_scs_ccmidps_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccmidps_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_crbcortex_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_crbcortex_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_crbcortex_ROC0_2 09052024_EUR_F_1916 1916__8223': Permission denied
+basename: extra operand 'smri_vol_scs_crbcortex_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_crbcortex_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_crbwmatter_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_crbwmatter_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_crbwmatter_ROC0_2 09052024_EUR_F_1916 1916__1061': Permission denied
+basename: extra operand 'smri_vol_scs_crbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_crbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_hpus_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_hpus_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_hpus_ROC0_2 09052024_EUR_F_1916 1916__10810': Permission denied
+basename: extra operand 'smri_vol_scs_hpus_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_hpus_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_putamen_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_putamen_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_putamen_ROC0_2 09052024_EUR_F_1916 1916__31825': Permission denied
+basename: extra operand 'smri_vol_scs_putamen_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_putamen_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_tp_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_tp_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_tp_ROC0_2 09052024_EUR_F_1916 1916__12474': Permission denied
+basename: extra operand 'smri_vol_scs_tp_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_tp_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_pallidum_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_pallidum_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_pallidum_ROC0_2 09052024_EUR_F_1916 1916__28885': Permission denied
+basename: extra operand 'smri_vol_scs_pallidum_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_pallidum_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_vedc_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_vedc_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_vedc_ROC0_2 09052024_EUR_F_1916 1916__28763': Permission denied
+basename: extra operand 'smri_vol_scs_vedc_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_vedc_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR F smri_vol_scs_wholeb_ROC0_2 09052024_EUR_F_1916 1916//_pheno_EUR F smri_vol_scs_wholeb_ROC0_2 09052024_EUR_F_1916 1916___.txt
+mkdir: cannot create directory '/EUR F smri_vol_scs_wholeb_ROC0_2 09052024_EUR_F_1916 1916__28048': Permission denied
+basename: extra operand 'smri_vol_scs_wholeb_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_wholeb_ROC0_2'
+Try 'basename --help' for more information.
+Processing: EUR M
+Missing file: /EUR M smri_vol_scs_aa_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_aa_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_aa_ROC0_2 09052024_EUR_M_2268 2268__11266': Permission denied
+basename: extra operand 'smri_vol_scs_aa_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_aa_ROC0_2'
+Try 'basename --help' for more information.
+' for more information.
+Missing file: /AMR M smri_vol_scs_ccat_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_ccat_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_ccat_ROC0_2 09052024_AMR_M_555 555__19602': Permission denied
+basename: extra operand 'smri_vol_scs_ccat_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccat_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_caudate_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_caudate_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_caudate_ROC0_2 09052024_AMR_M_555 555__8305': Permission denied
+basename: extra operand 'smri_vol_scs_caudate_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_caudate_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_cbwmatter_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_cbwmatter_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_cbwmatter_ROC0_2 09052024_AMR_M_555 555__31403': Permission denied
+basename: extra operand 'smri_vol_scs_cbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_cbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_ccmidat_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_ccmidat_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_ccmidat_ROC0_2 09052024_AMR_M_555 555__24827': Permission denied
+basename: extra operand 'smri_vol_scs_ccmidat_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccmidat_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_ccct_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_ccct_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_ccct_ROC0_2 09052024_AMR_M_555 555__27301': Permission denied
+basename: extra operand 'smri_vol_scs_ccct_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccct_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_ccmidps_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_ccmidps_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_ccmidps_ROC0_2 09052024_AMR_M_555 555__10598': Permission denied
+basename: extra operand 'smri_vol_scs_ccmidps_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccmidps_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_crbcortex_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_crbcortex_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_crbcortex_ROC0_2 09052024_AMR_M_555 555__16986': Permission denied
+basename: extra operand 'smri_vol_scs_crbcortex_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_crbcortex_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_ccps_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_ccps_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_ccps_ROC0_2 09052024_AMR_M_555 555__17344': Permission denied
+basename: extra operand 'smri_vol_scs_ccps_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccps_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_hpus_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_hpus_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_hpus_ROC0_2 09052024_AMR_M_555 555__14744': Permission denied
+basename: extra operand 'smri_vol_scs_hpus_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_hpus_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_crbwmatter_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_crbwmatter_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_crbwmatter_ROC0_2 09052024_AMR_M_555 555__9854': Permission denied
+basename: extra operand 'smri_vol_scs_crbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_crbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_pallidum_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_pallidum_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_pallidum_ROC0_2 09052024_AMR_M_555 555__20195': Permission denied
+basename: extra operand 'smri_vol_scs_pallidum_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_pallidum_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_tp_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_tp_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_tp_ROC0_2 09052024_AMR_M_555 555__25512': Permission denied
+basename: extra operand 'smri_vol_scs_tp_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_tp_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_putamen_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_putamen_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_putamen_ROC0_2 09052024_AMR_M_555 555__1629': Permission denied
+basename: extra operand 'smri_vol_scs_putamen_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_putamen_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_vedc_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_vedc_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_vedc_ROC0_2 09052024_AMR_M_555 555__6100': Permission denied
+basename: extra operand 'smri_vol_scs_vedc_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_vedc_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AMR M smri_vol_scs_wholeb_ROC0_2 09052024_AMR_M_555 555//_pheno_AMR M smri_vol_scs_wholeb_ROC0_2 09052024_AMR_M_555 555___.txt
+mkdir: cannot create directory '/AMR M smri_vol_scs_wholeb_ROC0_2 09052024_AMR_M_555 555__1225': Permission denied
+basename: extra operand 'smri_vol_scs_wholeb_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_wholeb_ROC0_2'
+Try 'basename --help' for more information.
+Analysis complete.
+Missing file: /EUR M smri_vol_scs_amygdala_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_amygdala_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_amygdala_ROC0_2 09052024_EUR_M_2268 2268__14503': Permission denied
+basename: extra operand 'smri_vol_scs_amygdala_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_amygdala_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_caudate_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_caudate_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_caudate_ROC0_2 09052024_EUR_M_2268 2268__28549': Permission denied
+basename: extra operand 'smri_vol_scs_caudate_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_caudate_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_ccct_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_ccct_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_ccct_ROC0_2 09052024_EUR_M_2268 2268__24218': Permission denied
+basename: extra operand 'smri_vol_scs_ccct_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccct_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_ccat_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_ccat_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_ccat_ROC0_2 09052024_EUR_M_2268 2268__20155': Permission denied
+basename: extra operand 'smri_vol_scs_ccat_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccat_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_ccps_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_ccps_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_ccps_ROC0_2 09052024_EUR_M_2268 2268__14550': Permission denied
+basename: extra operand 'smri_vol_scs_ccps_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccps_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_ccmidat_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_ccmidat_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_ccmidat_ROC0_2 09052024_EUR_M_2268 2268__9629': Permission denied
+basename: extra operand 'smri_vol_scs_ccmidat_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccmidat_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_ccmidps_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_ccmidps_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_ccmidps_ROC0_2 09052024_EUR_M_2268 2268__7263': Permission denied
+basename: extra operand 'smri_vol_scs_ccmidps_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccmidps_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_hpus_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_hpus_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_hpus_ROC0_2 09052024_EUR_M_2268 2268__32268': Permission denied
+basename: extra operand 'smri_vol_scs_hpus_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_hpus_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_crbcortex_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_crbcortex_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_crbcortex_ROC0_2 09052024_EUR_M_2268 2268__1801': Permission denied
+basename: extra operand 'smri_vol_scs_crbcortex_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_crbcortex_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_cbwmatter_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_cbwmatter_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_cbwmatter_ROC0_2 09052024_EUR_M_2268 2268__3135': Permission denied
+basename: extra operand 'smri_vol_scs_cbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_cbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_tp_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_tp_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_tp_ROC0_2 09052024_EUR_M_2268 2268__26055': Permission denied
+basename: extra operand 'smri_vol_scs_tp_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_tp_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_putamen_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_putamen_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_putamen_ROC0_2 09052024_EUR_M_2268 2268__12962': Permission denied
+basename: extra operand 'smri_vol_scs_putamen_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_putamen_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_vedc_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_vedc_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_vedc_ROC0_2 09052024_EUR_M_2268 2268__23246': Permission denied
+basename: extra operand 'smri_vol_scs_vedc_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_vedc_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_wholeb_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_wholeb_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_wholeb_ROC0_2 09052024_EUR_M_2268 2268__8762': Permission denied
+basename: extra operand 'smri_vol_scs_wholeb_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_wholeb_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_pallidum_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_pallidum_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_pallidum_ROC0_2 09052024_EUR_M_2268 2268__18250': Permission denied
+basename: extra operand 'smri_vol_scs_pallidum_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_pallidum_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /EUR M smri_vol_scs_crbwmatter_ROC0_2 09052024_EUR_M_2268 2268//_pheno_EUR M smri_vol_scs_crbwmatter_ROC0_2 09052024_EUR_M_2268 2268___.txt
+mkdir: cannot create directory '/EUR M smri_vol_scs_crbwmatter_ROC0_2 09052024_EUR_M_2268 2268__2885': Permission denied
+basename: extra operand 'smri_vol_scs_crbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_crbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+Analysis complete.
+GNU Parallel is working correctly. Proceeding with the analysis...
+Processing: AFR F
+Missing file: /AFR F smri_vol_scs_aa_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_aa_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_aa_ROC0_2 09052024_AFR_F_522 522__13305': Permission denied
+basename: extra operand 'smri_vol_scs_aa_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_aa_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_amygdala_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_amygdala_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_amygdala_ROC0_2 09052024_AFR_F_522 522__6703': Permission denied
+basename: extra operand 'smri_vol_scs_amygdala_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_amygdala_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_ccat_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_ccat_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_ccat_ROC0_2 09052024_AFR_F_522 522__15365': Permission denied
+basename: extra operand 'smri_vol_scs_ccat_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccat_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_ccct_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_ccct_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_ccct_ROC0_2 09052024_AFR_F_522 522__29156': Permission denied
+basename: extra operand 'smri_vol_scs_ccct_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccct_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_caudate_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_caudate_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_caudate_ROC0_2 09052024_AFR_F_522 522__21718': Permission denied
+basename: extra operand 'smri_vol_scs_caudate_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_caudate_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_ccmidat_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_ccmidat_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_ccmidat_ROC0_2 09052024_AFR_F_522 522__24910': Permission denied
+basename: extra operand 'smri_vol_scs_ccmidat_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccmidat_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_ccmidps_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_ccmidps_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_ccmidps_ROC0_2 09052024_AFR_F_522 522__11124': Permission denied
+basename: extra operand 'smri_vol_scs_ccmidps_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccmidps_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_hpus_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_hpus_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_hpus_ROC0_2 09052024_AFR_F_522 522__16723': Permission denied
+basename: extra operand 'smri_vol_scs_hpus_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_hpus_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_ccps_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_ccps_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_ccps_ROC0_2 09052024_AFR_F_522 522__7594': Permission denied
+basename: extra operand 'smri_vol_scs_ccps_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccps_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_pallidum_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_pallidum_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_pallidum_ROC0_2 09052024_AFR_F_522 522__7725': Permission denied
+basename: extra operand 'smri_vol_scs_pallidum_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_pallidum_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_crbcortex_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_crbcortex_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_crbcortex_ROC0_2 09052024_AFR_F_522 522__27604': Permission denied
+basename: extra operand 'smri_vol_scs_crbcortex_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_crbcortex_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_putamen_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_putamen_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_putamen_ROC0_2 09052024_AFR_F_522 522__25493': Permission denied
+basename: extra operand 'smri_vol_scs_putamen_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_putamen_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_cbwmatter_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_cbwmatter_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_cbwmatter_ROC0_2 09052024_AFR_F_522 522__12187': Permission denied
+basename: extra operand 'smri_vol_scs_cbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_cbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_vedc_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_vedc_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_vedc_ROC0_2 09052024_AFR_F_522 522__21786': Permission denied
+basename: extra operand 'smri_vol_scs_vedc_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_vedc_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_tp_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_tp_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_tp_ROC0_2 09052024_AFR_F_522 522__25554': Permission denied
+basename: extra operand 'smri_vol_scs_tp_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_tp_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_crbwmatter_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_crbwmatter_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_crbwmatter_ROC0_2 09052024_AFR_F_522 522__12313': Permission denied
+basename: extra operand 'smri_vol_scs_crbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_crbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR F smri_vol_scs_wholeb_ROC0_2 09052024_AFR_F_522 522//_pheno_AFR F smri_vol_scs_wholeb_ROC0_2 09052024_AFR_F_522 522___.txt
+mkdir: cannot create directory '/AFR F smri_vol_scs_wholeb_ROC0_2 09052024_AFR_F_522 522__28646': Permission denied
+basename: extra operand 'smri_vol_scs_wholeb_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_wholeb_ROC0_2'
+Try 'basename --help' for more information.
+Processing: AFR M
+Missing file: /AFR M smri_vol_scs_amygdala_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_amygdala_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_amygdala_ROC0_2 09052024_AFR_M_519 519__4940': Permission denied
+basename: extra operand 'smri_vol_scs_amygdala_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_amygdala_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_aa_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_aa_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_aa_ROC0_2 09052024_AFR_M_519 519__14049': Permission denied
+basename: extra operand 'smri_vol_scs_aa_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_aa_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_ccmidat_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_ccmidat_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_ccmidat_ROC0_2 09052024_AFR_M_519 519__6772': Permission denied
+basename: extra operand 'smri_vol_scs_ccmidat_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccmidat_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_cbwmatter_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_cbwmatter_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_cbwmatter_ROC0_2 09052024_AFR_M_519 519__8218': Permission denied
+basename: extra operand 'smri_vol_scs_cbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_cbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_caudate_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_caudate_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_caudate_ROC0_2 09052024_AFR_M_519 519__6624': Permission denied
+basename: extra operand 'smri_vol_scs_caudate_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_caudate_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_ccat_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_ccat_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_ccat_ROC0_2 09052024_AFR_M_519 519__23337': Permission denied
+basename: extra operand 'smri_vol_scs_ccat_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccat_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_ccct_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_ccct_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_ccct_ROC0_2 09052024_AFR_M_519 519__4960': Permission denied
+basename: extra operand 'smri_vol_scs_ccct_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccct_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_ccmidps_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_ccmidps_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_ccmidps_ROC0_2 09052024_AFR_M_519 519__3782': Permission denied
+basename: extra operand 'smri_vol_scs_ccmidps_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccmidps_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_ccps_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_ccps_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_ccps_ROC0_2 09052024_AFR_M_519 519__21975': Permission denied
+basename: extra operand 'smri_vol_scs_ccps_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_ccps_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_crbcortex_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_crbcortex_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_crbcortex_ROC0_2 09052024_AFR_M_519 519__31771': Permission denied
+basename: extra operand 'smri_vol_scs_crbcortex_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_crbcortex_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_hpus_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_hpus_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_hpus_ROC0_2 09052024_AFR_M_519 519__23098': Permission denied
+basename: extra operand 'smri_vol_scs_hpus_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_hpus_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_pallidum_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_pallidum_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_pallidum_ROC0_2 09052024_AFR_M_519 519__22722': Permission denied
+basename: extra operand 'smri_vol_scs_pallidum_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_pallidum_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_crbwmatter_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_crbwmatter_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_crbwmatter_ROC0_2 09052024_AFR_M_519 519__3764': Permission denied
+basename: extra operand 'smri_vol_scs_crbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_crbwmatter_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_tp_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_tp_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_tp_ROC0_2 09052024_AFR_M_519 519__5864': Permission denied
+basename: extra operand 'smri_vol_scs_tp_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_tp_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_putamen_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_putamen_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_putamen_ROC0_2 09052024_AFR_M_519 519__15723': Permission denied
+basename: extra operand 'smri_vol_scs_putamen_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_putamen_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_vedc_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_vedc_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_vedc_ROC0_2 09052024_AFR_M_519 519__29686': Permission denied
+basename: extra operand 'smri_vol_scs_vedc_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_vedc_ROC0_2'
+Try 'basename --help' for more information.
+Missing file: /AFR M smri_vol_scs_wholeb_ROC0_2 09052024_AFR_M_519 519//_pheno_AFR M smri_vol_scs_wholeb_ROC0_2 09052024_AFR_M_519 519___.txt
+mkdir: cannot create directory '/AFR M smri_vol_scs_wholeb_ROC0_2 09052024_AFR_M_519 519__6509': Permission denied
+basename: extra operand 'smri_vol_scs_wholeb_ROC0_2'
+Try 'basename --help' for more information.
+basename: extra operand 'smri_vol_scs_wholeb_ROC0_2'
+Try 'basename --help' for more information.
+Analysis complete.
