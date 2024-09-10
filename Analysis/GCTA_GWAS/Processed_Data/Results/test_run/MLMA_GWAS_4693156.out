@@ -1,0 +1,27 @@
+Current population: EUR
+Processing Population: EUR, Sex: F
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females
+Current population: EUR
+Processing Population: EUR, Sex: F
+mri_vol_scs_aa_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4693156/EUR_F_217
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females
+Running GCTA MLMA for Population: EUR, Sex: F, Phenotype: smri_vol_scs_aa_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4693156/EUR_F_24657
+Current population: EUR
+Processing Population: EUR, Sex: F
+Phenotype directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F
+Discrete Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F
+Quantitative Covariate directory: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F
+bfile directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/females
+GRM directory: /u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_females
+Running GCTA MLMA for Population: EUR, Sex: F, Phenotype: smri_vol_scs_aa_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4693156/EUR_F_28505

@@ -1,5 +1,5 @@
-#!/bin/sh
-# Perform Genome-Wide association analysis using GCTA MLMA for all jobs in parallel
+#!/bin/bash
+# Perform Genome-Wide association analysis using GCTA MLMA
 
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
 #$ -l highp,h_rt=70:00:00,h_data=8G
@@ -9,10 +9,6 @@
 #$ -M $USER@mail
 #$ -m bea
 #$ -t 1-3:1
-
-# Load the GNU Parallel module
-. /u/local/Modules/default/init/modules.sh
-module load parallel
 
 # Software path
 gcta=/u/project/lhernand/sganesh/apps/gcta/gcta-1.94.1
@@ -62,7 +58,7 @@ check_files_exist() {
     local pheno_name=$3
 
     # Ensure variables are properly expanded and paths are correct
-    local pheno_file=$(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_*_${pop}_${sex}_*_${pheno_name}.txt" -not -path "*/archive/*")
+    local pheno_file=$(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_*_${pop}_${sex}_*_${pheno_name}.txt" -not -path "*/archive/*" | head -n 1)
 
     if [[ -z "$pheno_file" ]]; then
         echo "Error: Phenotype file not found for ${pop} ${sex} ${pheno_name}"
@@ -73,10 +69,10 @@ check_files_exist() {
     local sex_dir=$([ "$sex" = "F" ] && echo "females" || echo "males")
     local grm_file="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}/${pop}.${sex_dir}_GRM"
     local infile="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}/${pop}.${sex_dir}.genotype"
-    local covar_file=$(find "${covar_dir}/Discrete/${pop}/${sex}/" -maxdepth 1 -type f -name "covar_*_${pop}_${sex}_*.txt" -not -path "*/archive/*")
+    local covar_file=$(find "${covar_dir}/Discrete/${pop}/${sex}/" -maxdepth 1 -type f -name "covar_*_${pop}_${sex}_*.txt" -not -path "*/archive/*" | head -n 1)
 
     # Condensed qcovar file logic
-    local qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -maxdepth 1 -type f -name "$( [[ "$pheno_name" == "smri_vol_scs_wholeb_ROC0_2" ]] && echo "qcovar_noICV_*" || echo "qcovar_*")_${pop}_${sex}_*.txt" -not -path "*/archive/*")
+    local qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -maxdepth 1 -type f -name "$( [[ "$pheno_name" == "smri_vol_scs_wholeb_ROC0_2" ]] && echo "qcovar_noICV_*" || echo "qcovar_*")_${pop}_${sex}_*.txt" -not -path "*/archive/*" | head -n 1)
 
     # Collect missing files
     local missing_files=()
@@ -106,13 +102,6 @@ run_gcta_mlma() {
     echo "Running GCTA MLMA for Population: $pop, Sex: $sex, Phenotype: $pheno_name"
     echo "Using scratch directory: $scratch_dir"
 
-    # Check all input files
-    echo "Phenotype file: $pheno_file"
-    echo "Covariate file: $covar_file"
-    echo "Quantitative covariate file: $qcovar_file"
-    echo "GRM file: $grm_file"
-    echo "Genotype file: $infile"
-
     # Skip specified combinations
     if should_skip "$pop" "$sex" "$pheno_name"; then
         echo "Skipping $pop $sex $pheno_name"
@@ -126,16 +115,16 @@ run_gcta_mlma() {
     fi
 
     # Get phenotype file path
-    local pheno_file=$(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_*_${pop}_${sex}_*_${pheno_name}.txt" -not -path "*/archive/*")
+    local pheno_file=$(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_*_${pop}_${sex}_*_${pheno_name}.txt" -not -path "*/archive/*" | head -n 1)
 
     # Define other file paths
     local sex_dir=$([ "$sex" = "F" ] && echo "females" || echo "males")
     local grm_file="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}/${pop}.${sex_dir}_GRM"
     local infile="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}/${pop}.${sex_dir}.genotype"
-    local covar_file=$(find "${covar_dir}/Discrete/${pop}/${sex}/" -maxdepth 1 -type f -name "covar_*_${pop}_${sex}_*.txt" -not -path "*/archive/*")
+    local covar_file=$(find "${covar_dir}/Discrete/${pop}/${sex}/" -maxdepth 1 -type f -name "covar_*_${pop}_${sex}_*.txt" -not -path "*/archive/*" | head -n 1)
 
     # Condensed qcovar file logic
-    local qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -maxdepth 1 -type f -name "$( [[ "$pheno_name" == "smri_vol_scs_wholeb_ROC0_2" ]] && echo "qcovar_noICV_*" || echo "qcovar_*")_${pop}_${sex}_*.txt" -not -path "*/archive/*")
+    local qcovar_file=$(find "${covar_dir}/Quantitative/${pop}/${sex}/" -maxdepth 1 -type f -name "$( [[ "$pheno_name" == "smri_vol_scs_wholeb_ROC0_2" ]] && echo "qcovar_noICV_*" || echo "qcovar_*")_${pop}_${sex}_*.txt" -not -path "*/archive/*" | head -n 1)
 
     # Calculate number of samples from phenotype file
     local num_samples=$(wc -l < "$pheno_file")
@@ -169,50 +158,44 @@ run_gcta_mlma() {
     rm -f "${scratch_dir}"/*
 }
 
-export -f run_gcta_mlma check_files_exist should_skip
-
 # Main loop
-for pop in "${pops[@]}"; do
-    echo "Current population: $pop"
-    for sex in "${sexes[@]}"; do
-        echo "Preparing tasks for Population: $pop, Sex: $sex"
-        
-        sex_dir=$([ "$sex" = "F" ] && echo "females" || echo "males")
-        indir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}"
-        grmDir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}"
-        
-        out_dir="${results_dir}/${pop}/${sex}"
-        mkdir -p "${out_dir}/log"
+for sex in "${sexes[@]}"; do
+    pop=${pops[$SGE_TASK_ID-1]}
+    echo "Processing Population: $pop, Sex: $sex"
+    
+    sex_dir=$([ "$sex" = "F" ] && echo "females" || echo "males")
+    indir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}"
+    grmDir="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}"
+    
+    out_dir="${results_dir}/${pop}/${sex}"
+    mkdir -p "${out_dir}/log"
 
-        echo "Phenotype directory: ${pheno_dir}/${pop}/${sex}"
-        echo "Discrete Covariate directory: ${covar_dir}/Discrete/${pop}/${sex}"
-        echo "Quantitative Covariate directory: ${covar_dir}/Quantitative/${pop}/${sex}"
-        echo "bfile directory: ${indir}"
-        echo "GRM directory: ${grmDir}"
+    # Create a single scratch directory for this population-sex combination
+    scratch_dir="${scratch_base}/${pop}_${sex}"
+    mkdir -p "${scratch_dir}"
 
-        # Extract all phenotype names
-        pheno_names=($(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_*_${pop}_${sex}_*_smri_vol_*.txt" -not -path "*/archive/*" | xargs -I{} basename {} | grep -oP 'smri_vol_scs_\w+_ROC0_2'))
+    # Copy input files once
+    infile="${indir}/${pop}.${sex_dir}.genotype"
+    grm_file="${grmDir}/${pop}.${sex_dir}_GRM"
+    cp "${infile}.bed" "${infile}.bim" "${infile}.fam" "${scratch_dir}/"
+    cp "${grm_file}.grm.bin" "${grm_file}.grm.id" "${grm_file}.grm.N.bin" "${scratch_dir}/"
 
-        if [ ${#pheno_names[@]} -eq 0 ]; then
-            echo "Error: No phenotype files found for ${pop} ${sex}. Skipping..."
-            continue
-        fi
+    # Extract all phenotype names
+    pheno_names=($(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_*_${pop}_${sex}_*_smri_vol_*.txt" -not -path "*/archive/*" | xargs -I{} basename {} | grep -oP 'smri_vol_scs_\w+_ROC0_2'))
 
-        # Adjust task list creation
-        task_list=()
-        for pheno_name in "${pheno_names[@]}"; do
-            scratch_dir="${scratch_base}/${pop}_${sex}_${RANDOM}"
-            mkdir -p "${scratch_dir}"
+    if [ ${#pheno_names[@]} -eq 0 ]; then
+        echo "Error: No phenotype files found for ${pop} ${sex}. Skipping..."
+        continue
+    fi
 
-            # Construct tasks with clean argument quoting
-            task_list+=("$pop" "$sex" "$pheno_name" "$scratch_dir")
-        done
-
-        # Run tasks in parallel with proper argument handling
-        printf "%s\n" "${task_list[@]}" | parallel --jobs 16 -k run_gcta_mlma
+    for pheno_name in "${pheno_names[@]}"; do
+        run_gcta_mlma "$pop" "$sex" "$pheno_name" "$scratch_dir"
     done
+
+    # Clean up after processing all phenotypes for this population-sex combination
+    rm -rf "${scratch_dir}"
 done
 
-# Clean up scratch directory
+# Clean up main scratch directory
 rm -rf "${scratch_base}"
 echo "Analysis complete."
