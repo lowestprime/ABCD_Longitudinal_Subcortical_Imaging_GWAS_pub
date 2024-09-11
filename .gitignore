@@ -6,5 +6,4 @@
 bfg-1.14.0.jar
 check_lfs_usage.sh
 *.mlma
-/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Other's_Scripts/heading.addin/**
-Analysis/GCTA_GWAS/Processed_Data/Results/test_run/*.pdf
+*Amr_F_Wh_Br.pdf
