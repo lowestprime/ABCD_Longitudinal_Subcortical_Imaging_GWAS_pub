@@ -4,9 +4,8 @@
 # Set working directory
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
 # Request resources
-#$ -l h_rt=30:00:00,h_data=5G,highp
+#$ -l h_rt=30:00:00,h_data=5G,highp,arch=intel-gold*
 #$ -pe shared 32
-#$ -l arch=intel-gold*
 # Output and error notification preferences
 #$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/GCTA_MLMA_$JOB_ID.log
 #$ -j y # join std error and std output streams, yes
