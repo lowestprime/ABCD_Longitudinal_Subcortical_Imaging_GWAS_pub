@@ -1,0 +1,17 @@
+Wed Sep 11 03:47:50 PDT 2024: Processing phenotype: smri_vol_scs_wholeb_ROC0_2
+Wed Sep 11 03:47:50 PDT 2024: Phenotype file found: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt
+Wed Sep 11 03:47:50 PDT 2024: Covariate file found: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt
+Wed Sep 11 03:47:50 PDT 2024: Quantitative covariate file found: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_444464_09052024_EUR_M_2268.txt
+Wed Sep 11 03:47:51 PDT 2024: Created scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4700483_17
+Wed Sep 11 03:47:51 PDT 2024: Transferring input files to scratch...
+Wed Sep 11 03:48:51 PDT 2024: Transfer completed.
+Wed Sep 11 03:48:51 PDT 2024: Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_wholeb_ROC0_2.txt
+Wed Sep 11 03:48:51 PDT 2024: Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt
+Wed Sep 11 03:48:51 PDT 2024: Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_444464_09052024_EUR_M_2268.txt
+Wed Sep 11 03:48:51 PDT 2024: Found required file: /u/scratch/c/cobeaman/GCTA_GWAS_4700483_17/EUR.males_GRM.grm.bin
+Wed Sep 11 03:48:51 PDT 2024: Found required file: /u/scratch/c/cobeaman/GCTA_GWAS_4700483_17/EUR.males_GRM.grm.id
+Wed Sep 11 03:48:51 PDT 2024: Found required file: /u/scratch/c/cobeaman/GCTA_GWAS_4700483_17/EUR.males_GRM.grm.N.bin
+Wed Sep 11 03:48:51 PDT 2024: Found required file: /u/scratch/c/cobeaman/GCTA_GWAS_4700483_17/EUR.males.genotype.bed
+Wed Sep 11 03:48:51 PDT 2024: Found required file: /u/scratch/c/cobeaman/GCTA_GWAS_4700483_17/EUR.males.genotype.bim
+Wed Sep 11 03:48:51 PDT 2024: Found required file: /u/scratch/c/cobeaman/GCTA_GWAS_4700483_17/EUR.males.genotype.fam
+Wed Sep 11 03:48:51 PDT 2024: All required files found. Starting GCTA --mlma analysis.

@@ -1,0 +1,12 @@
+Wed Sep 11 03:40:08 PDT 2024: Processing phenotype: smri_vol_scs_crbwmatter_ROC0_2
+Wed Sep 11 03:40:08 PDT 2024: Phenotype file found: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_crbwmatter_ROC0_2.txt
+Wed Sep 11 03:40:08 PDT 2024: Covariate file found: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt
+Wed Sep 11 03:40:08 PDT 2024: Quantitative covariate file found: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt
+/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_444464_09052024_EUR_M_2268.txt
+Wed Sep 11 03:40:08 PDT 2024: Created scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4700483_11
+Wed Sep 11 03:40:08 PDT 2024: Transferring input files to scratch...
+Wed Sep 11 03:41:09 PDT 2024: Transfer completed.
+Wed Sep 11 03:41:09 PDT 2024: Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_crbwmatter_ROC0_2.txt
+Wed Sep 11 03:41:09 PDT 2024: Found required file: /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt
+Wed Sep 11 03:41:09 PDT 2024: Required file /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt
+/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_noICV_444464_09052024_EUR_M_2268.txt does not exist. Exiting.
