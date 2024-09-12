@@ -52,3 +52,12 @@ Iter.	logL	V(G)	V(e)
 1	-1234.67	0.39779	0.59642	
 2	-1228.62	0.12494	0.84414	
 3	-1219.80	0.09025	0.88082	
+4	-1219.29	0.06347	0.90914	
+5	-1219.00	0.00000	0.97624	(1 component(s) constrained)
+6	-1218.64	0.00000	0.97661	(1 component(s) constrained)
+7	-1218.64	0.00000	0.97661	(1 component(s) constrained)
+8	-1218.64	0.00000	0.97661	(1 component(s) constrained)
+Log-likelihood ratio converged.
+Calculating allele frequencies ...
+
+Running association tests for 6964838 SNPs ...

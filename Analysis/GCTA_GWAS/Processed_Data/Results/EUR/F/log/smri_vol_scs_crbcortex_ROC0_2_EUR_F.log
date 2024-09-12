@@ -5,8 +5,8 @@
 * (C) 2010-present, Yang Lab, Westlake University
 * Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
 *******************************************************************
-Analysis started at 22:30:21 PDT on Wed Sep 11 2024.
-Hostname: n7456
+Analysis started at 02:00:13 PDT on Thu Sep 12 2024.
+Hostname: n6453
 
 Accepted options:
 --mlma 
@@ -16,16 +16,16 @@ Accepted options:
 --covar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt
 --qcovar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt
 --thread-num 32
---out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F/smri_vol_scs_crbcortex_ROC0_2_EUR_F_n1916_09112024_4707399
+--out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F/smri_vol_scs_crbcortex_ROC0_2_EUR_F_n1916_09122024_4707399
 
 Note: the program will be running on 32 threads.
 
 Reading PLINK FAM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.fam].
 3263 individuals to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.fam].
 Reading PLINK BIM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.bim].
-5706012 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.bim].
+6964838 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.bim].
 Reading PLINK BED file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.bed] in SNP-major format ...
-Genotype data for 3263 individuals and 5706012 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.bed].
+Genotype data for 3263 individuals and 6964838 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.bed].
 Reading phenotypes from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_crbcortex_ROC0_2.txt].
 Non-missing phenotypes of 1916 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_crbcortex_ROC0_2.txt].
 Reading quantitative covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt].
@@ -59,3 +59,8 @@ Log-likelihood ratio converged.
 Calculating allele frequencies ...
 
 Running association tests for 5706012 SNPs ...
+
+Saving the results of the mixed linear model association analyses of 5706012 SNPs to [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F/smri_vol_scs_crbcortex_ROC0_2_EUR_F_n1916_09112024_4707399.mlma] ...
+
+Analysis finished at 06:14:46 PDT on Thu Sep 12 2024
+Overall computational time: 7 hours 44 minutes 25 sec.

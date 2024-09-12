@@ -5,8 +5,8 @@
 * (C) 2010-present, Yang Lab, Westlake University
 * Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
 *******************************************************************
-Analysis started at 22:30:21 PDT on Wed Sep 11 2024.
-Hostname: n7456
+Analysis started at 02:00:13 PDT on Thu Sep 12 2024.
+Hostname: n6453
 
 Accepted options:
 --mlma 
@@ -16,7 +16,7 @@ Accepted options:
 --covar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt
 --qcovar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt
 --thread-num 32
---out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F/smri_vol_scs_ccct_ROC0_2_EUR_F_n1916_09112024_4707399
+--out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F/smri_vol_scs_ccct_ROC0_2_EUR_F_n1916_09122024_4707399
 
 Note: the program will be running on 32 threads.
 
@@ -57,3 +57,14 @@ Iter.	logL	V(G)	V(e)
 6	-1049.21	0.05927	0.92388	
 7	-1048.86	0.00000	0.98437	(1 component(s) constrained)
 8	-1048.56	0.00000	0.98501	(1 component(s) constrained)
+9	-1048.56	0.00000	0.98501	(1 component(s) constrained)
+10	-1048.56	0.00000	0.98501	(1 component(s) constrained)
+Log-likelihood ratio converged.
+Calculating allele frequencies ...
+
+Running association tests for 6964838 SNPs ...
+
+Saving the results of the mixed linear model association analyses of 6964838 SNPs to [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F/smri_vol_scs_ccct_ROC0_2_EUR_F_n1916_09112024_4707399.mlma] ...
+
+Analysis finished at 07:52:41 PDT on Thu Sep 12 2024
+Overall computational time: 9 hours 22 minutes 20 sec.

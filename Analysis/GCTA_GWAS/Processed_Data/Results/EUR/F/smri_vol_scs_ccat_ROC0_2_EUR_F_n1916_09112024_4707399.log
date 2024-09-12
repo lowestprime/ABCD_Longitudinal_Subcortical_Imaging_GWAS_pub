@@ -57,3 +57,14 @@ Iter.	logL	V(G)	V(e)
 6	-1048.01	0.05393	0.92774	
 7	-1047.67	0.00000	0.98315	(1 component(s) constrained)
 8	-1047.39	0.00000	0.98377	(1 component(s) constrained)
+9	-1047.39	0.00000	0.98377	(1 component(s) constrained)
+10	-1047.39	0.00000	0.98377	(1 component(s) constrained)
+Log-likelihood ratio converged.
+Calculating allele frequencies ...
+
+Running association tests for 6964838 SNPs ...
+
+Saving the results of the mixed linear model association analyses of 6964838 SNPs to [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F/smri_vol_scs_ccat_ROC0_2_EUR_F_n1916_09112024_4707399.mlma] ...
+
+Analysis finished at 07:52:02 PDT on Thu Sep 12 2024
+Overall computational time: 9 hours 21 minutes 41 sec.

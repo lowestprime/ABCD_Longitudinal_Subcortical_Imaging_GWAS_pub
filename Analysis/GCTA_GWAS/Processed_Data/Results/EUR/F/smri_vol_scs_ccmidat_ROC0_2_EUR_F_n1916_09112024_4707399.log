@@ -26,3 +26,46 @@ Reading PLINK BIM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.f
 6964838 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.bim].
 Reading PLINK BED file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.bed] in SNP-major format ...
 Genotype data for 3263 individuals and 6964838 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.bed].
+Reading phenotypes from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_ccmidat_ROC0_2.txt].
+Non-missing phenotypes of 1916 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_ccmidat_ROC0_2.txt].
+Reading quantitative covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt].
+12 quantitative covariate(s) of 1916 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt].
+Reading discrete covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt].
+2 discrete covariate(s) of 1916 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt].
+Reading IDs of the GRM from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females_GRM.grm.id].
+3263 IDs are read from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females_GRM.grm.id].
+Reading the GRM from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females_GRM.grm.bin].
+GRM for 3263 individuals are included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females_GRM.grm.bin].
+1915 individuals are in common in these files.
+12 quantitative variable(s) included as covariate(s).
+2 discrete variable(s) included as covariate(s).
+
+Performing MLM association analyses (including the candidate SNP) ...
+
+Performing  REML analysis ... (Note: may take hours depending on sample size).
+1915 observations, 46 fixed effect(s), and 2 variance component(s)(including residual variance).
+Calculating prior values of variance components by EM-REML ...
+Updated prior values: 0.489054  0.52507
+logL: -1069.4
+Running AI-REML algorithm ...
+Iter.	logL	V(G)	V(e)	
+1	-1066.76	0.37327	0.62170	
+2	-1056.51	0.27570	0.70948	
+3	-1050.82	0.20026	0.78080	
+4	-1047.95	0.14622	0.83367	
+5	-1046.63	0.10942	0.87054	
+6	-1046.05	0.08509	0.89534	
+7	-1045.80	0.03491	0.94711	
+8	-1045.62	0.04136	0.94118	
+9	-1045.62	0.04047	0.94206	
+10	-1045.62	0.04059	0.94193	
+11	-1045.62	0.04057	0.94195	
+Log-likelihood ratio converged.
+Calculating allele frequencies ...
+
+Running association tests for 6964838 SNPs ...
+
+Saving the results of the mixed linear model association analyses of 6964838 SNPs to [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F/smri_vol_scs_ccmidat_ROC0_2_EUR_F_n1916_09112024_4707399.mlma] ...
+
+Analysis finished at 08:12:57 PDT on Thu Sep 12 2024
+Overall computational time: 9 hours 38 minutes 29 sec.
