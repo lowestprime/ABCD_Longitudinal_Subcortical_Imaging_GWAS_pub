@@ -77,3 +77,4 @@ Error running GCTA MLMA for smri_vol_scs_vedc_ROC0_2
 Error running GCTA MLMA for smri_vol_scs_vedc_ROC0_2
 /work/UGE/8.6.4/n6453/job_scripts/4707399: line 70: 34172 Killed                  $gcta --mlma --bfile "${scratch_bfile}" --grm "${scratch_grm}" --pheno "${pheno_file}" --covar "${covar_file}" --qcovar "${qcovar_file}" --thread-num 32 --out "${out_file}" > "${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
 Error running GCTA MLMA for smri_vol_scs_crbcortex_ROC0_2
+Analysis complete.
