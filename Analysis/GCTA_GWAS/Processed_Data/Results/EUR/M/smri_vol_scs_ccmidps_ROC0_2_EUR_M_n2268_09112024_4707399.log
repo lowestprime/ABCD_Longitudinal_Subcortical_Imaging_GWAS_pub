@@ -24,3 +24,4 @@ Reading PLINK FAM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.m
 3628 individuals to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.fam].
 Reading PLINK BIM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.bim].
 6964838 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.bim].
+Reading PLINK BED file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.bed] in SNP-major format ...

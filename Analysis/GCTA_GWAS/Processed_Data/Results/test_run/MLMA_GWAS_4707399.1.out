@@ -83,3 +83,21 @@ cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EU
 cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.bed': File exists
 cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.bim': File exists
 cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males_GRM.grm.bin': File exists
+/work/UGE/8.6.4/n7456/job_scripts/4707399: line 70: 113121 Killed                  $gcta --mlma --bfile "${scratch_bfile}" --grm "${scratch_grm}" --pheno "${pheno_file}" --covar "${covar_file}" --qcovar "${qcovar_file}" --thread-num 32 --out "${out_file}" > "${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
+Error running GCTA MLMA for smri_vol_scs_aa_ROC0_2
+/work/UGE/8.6.4/n7456/job_scripts/4707399: line 70: 113076 Killed                  $gcta --mlma --bfile "${scratch_bfile}" --grm "${scratch_grm}" --pheno "${pheno_file}" --covar "${covar_file}" --qcovar "${qcovar_file}" --thread-num 32 --out "${out_file}" > "${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
+Error running GCTA MLMA for smri_vol_scs_putamen_ROC0_2
+/work/UGE/8.6.4/n7456/job_scripts/4707399: line 70: 113056 Killed                  $gcta --mlma --bfile "${scratch_bfile}" --grm "${scratch_grm}" --pheno "${pheno_file}" --covar "${covar_file}" --qcovar "${qcovar_file}" --thread-num 32 --out "${out_file}" > "${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
+Error running GCTA MLMA for smri_vol_scs_ccat_ROC0_2
+/work/UGE/8.6.4/n7456/job_scripts/4707399: line 70: 113141 Killed                  $gcta --mlma --bfile "${scratch_bfile}" --grm "${scratch_grm}" --pheno "${pheno_file}" --covar "${covar_file}" --qcovar "${qcovar_file}" --thread-num 32 --out "${out_file}" > "${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
+Error running GCTA MLMA for smri_vol_scs_crbcortex_ROC0_2
+/work/UGE/8.6.4/n7456/job_scripts/4707399: line 70: 113083 Killed                  $gcta --mlma --bfile "${scratch_bfile}" --grm "${scratch_grm}" --pheno "${pheno_file}" --covar "${covar_file}" --qcovar "${qcovar_file}" --thread-num 32 --out "${out_file}" > "${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
+Error running GCTA MLMA for smri_vol_scs_ccmidat_ROC0_2
+/work/UGE/8.6.4/n7456/job_scripts/4707399: line 70: 113140 Killed                  $gcta --mlma --bfile "${scratch_bfile}" --grm "${scratch_grm}" --pheno "${pheno_file}" --covar "${covar_file}" --qcovar "${qcovar_file}" --thread-num 32 --out "${out_file}" > "${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
+Error running GCTA MLMA for smri_vol_scs_ccmidps_ROC0_2
+/work/UGE/8.6.4/n7456/job_scripts/4707399: line 70: 113110 Killed                  $gcta --mlma --bfile "${scratch_bfile}" --grm "${scratch_grm}" --pheno "${pheno_file}" --covar "${covar_file}" --qcovar "${qcovar_file}" --thread-num 32 --out "${out_file}" > "${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
+Error running GCTA MLMA for smri_vol_scs_ccps_ROC0_2
+/work/UGE/8.6.4/n7456/job_scripts/4707399: line 70: 114220 Killed                  $gcta --mlma --bfile "${scratch_bfile}" --grm "${scratch_grm}" --pheno "${pheno_file}" --covar "${covar_file}" --qcovar "${qcovar_file}" --thread-num 32 --out "${out_file}" > "${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
+Error running GCTA MLMA for smri_vol_scs_pallidum_ROC0_2
+/work/UGE/8.6.4/n7456/job_scripts/4707399: line 70: 113915 Killed                  $gcta --mlma --bfile "${scratch_bfile}" --grm "${scratch_grm}" --pheno "${pheno_file}" --covar "${covar_file}" --qcovar "${qcovar_file}" --thread-num 32 --out "${out_file}" > "${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
+Error running GCTA MLMA for smri_vol_scs_tp_ROC0_2
