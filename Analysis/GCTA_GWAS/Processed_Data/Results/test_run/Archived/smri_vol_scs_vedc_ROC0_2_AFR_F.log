@@ -1,0 +1,12 @@
+*******************************************************************
+* Genome-wide Complex Trait Analysis (GCTA)
+* version v1.94.1 Linux
+* Built at Nov 15 2022 21:14:25, by GCC 8.5
+* (C) 2010-present, Yang Lab, Westlake University
+* Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
+*******************************************************************
+Analysis started at 04:03:52 PDT on Wed Sep 11 2024.
+Hostname: n6453
+
+Error: --bfile /u/scratch/c/cobeaman/GCTA_GWAS_4693160/AFR_F/AFR.females.genotype.fam not found
+An error occurs, please check the options or data

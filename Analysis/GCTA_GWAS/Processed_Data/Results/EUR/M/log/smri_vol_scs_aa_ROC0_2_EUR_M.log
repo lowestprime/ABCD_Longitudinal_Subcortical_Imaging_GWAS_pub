@@ -5,61 +5,22 @@
 * (C) 2010-present, Yang Lab, Westlake University
 * Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
 *******************************************************************
-Analysis started at 10:49:24 PDT on Wed Sep 11 2024.
-Hostname: n7457
+Analysis started at 22:30:21 PDT on Wed Sep 11 2024.
+Hostname: n7456
 
 Accepted options:
 --mlma 
---bfile /u/scratch/c/cobeaman/GCTA_GWAS_4693160/EUR_M/EUR.males.genotype
---grm /u/scratch/c/cobeaman/GCTA_GWAS_4693160/EUR_M/EUR.males_GRM
+--bfile /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype
+--grm /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males_GRM
 --pheno /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_aa_ROC0_2.txt
 --covar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt
 --qcovar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt
---thread-num 16
---out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M/smri_vol_scs_aa_ROC0_2_EUR_M_n2268_09102024_4693160
+--thread-num 32
+--out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M/smri_vol_scs_aa_ROC0_2_EUR_M_n2268_09112024_4707399
 
-Note: the program will be running on 16 threads.
+Note: the program will be running on 32 threads.
 
-Reading PLINK FAM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4693160/EUR_M/EUR.males.genotype.fam].
-3628 individuals to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4693160/EUR_M/EUR.males.genotype.fam].
-Reading PLINK BIM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4693160/EUR_M/EUR.males.genotype.bim].
-6964838 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4693160/EUR_M/EUR.males.genotype.bim].
-Reading PLINK BED file from [/u/scratch/c/cobeaman/GCTA_GWAS_4693160/EUR_M/EUR.males.genotype.bed] in SNP-major format ...
-Genotype data for 3628 individuals and 6964838 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4693160/EUR_M/EUR.males.genotype.bed].
-Reading phenotypes from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_aa_ROC0_2.txt].
-Non-missing phenotypes of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_aa_ROC0_2.txt].
-Reading quantitative covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt].
-12 quantitative covariate(s) of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt].
-Reading discrete covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt].
-2 discrete covariate(s) of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt].
-Reading IDs of the GRM from [/u/scratch/c/cobeaman/GCTA_GWAS_4693160/EUR_M/EUR.males_GRM.grm.id].
-3628 IDs are read from [/u/scratch/c/cobeaman/GCTA_GWAS_4693160/EUR_M/EUR.males_GRM.grm.id].
-Reading the GRM from [/u/scratch/c/cobeaman/GCTA_GWAS_4693160/EUR_M/EUR.males_GRM.grm.bin].
-GRM for 3628 individuals are included from [/u/scratch/c/cobeaman/GCTA_GWAS_4693160/EUR_M/EUR.males_GRM.grm.bin].
-2267 individuals are in common in these files.
-12 quantitative variable(s) included as covariate(s).
-2 discrete variable(s) included as covariate(s).
-
-Performing MLM association analyses (including the candidate SNP) ...
-
-Performing  REML analysis ... (Note: may take hours depending on sample size).
-2267 observations, 45 fixed effect(s), and 2 variance component(s)(including residual variance).
-Calculating prior values of variance components by EM-REML ...
-Updated prior values: 0.496457  0.52115
-logL: -1258.89
-Running AI-REML algorithm ...
-Iter.	logL	V(G)	V(e)	
-1	-1257.10	0.38954	0.61516	
-2	-1248.87	0.29527	0.70196	
-3	-1243.78	0.21834	0.77523	
-4	-1240.86	0.15940	0.83276	
-5	-1239.30	0.11614	0.87575	
-6	-1238.49	0.08519	0.90691	
-7	-1238.09	0.01608	0.97711	
-8	-1237.71	0.01317	0.98063	
-9	-1237.71	0.01308	0.98073	
-10	-1237.71	0.01307	0.98073	
-Log-likelihood ratio converged.
-Calculating allele frequencies ...
-
-Running association tests for 6964838 SNPs ...
+Reading PLINK FAM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.fam].
+3628 individuals to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.fam].
+Reading PLINK BIM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.bim].
+6964838 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.bim].

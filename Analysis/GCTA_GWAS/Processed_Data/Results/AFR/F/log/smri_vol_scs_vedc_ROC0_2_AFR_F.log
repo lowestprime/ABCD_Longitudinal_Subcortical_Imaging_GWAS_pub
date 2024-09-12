@@ -5,8 +5,23 @@
 * (C) 2010-present, Yang Lab, Westlake University
 * Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
 *******************************************************************
-Analysis started at 04:03:52 PDT on Wed Sep 11 2024.
-Hostname: n6453
+Analysis started at 22:30:21 PDT on Wed Sep 11 2024.
+Hostname: n7456
 
-Error: --bfile /u/scratch/c/cobeaman/GCTA_GWAS_4693160/AFR_F/AFR.females.genotype.fam not found
-An error occurs, please check the options or data
+Accepted options:
+--mlma 
+--bfile /u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females.genotype
+--grm /u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females_GRM
+--pheno /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_vedc_ROC0_2.txt
+--covar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt
+--qcovar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt
+--thread-num 32
+--out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F/smri_vol_scs_vedc_ROC0_2_AFR_F_n522_09112024_4707399
+
+Note: the program will be running on 32 threads.
+
+Reading PLINK FAM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females.genotype.fam].
+1131 individuals to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females.genotype.fam].
+Reading PLINK BIM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females.genotype.bim].
+3995277 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females.genotype.bim].
+Reading PLINK BED file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females.genotype.bed] in SNP-major format ...

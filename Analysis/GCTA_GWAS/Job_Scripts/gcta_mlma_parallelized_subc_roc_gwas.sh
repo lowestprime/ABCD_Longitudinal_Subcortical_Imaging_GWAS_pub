@@ -2,8 +2,8 @@
 # Perform Genome-Wide association analysis using GCTA MLMA
 
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
-#$ -l highp,h_rt=70:00:00,h_data=8G
-#$ -pe shared 16
+#$ -l h_rt=15:00:00,h_data=5G,highp,arch=intel-gold*
+#$ -pe shared 32
 #$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/MLMA_GWAS_$JOB_ID.out
 #$ -j y
 #$ -M $USER@mail
@@ -145,7 +145,7 @@ run_gcta_mlma() {
           --pheno "${pheno_file}" \
           --covar "${covar_file}" \
           --qcovar "${qcovar_file}" \
-          --thread-num 16 \
+          --thread-num 32 \
           --out "${out_file}" > "${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
 
     # Check for errors

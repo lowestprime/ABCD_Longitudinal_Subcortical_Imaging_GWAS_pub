@@ -1,0 +1,26 @@
+*******************************************************************
+* Genome-wide Complex Trait Analysis (GCTA)
+* version v1.94.1 Linux
+* Built at Nov 15 2022 21:14:25, by GCC 8.5
+* (C) 2010-present, Yang Lab, Westlake University
+* Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
+*******************************************************************
+Analysis started at 22:30:25 PDT on Wed Sep 11 2024.
+Hostname: n7456
+
+Accepted options:
+--mlma 
+--bfile /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype
+--grm /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females_GRM
+--pheno /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/F/574229_pheno_09052024_EUR_F_1916_smri_vol_scs_ccct_ROC0_2.txt
+--covar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/F/covar_574229_09052024_EUR_F_1916.txt
+--qcovar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/F/qcovar_574229_09052024_EUR_F_1916.txt
+--thread-num 32
+--out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/F/smri_vol_scs_ccct_ROC0_2_EUR_F_n1916_09112024_4707399
+
+Note: the program will be running on 32 threads.
+
+Reading PLINK FAM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.fam].
+3263 individuals to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.fam].
+Reading PLINK BIM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.bim].
+6964838 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_F/EUR.females.genotype.bim].
