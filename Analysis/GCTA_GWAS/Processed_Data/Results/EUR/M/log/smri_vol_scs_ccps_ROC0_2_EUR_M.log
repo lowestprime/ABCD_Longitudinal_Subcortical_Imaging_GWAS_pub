@@ -5,61 +5,8 @@
 * (C) 2010-present, Yang Lab, Westlake University
 * Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
 *******************************************************************
-Analysis started at 02:00:13 PDT on Thu Sep 12 2024.
-Hostname: n6453
+Analysis started at 12:15:14 PDT on Thu Sep 12 2024.
+Hostname: n7458
 
-Accepted options:
---mlma 
---bfile /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype
---grm /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males_GRM
---pheno /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_ccps_ROC0_2.txt
---covar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt
---qcovar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt
---thread-num 32
---out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M/smri_vol_scs_ccps_ROC0_2_EUR_M_n2268_09122024_4707399
-
-Note: the program will be running on 32 threads.
-
-Reading PLINK FAM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.fam].
-3628 individuals to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.fam].
-Reading PLINK BIM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.bim].
-6964838 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.bim].
-Reading PLINK BED file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.bed] in SNP-major format ...
-Genotype data for 3628 individuals and 6964838 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.bed].
-Reading phenotypes from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_ccps_ROC0_2.txt].
-Non-missing phenotypes of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_ccps_ROC0_2.txt].
-Reading quantitative covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt].
-12 quantitative covariate(s) of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt].
-Reading discrete covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt].
-2 discrete covariate(s) of 2268 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt].
-Reading IDs of the GRM from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males_GRM.grm.id].
-3628 IDs are read from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males_GRM.grm.id].
-Reading the GRM from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males_GRM.grm.bin].
-GRM for 3628 individuals are included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males_GRM.grm.bin].
-2267 individuals are in common in these files.
-12 quantitative variable(s) included as covariate(s).
-2 discrete variable(s) included as covariate(s).
-
-Performing MLM association analyses (including the candidate SNP) ...
-
-Performing  REML analysis ... (Note: may take hours depending on sample size).
-2267 observations, 45 fixed effect(s), and 2 variance component(s)(including residual variance).
-Calculating prior values of variance components by EM-REML ...
-Updated prior values: 0.484139 0.512243
-logL: -1210.98
-Running AI-REML algorithm ...
-Iter.	logL	V(G)	V(e)	
-1	-1209.21	0.37418	0.60060	
-2	-1199.36	0.28479	0.67819	
-3	-1194.03	0.21728	0.73975	
-4	-1191.37	0.16926	0.78497	
-5	-1190.13	0.13640	0.81658	
-6	-1189.57	0.11439	0.83806	
-7	-1189.32	0.06822	0.88354	
-8	-1189.14	0.07220	0.87997	
-9	-1189.14	0.07183	0.88033	
-10	-1189.14	0.07187	0.88030	
-Log-likelihood ratio converged.
-Calculating allele frequencies ...
-
-Running association tests for 6964838 SNPs ...
+Error: --bfile /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.fam not found
+An error occurs, please check the options or data

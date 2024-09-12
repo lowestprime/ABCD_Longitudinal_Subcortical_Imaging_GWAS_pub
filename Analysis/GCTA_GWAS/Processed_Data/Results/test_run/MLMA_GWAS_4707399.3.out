@@ -1,0 +1,24 @@
+Total jobs to run: 8
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_aa_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_ccat_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_ccmidat_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_ccps_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_ccmidps_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_crbcortex_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_putamen_ROC0_2
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_pallidum_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M
+Error running GCTA MLMA for smri_vol_scs_crbcortex_ROC0_2
+Error running GCTA MLMA for smri_vol_scs_ccps_ROC0_2
+Error running GCTA MLMA for smri_vol_scs_aa_ROC0_2
+Error running GCTA MLMA for smri_vol_scs_ccat_ROC0_2
+Error running GCTA MLMA for smri_vol_scs_ccmidps_ROC0_2
+Error running GCTA MLMA for smri_vol_scs_putamen_ROC0_2
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4707399/EUR_M/EUR.males.genotype.bim': File exists
