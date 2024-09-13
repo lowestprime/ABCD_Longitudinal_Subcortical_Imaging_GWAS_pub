@@ -43,7 +43,7 @@ check_files_exist() {
         return 1
     fi
 
-    local sex_dir=$([ "$sex" = "F" ] && echo "females" || echo "males")
+    local sex_dir="$sex"
     local grm_file="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}/${pop}.${sex_dir}_GRM"
     local infile="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}/${pop}.${sex_dir}.genotype"
     local covar_file=$(find "${covar_dir}/Discrete/${pop}/${sex}/" -maxdepth 1 -type f -name "covar_*_${pop}_${sex}_*.txt" -not -path "*/archive/*" | head -n 1)
@@ -58,7 +58,7 @@ check_files_exist() {
     done
 
     if [ ${#missing_files[@]} -ne 0 ]; then
-        echo "Error: The following required files are missing:"
+        echo "Error: The following required files are missing for ${pop} ${sex} ${pheno_name}:"
         printf '%s\n' "${missing_files[@]}"
         return 1
     fi
@@ -97,7 +97,7 @@ run_gcta_mlma() {
     fi
 
     local pheno_file=$(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_*_${pop}_${sex}_*_${pheno_name}.txt" -not -path "*/archive/*" | head -n 1)
-    local sex_dir=$([ "$sex" = "F" ] && echo "females" || echo "males")
+    local sex_dir="$sex"
     local grm_file="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}/${pop}.${sex_dir}_GRM"
     local infile="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}/${pop}.${sex_dir}.genotype"
     local covar_file=$(find "${covar_dir}/Discrete/${pop}/${sex}/" -maxdepth 1 -type f -name "covar_*_${pop}_${sex}_*.txt" -not -path "*/archive/*" | head -n 1)
@@ -142,7 +142,7 @@ processed_jobs=()
 for pop in "EUR" "${pops[@]}"; do
     for sex in "${sexes[@]}"; do
         pheno_names=($(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_*_${pop}_${sex}_*_smri_vol_*.txt" -not -path "*/archive/*" | xargs -I{} basename {} | grep -oP 'smri_vol_scs_\w+_ROC0_2'))
-        
+
         for pheno_name in "${pheno_names[@]}"; do
             job_key="${pop}_${sex}_${pheno_name}"
             if [[ ! " ${processed_jobs[@]} " =~ " ${job_key} " ]]; then
@@ -175,14 +175,14 @@ max_concurrent_jobs=10
 while [ $current_job -lt $total_jobs ]; do
     # Count running jobs
     running_jobs=$(jobs -p | wc -l)
-    
+
     # Start new jobs if below the max concurrent limit
     while [ $running_jobs -lt $max_concurrent_jobs ] && [ $current_job -lt $total_jobs ]; do
         run_job $current_job &
         current_job=$((current_job + 1))
         running_jobs=$((running_jobs + 1))
     done
-    
+
     # Wait for any job to finish before starting the next batch
     wait -n
 done
