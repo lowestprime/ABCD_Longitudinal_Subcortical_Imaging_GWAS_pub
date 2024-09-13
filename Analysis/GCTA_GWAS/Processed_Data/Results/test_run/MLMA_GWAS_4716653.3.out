@@ -1,0 +1,19 @@
+Total jobs to run: 7
+Running GCTA MLMA for Population: EUR, Sex: F, Phenotype: smri_vol_scs_vedc_ROC0_2
+Using scratch directory: 
+Running GCTA MLMA for Population: EUR, Sex: F, Phenotype: smri_vol_scs_ccps_ROC0_2
+Using scratch directory: 
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_ccct_ROC0_2
+Using scratch directory: 
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_caudate_ROC0_2
+Using scratch directory: 
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_cbwmatter_ROC0_2
+Using scratch directory: 
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_crbcortex_ROC0_2
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_vedc_ROC0_2
+/work/UGE/8.6.4/n7662/job_scripts/4716653: line 201: wait: -n: invalid option
+wait: usage: wait [id]
+Using scratch directory: 
+Using scratch directory: 
+GCTA MLMA completed successfully for smri_vol_scs_vedc_ROC0_2
+GCTA MLMA completed successfully for smri_vol_scs_ccps_ROC0_2

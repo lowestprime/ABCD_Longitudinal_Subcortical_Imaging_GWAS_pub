@@ -2,7 +2,7 @@
 # Perform Genome-Wide association analysis using GCTA MLMA
 
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
-#$ -l h_rt=20:00:00,h_data=15G,highp,arch=intel-gold*
+#$ -l h_rt=20:00:00,h_data=5G,highp,arch=intel-gold*
 #$ -pe shared 32
 #$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/MLMA_GWAS_$JOB_ID.$TASK_ID.out
 #$ -j y
@@ -30,6 +30,16 @@ mkdir -p "${scratch_base}"
 pops=("EUR" "AMR" "AFR")
 sexes=("F" "M")
 
+# Function to map sex code to sex directory name
+map_sex_dir() {
+    local sex=$1
+    if [ "$sex" = "F" ]; then
+        echo "females"
+    else
+        echo "males"
+    fi
+}
+
 # Function to check if all required files exist
 check_files_exist() {
     local pop=$1
@@ -43,7 +53,7 @@ check_files_exist() {
         return 1
     fi
 
-    local sex_dir="$sex"
+    local sex_dir=$(map_sex_dir "$sex")
     local grm_file="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}/${pop}.${sex_dir}_GRM"
     local infile="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}/${pop}.${sex_dir}.genotype"
     local covar_file=$(find "${covar_dir}/Discrete/${pop}/${sex}/" -maxdepth 1 -type f -name "covar_*_${pop}_${sex}_*.txt" -not -path "*/archive/*" | head -n 1)
@@ -97,7 +107,7 @@ run_gcta_mlma() {
     fi
 
     local pheno_file=$(find "${pheno_dir}/${pop}/${sex}/" -maxdepth 1 -type f -name "*_pheno_*_${pop}_${sex}_*_${pheno_name}.txt" -not -path "*/archive/*" | head -n 1)
-    local sex_dir="$sex"
+    local sex_dir=$(map_sex_dir "$sex")
     local grm_file="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/GRM/grm_${sex_dir}/${pop}.${sex_dir}_GRM"
     local infile="/u/project/lhernand/shared/GenomicDatasets-processed/ABCD_Release_5/genotype/TOPMed_imputed/splitted_by_ancestry_groups/${sex_dir}/${pop}.${sex_dir}.genotype"
     local covar_file=$(find "${covar_dir}/Discrete/${pop}/${sex}/" -maxdepth 1 -type f -name "covar_*_${pop}_${sex}_*.txt" -not -path "*/archive/*" | head -n 1)
@@ -106,8 +116,12 @@ run_gcta_mlma() {
     local num_samples=$(wc -l < "$pheno_file")
     local out_file="${results_dir}/${pop}/${sex}/${pheno_name}_${pop}_${sex}_n${num_samples}_${date}_${JOB_ID}"
 
-    local scratch_bfile="${scratch_dir}/$(basename "${infile}")"
-    local scratch_grm="${scratch_dir}/$(basename "${grm_file}")"
+    # Create sex-specific scratch directory
+    scratch_dir="${scratch_base}/${pop}_${sex_dir}"
+    mkdir -p "${scratch_dir}"
+
+    local scratch_bfile="${scratch_dir}/${pop}.${sex_dir}.genotype"
+    local scratch_grm="${scratch_dir}/${pop}.${sex_dir}_GRM"
 
     # Copy files to scratch directory with locking
     copy_with_lock "${infile}.bed" "${scratch_bfile}.bed"
@@ -117,7 +131,9 @@ run_gcta_mlma() {
     copy_with_lock "${grm_file}.grm.id" "${scratch_grm}.grm.id"
     copy_with_lock "${grm_file}.grm.N.bin" "${scratch_grm}.grm.N.bin"
 
-    local log_file="${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log"
+    local log_dir="${results_dir}/${pop}/${sex}/log"
+    mkdir -p "${log_dir}"
+    local log_file="${log_dir}/${pheno_name}_${pop}_${sex}.log"
 
     if ! $gcta --mlma \
           --bfile "${scratch_bfile}" \
@@ -162,9 +178,7 @@ echo "Total jobs to run: ${#job_list[@]}"
 run_job() {
     local job_index=$1
     IFS=' ' read -r pop sex pheno_name <<< "${job_list[$job_index]}"
-    scratch_dir="${scratch_base}/${pop}_${sex}"
-    mkdir -p "${scratch_dir}"
-    run_gcta_mlma "$pop" "$sex" "$pheno_name" "$scratch_dir"
+    run_gcta_mlma "$pop" "$sex" "$pheno_name"
 }
 
 # Run jobs with improved job management
