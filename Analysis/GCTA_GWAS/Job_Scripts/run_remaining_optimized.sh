@@ -2,7 +2,7 @@
 # Perform Genome-Wide association analysis using GCTA MLMA
 
 #$ -wd /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data
-#$ -l h_rt=20:00:00,h_data=5G,highp,arch=intel-gold*
+#$ -l h_rt=20:00:00,h_data=15G,highp,arch=intel-gold*
 #$ -pe shared 32
 #$ -o /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/test_run/MLMA_GWAS_$JOB_ID.$TASK_ID.out
 #$ -j y
@@ -66,6 +66,20 @@ check_files_exist() {
     return 0
 }
 
+# Function to copy files with locking
+copy_with_lock() {
+    local src=$1
+    local dest=$2
+    local lock_file="${dest}.lock"
+
+    (
+        flock -w 60 9 || exit 1
+        if [ ! -f "$dest" ]; then
+            cp "$src" "$dest"
+        fi
+    ) 9>"$lock_file"
+}
+
 # Function to run GCTA MLMA
 run_gcta_mlma() {
     local pop=$1
@@ -95,26 +109,33 @@ run_gcta_mlma() {
     local scratch_bfile="${scratch_dir}/$(basename "${infile}")"
     local scratch_grm="${scratch_dir}/$(basename "${grm_file}")"
 
-    # Copy files to scratch directory only if they don't exist
-    if [ ! -f "${scratch_bfile}.bed" ]; then
-        cp "${infile}.bed" "${infile}.bim" "${infile}.fam" "${scratch_dir}/"
-        cp "${grm_file}.grm.bin" "${grm_file}.grm.id" "${grm_file}.grm.N.bin" "${scratch_dir}/"
-    fi
+    # Copy files to scratch directory with locking
+    copy_with_lock "${infile}.bed" "${scratch_bfile}.bed"
+    copy_with_lock "${infile}.bim" "${scratch_bfile}.bim"
+    copy_with_lock "${infile}.fam" "${scratch_bfile}.fam"
+    copy_with_lock "${grm_file}.grm.bin" "${scratch_grm}.grm.bin"
+    copy_with_lock "${grm_file}.grm.id" "${scratch_grm}.grm.id"
+    copy_with_lock "${grm_file}.grm.N.bin" "${scratch_grm}.grm.N.bin"
 
-    $gcta --mlma \
+    local log_file="${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log"
+
+    if ! $gcta --mlma \
           --bfile "${scratch_bfile}" \
           --grm "${scratch_grm}" \
           --pheno "${pheno_file}" \
           --covar "${covar_file}" \
           --qcovar "${qcovar_file}" \
           --thread-num 32 \
-          --out "${out_file}" > "${results_dir}/${pop}/${sex}/log/${pheno_name}_${pop}_${sex}.log" 2>&1
-
-    if [ $? -ne 0 ]; then
-        echo "Error running GCTA MLMA for ${pheno_name}" >&2
+          --out "${out_file}" > "${log_file}" 2>&1
+    then
+        echo "Error running GCTA MLMA for ${pheno_name}. Check ${log_file} for details." >&2
         return 1
     fi
+
+    echo "GCTA MLMA completed successfully for ${pheno_name}"
+    return 0
 }
+
 # Generate list of jobs, prioritizing EUR and removing duplicates
 job_list=()
 processed_jobs=()
@@ -146,24 +167,23 @@ run_job() {
     run_gcta_mlma "$pop" "$sex" "$pheno_name" "$scratch_dir"
 }
 
-# Run initial 50 jobs
+# Run jobs with improved job management
 total_jobs=${#job_list[@]}
 current_job=0
+max_concurrent_jobs=10
 
-while [ $current_job -lt $total_jobs ] && [ $current_job -lt 50 ]; do
-    run_job $current_job &
-    current_job=$((current_job + 1))
-done
-
-# Wait for all background jobs to finish
-wait
-
-# Run remaining jobs as slots become available
 while [ $current_job -lt $total_jobs ]; do
-    run_job $current_job &
-    current_job=$((current_job + 1))
+    # Count running jobs
+    running_jobs=$(jobs -p | wc -l)
     
-    # Wait for a job to finish before starting the next one
+    # Start new jobs if below the max concurrent limit
+    while [ $running_jobs -lt $max_concurrent_jobs ] && [ $current_job -lt $total_jobs ]; do
+        run_job $current_job &
+        current_job=$((current_job + 1))
+        running_jobs=$((running_jobs + 1))
+    done
+    
+    # Wait for any job to finish before starting the next batch
     wait -n
 done
 
