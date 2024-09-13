@@ -1,0 +1,34 @@
+Total jobs to run: 9
+Running GCTA MLMA for Population: EUR, Sex: F, Phenotype: smri_vol_scs_ccps_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_F
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_caudate_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_cbwmatter_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_ccct_ROC0_2
+Running GCTA MLMA for Population: EUR, Sex: F, Phenotype: smri_vol_scs_vedc_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_F
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_crbcortex_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M
+Running GCTA MLMA for Population: AFR, Sex: F, Phenotype: smri_vol_scs_wholeb_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713679/AFR_F
+Running GCTA MLMA for Population: AFR, Sex: F, Phenotype: smri_vol_scs_vedc_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713679/AFR_F
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_vedc_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males.genotype.bed': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_F/EUR.females.genotype.bed': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/AFR_F/AFR.females.genotype.bed': File exists
+cp: cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males.genotype.bed'cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males.genotype.bed': File exists: File exists
+
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males.genotype.bed': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males.genotype.bim': File exists
+cp: cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males.genotype.bim'cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males.genotype.bim': File exists: File exists
+
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males.genotype.fam': File existscp: 
+cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males.genotype.fam': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males_GRM.grm.bin': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males_GRM.grm.bin': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males_GRM.grm.id': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males_GRM.grm.N.bin': File exists

@@ -5,23 +5,21 @@
 * (C) 2010-present, Yang Lab, Westlake University
 * Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
 *******************************************************************
-Analysis started at 18:13:16 PDT on Thu Sep 12 2024.
-Hostname: n7458
+Analysis started at 18:12:39 PDT on Thu Sep 12 2024.
+Hostname: n6459
 
 Accepted options:
 --mlma 
---bfile /u/scratch/c/cobeaman/GCTA_GWAS_4713680/EUR_M/EUR.males.genotype
---grm /u/scratch/c/cobeaman/GCTA_GWAS_4713680/EUR_M/EUR.males_GRM
+--bfile /u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males.genotype
+--grm /u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males_GRM
 --pheno /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/EUR/M/444464_pheno_09052024_EUR_M_2268_smri_vol_scs_vedc_ROC0_2.txt
 --covar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/EUR/M/covar_444464_09052024_EUR_M_2268.txt
 --qcovar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/EUR/M/qcovar_444464_09052024_EUR_M_2268.txt
 --thread-num 32
---out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M/smri_vol_scs_vedc_ROC0_2_EUR_M_n2268_09122024_4713680
+--out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/EUR/M/smri_vol_scs_vedc_ROC0_2_EUR_M_n2268_09122024_4713679
 
 Note: the program will be running on 32 threads.
 
-Reading PLINK FAM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4713680/EUR_M/EUR.males.genotype.fam].
-3628 individuals to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4713680/EUR_M/EUR.males.genotype.fam].
-Reading PLINK BIM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4713680/EUR_M/EUR.males.genotype.bim].
-6964838 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4713680/EUR_M/EUR.males.genotype.bim].
-Reading PLINK BED file from [/u/scratch/c/cobeaman/GCTA_GWAS_4713680/EUR_M/EUR.males.genotype.bed] in SNP-major format ...
+Reading PLINK FAM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males.genotype.fam].
+3628 individuals to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males.genotype.fam].
+Reading PLINK BIM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4713679/EUR_M/EUR.males.genotype.bim].

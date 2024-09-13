@@ -1,0 +1,49 @@
+Total jobs to run: 9
+Running GCTA MLMA for Population: EUR, Sex: F, Phenotype: smri_vol_scs_ccps_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_F
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_caudate_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M
+Running GCTA MLMA for Population: EUR, Sex: F, Phenotype: smri_vol_scs_vedc_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_F
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_ccct_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_crbcortex_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_cbwmatter_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M
+Running GCTA MLMA for Population: EUR, Sex: M, Phenotype: smri_vol_scs_vedc_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M
+Running GCTA MLMA for Population: AFR, Sex: F, Phenotype: smri_vol_scs_vedc_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713674/AFR_F
+Running GCTA MLMA for Population: AFR, Sex: F, Phenotype: smri_vol_scs_wholeb_ROC0_2
+Using scratch directory: /u/scratch/c/cobeaman/GCTA_GWAS_4713674/AFR_F
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/AFR_F/AFR.females.genotype.bed': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_F/EUR.females.genotype.bed': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M/EUR.males.genotype.bed': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M/EUR.males.genotype.bed': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M/EUR.males.genotype.bed': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M/EUR.males.genotype.bim': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M/EUR.males.genotype.bim': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M/EUR.males.genotype.fam': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M/EUR.males_GRM.grm.id': File exists
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M/EUR.males_GRM.grm.N.bin': File exists
+cp: failed to close '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_F/EUR.females.genotype.bim': Stale file handle
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_F/EUR.females.genotype.fam': No such file or directory
+cp: target '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_F/' is not a directory
+Error running GCTA MLMA for smri_vol_scs_vedc_ROC0_2
+cp: failed to close '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M/EUR.males.genotype.bim': Stale file handle
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M/EUR.males.genotype.fam': No such file or directory
+cp: target '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/EUR_M/' is not a directory
+Error running GCTA MLMA for smri_vol_scs_caudate_ROC0_2
+cp: failed to close '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/AFR_F/AFR.females.genotype.bim': Stale file handle
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/AFR_F/AFR.females.genotype.fam': No such file or directory
+cp: target '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/AFR_F/' is not a directory
+Error running GCTA MLMA for smri_vol_scs_wholeb_ROC0_2
+Error running GCTA MLMA for smri_vol_scs_cbwmatter_ROC0_2
+Error running GCTA MLMA for smri_vol_scs_crbcortex_ROC0_2
+Error running GCTA MLMA for smri_vol_scs_ccct_ROC0_2
+cp: failed to close '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/AFR_F/AFR.females.genotype.bed': Stale file handle
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/AFR_F/AFR.females.genotype.bim': No such file or directory
+cp: cannot create regular file '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/AFR_F/AFR.females.genotype.fam': No such file or directory
+cp: target '/u/scratch/c/cobeaman/GCTA_GWAS_4713674/AFR_F/' is not a directory
+Error running GCTA MLMA for smri_vol_scs_vedc_ROC0_2

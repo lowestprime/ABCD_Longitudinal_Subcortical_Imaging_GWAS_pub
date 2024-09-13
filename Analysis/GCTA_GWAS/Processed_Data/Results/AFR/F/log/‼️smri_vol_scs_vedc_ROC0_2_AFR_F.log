@@ -1,0 +1,68 @@
+*******************************************************************
+* Genome-wide Complex Trait Analysis (GCTA)
+* version v1.94.1 Linux
+* Built at Nov 15 2022 21:14:25, by GCC 8.5
+* (C) 2010-present, Yang Lab, Westlake University
+* Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
+*******************************************************************
+Analysis started at 22:30:21 PDT on Wed Sep 11 2024.
+Hostname: n7456
+
+Accepted options:
+--mlma 
+--bfile /u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females.genotype
+--grm /u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females_GRM
+--pheno /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_vedc_ROC0_2.txt
+--covar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt
+--qcovar /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt
+--thread-num 32
+--out /u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F/smri_vol_scs_vedc_ROC0_2_AFR_F_n522_09112024_4707399
+
+Note: the program will be running on 32 threads.
+
+Reading PLINK FAM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females.genotype.fam].
+1131 individuals to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females.genotype.fam].
+Reading PLINK BIM file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females.genotype.bim].
+3995277 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females.genotype.bim].
+Reading PLINK BED file from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females.genotype.bed] in SNP-major format ...
+Genotype data for 1131 individuals and 3995277 SNPs to be included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females.genotype.bed].
+Reading phenotypes from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_vedc_ROC0_2.txt].
+Non-missing phenotypes of 522 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Phenotypes/AFR/F/557591_pheno_09052024_AFR_F_522_smri_vol_scs_vedc_ROC0_2.txt].
+Reading quantitative covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt].
+12 quantitative covariate(s) of 522 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Quantitative/AFR/F/qcovar_557591_09052024_AFR_F_522.txt].
+Reading discrete covariate(s) from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt].
+2 discrete covariate(s) of 522 individuals are included from [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Covariates/Discrete/AFR/F/covar_557591_09052024_AFR_F_522.txt].
+Reading IDs of the GRM from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females_GRM.grm.id].
+1131 IDs are read from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females_GRM.grm.id].
+Reading the GRM from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females_GRM.grm.bin].
+GRM for 1131 individuals are included from [/u/scratch/c/cobeaman/GCTA_GWAS_4707399/AFR_F/AFR.females_GRM.grm.bin].
+519 individuals are in common in these files.
+12 quantitative variable(s) included as covariate(s).
+2 discrete variable(s) included as covariate(s).
+
+Performing MLM association analyses (including the candidate SNP) ...
+
+Performing  REML analysis ... (Note: may take hours depending on sample size).
+519 observations, 44 fixed effect(s), and 2 variance component(s)(including residual variance).
+Calculating prior values of variance components by EM-REML ...
+Updated prior values:  0.48962 0.495834
+logL: -328.838
+Running AI-REML algorithm ...
+Iter.	logL	V(G)	V(e)	
+1	-328.69	0.41446	0.55664	
+2	-328.22	0.21488	0.72539	
+3	-327.53	0.14718	0.79374	
+4	-327.46	0.12972	0.81099	
+5	-327.46	0.12582	0.81478	
+6	-327.46	0.12497	0.81559	
+7	-327.46	0.12479	0.81577	
+8	-327.46	0.12475	0.81581	
+Log-likelihood ratio converged.
+Calculating allele frequencies ...
+
+Running association tests for 3995277 SNPs ...
+
+Saving the results of the mixed linear model association analyses of 3995277 SNPs to [/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/AFR/F/smri_vol_scs_vedc_ROC0_2_AFR_F_n522_09112024_4707399.mlma] ...
+
+Analysis finished at 23:15:22 PDT on Wed Sep 11 2024
+Overall computational time: 45 minutes 1 sec.
