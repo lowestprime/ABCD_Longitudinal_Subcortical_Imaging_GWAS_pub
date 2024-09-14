@@ -1,48 +1,53 @@
 #### Comprehensive GWAS Analysis and Visualization Script ####
 # Date: 9/7/2024
 
+# This script allows you to generate GWAS plots manually, one at a time,
+# by running individual code blocks in RStudio.
+
+# -----------------------------
 # Load Required Packages
+# -----------------------------
+# Ensure required installers are available
+for (p in c("devtools", "BiocManager")) if (!require(p, quietly = TRUE)) install.packages(p)
+
+# List of packages and their installation sources
+packages <- list(
+  "manhplot"    = "cgrace1978/manhplot",
+  "hudson"      = "anastasia-lucas/hudson",
+  "locuszoomr"  = "myles-lewis/locuszoomr",
+  "fastman"     = "slowkow/fastman",
+  "ggmanh"      = "bioc",
+  "biovizBase"  = "github",  # biovizBase needs to be installed from GitHub
+  "ggbio"       = "bioc"     # ggbio is a Bioconductor package
+)
+
+# Install and load packages
+for (pkg in names(packages)) {
+  if (!require(pkg, character.only = TRUE, quietly = TRUE)) {
+    if (packages[[pkg]] == "bioc") {
+      # Install development version of Bioconductor packages
+      BiocManager::install(pkg, version = "devel")
+    } else if (packages[[pkg]] == "github") {
+      # Special case for biovizBase
+      devtools::install_github("lawremi/biovizBase")
+    } else {
+      # Install GitHub packages
+      devtools::install_github(packages[[pkg]], dependencies = TRUE, force = TRUE)
+    }
+  }
+}
+
+# Load Packages
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(
   ggplot2, data.table, qqman, CMplot, pheatmap, ComplexHeatmap, devtools,
-  TrumpetPlots, ensembldb, AnnotationFilter, GenomicRanges, biovizBase, ggbio
+  TrumpetPlots, ensembldb, AnnotationFilter, GenomicRanges, biovizBase, ggbio,
+  dplyr, manhplot, hudson, locuszoomr, fastman, ggmanh
 )
 
-# Install and load packages from GitHub
-if (!require("manhplot", quietly = TRUE)) {
-  devtools::install_github("cgrace1978/manhplot", dependencies = TRUE, force = TRUE)
-  library(manhplot)
-}
-
-if (!require("hudson", quietly = TRUE)) {
-  devtools::install_github("anastasia-lucas/hudson")
-  library(hudson)
-}
-
-if (!require("ggmanh", quietly = TRUE)) {
-  BiocManager::install("ggmanh")
-  library(ggmanh)
-}
-
-if (!require("locuszoomr", quietly = TRUE)) {
-  devtools::install_github("myles-lewis/locuszoomr")
-  library(locuszoomr)
-}
-
-if (!require("fastman", quietly = TRUE)) {
-  devtools::install_github("slowkow/fastman")
-  library(fastman)
-}
-
-# Install Bioconductor packages if not already installed
-if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
-BiocManager::install(c("ensembldb", "AnnotationFilter", "GenomicRanges", "biovizBase", "ggbio", "ComplexHeatmap"))
-
-# Load additional libraries
-library(GenomicRanges)
-library(biovizBase)
-library(ggbio)
-
+# -----------------------------
+# List .mlma Files Organized by Directory
+# -----------------------------
 # Define Parent Directory Containing .mlma Files
 mlma_dir <- '/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/'
 
@@ -54,7 +59,54 @@ mlma_files <- list.files(mlma_dir, pattern = "\\.mlma$", full.names = TRUE, recu
 
 if (length(mlma_files) == 0) stop("No .mlma files found in the specified directory.")
 
-# Helper Function to Process GWAS Results
+# Process the file paths to extract directory components
+paths_split <- strsplit(mlma_files, split = "/")
+
+# Create a data frame with the directory components
+df <- data.frame(
+  full_path = mlma_files,
+  stringsAsFactors = FALSE
+)
+
+# Extract last three components of the path
+df$last_three <- sapply(paths_split, function(x) paste(x[(length(x)-2):length(x)], collapse = "/"))
+components <- strsplit(df$last_three, split = "/")
+df$dir1 <- sapply(components, function(x) x[1])
+df$dir2 <- sapply(components, function(x) x[2])
+df$file <- sapply(components, function(x) x[3])
+
+# Arrange the data frame
+df <- df %>% arrange(dir1, dir2, file)
+
+# Group by directories and number the files
+df <- df %>% group_by(dir1, dir2) %>% mutate(file_num = row_number())
+
+# Print the organized list
+prev_dir <- ""
+dir_count <- 0
+file_count <- 0
+
+for (i in seq_len(nrow(df))) {
+  dir <- paste0(df$dir1[i], "/", df$dir2[i])
+  file_num <- df$file_num[i]
+  file_name <- df$file[i]
+  
+  if (dir != prev_dir) {
+    cat(dir, "\n")
+    prev_dir <- dir
+    dir_count <- dir_count + 1
+  }
+  cat(file_num, ". ", file_name, "\n", sep = "")
+  file_count <- file_count + 1
+}
+
+# Print total counts
+cat(dir_count, "dirs, ", file_count, " files\n", sep = "")
+
+# -----------------------------
+# Helper Functions
+# -----------------------------
+# Function to Process GWAS Results
 process_gwas_results <- function(file) {
   gwasResults <- fread(file, header = TRUE)
   
@@ -78,335 +130,163 @@ process_gwas_results <- function(file) {
   return(gwasResults)
 }
 
-# Function to Generate CMplot Circular Manhattan Plot
-generate_cmplot <- function(gwasResults, plot_dir, plot_prefix) {
-  CMplot(
-    gwasResults, plot.type = "c", LOG10 = TRUE, threshold = 5e-8,
-    highlight = gwasResults$SNP[gwasResults$P < 5e-8],
-    highlight.text = gwasResults$SNP[gwasResults$P < 5e-8],
-    file.output = TRUE, file = "svg", memo = plot_prefix,
-    dpi = 300, file.name = file.path(plot_dir, paste0(plot_prefix, "_CMplot")), verbose = FALSE
-  )
+# -----------------------------
+# Load and Process GWAS Results from a Specific File
+# -----------------------------
+# Select a specific .mlma file to process
+# For example, choose the first file in the list
+file_to_process <- mlma_files[1]
+
+# Alternatively, specify the file path directly
+# file_to_process <- "/path/to/your/file.mlma"
+
+# Process the selected GWAS results file
+gwasResults <- process_gwas_results(file_to_process)
+
+# Check if data is loaded correctly
+if (nrow(gwasResults) == 0) {
+  warning("No valid data in file:", file_to_process)
+} else {
+  cat("Data loaded successfully for file:", file_to_process, "\n")
 }
 
-# Function to Generate qqman Manhattan Plot
-generate_qqman_manhattan <- function(gwasResults, plot_dir, plot_prefix) {
-  svg(file.path(plot_dir, paste0(plot_prefix, "_qqman_manhattan.svg")))
-  manhattan(
-    gwasResults, chr = "CHR", bp = "BP", p = "P", snp = "SNP",
-    col = c("blue4", "orange3"), genomewideline = -log10(5e-8),
-    suggestiveline = -log10(1e-5), chrlabs = as.character(1:22)
-  )
-  dev.off()
-}
+# Define Plot Directory and Create It If It Doesn't Exist
+file_dir <- dirname(file_to_process)
+plot_dir <- file.path(file_dir, 'plots')
+dir.create(plot_dir, showWarnings = FALSE, recursive = TRUE)
 
-# Function to Generate fastman Plot
-generate_fastman_plot <- function(gwasResults, plot_dir, plot_prefix) {
-  fastman_plot <- fastman(gwasResults, chr = "CHR", bp = "BP", p = "P", col = "matlab")
-  ggsave(file.path(plot_dir, paste0(plot_prefix, "_fastman.svg")), plot = fastman_plot, width = 10, height = 6)
-}
+# Define Plot Prefix
+plot_prefix <- sub("\\.mlma$", "", basename(file_to_process))
 
-# Function to Generate Manhattan++ Plot using manhplot package
-generate_manhplot <- function(gwasResults, plot_dir, plot_prefix) {
-  # Generate Manhattan++ Plot
-  manhplot(
-    data = gwasResults,
-    chr = "CHR",
-    bp = "BP",
-    p = "P",
-    snp = "SNP",
-    annotate_p = 5e-8,
-    annotate_top = TRUE,
-    file_name = file.path(plot_dir, paste0(plot_prefix, "_ManhattanPlusPlus.svg")),
-    file_type = "svg"
-  )
-}
+# -----------------------------
+# Generate Plots Manually
+# -----------------------------
+# Now you can generate plots manually by running individual code blocks below.
 
-# Function to Generate ggmanh Plot
-generate_ggmanh_plot <- function(gwasResults, plot_dir, plot_prefix) {
-  # Adjust column names if necessary
-  gwasData <- copy(gwasResults)
-  setnames(gwasData, old = c("CHR", "BP", "P"), new = c("chrom", "pos", "pvalue"), skip_absent = TRUE)
-  
-  # Generate ggmanh Plot
-  ggmanh_plot <- ggmanh(
-    data = gwasData,
-    chrom = "chrom",
-    pos = "pos",
-    pvalue = "pvalue"
-  )
-  
-  # Save plot
-  ggsave(file.path(plot_dir, paste0(plot_prefix, "_ggmanh.svg")), plot = ggmanh_plot, width = 10, height = 6)
-}
+# --- Example: Generate QQ Plot ---
+# Run this block to generate a QQ plot
+svg(file.path(plot_dir, paste0(plot_prefix, "_qq_plot.svg")))
+qq(gwasResults$P, main = paste0("QQ Plot for ", plot_prefix))
+dev.off()
 
-# Function to Generate Trumpet Plot
-generate_trumpet_plot <- function(gwasResults, plot_dir, plot_prefix) {
-  # Ensure required columns are present
-  required_cols <- c("SNP", "Freq", "Beta")
-  if (all(required_cols %in% names(gwasResults))) {
-    # Prepare dataset for TrumpetPlots
-    # Adding placeholder columns if necessary
-    if (!"Analysis" %in% names(gwasResults)) gwasResults$Analysis <- "GWAS"
-    if (!"Gene" %in% names(gwasResults)) gwasResults$Gene <- ""
-    
-    # Generate Trumpet Plot
-    svg(file.path(plot_dir, paste0(plot_prefix, "_TrumpetPlot.svg")), width = 8, height = 6)
-    plot_trumpets(
-      dataset = gwasResults,
-      rsID = "SNP",
-      freq = "Freq",
-      A1_beta = "Beta",
-      Analysis = "Analysis",
-      Gene = "Gene",
-      calculate_power = TRUE,
-      show_power_curves = TRUE,
-      threshold = c(0.7, 0.9),
-      N = max(gwasResults$N, na.rm = TRUE),  # Assuming 'N' column is available
-      alpha = 5e-08,
-      Nfreq = 500,
-      power_color_palette = c("purple", "deeppink"),
-      analysis_color_palette = c("#018571", "#a6611a")
-    )
-    dev.off()
-  } else {
-    warning("Required columns (SNP, Freq, Beta) not found in file:", plot_prefix, "Skipping Trumpet Plot.")
-  }
-}
+# --- Example: Generate Manhattan Plot using qqman ---
+# Run this block to generate a Manhattan plot
+svg(file.path(plot_dir, paste0(plot_prefix, "_qqman_manhattan.svg")))
+manhattan(
+  gwasResults, chr = "CHR", bp = "BP", p = "P", snp = "SNP",
+  col = c("blue4", "orange3"), genomewideline = -log10(5e-8),
+  suggestiveline = -log10(1e-5), chrlabs = as.character(1:22),
+  main = paste0("Manhattan Plot for ", plot_prefix)
+)
+dev.off()
 
-# Function to Generate Modern QQ Plot
-generate_qq_plot <- function(gwasResults, plot_dir, plot_prefix) {
-  svg(file.path(plot_dir, paste0(plot_prefix, "_qq_plot.svg")))
-  qq(gwasResults$P, main = paste0("QQ Plot for ", plot_prefix))
-  dev.off()
-}
+# --- Example: Generate CMplot Circular Manhattan Plot ---
+# Run this block to generate a circular Manhattan plot
+CMplot(
+  gwasResults, plot.type = "c", LOG10 = TRUE, threshold = 5e-8,
+  highlight = gwasResults$SNP[gwasResults$P < 5e-8],
+  highlight.text = gwasResults$SNP[gwasResults$P < 5e-8],
+  file.output = TRUE, file = "svg", memo = plot_prefix,
+  dpi = 300, file.name = file.path(plot_dir, paste0(plot_prefix, "_CMplot")), verbose = FALSE
+)
 
-# Function to Generate Phenotype Distribution Plot
-generate_phenotype_distribution_plot <- function(gwasResults, plot_dir, plot_prefix) {
-  if ("Genotype" %in% names(gwasResults) & "BrainPhenotype" %in% names(gwasResults)) {
-    svg(file.path(plot_dir, paste0(plot_prefix, "_PhenotypeDistribution.svg")))
-    ggplot(gwasResults, aes(x = as.factor(Genotype), y = BrainPhenotype)) + 
-      geom_boxplot() +
-      labs(title = "Brain Phenotype by Genotype", x = "Genotype", y = "Brain Phenotype") +
-      theme_minimal()
-    dev.off()
-  } else {
-    warning("Columns 'Genotype' and 'BrainPhenotype' not found in file:", plot_prefix, "Skipping Phenotype Distribution Plot.")
-  }
-}
-
-# Function to Generate pheatmap Heatmap
-generate_pheatmap <- function(gwasResults, plot_dir, plot_prefix) {
-  # Example heatmap data - replace with relevant SNP effect data if available
-  heatmap_data <- matrix(rnorm(100), nrow = 10)
-  rownames(heatmap_data) <- paste0("Gene", 1:10)
-  colnames(heatmap_data) <- paste0("Sample", 1:10)
-  
-  svg(file.path(plot_dir, paste0(plot_prefix, "_pheatmap.svg")), width = 8, height = 6)
-  pheatmap(heatmap_data, main = paste0("Heatmap for ", plot_prefix))
-  dev.off()
-}
-
-# Function to Generate ComplexHeatmap
-generate_complex_heatmap <- function(gwasResults, plot_dir, plot_prefix) {
-  # Example heatmap data - replace with relevant data if available
-  heatmap_data <- matrix(rnorm(100), nrow = 10)
-  rownames(heatmap_data) <- paste0("Gene", 1:10)
-  colnames(heatmap_data) <- paste0("Sample", 1:10)
-  
-  svg(file.path(plot_dir, paste0(plot_prefix, "_ComplexHeatmap.svg")), width = 8, height = 6)
-  Heatmap(heatmap_data,
-          name = "Expression",
-          show_row_names = TRUE,
-          show_column_names = TRUE,
-          cluster_rows = TRUE,
-          cluster_columns = TRUE,
-          column_title = paste0("Complex Heatmap for ", plot_prefix),
-          row_title = "Genes")
-  dev.off()
-}
-
-# Function to Generate LocusZoom-like Regional Association Plot
-generate_regional_plot <- function(gwasResults, plot_dir, plot_prefix) {
-  # Identify the top SNP
-  top_snp <- gwasResults[which.min(P), ]
-  
-  # Define the region around the top SNP (±500kb)
-  region_start <- max(0, top_snp$BP - 500000)
-  region_end <- top_snp$BP + 500000
-  region_chr <- top_snp$CHR
-  
-  # Subset data for the region
-  region_data <- gwasResults[CHR == region_chr & BP >= region_start & BP <= region_end]
-  
-  if (nrow(region_data) > 0) {
-    # Create GRanges object for plotting
-    gr <- GRanges(
-      seqnames = Rle(paste0("chr", region_data$CHR)),
-      ranges = IRanges(start = region_data$BP, width = 1),
-      SNP = region_data$SNP,
-      P = region_data$P
-    )
-    
-    # Fetch gene annotations for the region
-    txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
-    genes <- genes(txdb, columns = c("gene_id"), filter = GRanges(seqnames = paste0("chr", region_chr), 
-                                                                  ranges = IRanges(region_start, region_end)))
-    
-    # Plot regional association with gene annotations
-    svg(file.path(plot_dir, paste0(plot_prefix, "_RegionalPlot.svg")), width = 10, height = 6)
-    
-    # Association plot
-    p1 <- ggplot(as.data.frame(gr), aes(x = start, y = -log10(P))) +
-      geom_point(color = "blue", size = 1.5) +
-      theme_bw() +
-      labs(title = paste0("Regional Association Plot for ", top_snp$SNP),
-           x = paste0("Chromosome ", region_chr, " Position (bp)"),
-           y = "-log10(P-value)") +
-      geom_vline(xintercept = top_snp$BP, linetype = "dashed", color = "red") +
-      geom_text_repel(aes(label = ifelse(-log10(P) > 7, as.character(SNP), "")), size = 3)
-    
-    # Gene track
-    p2 <- autoplot(genes, fill = "lightblue") +
-      theme_bw() +
-      labs(y = "Genes") +
-      theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
-    
-    # Combine plots
-    gridExtra::grid.arrange(p1, p2, heights = c(3, 1), ncol = 1)
-    
-    dev.off()
-  } else {
-    warning("No data available for regional plot in file:", plot_prefix)
-  }
-}
-
-# Function to Generate LocusZoom Plot using locuszoomr
-generate_locuszoom_plot <- function(gwasResults, plot_dir, plot_prefix) {
-  # Identify the top SNP
-  top_snp <- gwasResults[which.min(P), ]
-  
-  # Generate LocusZoom Plot
-  locuszoom(
-    data = gwasResults,
-    snp = top_snp$SNP,
-    build = "hg19",  # or 'hg38' if your data uses hg38 coordinates
-    pval_col = "P",
-    chr_col = "CHR",
-    pos_col = "BP",
-    flank = 500000,  # 500kb on each side
-    out = file.path(plot_dir, paste0(plot_prefix, "_LocusZoom"))
-  )
-}
-
-# Function to Generate Hudson Plot (requires two datasets)
-generate_hudson_plot <- function(gwasResults1, gwasResults2, plot_dir, plot_prefix) {
-  # Ensure both datasets have the necessary columns
-  required_cols <- c("CHR", "BP", "P")
-  if (all(required_cols %in% names(gwasResults1)) & all(required_cols %in% names(gwasResults2))) {
-    # Generate Hudson Plot
-    hudson_manhattan(
-      data1 = gwasResults1,
-      data2 = gwasResults2,
-      chr_col1 = "CHR",
-      pos_col1 = "BP",
-      p_col1 = "P",
-      chr_col2 = "CHR",
-      pos_col2 = "BP",
-      p_col2 = "P",
-      highlight_p = 5e-8,
-      file_name = file.path(plot_dir, paste0(plot_prefix, "_Hudson.svg")),
-      file_format = "svg"
-    )
-  } else {
-    warning("Required columns not found in one or both datasets. Skipping Hudson Plot.")
-  }
-}
-
-#### Main Processing Loop ####
-# For Hudson plots, we need to specify pairs of files to compare
-# Example: hudson_pairs <- list(c(file1, file2), c(file3, file4))
-hudson_pairs <- list()  # Define your pairs here
-
-for (file in mlma_files) {
-  cat("Processing file:", file, "\n")
-  
-  # Process GWAS Results
-  gwasResults <- process_gwas_results(file)
-  
-  if (nrow(gwasResults) == 0) {
-    warning("No valid data in file:", file)
-    next
-  }
-  
-  # Define Plot Directory and Create It If It Doesn't Exist
-  file_dir <- dirname(file)
-  plot_dir <- file.path(file_dir, 'plots')
-  dir.create(plot_dir, showWarnings = FALSE, recursive = TRUE)
-  
-  # Define Plot Prefix
-  plot_prefix <- sub("\\.mlma$", "", basename(file))
-  
-  # Generate CMplot Circular Manhattan Plot
-  generate_cmplot(gwasResults, plot_dir, plot_prefix)
-  
-  # Generate qqman Manhattan Plot
-  generate_qqman_manhattan(gwasResults, plot_dir, plot_prefix)
-  
-  # Generate fastman Plot
-  generate_fastman_plot(gwasResults, plot_dir, plot_prefix)
-  
-  # Generate Manhattan++ Plot using manhplot
-  generate_manhplot(gwasResults, plot_dir, plot_prefix)
-  
-  # Generate ggmanh Plot
-  generate_ggmanh_plot(gwasResults, plot_dir, plot_prefix)
+# --- Example: Generate Trumpet Plot ---
+# Ensure required columns are present
+if (all(c("SNP", "Freq", "Beta") %in% names(gwasResults))) {
+  # Prepare dataset for TrumpetPlots
+  if (!"Analysis" %in% names(gwasResults)) gwasResults$Analysis <- "GWAS"
+  if (!"Gene" %in% names(gwasResults)) gwasResults$Gene <- ""
   
   # Generate Trumpet Plot
-  generate_trumpet_plot(gwasResults, plot_dir, plot_prefix)
-  
-  # Generate Modern QQ Plot
-  generate_qq_plot(gwasResults, plot_dir, plot_prefix)
-  
-  # Generate Phenotype Distribution Plot
-  generate_phenotype_distribution_plot(gwasResults, plot_dir, plot_prefix)
-  
-  # Generate pheatmap Heatmap
-  generate_pheatmap(gwasResults, plot_dir, plot_prefix)
-  
-  # Generate ComplexHeatmap
-  generate_complex_heatmap(gwasResults, plot_dir, plot_prefix)
-  
-  # Generate LocusZoom-like Regional Association Plot
-  generate_regional_plot(gwasResults, plot_dir, plot_prefix)
-  
-  # Generate LocusZoom Plot using locuszoomr
-  generate_locuszoom_plot(gwasResults, plot_dir, plot_prefix)
+  svg(file.path(plot_dir, paste0(plot_prefix, "_TrumpetPlot.svg")), width = 8, height = 6)
+  plot_trumpets(
+    dataset = gwasResults,
+    rsID = "SNP",
+    freq = "Freq",
+    A1_beta = "Beta",
+    Analysis = "Analysis",
+    Gene = "Gene",
+    calculate_power = TRUE,
+    show_power_curves = TRUE,
+    threshold = c(0.7, 0.9),
+    N = max(gwasResults$N, na.rm = TRUE),  # Assuming 'N' column is available
+    alpha = 5e-08,
+    Nfreq = 500,
+    power_color_palette = c("purple", "deeppink"),
+    analysis_color_palette = c("#018571", "#a6611a")
+  )
+  dev.off()
+} else {
+  warning("Required columns (SNP, Freq, Beta) not found. Skipping Trumpet Plot.")
 }
 
-# Generate Hudson Plots for specified pairs
-for (pair in hudson_pairs) {
-  file1 <- pair[1]
-  file2 <- pair[2]
-  cat("Generating Hudson Plot for files:", file1, "and", file2, "\n")
-  
-  # Process GWAS Results for both files
-  gwasResults1 <- process_gwas_results(file1)
-  gwasResults2 <- process_gwas_results(file2)
-  
-  if (nrow(gwasResults1) == 0 | nrow(gwasResults2) == 0) {
-    warning("One or both files have no valid data. Skipping Hudson Plot for this pair.")
-    next
-  }
-  
-  # Define Plot Directory and Create It If It Doesn't Exist
-  file_dir <- dirname(file1)
-  plot_dir <- file.path(file_dir, 'plots')
-  dir.create(plot_dir, showWarnings = FALSE, recursive = TRUE)
-  
-  # Define Plot Prefix
-  plot_prefix <- paste0(sub("\\.mlma$", "", basename(file1)), "_vs_", sub("\\.mlma$", "", basename(file2)))
+# --- Example: Generate LocusZoom Plot using locuszoomr ---
+# Run this block to generate a LocusZoom plot
+top_snp <- gwasResults[which.min(P), ]
+locuszoom(
+  data = gwasResults,
+  snp = top_snp$SNP,
+  build = "hg19",  # or 'hg38' if your data uses hg38 coordinates
+  pval_col = "P",
+  chr_col = "CHR",
+  pos_col = "BP",
+  flank = 500000,  # 500kb on each side
+  out = file.path(plot_dir, paste0(plot_prefix, "_LocusZoom"))
+)
+
+# --- Example: Generate Manhattan++ Plot using manhplot ---
+# Run this block to generate a Manhattan++ plot
+manhplot(
+  data = gwasResults,
+  chr = "CHR",
+  bp = "BP",
+  p = "P",
+  snp = "SNP",
+  annotate_p = 5e-8,
+  annotate_top = TRUE,
+  file_name = file.path(plot_dir, paste0(plot_prefix, "_ManhattanPlusPlus.svg")),
+  file_type = "svg"
+)
+
+# --- Example: Generate Hudson Plot ---
+# Note: Hudson plots require two datasets
+# Select a second file to compare
+file_to_compare <- mlma_files[2]  # For example, the second file in the list
+
+# Process the second GWAS results file
+gwasResults2 <- process_gwas_results(file_to_compare)
+
+# Check if data is loaded correctly
+if (nrow(gwasResults2) == 0) {
+  warning("No valid data in file:", file_to_compare)
+} else {
+  cat("Data loaded successfully for file:", file_to_compare, "\n")
   
   # Generate Hudson Plot
-  generate_hudson_plot(gwasResults1, gwasResults2, plot_dir, plot_prefix)
+  hudson_manhattan(
+    data1 = gwasResults,
+    data2 = gwasResults2,
+    chr_col1 = "CHR",
+    pos_col1 = "BP",
+    p_col1 = "P",
+    chr_col2 = "CHR",
+    pos_col2 = "BP",
+    p_col2 = "P",
+    highlight_p = 5e-8,
+    file_name = file.path(plot_dir, paste0(plot_prefix, "_vs_", sub("\\.mlma$", "", basename(file_to_compare)), "_Hudson.svg")),
+    file_format = "svg"
+  )
 }
+
+# --- Additional Plotting Functions ---
+# You can include additional plotting functions here and run them as needed.
+
+# -----------------------------
+# Notes:
+# -----------------------------
+# - To process a different .mlma file, change the 'file_to_process' variable to point to your desired file.
+# - Ensure that the necessary columns are present in your data before running a plot function.
+# - You can run each code block individually in RStudio to generate the corresponding plot.
+# - The generated plots will be saved in the 'plots' directory within the directory of your .mlma file.
+
+# End of Script
