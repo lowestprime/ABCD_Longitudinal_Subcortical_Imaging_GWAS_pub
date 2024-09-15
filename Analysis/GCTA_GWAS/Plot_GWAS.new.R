@@ -15,10 +15,11 @@ packages <- list(
   "manhplot"    = "cgrace1978/manhplot",
   "hudson"      = "anastasia-lucas/hudson",
   "locuszoomr"  = "myles-lewis/locuszoomr",
-  "fastman"     = "slowkow/fastman",
+  "fastman"     = "kaustubhad/fastman",
+  "ggrepel"     = "slowkow/ggrepel",
   "ggmanh"      = "bioc",
-  "biovizBase"  = "github",  # biovizBase needs to be installed from GitHub
-  "ggbio"       = "bioc"     # ggbio is a Bioconductor package
+  "biovizBase"  = "github",
+  "ggbio"       = "bioc"     
 )
 
 # Install and load packages
@@ -40,9 +41,15 @@ for (pkg in names(packages)) {
 # Load Packages
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(
-  ggplot2, data.table, qqman, CMplot, pheatmap, ComplexHeatmap, devtools,
+  ggplot2, conflicted, data.table, qqplotr, qqman, CMplot, pheatmap, ComplexHeatmap, devtools,
   TrumpetPlots, ensembldb, AnnotationFilter, GenomicRanges, biovizBase, ggbio,
-  dplyr, manhplot, hudson, locuszoomr, fastman, ggmanh
+  manhplot, hudson, locuszoomr, fastman, fs, ggmanh, ggrepel, tidyr, dplyr, purrr
+)
+
+# Resolve conflicts
+conflicts_prefer(
+  dplyr::filter, dplyr::select, dplyr::rename, dplyr::mutate, 
+  dplyr::recode, dplyr::slice, dplyr::setdiff, fs::path
 )
 
 # -----------------------------
@@ -51,81 +58,52 @@ pacman::p_load(
 # Define Parent Directory Containing .mlma Files
 mlma_dir <- '/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_GWAS/Analysis/GCTA_GWAS/Processed_Data/Results/'
 
-# Check if Directory Exists
-if (!dir.exists(mlma_dir)) stop("The specified mlma_dir does not exist.")
+# Load and process files
+mlma_files <- dir_ls(mlma_dir, glob = "*.mlma", recurse = TRUE)  # Assign to mlma_files
+if (!length(mlma_files)) stop("No .mlma files found.")
 
-# Recursively List All .mlma Files in Parent Directory
-mlma_files <- list.files(mlma_dir, pattern = "\\.mlma$", full.names = TRUE, recursive = TRUE)
+# Process file paths into a tibble with directory and file info
+df <- tibble(full_path = mlma_files) %>%
+  mutate(path = map_chr(full_path, ~ paste(tail(strsplit(.x, "/")[[1]], 3), collapse = "/"))) %>%
+  separate(path, into = c("dir1", "dir2", "file"), sep = "/") %>%
+  arrange(dir1, dir2, file) %>%
+  group_by(dir1, dir2) %>%
+  mutate(file_num = row_number()) %>%
+  ungroup()
 
-if (length(mlma_files) == 0) stop("No .mlma files found in the specified directory.")
+# Group by directories and collapse file names, print each directory once
+df %>%
+  group_by(dir1, dir2) %>%
+  summarise(
+    dir_path = paste(dir1, dir2, sep = "/"),
+    files = paste0(file_num, ". ", file, collapse = "\n"),
+    .groups = 'drop'
+  ) %>%
+  distinct(dir_path, files) %>%  # Ensure distinct groups
+  pwalk(function(dir_path, files) {
+    cat(dir_path, "\n", files, "\n\n")
+  })
 
-# Process the file paths to extract directory components
-paths_split <- strsplit(mlma_files, split = "/")
-
-# Create a data frame with the directory components
-df <- data.frame(
-  full_path = mlma_files,
-  stringsAsFactors = FALSE
-)
-
-# Extract last three components of the path
-df$last_three <- sapply(paths_split, function(x) paste(x[(length(x)-2):length(x)], collapse = "/"))
-components <- strsplit(df$last_three, split = "/")
-df$dir1 <- sapply(components, function(x) x[1])
-df$dir2 <- sapply(components, function(x) x[2])
-df$file <- sapply(components, function(x) x[3])
-
-# Arrange the data frame
-df <- df %>% arrange(dir1, dir2, file)
-
-# Group by directories and number the files
-df <- df %>% group_by(dir1, dir2) %>% mutate(file_num = row_number())
-
-# Print the organized list
-prev_dir <- ""
-dir_count <- 0
-file_count <- 0
-
-for (i in seq_len(nrow(df))) {
-  dir <- paste0(df$dir1[i], "/", df$dir2[i])
-  file_num <- df$file_num[i]
-  file_name <- df$file[i]
-  
-  if (dir != prev_dir) {
-    cat(dir, "\n")
-    prev_dir <- dir
-    dir_count <- dir_count + 1
-  }
-  cat(file_num, ". ", file_name, "\n", sep = "")
-  file_count <- file_count + 1
-}
-
-# Print total counts
-cat(dir_count, "dirs, ", file_count, " files\n", sep = "")
+# Print the final summary of total directories and files
+cat("\n", n_distinct(df$dir1, df$dir2), "dirs,", nrow(df), "files\n")
 
 # -----------------------------
 # Helper Functions
 # -----------------------------
 # Function to Process GWAS Results
 process_gwas_results <- function(file) {
-  gwasResults <- fread(file, header = TRUE)
+  # Read the data and perform the operations step by step
+  gwasResults <- fread(file, header = TRUE)[
+    # Rename columns where necessary
+    , setnames(.SD, old = c("Chr", "bp", "p", "SNP", "beta", "se", "freq"), 
+               new = c("CHR", "BP", "P", "SNP", "Beta", "SE", "Freq"), 
+               skip_absent = TRUE)][
+                 # Filter for valid P values and numeric CHR and BP columns
+                 !is.na(P) & is.finite(P) & !is.na(CHR) & !is.na(BP) & CHR %in% 1:22
+               ]
   
-  # Rename Necessary Columns
-  setnames(gwasResults, old = c("Chr", "bp", "p", "SNP", "beta", "se", "freq"), 
-           new = c("CHR", "BP", "P", "SNP", "Beta", "SE", "Freq"), skip_absent = TRUE)
-  
-  # Remove NA and Non-finite P-values
-  gwasResults <- gwasResults[!is.na(P) & is.finite(P)]
-  
-  # Ensure CHR and BP are Numeric
-  gwasResults[, CHR := as.numeric(CHR)]
-  gwasResults[, BP := as.numeric(BP)]
-  
-  # Remove SNPs with Missing CHR or BP
-  gwasResults <- gwasResults[!is.na(CHR) & !is.na(BP)]
-  
-  # Keep Only Autosomal Chromosomes 1-22
-  gwasResults <- gwasResults[CHR %in% 1:22]
+  # Convert CHR and BP to numeric if not already
+  gwasResults[, `:=`(CHR = as.numeric(CHR), BP = as.numeric(BP))]
   
   return(gwasResults)
 }
@@ -134,7 +112,6 @@ process_gwas_results <- function(file) {
 # Load and Process GWAS Results from a Specific File
 # -----------------------------
 # Select a specific .mlma file to process
-# For example, choose the first file in the list
 file_to_process <- mlma_files[1]
 
 # Alternatively, specify the file path directly
@@ -145,18 +122,15 @@ gwasResults <- process_gwas_results(file_to_process)
 
 # Check if data is loaded correctly
 if (nrow(gwasResults) == 0) {
-  warning("No valid data in file:", file_to_process)
+  warning("No valid data in file:"
 } else {
   cat("Data loaded successfully for file:", file_to_process, "\n")
+  
+  # Create plot directory and prefix
+  plot_dir <- file.path(dirname(file_to_process), 'plots')
+  dir.create(plot_dir, showWarnings = FALSE, recursive = TRUE)
+  plot_prefix <- sub("\\.mlma$", "", basename(file_to_process))
 }
-
-# Define Plot Directory and Create It If It Doesn't Exist
-file_dir <- dirname(file_to_process)
-plot_dir <- file.path(file_dir, 'plots')
-dir.create(plot_dir, showWarnings = FALSE, recursive = TRUE)
-
-# Define Plot Prefix
-plot_prefix <- sub("\\.mlma$", "", basename(file_to_process))
 
 # -----------------------------
 # Generate Plots Manually
@@ -165,9 +139,56 @@ plot_prefix <- sub("\\.mlma$", "", basename(file_to_process))
 
 # --- Example: Generate QQ Plot ---
 # Run this block to generate a QQ plot
-svg(file.path(plot_dir, paste0(plot_prefix, "_qq_plot.svg")))
-qq(gwasResults$P, main = paste0("QQ Plot for ", plot_prefix))
-dev.off()
+# Compact and efficient QQ plot generation function
+# Compact and efficient QQ plot generation function
+generate_qq_plots <- function(gwasResults, plot_dir, plot_prefix) {
+  if (!nrow(gwasResults)) {
+    cat("No valid P-values. QQ plots not generated.\n")
+    return()
+  }
+  
+  # Print the first few P-values to verify data integrity
+  print(head(gwasResults$P))
+  
+  # 1. Test rendering to the screen
+  print("Rendering qqman plot to screen:")
+  qq(gwasResults$P, main = paste0("QQ Plot (qqman) - ", plot_prefix), col = "blue4", cex = 0.5)
+  
+  # 2. Test saving as PNG to ensure device is working
+  print("Saving plots as PNG for testing:")
+  
+  png(file.path(plot_dir, paste0(plot_prefix, "_qqman_test.png")))
+  qq(gwasResults$P, main = paste0("QQ Plot (qqman) - ", plot_prefix), col = "blue4", cex = 0.5)
+  dev.off()
+  
+  png(file.path(plot_dir, paste0(plot_prefix, "_ggplot2_test.png")))
+  ggplot(data.frame(P = gwasResults$P), aes(sample = -log10(P))) +
+    ggplot2::stat_qq() +
+    ggplot2::stat_qq_line(color = "red", size = 1) +
+    labs(title = paste0("QQ Plot (ggplot2) - ", plot_prefix),
+         x = "Theoretical Quantiles (-log10)", 
+         y = "Observed Quantiles (-log10)") +
+    theme_minimal(base_size = 15) +
+    theme(plot.title = element_text(hjust = 0.5))
+  dev.off()
+  
+  png(file.path(plot_dir, paste0(plot_prefix, "_qqplotr_test.png")))
+  ggplot(data.frame(P = gwasResults$P), aes(sample = P)) +
+    qqplotr::stat_qq_band(conf = 0.95, fill = "lightblue", alpha = 0.5) +
+    qqplotr::stat_qq_line(color = "red", size = 1) +
+    qqplotr::stat_qq_point(size = 1, color = "blue4") +
+    labs(title = paste0("QQ Plot (qqplotr) - ", plot_prefix),
+         x = "Theoretical Quantiles", 
+         y = "Observed Quantiles") +
+    theme_minimal(base_size = 15) +
+    theme(plot.title = element_text(hjust = 0.5))
+  dev.off()
+  
+  flush.console()
+  cat("Test plots saved successfully as PNG in", plot_dir, "\n")
+}
+# Generate QQ plots
+generate_qq_plots(gwasResults, plot_dir, plot_prefix)
 
 # --- Example: Generate Manhattan Plot using qqman ---
 # Run this block to generate a Manhattan plot
