@@ -19,7 +19,9 @@ packages <- list(
   "ggrepel"     = "slowkow/ggrepel",
   "ggmanh"      = "bioc",
   "biovizBase"  = "github",
-  "ggbio"       = "bioc"     
+  "ggbio"       = "bioc",
+  "scattermore" = "exaexa/scattermore",
+  "ggfastman" =   "roman-tremmel/ggfastman"
 )
 
 # Install and load packages
@@ -33,7 +35,7 @@ for (pkg in names(packages)) {
       devtools::install_github("lawremi/biovizBase")
     } else {
       # Install GitHub packages
-      devtools::install_github(packages[[pkg]], dependencies = TRUE, force = TRUE)
+      devtools::install_github(packages[[pkg]], dependencies = T, force = T)
     }
   }
 }
@@ -41,9 +43,10 @@ for (pkg in names(packages)) {
 # Load Packages
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(
-  ggplot2, conflicted, data.table, qqplotr, qqman, CMplot, pheatmap, ComplexHeatmap, devtools,
-  TrumpetPlots, ensembldb, AnnotationFilter, GenomicRanges, biovizBase, ggbio,
-  manhplot, hudson, locuszoomr, fastman, fs, ggmanh, ggrepel, tidyr, dplyr, purrr
+  ggplot2, conflicted, data.table, qqplotr, CMplot, pheatmap, ComplexHeatmap, devtools,
+  TrumpetPlots, ensembldb, AnnotationFilter, GenomicRanges, biovizBase, ggbio, svglite,
+  manhplot, hudson, locuszoomr, fastman, fs, ggmanh, ggrepel, tidyr, dplyr, purrr,
+  ggfastman, ggforce, ggrastr, scattermore
 )
 
 # Resolve conflicts
@@ -122,7 +125,7 @@ gwasResults <- process_gwas_results(file_to_process)
 
 # Check if data is loaded correctly
 if (nrow(gwasResults) == 0) {
-  warning("No valid data in file:"
+  warning("No valid data in file:", file_to_process)
 } else {
   cat("Data loaded successfully for file:", file_to_process, "\n")
   
@@ -133,72 +136,125 @@ if (nrow(gwasResults) == 0) {
 }
 
 # -----------------------------
-# Generate Plots Manually
+# Generate Plots
 # -----------------------------
-# Now you can generate plots manually by running individual code blocks below.
 
-# --- Example: Generate QQ Plot ---
-# Run this block to generate a QQ plot
-# Compact and efficient QQ plot generation function
-# Compact and efficient QQ plot generation function
+# --- Generate QQ Plot ---
+# QQ plots generation and package comparison function
 generate_qq_plots <- function(gwasResults, plot_dir, plot_prefix) {
-  if (!nrow(gwasResults)) {
-    cat("No valid P-values. QQ plots not generated.\n")
-    return()
+  # Define list of plotting methods
+  plot_methods <- list(
+    ggplot2 = function(data) {
+      # Calculate expected and observed values for QQ plot
+      data <- data.frame(
+        expected = -log10(ppoints(nrow(data))),  # Expected P-values
+        observed = -log10(data$P)                # Observed P-values
+      )
+      ggplot(data, aes(x = expected, y = observed)) +
+        ggrastr::rasterise(geom_point(color = "blue4", size = 0.5), dpi = 300) +  # Rasterized points
+        geom_abline(slope = 1, intercept = 0, color = "red") +
+        labs(title = paste0("QQ Plot (ggplot2) - ", plot_prefix),
+             x = expression(Expected~~-log[10](italic(p))),
+             y = expression(Observed~~-log[10](italic(p)))) +
+        theme_minimal(base_size = 12, base_family = "Arial") +
+        theme(plot.title = element_text(hjust = 0.5))
+    },
+    qqplotr = function(data) {
+      # Calculate expected and observed values for QQ plot
+      data <- data.frame(
+        expected = -log10(ppoints(nrow(data))),  # Expected P-values
+        observed = -log10(data$P)                # Observed P-values
+      )
+      ggplot(data, aes(x = expected, y = observed)) +
+        qqplotr::stat_qq_band(conf = 0.95, distribution = "unif", dparams = c(0, 1),
+                              fill = "lightblue", alpha = 0.5) +
+        qqplotr::stat_qq_line(distribution = "unif", dparams = c(0, 1),
+                              color = "red", size = 0.5) +
+        ggrastr::rasterise(geom_point(aes(x = expected, y = observed), color = "blue4", size = 0.5), dpi = 300) +  # Rasterized points
+        labs(title = paste0("QQ Plot (qqplotr) - ", plot_prefix),
+             x = expression(Expected~~-log[10](italic(p))),
+             y = expression(Observed~~-log[10](italic(p)))) +
+        theme_minimal(base_size = 12, base_family = "Arial") +
+        theme(plot.title = element_text(hjust = 0.5))
+    },
+    ggfastman = function(data) {
+      # Adjust data for ggfastman
+      data_fastman <- data
+      colnames(data_fastman)[colnames(data_fastman) == "P"] <- "pval"
+      ggfastman::fast_qq(data_fastman$pval,
+                         title = paste0("QQ Plot (ggfastman) - ", plot_prefix),
+                         speed = "f") +  # Enable fast rendering in ggfastman
+        theme_minimal(base_size = 12, base_family = "Arial") +
+        theme(plot.title = element_text(hjust = 0.5))
+    }
+  )
+  
+  # Generate and save plots using rasterization for ggplot2 and qqplotr
+  for (method_name in names(plot_methods)) {
+    plot_func <- plot_methods[[method_name]]
+    qq_plot <- plot_func(gwasResults)
+    
+    # Save plot as optimized SVG with svglite
+    svglite(file.path(plot_dir, paste0(plot_prefix, "_qqplot_", method_name, ".svg")),
+                     system_fonts = list(sans = "Arial"),
+                     fix_text_size = FALSE)
+    print(qq_plot)
+    dev.off()
   }
   
-  # Print the first few P-values to verify data integrity
-  print(head(gwasResults$P))
-  
-  # 1. Test rendering to the screen
-  print("Rendering qqman plot to screen:")
-  qq(gwasResults$P, main = paste0("QQ Plot (qqman) - ", plot_prefix), col = "blue4", cex = 0.5)
-  
-  # 2. Test saving as PNG to ensure device is working
-  print("Saving plots as PNG for testing:")
-  
-  png(file.path(plot_dir, paste0(plot_prefix, "_qqman_test.png")))
-  qq(gwasResults$P, main = paste0("QQ Plot (qqman) - ", plot_prefix), col = "blue4", cex = 0.5)
-  dev.off()
-  
-  png(file.path(plot_dir, paste0(plot_prefix, "_ggplot2_test.png")))
-  ggplot(data.frame(P = gwasResults$P), aes(sample = -log10(P))) +
-    ggplot2::stat_qq() +
-    ggplot2::stat_qq_line(color = "red", size = 1) +
-    labs(title = paste0("QQ Plot (ggplot2) - ", plot_prefix),
-         x = "Theoretical Quantiles (-log10)", 
-         y = "Observed Quantiles (-log10)") +
-    theme_minimal(base_size = 15) +
-    theme(plot.title = element_text(hjust = 0.5))
-  dev.off()
-  
-  png(file.path(plot_dir, paste0(plot_prefix, "_qqplotr_test.png")))
-  ggplot(data.frame(P = gwasResults$P), aes(sample = P)) +
-    qqplotr::stat_qq_band(conf = 0.95, fill = "lightblue", alpha = 0.5) +
-    qqplotr::stat_qq_line(color = "red", size = 1) +
-    qqplotr::stat_qq_point(size = 1, color = "blue4") +
-    labs(title = paste0("QQ Plot (qqplotr) - ", plot_prefix),
-         x = "Theoretical Quantiles", 
-         y = "Observed Quantiles") +
-    theme_minimal(base_size = 15) +
-    theme(plot.title = element_text(hjust = 0.5))
-  dev.off()
-  
-  flush.console()
-  cat("Test plots saved successfully as PNG in", plot_dir, "\n")
+  cat("Optimized QQ plots saved successfully as SVG in", plot_dir, "\n")
 }
+
 # Generate QQ plots
 generate_qq_plots(gwasResults, plot_dir, plot_prefix)
 
-# --- Example: Generate Manhattan Plot using qqman ---
-# Run this block to generate a Manhattan plot
-svg(file.path(plot_dir, paste0(plot_prefix, "_qqman_manhattan.svg")))
-manhattan(
-  gwasResults, chr = "CHR", bp = "BP", p = "P", snp = "SNP",
-  col = c("blue4", "orange3"), genomewideline = -log10(5e-8),
-  suggestiveline = -log10(1e-5), chrlabs = as.character(1:22),
-  main = paste0("Manhattan Plot for ", plot_prefix)
-)
+# --- Generate Manhattan Plot using ggfastman::fast_manhattan ---
+# Run this block to generate Manhattan plot
+svglite(file.path(plot_dir, paste0(plot_prefix, "_ggfastman_manhattan.svg")),
+        system_fonts = list(sans = "Arial"),
+        fix_text_size = FALSE)
+
+# Prepare data
+df <- gwasResults %>%
+  filter(!is.na(P), P > 0, P <= 1) %>%
+  mutate(
+    logP = -log10(P),
+    chr = as.factor(CHR),
+    pos = BP
+  )
+
+# Define significance thresholds
+genomewide_line <- -log10(5e-8)
+suggestive_line <- -log10(1e-5)
+
+# Identify top SNPs for annotation
+top_snps <- df %>%
+  group_by(chr) %>%
+  top_n(-1, P) %>%  # SNP with lowest P-value in each chromosome
+  ungroup() %>%
+  filter(P <= 5e-8)  # Genome-wide significant SNPs
+
+# Generate Manhattan plot with annotations
+manhattan_plot <- ggfastman::fast_manhattan(df,
+                                            build = 'hg19',  # Adjust genome build if needed
+                                            col1 = "deepskyblue3",
+                                            col2 = "coral2",
+                                            ymax = max(df$logP, genomewide_line + 1),
+                                            title = paste0("Manhattan Plot - ", plot_prefix)) +
+  geom_hline(yintercept = genomewide_line, linetype = "dashed", color = "darkgrey") +
+  geom_hline(yintercept = suggestive_line, linetype = "dashed", color = "grey") +
+  ggrepel::geom_text_repel(data = top_snps,
+                           aes(x = pos, y = logP, label = SNP),
+                           size = 3,
+                           color = "black",
+                           max.overlaps = 10) +
+  theme_minimal(base_size = 12, base_family = "Arial") +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+  )
+
+print(manhattan_plot)
 dev.off()
 
 # --- Example: Generate CMplot Circular Manhattan Plot ---
