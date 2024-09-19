@@ -8,7 +8,19 @@
 # Load Required Packages
 # -----------------------------
 # Ensure required installers are available
-for (p in c("devtools", "BiocManager")) if (!require(p, quietly = TRUE)) install.packages(p)
+for (p in c("devtools", "BiocManager", "conflicted")) {
+  if (!requireNamespace(p, quietly = TRUE)) {
+    install.packages(p)
+  }
+  library(p, character.only = TRUE)
+}
+
+# Resolve conflicts
+conflicts_prefer(
+  dplyr::filter, dplyr::select, dplyr::rename, dplyr::mutate, data.table::first,BiocGenerics::combine,
+  dplyr::recode, dplyr::slice, dplyr::setdiff, fs::path, BiocGenerics::combine, ggplot2::stat_qq_line
+)
+
 
 # List of packages and their installation sources
 packages <- list(
@@ -21,7 +33,8 @@ packages <- list(
   "biovizBase"  = "github",
   "ggbio"       = "bioc",
   "scattermore" = "exaexa/scattermore",
-  "ggfastman" =   "roman-tremmel/ggfastman"
+  "ggfastman"   = "roman-tremmel/ggfastman",
+  "fastqq"      = "gumeo/fastqq"
 )
 
 # Install and load packages
@@ -43,17 +56,12 @@ for (pkg in names(packages)) {
 # Load Packages
 if (!require("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(
-  ggplot2, conflicted, data.table, qqplotr, CMplot, pheatmap, ComplexHeatmap, devtools,
+  ggplot2, data.table, qqplotr, CMplot, pheatmap, ComplexHeatmap, devtools,
   TrumpetPlots, ensembldb, AnnotationFilter, GenomicRanges, biovizBase, ggbio, svglite,
   manhplot, hudson, locuszoomr, fastman, fs, ggmanh, ggrepel, tidyr, dplyr, purrr,
-  ggfastman, ggforce, ggrastr, scattermore
+  ggfastman, ggforce, ggrastr, scattermore, fastqq, hexbin
 )
 
-# Resolve conflicts
-conflicts_prefer(
-  dplyr::filter, dplyr::select, dplyr::rename, dplyr::mutate, 
-  dplyr::recode, dplyr::slice, dplyr::setdiff, fs::path
-)
 
 # -----------------------------
 # List .mlma Files Organized by Directory
@@ -65,30 +73,29 @@ mlma_dir <- '/u/project/lhernand/cobeaman/ABCD_Longitudinal_Subcortical_Imaging_
 mlma_files <- dir_ls(mlma_dir, glob = "*.mlma", recurse = TRUE)  # Assign to mlma_files
 if (!length(mlma_files)) stop("No .mlma files found.")
 
-# Process file paths into a tibble with directory and file info
-df <- tibble(full_path = mlma_files) %>%
-  mutate(path = map_chr(full_path, ~ paste(tail(strsplit(.x, "/")[[1]], 3), collapse = "/"))) %>%
-  separate(path, into = c("dir1", "dir2", "file"), sep = "/") %>%
-  arrange(dir1, dir2, file) %>%
-  group_by(dir1, dir2) %>%
-  mutate(file_num = row_number()) %>%
-  ungroup()
-
-# Group by directories and collapse file names, print each directory once
-df %>%
-  group_by(dir1, dir2) %>%
-  summarise(
-    dir_path = paste(dir1, dir2, sep = "/"),
-    files = paste0(file_num, ". ", file, collapse = "\n"),
-    .groups = 'drop'
-  ) %>%
-  distinct(dir_path, files) %>%  # Ensure distinct groups
-  pwalk(function(dir_path, files) {
-    cat(dir_path, "\n", files, "\n\n")
-  })
-
-# Print the final summary of total directories and files
-cat("\n", n_distinct(df$dir1, df$dir2), "dirs,", nrow(df), "files\n")
+# # Process file paths into a tibble with directory and file info
+# df <- tibble(full_path = mlma_files) %>%
+#   mutate(path = map_chr(full_path, ~ paste(tail(strsplit(.x, "/")[[1]], 3), collapse = "/"))) %>%
+#   separate(path, into = c("dir1", "dir2", "file"), sep = "/") %>%
+#   arrange(dir1, dir2, file) %>%
+#   group_by(dir1, dir2) %>%
+#   mutate(file_num = row_number()) %>%
+#   ungroup()
+# 
+# # Group by directories and collapse file names, print each directory once
+# df %>%
+#   group_by(dir1, dir2) %>%
+#   reframe(
+#     dir_path = paste(dir1, dir2, sep = "/"),
+#     files = paste0(file_num, ". ", file, collapse = "\n")
+#   ) %>%
+#   distinct(dir_path, files) %>%  # Ensure distinct groups
+#   pwalk(function(dir_path, files) {
+#     cat(dir_path, "\n", files, "\n\n")
+#   })
+# 
+# # Print the final summary of total directories and files
+# cat("\n", n_distinct(df$dir1, df$dir2), "dirs,", nrow(df), "files\n")
 
 # -----------------------------
 # Helper Functions
@@ -139,70 +146,52 @@ if (nrow(gwasResults) == 0) {
 # Generate Plots
 # -----------------------------
 
-# --- Generate QQ Plot ---
-# QQ plots generation and package comparison function
+# --- Generate Optimized QQ Plot with ggfastman ---
 generate_qq_plots <- function(gwasResults, plot_dir, plot_prefix) {
-  # Define list of plotting methods
-  plot_methods <- list(
-    ggplot2 = function(data) {
-      # Calculate expected and observed values for QQ plot
-      data <- data.frame(
-        expected = -log10(ppoints(nrow(data))),  # Expected P-values
-        observed = -log10(data$P)                # Observed P-values
-      )
-      ggplot(data, aes(x = expected, y = observed)) +
-        ggrastr::rasterise(geom_point(color = "blue4", size = 0.5), dpi = 300) +  # Rasterized points
-        geom_abline(slope = 1, intercept = 0, color = "red") +
-        labs(title = paste0("QQ Plot (ggplot2) - ", plot_prefix),
-             x = expression(Expected~~-log[10](italic(p))),
-             y = expression(Observed~~-log[10](italic(p)))) +
-        theme_minimal(base_size = 12, base_family = "Arial") +
-        theme(plot.title = element_text(hjust = 0.5))
-    },
-    qqplotr = function(data) {
-      # Calculate expected and observed values for QQ plot
-      data <- data.frame(
-        expected = -log10(ppoints(nrow(data))),  # Expected P-values
-        observed = -log10(data$P)                # Observed P-values
-      )
-      ggplot(data, aes(x = expected, y = observed)) +
-        qqplotr::stat_qq_band(conf = 0.95, distribution = "unif", dparams = c(0, 1),
-                              fill = "lightblue", alpha = 0.5) +
-        qqplotr::stat_qq_line(distribution = "unif", dparams = c(0, 1),
-                              color = "red", size = 0.5) +
-        ggrastr::rasterise(geom_point(aes(x = expected, y = observed), color = "blue4", size = 0.5), dpi = 300) +  # Rasterized points
-        labs(title = paste0("QQ Plot (qqplotr) - ", plot_prefix),
-             x = expression(Expected~~-log[10](italic(p))),
-             y = expression(Observed~~-log[10](italic(p)))) +
-        theme_minimal(base_size = 12, base_family = "Arial") +
-        theme(plot.title = element_text(hjust = 0.5))
-    },
-    ggfastman = function(data) {
-      # Adjust data for ggfastman
-      data_fastman <- data
-      colnames(data_fastman)[colnames(data_fastman) == "P"] <- "pval"
-      ggfastman::fast_qq(data_fastman$pval,
-                         title = paste0("QQ Plot (ggfastman) - ", plot_prefix),
-                         speed = "f") +  # Enable fast rendering in ggfastman
-        theme_minimal(base_size = 12, base_family = "Arial") +
-        theme(plot.title = element_text(hjust = 0.5))
-    }
-  )
+  # Prepare data for ggfastman
+  data_fastman <- gwasResults
+  colnames(data_fastman)[colnames(data_fastman) == "P"] <- "pval"
   
-  # Generate and save plots using rasterization for ggplot2 and qqplotr
-  for (method_name in names(plot_methods)) {
-    plot_func <- plot_methods[[method_name]]
-    qq_plot <- plot_func(gwasResults)
-    
-    # Save plot as optimized SVG with svglite
-    svglite(file.path(plot_dir, paste0(plot_prefix, "_qqplot_", method_name, ".svg")),
-                     system_fonts = list(sans = "Arial"),
-                     fix_text_size = FALSE)
-    print(qq_plot)
-    dev.off()
+  # Filter out invalid p-values and set a reasonable lower threshold
+  data_fastman <- data_fastman[data_fastman$pval > 1e-300 & data_fastman$pval < 1, ]
+  
+  # Prioritize the most significant p-values by keeping the smallest ones
+  # Retain the top 5% smallest p-values and downsample the remaining data
+  significant_threshold <- quantile(data_fastman$pval, 0.05)  # Top 5% of p-values
+  significant_points <- data_fastman[data_fastman$pval <= significant_threshold, ]
+  non_significant_points <- data_fastman[data_fastman$pval > significant_threshold, ]
+  
+  # Downsample the non-significant points to 50,000
+  if (nrow(non_significant_points) > 50000) {
+    set.seed(123)  # Ensure reproducibility
+    non_significant_points <- non_significant_points[sample(1:nrow(non_significant_points), 50000), ]
   }
   
-  cat("Optimized QQ plots saved successfully as SVG in", plot_dir, "\n")
+  # Combine significant and downsampled non-significant points
+  final_data <- rbind(significant_points, non_significant_points)
+  
+  # Generate QQ plot using ggfastman
+  qq_plot <- ggfastman::fast_qq(
+    final_data$pval,  # Use filtered and downsampled p-values
+    speed = "slow",   # Slow mode to keep points vectorized
+    pointsize = 1.5,  # Adjust point size for better visibility
+    linecolor = "deeppink",
+    ci_color = "steelblue",
+    ci_alpha = 0.3,
+    log10 = TRUE,
+    inflation_method = "median",
+    title = paste0("QQ Plot - ", plot_prefix)
+  ) +
+    theme_minimal(base_size = 12) +
+    theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+  
+  # Save the plot as an optimized SVG
+  svg_file_path <- file.path(plot_dir, paste0(plot_prefix, "_qqplot_significant.svg"))
+  svglite(svg_file_path, width = 7, height = 7)
+  print(qq_plot)
+  dev.off()
+  
+  cat("QQ plot with prioritized significant points saved successfully as SVG in", plot_dir, "\n")
 }
 
 # Generate QQ plots
