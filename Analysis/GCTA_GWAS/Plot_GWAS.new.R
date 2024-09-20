@@ -12,15 +12,16 @@ for (p in c("devtools", "BiocManager", "conflicted")) {
   if (!requireNamespace(p, quietly = TRUE)) {
     install.packages(p)
   }
-  library(p, character.only = TRUE)
+  suppressPackageStartupMessages(library(p, character.only = TRUE))
 }
 
 # Resolve conflicts
 conflicts_prefer(
-  dplyr::filter, dplyr::select, dplyr::rename, dplyr::mutate, data.table::first,BiocGenerics::combine,
-  dplyr::recode, dplyr::slice, dplyr::setdiff, fs::path, BiocGenerics::combine, ggplot2::stat_qq_line
+  dplyr::filter, dplyr::select, dplyr::rename, dplyr::mutate, 
+  data.table::first, BiocGenerics::combine, 
+  dplyr::recode, dplyr::slice, dplyr::setdiff, 
+  fs::path, ggplot2::stat_qq_line
 )
-
 
 # List of packages and their installation sources
 packages <- list(
@@ -41,14 +42,11 @@ packages <- list(
 for (pkg in names(packages)) {
   if (!require(pkg, character.only = TRUE, quietly = TRUE)) {
     if (packages[[pkg]] == "bioc") {
-      # Install development version of Bioconductor packages
-      BiocManager::install(pkg, version = "devel")
+      suppressMessages(suppressWarnings(BiocManager::install(pkg, version = "devel")))
     } else if (packages[[pkg]] == "github") {
-      # Special case for biovizBase
-      devtools::install_github("lawremi/biovizBase")
+      suppressMessages(suppressWarnings(devtools::install_github("lawremi/biovizBase")))
     } else {
-      # Install GitHub packages
-      devtools::install_github(packages[[pkg]], dependencies = T, force = T)
+      suppressMessages(suppressWarnings(devtools::install_github(packages[[pkg]], dependencies = T, force = T)))
     }
   }
 }
