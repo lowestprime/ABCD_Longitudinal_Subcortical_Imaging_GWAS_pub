@@ -16,12 +16,12 @@ for (p in c("devtools", "BiocManager", "conflicted")) {
 }
 
 # Resolve conflicts
-conflicts_prefer(
+suppressMessages(conflicts_prefer(
   dplyr::filter, dplyr::select, dplyr::rename, dplyr::mutate, 
   data.table::first, BiocGenerics::combine, 
   dplyr::recode, dplyr::slice, dplyr::setdiff, 
   fs::path, ggplot2::stat_qq_line
-)
+))
 
 # List of packages and their installation sources
 packages <- list(
@@ -46,9 +46,10 @@ for (pkg in names(packages)) {
     } else if (packages[[pkg]] == "github") {
       suppressMessages(suppressWarnings(devtools::install_github("lawremi/biovizBase")))
     } else {
-      suppressMessages(suppressWarnings(devtools::install_github(packages[[pkg]], dependencies = T, force = T)))
+      suppressMessages(suppressWarnings(devtools::install_github(packages[[pkg]], dependencies = TRUE, force = TRUE)))
     }
   }
+  suppressPackageStartupMessages(library(pkg, character.only = TRUE))
 }
 
 # Load Packages
@@ -150,29 +151,28 @@ generate_qq_plots <- function(gwasResults, plot_dir, plot_prefix) {
   data_fastman <- gwasResults
   colnames(data_fastman)[colnames(data_fastman) == "P"] <- "pval"
   
-  # Filter out invalid p-values and set a reasonable lower threshold
+  # Filter out invalid p-values (p-values must be between 1e-300 and 1)
   data_fastman <- data_fastman[data_fastman$pval > 1e-300 & data_fastman$pval < 1, ]
   
-  # Prioritize the most significant p-values by keeping the smallest ones
-  # Retain the top 5% smallest p-values and downsample the remaining data
+  # Retain the smallest p-values to preserve significant points
   significant_threshold <- quantile(data_fastman$pval, 0.05)  # Top 5% of p-values
   significant_points <- data_fastman[data_fastman$pval <= significant_threshold, ]
-  non_significant_points <- data_fastman[data_fastman$pval > significant_threshold, ]
   
-  # Downsample the non-significant points to 50,000
+  # Downsample non-significant points to avoid too much distortion
+  non_significant_points <- data_fastman[data_fastman$pval > significant_threshold, ]
   if (nrow(non_significant_points) > 50000) {
-    set.seed(123)  # Ensure reproducibility
+    set.seed(123)
     non_significant_points <- non_significant_points[sample(1:nrow(non_significant_points), 50000), ]
   }
   
-  # Combine significant and downsampled non-significant points
+  # Combine the significant and downsampled non-significant points
   final_data <- rbind(significant_points, non_significant_points)
   
   # Generate QQ plot using ggfastman
   qq_plot <- ggfastman::fast_qq(
-    final_data$pval,  # Use filtered and downsampled p-values
-    speed = "slow",   # Slow mode to keep points vectorized
-    pointsize = 1.5,  # Adjust point size for better visibility
+    final_data$pval,   # Use filtered and downsampled p-values
+    speed = "slow",    # Ensure accurate plotting
+    pointsize = 1.5,   # Set point size
     linecolor = "deeppink",
     ci_color = "steelblue",
     ci_alpha = 0.3,
@@ -183,14 +183,15 @@ generate_qq_plots <- function(gwasResults, plot_dir, plot_prefix) {
     theme_minimal(base_size = 12) +
     theme(plot.title = element_text(hjust = 0.5, face = "bold"))
   
-  # Save the plot as an optimized SVG
-  svg_file_path <- file.path(plot_dir, paste0(plot_prefix, "_qqplot_significant.svg"))
+  # Save the plot as SVG
+  svg_file_path <- file.path(plot_dir, paste0(plot_prefix, "_corrected_qqplot.svg"))
   svglite(svg_file_path, width = 7, height = 7)
   print(qq_plot)
   dev.off()
   
-  cat("QQ plot with prioritized significant points saved successfully as SVG in", plot_dir, "\n")
+  cat("Corrected QQ plot saved successfully as SVG in", plot_dir, "\n")
 }
+
 
 # Generate QQ plots
 generate_qq_plots(gwasResults, plot_dir, plot_prefix)
